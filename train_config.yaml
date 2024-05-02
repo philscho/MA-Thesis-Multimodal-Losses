@@ -1,0 +1,79 @@
+save_dir: './models/cliplike/'
+
+lightning:
+  seed : 69
+  model_checkpoint_callback:
+    every_n_epochs: 1
+    dirpath: '${save_dir}/ckpts/' # plus wandb_logger.experiment.id
+    filename: "ckpt-{epoch:02d}-{val_loss:.3f}"
+  trainer:
+    devices: 2
+    #num_nodes : 8
+    accelerator: 'auto'
+    # strategy: 'ddp'
+    strategy: 'ddp_find_unused_parameters_true'
+    max_epochs: 100
+    deterministic: True
+    precision: '16-mixed'
+    # debug params
+    #fast_dev_run: True
+    overfit_batches: 0.1
+    # logging params
+    log_every_n_steps: 1
+
+dataloader:
+  train_dataloader:
+    shuffle : True
+    batch_size : 64
+    num_workers : 12
+    persistent_workers : True
+
+  val_dataloader:
+    shuffle : False
+    #batch_size : 128
+    batch_size : 64
+    num_workers : 12
+    persistent_workers : True
+
+loss:
+  name : 'contrastive_like_clip'
+  temperature : 1.
+
+optimizer:
+  name : "AdamW"
+  kwargs:
+    lr: 0.01
+    weight_decay : 0.01
+
+scheduler:
+  name : 'CosineAnnealingLR'
+  kwargs:
+    T_max : 1000
+
+wandb:
+  project : 'multimodal'
+  dir : './wandb/'
+  tags : 'cliplike'
+
+model:
+  #image_encoder_name : 'openai/clip-vit-base-patch32'
+  #text_encoder_name : 'openai/clip-vit-base-patch32'
+  image_encoder_name : 'google/vit-base-patch16-224'
+  text_encoder_name : 'google-bert/bert-base-uncased'
+  #tokenizer : 'openai/clip-vit-base-patch32'
+
+
+dataset:
+  data_dir : '/home/data/COCOcaptions'
+  split_train : 'coco_karpathy_train.json'
+  split_val : 'coco_karpathy_val.json'
+  split_test : 'coco_karpathy_test.json'
+  #train_image_dir : 'C:/Users/sadua/OneDrive/Dokumente/Studium/Masterarbeit/Multimodal Learning/data/coco/train2014'
+  #val_image_dir : 'C:/Users/sadua/OneDrive/Dokumente/Studium/Masterarbeit/Multimodal Learning/data/coco/val2014'
+  # dataset_name : 'AC_'
+  # kwargs:
+  #   frame_ids : 'center'
+  #   return_image : True
+  #   return_audio : False
+  #   return_captions_visual : True
+  #   return_captions_auditory : False
