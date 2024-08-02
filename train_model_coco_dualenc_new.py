@@ -37,7 +37,7 @@ from utils.zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_sh
 from utils.utils import get_custom_cosine_schedule_with_warmup
 from .callbacks import CIFAR10LinearProbeCallback
 
-os.environ["WANDB_API_KEY"] = "eb32f85ab514ff5cc48f7c9dc59a2df3d3f97afa"
+os.environ["WANDB_API_KEY"] = ""
 #os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
