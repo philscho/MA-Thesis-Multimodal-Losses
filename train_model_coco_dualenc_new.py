@@ -1,3 +1,5 @@
+#%%
+
 from typing import Tuple
 import os
 
@@ -31,11 +33,11 @@ from transformers import (
 )
 
 from my_datasets import CocoDataset, Cifar10Dataset, ConceptualCaptionsDataset, VisualGenomeDataset
-from zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_shot
-from utils import get_custom_cosine_schedule_with_warmup
+from utils.zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_shot
+from utils.utils import get_custom_cosine_schedule_with_warmup
+from .callbacks import CIFAR10LinearProbeCallback
 
-
-os.environ["WANDB_API_KEY"] = "800844ad00f42b535fdcf9c737992c387867a397"
+os.environ["WANDB_API_KEY"] = "eb32f85ab514ff5cc48f7c9dc59a2df3d3f97afa"
 #os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
@@ -101,7 +103,10 @@ def get_models(config):
         vision_config=ViTConfig(), 
         text_config=BertConfig()
     ))
+
+    # getting pretrained 
     # model = VisionTextDualEncoderModel.from_vision_text_pretrained(config.model.image_encoder_name, config.model.text_encoder_name)
+    
     processor = VisionTextDualEncoderProcessor(
         image_processor=AutoImageProcessor.from_pretrained(config.model.image_encoder_name), 
         tokenizer=AutoTokenizer.from_pretrained(config.model.text_encoder_name, **config.model.tokenizer)
@@ -150,15 +155,7 @@ class LitMML(pl.LightningModule):
         self.save_hyperparameters(ignore=["model", "image_encoder", "text_encoder", "tokenizer"])
     
     def common_step(self, batch):
-        # images, tokens, token_type, mask = batch
-        
-        # outputs = self.model(
-        #     input_ids=tokens,
-        #     attention_mask=mask,
-        #     pixel_values=images,
-        #     token_type_ids=token_type,
-        #     #return_loss=True
-        # )
+
         outputs = self.model(**batch)
         
         # Ouptut embeddings are already normalized
@@ -363,8 +360,7 @@ class LitMML(pl.LightningModule):
             templates="a photo of a {}",
             tokenizer=self.processor
         )
-        # def forward_func(input):
-        #   return self.model.get_text_features(input_ids=input)
+
     
     def on_validation_epoch_end(self):
         # #return 
@@ -378,11 +374,15 @@ class LitMML(pl.LightningModule):
             forward_func=lambda x: self.model.get_image_features(pixel_values=x),
             classifier=self.cifar10_classifier,
             dataloader=self.trainer.val_dataloaders[1],
+            confusion_matrix=True,
             top_k=(1,)
         )
         # assert len(result) == 1
         for k, v in result.items():
-            self.log("cifar10-accuracy", v, sync_dist=False)
+            if k=='ConfusionMatrix':
+                self.logger.log_image(key='cifar-10-confusionmatrix',images=[v],caption=['ConfMatrix'])
+            else:
+                self.log("cifar10-accuracy", v, sync_dist=False)
 
     
     def calculate_accuracy(self, images, texts):
@@ -485,7 +485,7 @@ def main(config):
     torch.set_float32_matmul_precision('medium')
 
     model, processor = get_models(config)
-    
+   
     #dataloaders = get_dataloaders(config, get_datasets(config, processor))
     dataloaders = get_dataloaders(config, datasets=get_datasets(config, processor=processor), collate_fn=batch_input_processing_func(processor))
     train_dataloader = dataloaders['train_all']
@@ -507,9 +507,9 @@ def main(config):
     wandb_logger = WandbLogger(**config.wandb)
 
     # log the config on the master node
-    # if rank_zero_only.rank == 0:
-    #     cfg_dict = OmegaConf.to_container(config, resolve=True)
-    #     wandb_logger.experiment.config.update(cfg_dict)   
+    if rank_zero_only.rank == 0:
+        cfg_dict = OmegaConf.to_container(config, resolve=True)
+        wandb_logger.experiment.config.update(cfg_dict)   
 
     ckpt_callback = ModelCheckpoint(
         **config.lightning.model_checkpoint_callback,
@@ -518,14 +518,17 @@ def main(config):
         filename="ckpt-{epoch:02d}-{loss-val/dataloader_idx_0:.3f}",
     )
     lr_callback = LearningRateMonitor(logging_interval="step")
-    early_stopping = EarlyStopping(monitor="loss-val/dataloader_idx_0", patience=3)
-    callbacks=[ckpt_callback, lr_callback, early_stopping] #[ckpt_callback, lr_callback]
+    early_stopping = EarlyStopping(monitor="loss-val/dataloader_idx_0", patience=10,verbose=True)
+    
+    cifar10linear = CIFAR10LinearProbeCallback(**config.lightning.cifar_linear_probe_callback)
+    callbacks=[ckpt_callback, lr_callback, early_stopping, cifar10linear] #[ckpt_callback, lr_callback]
+
 
     trainer = pl.Trainer(
         **config.lightning.trainer,
         logger=wandb_logger,
         callbacks=callbacks,
-        #callbacks=[LearningRateFinder(min_lr=1e-05, max_lr=1e-03, num_training_steps=10, mode="linear")]
+        inference_mode=False, #to allow the training of the linear probe
     )
 
     if config.gradient_checkpointing:
@@ -538,28 +541,21 @@ def main(config):
 
 
 if __name__ == "__main__":
-    import sys
-    #temperature = float(sys.argv[1])
-    #learning_rate = float(sys.argv[2])
-    #run_offline = True if sys.argv[1] == 'offline' else False
-
-    # print (f'Starting run with temperature : {temperature} and learning_rate : {learning_rate}')
-    # print("current working directory: ", os.getcwd())
     
-    cfg_path = "./train_config.yaml"
+    cfg_path = "configs/train_config.yaml"
 
     config = OmegaConf.load(cfg_path)
     config = OmegaConf.merge(config, OmegaConf.from_cli())
     OmegaConf.resolve(config)
 
-    #config.wandb.offine = run_offline
+    # config.wandb.offline = True
 
     # print the final values and go...
-    # print("--" * 30)
-    # print("Config for the run : ")
-    # print("--" * 30)
-    # print(OmegaConf.to_yaml(config))
-    # print("--" * 30)
+    print("--" * 30)
+    print("Config for the run : ")
+    print("--" * 30)
+    print(OmegaConf.to_yaml(config))
+    print("--" * 30)
 
     main(config)
 

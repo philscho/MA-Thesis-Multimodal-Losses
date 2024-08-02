@@ -1,8 +1,14 @@
 #resume_checkpoint: '/home/phisch/multimodal/models/cliplike/ckpts/5m917c9w/last.ckpt'
 
+
+save_dir: './models/cliplike/'
+
+
+
+# wandb args
 wandb:
   #name: 
-  tags : ['clip', 'coco', 'vg', 'cc', 'cifar10']
+  tags : ['clip', 'coco', 'vg', 'cc', 'cifar10','pretrained weights']
   #group: 'debug'
   group: 'test'
   #group: 'run'
@@ -12,7 +18,7 @@ wandb:
   ### checkpoint args
   #id: 5m917c9w
 
-save_dir: './models/cliplike/'
+
 
 lightning:
   seed : 69
@@ -21,7 +27,7 @@ lightning:
     #overfit_batches: 5 #5
     val_check_interval: 0.3
     log_every_n_steps: 4 #5 #10
-    devices: [2,3] #[3] #[0, 1]
+    devices: 2  #[0,1] #[3] #[0, 1]
     accelerator: 'auto'
     strategy: 'ddp' #'ddp_find_unused_parameters_true'
     deterministic: True
@@ -29,52 +35,67 @@ lightning:
     gradient_clip_algorithm: "norm"
     gradient_clip_val: 1.0
     max_epochs: 50 #100
-    #num_nodes : 8   
+    # num_nodes : 4   
   model_checkpoint_callback:
     every_n_epochs: 1
     save_last: True
     save_top_k: 2
+  cifar_linear_probe_callback:
+    logging_interval: 'epoch'
+    log_every: 3
+    confusion_matrix: True
+    verbose: False
+    max_epochs: 400
 
 gradient_checkpointing: True
+
+
 
 dataloader:
   train:
     shuffle : True
-    batch_size : 768 #896 #960 #1024 #256 #180
+    batch_size : 2048  #896 #960 #1024 #256 #180
     #batch_size : 192
-    num_workers : 20
+    num_workers : 2
     persistent_workers : True
     pin_memory: True
 
   coco_val:
     shuffle : False
     #batch_size : 
-    batch_size : 768 #896 #960 #1024 #256 #180
-    num_workers : 20
+    batch_size : 2048 #896 #960 #1024 #256 #180
+    num_workers : 2
     persistent_workers : True
     pin_memory: True
   
   cifar10_val:
-    batch_size: 64
+    batch_size: 512
     shuffle: False
-    num_workers: 20
+    num_workers: 2
     #persistent_workers: True
     pin_memory: True
+
+
 
 loss:
   losses:
     - 'contrastive'
-    #- 'image_text_matching'
+    - 'image_text_matching'
   contrastive:
   #  temperature : 1.
   image_text_matching:
     arg1: ''
 
+
+
 optimizer:
   name : "AdamW"
   lr: 1e-04
   kwargs:
-    weight_decay : 0.001
+    weight_decay : 0.005
+    betas : [0.9,0.95]
+
+
 
 scheduler:
   name:
@@ -88,6 +109,8 @@ scheduler:
     initial_lr: 1e-08
   interval: "step"
 
+
+
 model:
   #image_encoder_name : 'openai/clip-vit-base-patch32'
   #text_encoder_name : 'openai/clip-vit-base-patch32'
@@ -95,6 +118,8 @@ model:
   text_encoder_name : 'google-bert/bert-base-uncased'
   tokenizer :
     use_fast: False
+  
+
 
 dataset:
   transforms:
@@ -103,15 +128,18 @@ dataset:
       magnitude: 8
   max_seq_length: 72
   coco:
-    data_dir : '/home/data/COCOcaptions'
-    split_train : 'my_datasets/coco_karpathy_train.json'
-    split_val : 'my_datasets/coco_karpathy_val.json'
-    split_test : 'my_datasets/coco_karpathy_test.json'
+    data_dir : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/COCO'
+    split_train : './coco_karpathy_train.json'
+    split_val : './coco_karpathy_val.json'
+    split_test : './coco_karpathy_test.json'
   vg:
-    data_dir: '/home/data/mmssl/VG/'
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
   cc3m:
-    data_dir: '/home/data/mmssl/CC3m/'
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/'
   
+
+
+
   
   #train_image_dir : 'C:/Users/sadua/OneDrive/Dokumente/Studium/Masterarbeit/Multimodal Learning/data/coco/train2014'
   #val_image_dir : 'C:/Users/sadua/OneDrive/Dokumente/Studium/Masterarbeit/Multimodal Learning/data/coco/val2014'
