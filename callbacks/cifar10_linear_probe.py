@@ -140,7 +140,7 @@ class CIFAR10LinearProbeCallback(pl.Callback):
 def create_linear_probe(
     forward_func : callable,
     dataloader : torch.utils.data.DataLoader,
-    linear_layer : torch.utils.data.DataLoader | pl.LightningDataModule,
+    linear_layer : Union[torch.utils.data.DataLoader,pl.LightningDataModule],
     device:str="cuda",
     max_epochs:int=50,
     tolerance:float=0.0001,
@@ -245,7 +245,7 @@ def create_linear_probe(
 def eval_linear_probe(
     forward_func : callable,
     classifier : any ,
-    dataloader : torch.utils.data.DataLoader | pl.LightningDataModule,
+    dataloader : Union[torch.utils.data.DataLoader,pl.LightningDataModule],
     top_k: Tuple[int, ...] = (1, 2, 5, 10),
     average: str = "micro",
     device: Union[str, torch.device] = "cuda",
