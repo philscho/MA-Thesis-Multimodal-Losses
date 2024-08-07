@@ -32,10 +32,10 @@ from transformers import (
     optimization
 )
 
-from my_datasets import CocoDataset, Cifar10Dataset, ConceptualCaptionsDataset, VisualGenomeDataset
+from my_datasets import Caltech101Dataset, CocoDataset, Cifar10Dataset, ConceptualCaptionsDataset, VisualGenomeDataset
 from utils.zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_shot
 from utils.utils import get_custom_cosine_schedule_with_warmup
-from .callbacks import CIFAR10LinearProbeCallback
+from callbacks import CIFAR10LinearProbeCallback
 
 os.environ["WANDB_API_KEY"] = ""
 #os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -49,51 +49,74 @@ def get_datasets(config, processor=None):
             transforms.ColorJitter(brightness=.5, contrast=.2, saturation=.3, hue=.2),
             transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5.))
     ])
-
     randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
 
-    coco = CocoDataset(
-        config.dataset.coco.split_train, 
-        os.path.join(config.dataset.coco.data_dir, "train2014"), 
-        #processor=processor,
-        processor=None,
-        transform=randaugment
-    )
-    cc3m = ConceptualCaptionsDataset(root=config.dataset.cc3m.data_dir, use_llava_split=True, 
-                                     processor=None, transform=randaugment)
-    vg = VisualGenomeDataset(root=config.dataset.vg.data_dir, use_llava_split=True,
-                             processor=None, transform=randaugment)
-    
-    coco_val = CocoDataset(
-        config.dataset.coco.split_val, 
-        os.path.join(config.dataset.coco.data_dir, "val2014"), 
-        processor=None,
-        # image_transforms
-    )
-    cifar10_val = Cifar10Dataset(processor=processor)
-    #cifar10_val = Cifar10Dataset(transform=transforms.ToTensor())
-
-    train_all = ConcatDataset([coco, cc3m, vg])
-
     datasets = {}
-    datasets['train_all'] = train_all
-    datasets['coco'] = coco
-    datasets['cc3m'] = cc3m
-    datasets['vg'] = vg
-    datasets['coco_val'] = coco_val
-    datasets['cifar10_val'] = cifar10_val
+    train_datasets, val_datasets = [], []
+
+    if "coco" in config.dataset.train:
+        coco = CocoDataset(config.dataset.coco.split_train, 
+                           os.path.join(config.dataset.coco.data_dir, "train2014"), 
+                           #processor=processor,
+                           processor=None,
+                           transform=randaugment)
+        train_datasets.append(coco)
+        datasets['coco'] = coco
+    if "cc3m" in config.dataset.train:
+        cc3m = ConceptualCaptionsDataset(root=config.dataset.cc3m.data_dir,
+                                        use_llava_split=True, 
+                                        processor=None, 
+                                        transform=randaugment)
+        train_datasets.append(cc3m)
+        datasets['cc3m'] = cc3m
+    if "vg" in config.dataset.train:
+        vg = VisualGenomeDataset(root=config.dataset.vg.data_dir,
+                                 use_llava_split=True,
+                                 processor=None,
+                                 transform=randaugment)
+        train_datasets.append(vg)
+        datasets['vg'] = vg
+    
+    if "coco_val" in config.dataset.val:
+        coco_val = CocoDataset(config.dataset.coco.split_val,
+                               os.path.join(config.dataset.coco.data_dir, "val2014"), 
+                               processor=None)
+        val_datasets.append(coco_val)
+        datasets['coco_val'] = coco_val
+    if "cifar10_val" in config.dataset.val:
+        cifar10_val = Cifar10Dataset(processor=processor)
+        val_datasets.append(cifar10_val)
+        datasets['cifar10_val'] = cifar10_val
+    if "caltech101_val" in config.dataset.val:
+        caltech101_val = Caltech101Dataset(processor=processor)
+        val_datasets.append(caltech101_val)
+        datasets['caltech101_val'] = caltech101_val
+
+    datasets["train_all"] = ConcatDataset(train_datasets)
+    datasets["val_all"] = val_datasets
     return datasets
 
+
+def collate_fn(batch, processor):
+    images, text = zip(*batch)
+    return processor(images=images, text=text, padding=True, truncation=True, return_tensors="pt")
+
+# def batch_input_processing_func(processor):
+#     # Return a lambda that calls the top-level collate_fn with the processor
+#     return lambda batch: collate_fn(batch, processor)
+
+def batch_input_processing_func(processor):
+    def collate_fn(batch):
+        images, text = zip(*batch)
+        return processor(images=images, text=text, padding=True, truncation=True, return_tensors="pt")
+    return collate_fn
 
 def get_dataloaders(config, datasets, collate_fn=None):
     dataloaders = {}
     dataloaders['train_all'] = DataLoader(datasets['train_all'], collate_fn=collate_fn, **config.dataloader.train)
-    #dataloaders['train_all'] = DataLoader(datasets['vg'], **config.dataloader.train)
-    # dataloaders['coco'] = DataLoader(datasets['coco'], **config.dataloader.train)
-    # dataloaders['cc3m'] = DataLoader(datasets['cc3m'], **config.dataloader.train)
-    # dataloaders['vg'] = DataLoader(datasets['vg'], **config.dataloader.train)
-    dataloaders['coco_val']= DataLoader(datasets['coco_val'], collate_fn=collate_fn, **config.dataloader.coco_val)
+    dataloaders['coco_val'] = DataLoader(datasets['coco_val'], collate_fn=collate_fn, **config.dataloader.coco_val)
     dataloaders['cifar10_val'] = DataLoader(datasets['cifar10_val'], **config.dataloader.cifar10_val)
+    dataloaders['caltech101_val'] = DataLoader(datasets['caltech101_val'], **config.dataloader.caltech101_val)
     return dataloaders
 
 
@@ -112,14 +135,6 @@ def get_models(config):
         tokenizer=AutoTokenizer.from_pretrained(config.model.text_encoder_name, **config.model.tokenizer)
     )
     return model, processor
-
-
-def batch_input_processing_func(processor):
-    def collate_fn(batch):
-            images, text = zip(*batch)
-            data = processor(images=images, text=text, padding=True, truncation=True, return_tensors="pt")
-            return data
-    return collate_fn
 
 
 class LitMML(pl.LightningModule):
@@ -360,6 +375,12 @@ class LitMML(pl.LightningModule):
             templates="a photo of a {}",
             tokenizer=self.processor
         )
+        self.caltech101_classifier = _create_zero_shot_classifier(
+            forward_func=lambda x: self.model.get_text_features(input_ids=x),
+            classnames=self.trainer.val_dataloaders[2].dataset.categories,
+            templates="a photo of a {}",
+            tokenizer=self.processor
+        )
 
     
     def on_validation_epoch_end(self):
@@ -370,19 +391,32 @@ class LitMML(pl.LightningModule):
         # self.log("cifar10-accuracy", accuracy, sync_dist=True)
         # self.cifar_results = []
 
-        result = _evaluate_zero_shot(
+        cifar_10_result = _evaluate_zero_shot(
             forward_func=lambda x: self.model.get_image_features(pixel_values=x),
             classifier=self.cifar10_classifier,
             dataloader=self.trainer.val_dataloaders[1],
             confusion_matrix=True,
             top_k=(1,)
         )
-        # assert len(result) == 1
-        for k, v in result.items():
+        caltech_101_result = _evaluate_zero_shot(
+            forward_func=lambda x: self.model.get_image_features(pixel_values=x),
+            classifier=self.caltech101_classifier,
+            dataloader=self.trainer.val_dataloaders[2],
+            confusion_matrix=True,
+            top_k=(1,)
+        )
+
+        #TODO: refactor this
+        for k, v in cifar_10_result.items():
             if k=='ConfusionMatrix':
                 self.logger.log_image(key='cifar-10-confusionmatrix',images=[v],caption=['ConfMatrix'])
             else:
                 self.log("cifar10-accuracy", v, sync_dist=False)
+        for k, v in caltech_101_result.items():
+            if k=='ConfusionMatrix':
+                self.logger.log_image(key='caltech-101-confusionmatrix',images=[v],caption=['ConfMatrix'])
+            else:
+                self.log("caltech101-accuracy", v, sync_dist=False)
 
     
     def calculate_accuracy(self, images, texts):
@@ -487,11 +521,16 @@ def main(config):
     model, processor = get_models(config)
    
     #dataloaders = get_dataloaders(config, get_datasets(config, processor))
-    dataloaders = get_dataloaders(config, datasets=get_datasets(config, processor=processor), collate_fn=batch_input_processing_func(processor))
+    dataloaders = get_dataloaders(config, 
+                                  datasets=get_datasets(config, processor=processor), 
+                                  collate_fn=batch_input_processing_func(processor),
+                                  #processor=processor,
+                                  )
     train_dataloader = dataloaders['train_all']
     coco_val_dataloader = dataloaders['coco_val']
     cifar10_val_dataloader = dataloaders['cifar10_val']
-    val_dataloaders = [coco_val_dataloader, cifar10_val_dataloader]
+    caltech101_val_dataloader = dataloaders['caltech101_val']
+    val_dataloaders = [coco_val_dataloader, cifar10_val_dataloader, caltech101_val_dataloader]
     #val_dataloaders = coco_val_dataloader
 
     net = LitMML(
@@ -543,6 +582,7 @@ def main(config):
 if __name__ == "__main__":
     
     cfg_path = "configs/train_config.yaml"
+    #cfg_path = "configs/config_local.yaml"
 
     config = OmegaConf.load(cfg_path)
     config = OmegaConf.merge(config, OmegaConf.from_cli())

@@ -1,21 +1,22 @@
 import torch
-from torchvision.datasets import CIFAR10
+from torchvision.datasets import Caltech101
 from torch.utils.data import Dataset, DataLoader
 import os
 #from transformers import AutoImageProcessor, AutoTokenizer, VisionTextDualEncoderProcessor
 
-class Cifar10Dataset(CIFAR10):
+class Caltech101Dataset(Caltech101):
     def __init__(self, processor=None, transform=None, download=False, root=os.path.expanduser("~/.cache")):
-        super().__init__(root=root, download=download, train=False)
+        super().__init__(root=root, download=download)
         #self.dataset = CIFAR10(root=os.path.expanduser("~/.cache"), download=True, train=False)
         self.processor = processor
         self.transform = transform
-        self.labels = [f"a photo of a {c}" for c in self.classes]
+        #TODO: Clean up label names
+        self.labels = [f"a photo of a {c}" for c in self.categories]
         if self.processor:
             self.labels_tokenized = self.processor(text=self.labels, padding='max_length', return_tensors='pt')
     
     def __getitem__(self, idx):
-        image, label = self.data[idx], self.targets[idx]
+        image, label = super().__getitem__(idx)
 
         if self.processor is not None:
             # inputs = self.processor(images=image, 
