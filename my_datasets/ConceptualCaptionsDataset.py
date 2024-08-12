@@ -28,7 +28,7 @@ class ConceptualCaptionsDataset:
         dp = self.mapper.iloc[idx]
         
         raw_image = self.linker.get(f"CC3m_{dp.shard}").get('images')[dp.h5_index]
-        image = Image.open(io.BytesIO(raw_image))
+        image = Image.open(io.BytesIO(raw_image)).convert('RGB') #dataset has a few grayscale images, converting them        
         caption = dp.caption
         
         if self.processor is not None:

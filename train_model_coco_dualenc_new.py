@@ -35,20 +35,23 @@ from transformers import (
 from my_datasets import Caltech101Dataset, CocoDataset, Cifar10Dataset, ConceptualCaptionsDataset, VisualGenomeDataset
 from utils.zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_shot
 from utils.utils import get_custom_cosine_schedule_with_warmup
-from callbacks import CIFAR10LinearProbeCallback
+from callbacks import CIFAR10LinearProbeCallback,LinearProbeCallback
 
-os.environ["WANDB_API_KEY"] = ""
-#os.environ["TOKENIZERS_PARALLELISM"] = "false"
+from utils.optimizer_and_scheduler import get_optimizer,get_scheduler
+
+from dotenv import load_dotenv
+load_dotenv()
+
 
 
 
 def get_datasets(config, processor=None):
 
-    image_transforms = transforms.Compose([
-            transforms.RandomHorizontalFlip(),
-            transforms.ColorJitter(brightness=.5, contrast=.2, saturation=.3, hue=.2),
-            transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5.))
-    ])
+    # image_transforms = transforms.Compose([
+    #         transforms.RandomHorizontalFlip(),
+    #         transforms.ColorJitter(brightness=.5, contrast=.2, saturation=.3, hue=.2),
+    #         transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5.))
+    # ])
     randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
 
     datasets = {}
@@ -64,7 +67,7 @@ def get_datasets(config, processor=None):
         datasets['coco'] = coco
     if "cc3m" in config.dataset.train:
         cc3m = ConceptualCaptionsDataset(root=config.dataset.cc3m.data_dir,
-                                        use_llava_split=True, 
+                                        use_llava_split=False, 
                                         processor=None, 
                                         transform=randaugment)
         train_datasets.append(cc3m)
@@ -92,7 +95,18 @@ def get_datasets(config, processor=None):
         val_datasets.append(caltech101_val)
         datasets['caltech101_val'] = caltech101_val
 
-    datasets["train_all"] = ConcatDataset(train_datasets)
+    
+    train_all = ConcatDataset(train_datasets)
+    if config.dataset.use_subset.value == True:
+        num_samples = int(np.floor(len(train_all) * config.dataset.use_subset.subset_fraction))
+        indices = np.random.default_rng(seed=42).choice(len(train_all)+ 1, 
+                                                        size=num_samples,
+                                                        replace=False,
+                                                    )
+        print (f"Using a {config.dataset.use_subset.subset_fraction} subset of dataset")
+        train_all = torch.utils.data.Subset(train_all,indices=indices)
+
+    datasets["train_all"] = train_all
     datasets["val_all"] = val_datasets
     return datasets
 
@@ -127,11 +141,9 @@ def get_models(config):
         text_config=BertConfig()
     ))
 
-    # getting pretrained 
     # model = VisionTextDualEncoderModel.from_vision_text_pretrained(config.model.image_encoder_name, config.model.text_encoder_name)
-    
     processor = VisionTextDualEncoderProcessor(
-        image_processor=AutoImageProcessor.from_pretrained(config.model.image_encoder_name), 
+        image_processor=AutoImageProcessor.from_pretrained(config.model.image_encoder_name,input_data_format='channels_last'), 
         tokenizer=AutoTokenizer.from_pretrained(config.model.text_encoder_name, **config.model.tokenizer)
     )
     return model, processor
@@ -207,6 +219,7 @@ class LitMML(pl.LightningModule):
         
         return losses, metrics
     
+    
     def training_step(self, batch, batch_idx, dataloader_idx=0):
         losses, metrics = self.common_step(batch)
         loss = sum(losses.values()) / len(losses)
@@ -215,59 +228,6 @@ class LitMML(pl.LightningModule):
             for name, val in d.items():
                 self.log(f"{name}-train", val, sync_dist=True)
         self.log(f"temperature", self.contrastive_loss.logit_scale)
-        return loss
-
-        # loss, logits_per_image = outputs.loss, outputs.logits_per_image
-        # self.log("loss/train", loss.mean(), sync_dist=True)
-        # return loss.mean()
-
-        # loss, image_out, text_out = self.common_step(batch, batch_idx, dataloader_idx)
-        # images, tokens, token_type, mask = batch
-        
-        # outputs = self.model(
-        #     input_ids=tokens,
-        #     attention_mask=mask,
-        #     pixel_values=images,
-        #     token_type_ids=token_type,
-        #     #return_loss=True
-        # )
-        outputs = self.model(**batch)
-        # Ouptut embeddings are already normalized
-        image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
-
-        # image_norm = torch.nn.functional.normalize(outputs['image_embeds'], dim=-1)
-        # text_norm = torch.nn.functional.normalize(outputs['text_embeds'], dim=-1)
-
-        losses_all = []
-        #TODO: make loss function selection dynamic
-        if "contrastive" in self.loss_cfg.losses:
-            #loss = clip_contrastive_loss(image_out, text_out, self.loss_cfg.temperature).mean()
-            loss_contrastive = self.contrastive_loss(image_embeds, text_embeds)
-            #loss = outputs['loss']
-            accuracy = self.calculate_accuracy(image_embeds, text_embeds)
-            self.log(f"loss-train-contrastive", loss_contrastive, sync_dist=True)
-            self.log(f"acc-train", accuracy, sync_dist=True)
-            self.log(f"temperature", self.contrastive_loss.logit_scale)
-
-        #TODO: put loss in seperate function
-        if "image_text_matching" in self.loss_cfg.losses:
-            bs = image_embeds.size(0)
-            neg_image_embeds, neg_text_embeds = self._neg_embeddings(
-                image_embeds, text_embeds, outputs.logits_per_image, outputs.logits_per_text)
-            selection = torch.randint(0, 2, (bs,)).to(image_embeds.device)
-            selected_text_embeds = torch.where(selection.unsqueeze(1) == 0, text_embeds, neg_text_embeds)
-            multimodal_embeds = torch.concat((image_embeds, selected_text_embeds), dim=1)
-
-            logits = self.itm_head(multimodal_embeds)
-            probs = F.softmax(logits, dim=1)
-            loss_matching = self.matching_loss(probs, selection.long())
-            self.log(f"loss-train-matching", loss_matching, sync_dist=True)
-            losses_all.append(loss_matching)
-        
-        
-        
-        loss = sum(losses_all) / len(losses_all)
-        self.log(f"loss-train", loss, sync_dist=True, prog_bar=True)
         return loss
 
     def validation_step(self, batch, batch_idx, dataloader_idx=0):
@@ -281,91 +241,6 @@ class LitMML(pl.LightningModule):
             return loss
         else:
             return None
-        
-        if dataloader_idx == 0:
-            # loss, image_out, text_out = self.common_step(batch, batch_idx)
-
-            # loss, logits_per_image = outputs.loss, outputs.logits_per_image
-            # self.log("loss/train", loss.mean(), sync_dist=True)
-            # return loss.mean()
-
-            # images, tokens, token_type, mask = batch
-        
-            # outputs = self.model(
-            #     input_ids=tokens,
-            #     attention_mask=mask,
-            #     pixel_values=images,
-            #     token_type_ids=token_type,
-            #     #return_loss=True
-            # )
-
-            outputs = self.model(**batch)
-            image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
-
-            # image_norm = torch.nn.functional.normalize(outputs['image_embeds'], dim=-1)
-            # text_norm = torch.nn.functional.normalize(outputs['text_embeds'], dim=-1)
-        
-            losses_all = []
-            if "contrastive" in self.loss_cfg.losses:
-                loss_contrastive = self.contrastive_loss(image_embeds, text_embeds)
-                accuracy = self.calculate_accuracy(image_embeds, text_embeds)
-                self.log("loss-contrastive-val", loss_contrastive, sync_dist=True)
-                self.log("acc-val", accuracy, sync_dist=True)
-                losses_all.append(loss_contrastive)
-            
-            if "image_text_matching" in self.loss_cfg.losses:
-                bs = image_embeds.size(0)
-                neg_image_embeds, neg_text_embeds = self._neg_embeddings(
-                    image_embeds, text_embeds, outputs.logits_per_image, outputs.logits_per_text)
-                selection = torch.randint(0, 2, (bs,)).to(image_embeds.device)
-                selected_text_embeds = torch.where(selection.unsqueeze(1) == 0, text_embeds, neg_text_embeds)
-                multimodal_embeds = torch.concat((image_embeds, selected_text_embeds), dim=1)
-
-                logits = self.itm_head(multimodal_embeds)
-                probs = F.softmax(logits, dim=1)
-                loss_matching = self.matching_loss(probs, selection.long())
-                self.log(f"loss-val-matching", loss_matching, sync_dist=True)
-                losses_all.append(loss_matching)
-            
-            loss = sum(losses_all) / len(losses_all)
-            self.log(f"loss-val", loss, sync_dist=True, prog_bar=True)
-            return loss
-
-        # CIFAR-10 dataloader -- OG
-        # if dataloader_idx == 1:
-        #     images, tokens, token_type, mask, label = batch
-        #     # Remove batch dimension from text embeddings (if batch_size = 1)
-        #     tokens.squeeze_(0), token_type.squeeze_(0), mask.squeeze_(0)
-            
-        #     outputs = self.model(
-        #         pixel_values=images,
-        #         input_ids=tokens,
-        #         attention_mask=mask,
-        #         token_type_ids=token_type
-        #     )
-
-        #     image_out = torch.nn.functional.normalize(outputs['image_embeds'], dim=-1)
-        #     text_out = torch.nn.functional.normalize(outputs['text_embeds'], dim=-1)
-        #     # (b, 1, h_dim) x (b, h_dim, classes) => (b, 1, classes)
-        #     #sim_scores = torch.squeeze(torch.bmm(image_out.unsqueeze_(1), text_out.transpose(1, 2)), 1)
-        #     sim_scores = image_out @ text_out.transpose(0, 1)
-        #     result = sim_scores.argmax(-1) == label
-        #     #self.cifar_results.append(result.item())
-        #     self.cifar_results.append(result)
-        
-        # if dataloader_idx == 1:
-        #     images, label = batch
-            
-        #     image_features = self.model.get_image_features(pixel_values=images)
-        #     image_out = torch.nn.functional.normalize(image_features, dim=-1)
-            
-        #     # (b, 1, h_dim) x (b, h_dim, classes) => (b, 1, classes)
-        #     #sim_scores = torch.squeeze(torch.bmm(image_out.unsqueeze_(1), text_out.transpose(1, 2)), 1)
-        #     sim_scores = image_out @ self.cifar10_classifier
-        #     result = sim_scores.argmax(-1) == label
-        #     #self.cifar_results.append(result.item())
-        #     self.cifar_results.append(result)
-
     
     def on_validation_epoch_start(self):
         self.cifar10_classifier = _create_zero_shot_classifier(
@@ -381,7 +256,6 @@ class LitMML(pl.LightningModule):
             templates="a photo of a {}",
             tokenizer=self.processor
         )
-
     
     def on_validation_epoch_end(self):
         # #return 
@@ -459,27 +333,16 @@ class LitMML(pl.LightningModule):
         #text_atts_neg = torch.stack(text_atts_neg, dim=0)
         return image_embeds_neg, text_embeds_neg #, text_atts_neg
     
+    
     def configure_optimizers(self):
-        if self.optimizer_cfg.name == "Adam":
-            optimizer = torch.optim.Adam(self.parameters(), lr=self.optimizer_cfg.lr, **self.optimizer_cfg.kwargs)
-        elif self.optimizer_cfg.name == "SGD":
-            optimizer = torch.optim.SGD(self.parameters(), lr=self.optimizer_cfg.lr, **self.optimizer_cfg.kwargs)
-        elif self.optimizer_cfg.name == "AdamW":
-            optimizer = torch.optim.AdamW(self.parameters(), lr=self.optimizer_cfg.lr, **self.optimizer_cfg.kwargs)
-        elif self.optimizer_cfg.name == "Adagrad":
-            optimizer = torch.optim.Adagrad(self.parameters(), lr=self.optimizer_cfg.lr, **self.optimizer_cfg.kwargs)
-        else:
-            raise ValueError(f"Wrong optimizer name. Provided {self.optimizer_cfg.name} which doesn't exist")
-
-        schedulers = []
+        
+        optimizer = get_optimizer(self.optimizer_cfg,params=self.parameters())
+        
         if self.scheduler_cfg.name is None:
             print("No scheduler provided, using only optimizer")
             return optimizer
-        if "CosineAnnealingLR" in self.scheduler_cfg.name:
-            schedulers.append(torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, **self.scheduler_cfg.kwargs))
-        if "CosineAnnealingLRWarmRestarts" in self.scheduler_cfg.name:
-            schedulers.append(torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, **self.scheduler_cfg.kwargs))
-        if "CosineWarmup" in self.scheduler_cfg.name:
+    
+        elif self.scheduler_cfg.name == 'CosineWarmup': #TODO: abstract it out in the schedulers file
             num_warmup_steps = self.scheduler_cfg.kwargs.pop("num_warmup_steps")
             num_training_steps = self.scheduler_cfg.kwargs.pop("num_training_steps")
             if num_warmup_steps == "epoch":
@@ -491,28 +354,25 @@ class LitMML(pl.LightningModule):
                 optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps, **self.scheduler_cfg.kwargs),
                 "interval": self.scheduler_cfg.interval
             }
-            schedulers.append(lr_scheduler_config)
-        if "CosineWarmupHardRestarts" in self.scheduler_cfg.name:
-            if self.scheduler_cfg.kwargs.num_warmup_steps == "epoch":
-                num_warmup_steps = self.trainer.estimated_stepping_batches / self.trainer.max_epochs
-                del self.scheduler_cfg.kwargs["num_warmup_steps"]
-            if self.scheduler_cfg.kwargs.num_training_steps == "all":
-                num_training_steps = self.trainer.estimated_stepping_batches - num_warmup_steps
-                del self.scheduler_cfg.kwargs["num_training_steps"]
-            schedulers.append(optimization.get_cosine_with_hard_restarts_schedule_with_warmup(
-                optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps, **self.scheduler_cfg.kwargs))
-        if "ReduceLROnPlateau" in self.scheduler_cfg.name:
-            monitor_metric = self.scheduler_cfg.kwargs.pop("monitor")
-            schedulers.append(torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, **self.scheduler_cfg.kwargs))
-            return {"optimizer": optimizer, 
-                    "lr_scheduler": {"scheduler": schedulers, "monitor": monitor_metric, "interval": self.scheduler_cfg.interval}}
-        # else:
-        #     raise ValueError(f"Wrong scheduler name. Provided {self.scheduler_cfg.name} which doesn't exist")
         
-        # return {"optimizer": optimizer, 
-        #         "lr_scheduler": {"scheduler": schedulers, "interval": self.scheduler_cfg.interval}}
-        return [optimizer], schedulers
-
+        else:
+            if self.scheduler_cfg.name == 'ReduceLROnPlateau':
+                assert self.scheduler_cfg.monitor is not None
+            
+            monitor_metric = self.scheduler_cfg.pop('monitor') 
+            interval = self.scheduler_cfg.pop('interval')
+            scheduler = get_scheduler(self.scheduler_cfg,optim=optimizer)
+            lr_scheduler_config = {
+                'scheduler' : scheduler,
+                'interval' : interval,
+                'monitor' : monitor_metric,
+            }
+        
+        return {
+                'optimizer' : optimizer,
+                'lr_scheduler': lr_scheduler_config,
+            }
+        
 
 def main(config):
     seed_everything(config.lightning.seed, workers=True)
@@ -520,7 +380,6 @@ def main(config):
 
     model, processor = get_models(config)
    
-    #dataloaders = get_dataloaders(config, get_datasets(config, processor))
     dataloaders = get_dataloaders(config, 
                                   datasets=get_datasets(config, processor=processor), 
                                   collate_fn=batch_input_processing_func(processor),
@@ -531,7 +390,6 @@ def main(config):
     cifar10_val_dataloader = dataloaders['cifar10_val']
     caltech101_val_dataloader = dataloaders['caltech101_val']
     val_dataloaders = [coco_val_dataloader, cifar10_val_dataloader, caltech101_val_dataloader]
-    #val_dataloaders = coco_val_dataloader
 
     net = LitMML(
         model,
@@ -543,8 +401,8 @@ def main(config):
 
     checkpoint = config.get("resume_checkpoint", None)
 
-    wandb_logger = WandbLogger(**config.wandb)
 
+    wandb_logger = WandbLogger(**config.wandb)
     # log the config on the master node
     if rank_zero_only.rank == 0:
         cfg_dict = OmegaConf.to_container(config, resolve=True)
@@ -556,11 +414,28 @@ def main(config):
         dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
         filename="ckpt-{epoch:02d}-{loss-val/dataloader_idx_0:.3f}",
     )
+    
     lr_callback = LearningRateMonitor(logging_interval="step")
     early_stopping = EarlyStopping(monitor="loss-val/dataloader_idx_0", patience=10,verbose=True)
     
-    cifar10linear = CIFAR10LinearProbeCallback(**config.lightning.cifar_linear_probe_callback)
-    callbacks=[ckpt_callback, lr_callback, early_stopping, cifar10linear] #[ckpt_callback, lr_callback]
+    cifar10linear = LinearProbeCallback(val_dataloader_idx=1, 
+                                    linear_probe=torch.nn.Linear(512,10),
+                                    log_str_prefix='cifar10',
+                                    **config.lightning.cifar_linear_probe_callback,
+    )
+    caltech101linear = LinearProbeCallback(val_dataloader_idx=2, 
+                                linear_probe=torch.nn.Linear(512,101),
+                                log_str_prefix='caltech101',
+                                **config.lightning.caltech101_linear_probe_callback,
+                                )
+    
+    callbacks=[ckpt_callback, 
+               lr_callback, 
+               early_stopping, 
+               cifar10linear,
+               caltech101linear] 
+    
+    callbacks=[ckpt_callback, lr_callback, early_stopping, cifar10linear]
 
 
     trainer = pl.Trainer(
@@ -581,7 +456,7 @@ def main(config):
 
 if __name__ == "__main__":
     
-    cfg_path = "configs/train_config.yaml"
+    cfg_path = "./configs/train_config.yaml"
     #cfg_path = "configs/config_local.yaml"
 
     config = OmegaConf.load(cfg_path)

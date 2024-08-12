@@ -104,17 +104,17 @@ optimizer:
 
 
 
-scheduler:
-  name:
-    - 'CosineWarmup'
-    #- 'CosineWarmupHardRestarts'
-  kwargs:
-    #T_max : 1000
-    num_warmup_steps: 'epoch'
-    num_training_steps: 'all' #20000
-    #num_cycles: 10
-    initial_lr: 1e-08
-  interval: "step"
+# scheduler:
+#   name:
+#     - 'CosineWarmup'
+#     #- 'CosineWarmupHardRestarts'
+#   kwargs:
+#     #T_max : 1000
+#     num_warmup_steps: 'epoch'
+#     num_training_steps: 'all' #20000
+#     #num_cycles: 10
+#     initial_lr: 1e-08
+#   interval: "step"
 
 
 
@@ -151,7 +151,11 @@ dataset:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
   cc3m:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/'
-  
+  use_subset:
+    value: true
+    subset_fraction: 0.2
+    
+
 
 
 
@@ -165,3 +169,16 @@ dataset:
   #   return_audio : False
   #   return_captions_visual : True
   #   return_captions_auditory : False
+
+
+scheduler:
+  name: SequentialLR
+  kwargs: 
+    milestones: [2]
+  sub_schedulers:
+    - name: 'ReduceROnPlateau'
+      kwargs:
+        num_warmup_steps: 'epoch'
+    - name: 'CosineWarmupHardRestarts'
+      kwargs:
+            T_max: 1000
