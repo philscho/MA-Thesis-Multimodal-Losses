@@ -5,7 +5,7 @@
 /LLaVA-CC3M-Pretrain-595K
 /models
 /multimodal
-utis/__pycache__
+utils/__pycache__
 callbacks/__pycache__
 /__pycache__
 /.vscode
@@ -13,3 +13,4 @@ callbacks/__pycache__
 /my_datasets/__pycache__
 .ipynb_checkpoints/
 .DS_Store
+.env

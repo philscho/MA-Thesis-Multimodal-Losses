@@ -1,14 +1,15 @@
 #resume_checkpoint: '/home/phisch/multimodal/models/cliplike/ckpts/5m917c9w/last.ckpt'
 
-
-save_dir: './models/cliplike/'
-
-
-
-# wandb args
 wandb:
   #name: 
-  tags : ['clip', 'coco', 'vg', 'cc', 'cifar10','pretrained weights']
+  tags :
+    - 'clip'
+    - 'cifar10'
+    - 'coco'
+    - 'vg'
+    - 'cc_full'
+
+
   #group: 'debug'
   group: 'test'
   #group: 'run'
@@ -18,7 +19,7 @@ wandb:
   ### checkpoint args
   #id: 5m917c9w
 
-
+save_dir: './models/cliplike/'
 
 lightning:
   seed : 69
@@ -34,7 +35,7 @@ lightning:
     precision: '16-mixed'
     gradient_clip_algorithm: "norm"
     gradient_clip_val: 1.0
-    max_epochs: 50 #100
+    max_epochs: 100
     # num_nodes : 4   
   model_checkpoint_callback:
     every_n_epochs: 1
@@ -46,10 +47,16 @@ lightning:
     confusion_matrix: True
     verbose: False
     max_epochs: 400
+  caltech101_linear_probe_callback:
+    logging_interval: 'epoch'
+    log_every: 3
+    confusion_matrix: True
+    verbose: False
+    max_epochs: 400
+
+
 
 gradient_checkpointing: True
-
-
 
 dataloader:
   train:
@@ -83,23 +90,21 @@ dataloader:
     pin_memory: True
 
 
-
 loss:
   losses:
     - 'contrastive'
-    - 'image_text_matching'
+    # - 'image_text_matching'
   contrastive:
   #  temperature : 1.
   image_text_matching:
     arg1: ''
 
 
-
 optimizer:
   name : "AdamW"
-  lr: 1e-04
+  lr: 2e-04
   kwargs:
-    weight_decay : 0.005
+    weight_decay : 0.1
     betas : [0.9,0.95]
 
 
@@ -117,6 +122,49 @@ optimizer:
 #   interval: "step"
 
 
+
+# scheduler:
+#   name: SequentialLR
+#   monitor: 'loss-val/dataloader_idx_0'
+#   interval: 'step'
+#   kwargs: 
+#     milestones: [100]
+#   sub_schedulers:
+#     - name: 'CosineAnnealingWarmRestarts'
+#       kwargs:
+#         T_0: 100
+#     - name: 'ExponentialLR'
+#       kwargs:
+#         gamma: 0.95
+#         verbose: true
+
+
+# scheduler:
+#   name: CyclicLR
+#   monitor: 'loss-val/dataloader_idx_0'
+#   interval: 'step'
+#   kwargs:
+#     base_lr: 0.0003
+#     max_lr: 0.0004
+
+
+# scheduler:
+#   name: OneCycleLR
+#   monitor: 'loss-val/dataloader_idx_0'
+#   interval: 'step'
+#   kwargs:
+#     max_lr: 0.004
+#     steps_per_epoch: 121
+#     epochs: 40
+  
+scheduler:
+  name: CosineWarmup
+  monitor: 'loss-val/dataloader_idx_0'
+  interval: 'step'
+  kwargs:
+    initial_lr: 1e-08
+    num_warmup_steps: 'epoch'
+    num_training_steps: 'all'
 
 model:
   #image_encoder_name : 'openai/clip-vit-base-patch32'
@@ -144,41 +192,27 @@ dataset:
   max_seq_length: 72
   coco:
     data_dir : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/COCO'
-    split_train : './coco_karpathy_train.json'
-    split_val : './coco_karpathy_val.json'
-    split_test : './coco_karpathy_test.json'
+    split_train : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_train.json'
+    split_val : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_val.json'
+    split_test : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_test.json'
   vg:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
   cc3m:
-    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/'
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
   use_subset:
     value: true
     subset_fraction: 0.2
     
 
 
-
-
-  
-  #train_image_dir : 'C:/Users/sadua/OneDrive/Dokumente/Studium/Masterarbeit/Multimodal Learning/data/coco/train2014'
-  #val_image_dir : 'C:/Users/sadua/OneDrive/Dokumente/Studium/Masterarbeit/Multimodal Learning/data/coco/val2014'
-  # dataset_name : 'AC_'
-  # kwargs:
-  #   frame_ids : 'center'
-  #   return_image : True
-  #   return_audio : False
-  #   return_captions_visual : True
-  #   return_captions_auditory : False
-
-
-scheduler:
-  name: SequentialLR
-  kwargs: 
-    milestones: [2]
-  sub_schedulers:
-    - name: 'ReduceROnPlateau'
-      kwargs:
-        num_warmup_steps: 'epoch'
-    - name: 'CosineWarmupHardRestarts'
-      kwargs:
-            T_max: 1000
+# scheduler:
+#   name: SequentialLR
+#   kwargs: 
+#     milestones: [2]
+#   sub_schedulers:
+#     - name: 'ReduceROnPlateau'
+#       kwargs:
+#         num_warmup_steps: 'epoch'
+#     - name: 'CosineWarmupHardRestarts'
+#       kwargs:
+#             T_max: 1000

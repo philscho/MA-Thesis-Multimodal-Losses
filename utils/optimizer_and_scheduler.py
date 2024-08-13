@@ -1,36 +1,34 @@
 import math
 import importlib
-from omegaconf import OmegaConf  #the configs required by functions are based on this
+from omegaconf import OmegaConf  # the configs required by functions are based on this
 
 import torch
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import LambdaLR, LRScheduler
 
-def get_custom_scheduler(optim,trainer,scheduler_cfg,num_warmup_steps='epoch',num_training_steps='all'):
-    
-    if num_warmup_steps == "epoch":
-        num_warmup_steps = trainer.estimated_stepping_batches / trainer.max_epochs
-    if num_training_steps == "all":
-        num_training_steps = trainer.estimated_stepping_batches - num_warmup_steps
-    
-    lr_scheduler_config = {
-        "scheduler": get_custom_cosine_schedule_with_warmup(
-        optimizer, num_warmup_steps=num_warmup_steps, num_training_steps=num_training_steps, **scheduler_cfg.kwargs),
-        "interval": scheduler_cfg.interval
-    }
-    
-    
+
 def get_custom_cosine_schedule_with_warmup(
     optimizer: Optimizer,
     num_warmup_steps: int,
     num_training_steps: int,
-    initial_lr: float
+    initial_lr: float,
 ):
     def lr_lambda(current_step: int):
         if current_step < num_warmup_steps:
             return current_step / num_warmup_steps * (1 - initial_lr) + initial_lr
-        return max(0.0, 0.5 * (1.0 + math.cos(math.pi * (current_step - num_warmup_steps) / (num_training_steps - num_warmup_steps))))
-    
+        return max(
+            0.0,
+            0.5
+            * (
+                1.0
+                + math.cos(
+                    math.pi
+                    * (current_step - num_warmup_steps)
+                    / (num_training_steps - num_warmup_steps)
+                )
+            ),
+        )
+
     return LambdaLR(optimizer, lr_lambda)
 
 
@@ -67,16 +65,13 @@ def get_optimizer(optimizer_config: OmegaConf, params) -> Optimizer:
         )
 
 
-def get_scheduler(
-    scheduler_config: OmegaConf, optim: Optimizer
-) -> LRScheduler:
+def get_scheduler(scheduler_config: OmegaConf, optim: Optimizer) -> LRScheduler:
     """
     Returns a scheduler based on the config.
     The scheduler config should have the following structure.
     """
-    assert scheduler_config.name != 'CosineWarmup'
-    
-    
+    assert scheduler_config.name != "CosineWarmup"
+
     if scheduler_config.name not in ["SequentialLR", "ChainedScheduler"]:
         scheduler_class = get_scheduler_class(scheduler_config.name)
         scheduler = scheduler_class(optimizer=optim, **scheduler_config.kwargs)
@@ -98,6 +93,7 @@ if __name__ == "__main__":
     optimizer:
       name: 'AdamW'
       lr: 0.0002
+      lr: 1.0
       kwargs: 
         betas: [0.99,0.95]
 
@@ -125,6 +121,18 @@ if __name__ == "__main__":
 
     import matplotlib.pyplot as plt
 
+    # scheduler:
+    #   name: SequentialLR
+    #   kwargs:
+    #     milestones: [2]
+    #   sub_schedulers:
+    #     - name: 'ConstantLR'
+    #       kwargs:
+    #         factor: 0.1
+    #     - name: 'CosineAnnealingLR'
+    #       kwargs:
+    #         T_max: 5
+
     config = OmegaConf.create(config)
     print(OmegaConf.to_yaml(config))
 
@@ -132,14 +140,12 @@ if __name__ == "__main__":
     optimizer = get_optimizer(config.optimizer, params=net.parameters())
     scheduler = get_scheduler(config.scheduler, optimizer)
 
-
     # optimizer = torch.optim.AdamW(params=net.parameters(),lr=1.0,betas=[0.99,0.95])
     # scheduler = torch.optim.lr_scheduler.ConstantLR(optimizer,total_iters=3)
     dummy_inputs = torch.randn(32, 100)
 
+    print("starting from :", optimizer.state_dict()["param_groups"][0]["lr"])
 
-    print ('starting from :',optimizer.state_dict()["param_groups"][0]["lr"])
-    
     lrs = []
     with torch.enable_grad():
         for epoch in range(5000):
@@ -148,16 +154,12 @@ if __name__ == "__main__":
             loss = torch.nn.functional.mse_loss(outs, dummy_inputs)
             loss.backward()
             optimizer.step()
-            print (f'Step {epoch} :  {optimizer.state_dict()["param_groups"][0]["lr"]}')            
+            print(f'Step {epoch} :  {optimizer.state_dict()["param_groups"][0]["lr"]}')
             scheduler.step()
             # print(optimizer.state_dict()["param_groups"][0]["lr"])
-            print (f'Step {epoch} :  {scheduler.get_last_lr()[0]}')
+            print(f"Step {epoch} :  {scheduler.get_last_lr()[0]}")
             lrs.append(scheduler.get_last_lr()[0])
-
 
     plt.figure()
     plt.plot(lrs)
-    plt.savefig('/Users/bhavin/Documents/Projects/phillipscholl/multimodal/utils/test.png',bbox_inches='tight')
-
-
-# torch.optim.lr_scheduler.StepLR()
+    plt.savefig("./test.png", bbox_inches="tight")

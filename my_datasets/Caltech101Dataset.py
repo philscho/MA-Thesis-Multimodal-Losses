@@ -1,11 +1,11 @@
+import os
 import torch
 from torchvision.datasets import Caltech101
-from torch.utils.data import Dataset, DataLoader
-import os
-#from transformers import AutoImageProcessor, AutoTokenizer, VisionTextDualEncoderProcessor
+
+
 
 class Caltech101Dataset(Caltech101):
-    def __init__(self, processor=None, transform=None, download=False, root=os.path.expanduser("~/.cache")):
+    def __init__(self, processor=None, transform=None, download=True, root=os.path.expanduser("~/.cache")):
         super().__init__(root=root, download=download)
         #self.dataset = CIFAR10(root=os.path.expanduser("~/.cache"), download=True, train=False)
         self.processor = processor
@@ -17,6 +17,7 @@ class Caltech101Dataset(Caltech101):
     
     def __getitem__(self, idx):
         image, label = super().__getitem__(idx)
+        image = image.convert('RGB')
 
         if self.processor is not None:
             # inputs = self.processor(images=image, 
@@ -30,8 +31,13 @@ class Caltech101Dataset(Caltech101):
             # mask = torch.squeeze(self.labels_tokenized['attention_mask'])
 
             # return img, tokens, token_type, mask, label
-
+            # try:
             image = torch.squeeze(self.processor(images=image, return_tensors="pt")['pixel_values'])
+            # except ValueError:
+            #     print (f"Issue found at {idx} with label {label}")
+            #     import matplotlib.pyplot as plt
+            #     plt.imshow(image)
+            #     plt.savefig(f"./{idx}.jpg")
             return image, label
         else:
             if self.transform:
@@ -39,15 +45,31 @@ class Caltech101Dataset(Caltech101):
             return image, label
 
 
-# image_processor = AutoImageProcessor.from_pretrained('google/vit-base-patch16-224')
-# tokenizer = AutoTokenizer.from_pretrained('google-bert/bert-base-uncased', max_length=64, use_fast=False)
-# processor = VisionTextDualEncoderProcessor(image_processor=image_processor, tokenizer=tokenizer)
 
-# cifar10 = Cifar10_Dataset(processor=processor)
-# print(len(cifar10))
-# img, tokens, token_type, mask, label = cifar10[100]
-# print(cifar10.labels)
-# print(cifar10.labels_tokenized)
-# print(img.shape, tokens.shape, token_type.shape, mask.shape)
-# print(label)
-# print(cifar10.targets)
+if __name__ =='__main__':
+    
+    from transformers import AutoImageProcessor, AutoTokenizer, VisionTextDualEncoderProcessor 
+    from torch.utils.data import Dataset, DataLoader
+    import numpy as np
+    import matplotlib.pyplot as plt
+    plt.style.use('default')
+    
+    
+    image_processor = AutoImageProcessor.from_pretrained('google/vit-base-patch16-224')
+    tokenizer = AutoTokenizer.from_pretrained('google-bert/bert-base-uncased', max_length=64, use_fast=False)
+    processor = VisionTextDualEncoderProcessor(image_processor=image_processor, tokenizer=tokenizer)
+
+    caltech_dataset = Caltech101Dataset(processor=processor)
+    print(len(caltech_dataset))
+    img, label = caltech_dataset[100]
+    print ('--'*20)
+    print(caltech_dataset.labels)
+    print ('--'*20)
+    print(caltech_dataset.labels_tokenized)
+    print ('--'*20)
+    print(img.shape)
+    print ('--'*20)
+    print(label)
+    print ('--'*20)
+    # print(caltech_dataset.targets)
+

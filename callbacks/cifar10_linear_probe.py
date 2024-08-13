@@ -2,8 +2,6 @@
 from typing import Tuple, Union
 
 import torch
-from torch.nn.modules import Linear
-from torch.optim.adam import Adam
 import torch.utils
 import torch.utils.data
 import torch.utils.data.dataloader
@@ -18,39 +16,65 @@ from torchmetrics.classification import (
 )
 from lightning.pytorch.utilities.exceptions import MisconfigurationException
 
+################### sklearn based ? though it is a linear probe with regression and I later implement with crossentropy  ###################
+# import sklearn
+# from sklearn.linear_model import LinearRegression
 
-class LinearProbeCallback(pl.Callback):
+# def get_features_and_labels(net,dataloader):
+
+#     allfeatures = []
+#     alllabels = []
+
+#     net.eval()
+#     for ind, (images,labels) in enumerate(tqdm(dataloader)):
+#         outs = net(images)
+#         allfeatures.append(outs.numpy())
+#         alllabels.append(labels.numpy())
+
+#     allfeatures = np.stack(allfeatures)
+#     alllabels = np.stack(alllabels)
+
+#     assert alllabels.shape[0] == allfeatures.shape[0] == 50_000
+
+#     return allfeatures,alllabels
+
+# Xtrain,ytrain = get_features_and_labels(net,train_loader)
+# reg = LinearRegression().fit(Xtrain,ytrain)
+
+# Xtest,ytest = get_features_and_labels(net,test_loader)
+# loss = reg.score(Xtest,ytest)
+
+
+# TODO: Abstract away the linear probe classifier from the current class. Cifar10 could be only one such dataset
+
+
+class CIFAR10LinearProbeCallback(pl.Callback):
 
     def __init__(
         self,
-        val_dataloader_idx: int,
-        linear_probe: torch.nn.Linear,
-        log_str_prefix: str = "unnameddataset",  # do not include 'linear-probe' in the prefix
-        logging_interval: str = "epoch",
-        log_every: int = 1,
-        confusion_matrix: bool = True,
-        top_k: tuple = (1,),
-        max_epochs: int = 100,
-        tolerance: float = 0.0001,
-        verbose: bool = False,
-        optim: torch.optim = torch.optim.Adam,
-        lossfn: str = "crossentropy",
+        logging_interval : str ="epoch",
+        log_every : int =1,
+        confusion_matrix : bool =True,
+        top_k : tuple =(1,),
+        log_str_prefix : str ="linear-probe-cifar",
+        max_epochs : int =100,
+        tolerance : float=0.0001,
+        verbose : bool = False,
+        optim : torch.optim = torch.optim.Adam,
+        lossfn : str ='crossentropy', 
     ) -> None:
         super().__init__()
 
         self.logging_interval = logging_interval
-
+        
         if logging_interval not in (None, "step", "epoch"):
             raise MisconfigurationException(
                 "logging_interval should be `step` or `epoch` or `None`."
             )
-        if logging_interval == "step":
-            raise NotImplementedError("Not implemented at the step level yet")
+        if logging_interval == 'step' : 
+            raise NotImplementedError('Not implemented at the step level yet')
 
-        self.val_dataloader_idx = val_dataloader_idx
-        self.log_every = (
-            log_every  # currently takes only the dataset name due to legacy issues
-        )
+        self.log_every = log_every
         self.confusion_matrix = confusion_matrix
         self.top_k = top_k
         self.log_str_prefix = log_str_prefix
@@ -59,10 +83,9 @@ class LinearProbeCallback(pl.Callback):
         self.tolerance = tolerance
         self.verbose = verbose
         self.optim = optim
-        self.lossfn = lossfn
-        self.linear_probe = linear_probe
-
-    def run_now_flag(self, trainer: pl.Trainer):
+        self.lossfn=lossfn
+    
+    def run_now_flag(self, trainer : pl.Trainer):
         if self.logging_interval == "epoch":
             run_now_flag = (trainer.current_epoch + 1) % self.log_every == 0
         return run_now_flag
@@ -73,16 +96,16 @@ class LinearProbeCallback(pl.Callback):
 
         if self.run_now_flag(trainer):
             if trainer.is_global_zero:
-                self.trained_linear_probe = create_linear_probe(
+                self.cifar10_linear_probe = create_linear_probe(
                     forward_func=lambda x: pl_module.model.get_image_features(
                         pixel_values=x
                     ),
-                    dataloader=trainer.val_dataloaders[self.val_dataloader_idx],
-                    linear_layer=self.linear_probe,
+                    dataloader=trainer.val_dataloaders[1],
+                    linear_layer=torch.nn.Linear(512,10),
                     max_epochs=self.max_epochs,
                     tolerance=self.tolerance,
                     local_optimizer=self.optim,
-                    verbose=self.verbose,
+                    verbose=self.verbose
                 )
 
     def on_validation_epoch_end(
@@ -95,8 +118,8 @@ class LinearProbeCallback(pl.Callback):
                     forward_func=lambda x: pl_module.model.get_image_features(
                         pixel_values=x
                     ),
-                    classifier=self.trained_linear_probe,
-                    dataloader=trainer.val_dataloaders[self.val_dataloader_idx],
+                    classifier=self.cifar10_linear_probe,
+                    dataloader=trainer.val_dataloaders[1],
                     confusion_matrix=self.confusion_matrix,
                     top_k=self.top_k,
                     verbose=self.verbose,
@@ -106,29 +129,25 @@ class LinearProbeCallback(pl.Callback):
                 for k, v in result.items():
                     if k == "ConfusionMatrix":
                         trainer.logger.log_image(
-                            key=f"linear-probe-{self.log_str_prefix}-confusionmatrix",
+                            key=f"{self.log_str_prefix}-10-confusionmatrix",
                             images=[v],
                             caption=["ConfMatrix"],
                         )
                     else:
-                        self.log(
-                            f"{self.log_str_prefix}-linear-probe-accuracy",
-                            v,
-                            sync_dist=False,
-                        )
+                        self.log("cifar10-linear-probe-accuracy", v, sync_dist=False)
 
 
 def create_linear_probe(
-    forward_func: callable,
-    dataloader: torch.utils.data.DataLoader,
-    linear_layer: Union[torch.utils.data.DataLoader, pl.LightningDataModule],
-    device: str = "cuda",
-    max_epochs: int = 50,
-    tolerance: float = 0.0001,
-    local_optimizer: torch.optim = torch.optim.Adam,
-    local_optimizer_kwargs: dict = {"lr": 0.0001},
-    verbose: bool = False,
-    local_lossfn: str = "crossentropy",
+    forward_func : callable,
+    dataloader : torch.utils.data.DataLoader,
+    linear_layer : Union[torch.utils.data.DataLoader,pl.LightningDataModule],
+    device:str="cuda",
+    max_epochs:int=50,
+    tolerance:float=0.0001,
+    local_optimizer : torch.optim = torch.optim.Adam,
+    local_optimizer_kwargs : dict = {'lr':0.0001},
+    verbose : bool = False,
+    local_lossfn : str ='crossentropy'
 ):
     """
     Creates a linear probe that is trained on the dataloader for crossentropy
@@ -141,15 +160,15 @@ def create_linear_probe(
         max_epochs : number of epochs to finetune the linear probe
         tolerance : threshold at which if the change in loss is not observed, early stopping is triggered. we right now wait for 5 epochs
         local_lossfn : the loss on which to train the linear layer
-
+        
     Returns:
         The trained linear layer
     """
 
     features_dict = []
-    for images, labels in tqdm(dataloader, desc="Getting all the features"):
+    for images,labels in tqdm(dataloader,desc='Getting all the features'):
         feats = forward_func(images.to(device))
-        features_dict.append((feats.detach().cpu(), labels.cpu()))
+        features_dict.append((feats.detach().cpu(),labels.cpu()))
 
     # add linear layer
     # linear_layer = torch.nn.Linear(linear_layer_in_features, num_classes)
@@ -171,25 +190,24 @@ def create_linear_probe(
 
             loss_across_dataset = 0.0
             for _, batch in enumerate(features_dict):
-
+                
                 features, labels = batch
                 localoptim.zero_grad()
                 out = linear_layer(features.to(device))
 
-                if local_lossfn == "crossentropy":
+                if local_lossfn == 'crossentropy':
                     loss = torch.nn.functional.cross_entropy(out, labels.to(device))
                 else:
-                    raise NotImplementedError(
-                        "If you want to use regression methods, you gotta implement it..."
-                    )
-
+                    raise NotImplementedError('If you want to use regression methods, you gotta implement it...')
+                
+                
                 loss_across_dataset += loss
                 loss.backward()
                 localoptim.step()
 
             loss_across_dataset = loss_across_dataset / len(dataloader)
             losses_across_dataset.append(loss_across_dataset.item())
-
+            
             lossdiff = torch.abs(prev_loss - loss_across_dataset)
             if lossdiff < tolerance:  # same value as sklearn's logistic regression
                 num_times_loss_not_changing += 1
@@ -209,28 +227,25 @@ def create_linear_probe(
                     f"CONVERGENCE!! Quitting with loss {loss_across_dataset.item()} after running {epoch} epochs...\n"
                 )
                 break
-
+            
     if verbose:
-        import time  # lazy import
-        import matplotlib.pyplot as plt  # lazy import
-
+        import time #lazy import
+        import matplotlib.pyplot as plt #lazy import
         plt.figure()
         plt.plot(losses_across_dataset)
-        plt.title("Local loss vs Epochs for training the linear layer")
-        plt.xlabel("Epochs")
-        plt.ylabel("Losses")
+        plt.title('Local loss vs Epochs for training the linear layer')
+        plt.xlabel('Epochs')
+        plt.ylabel('Losses')
         plt.legend()
-        plt.savefig(
-            f"log_local_training_{time.strftime('%a, %d %b %Y %H:%M:%S ',time.localtime())}.png"
-        )
+        plt.savefig(f"log_local_training_{time.strftime('%a, %d %b %Y %H:%M:%S ',time.localtime())}.png")
         plt.close()
     return linear_layer.eval()
 
 
 def eval_linear_probe(
-    forward_func: callable,
-    classifier: any,
-    dataloader: Union[torch.utils.data.DataLoader, pl.LightningDataModule],
+    forward_func : callable,
+    classifier : any ,
+    dataloader : Union[torch.utils.data.DataLoader,pl.LightningDataModule],
     top_k: Tuple[int, ...] = (1, 2, 5, 10),
     average: str = "micro",
     device: Union[str, torch.device] = "cuda",
@@ -305,4 +320,5 @@ def eval_linear_probe(
     for k, v in result.items():
         result[k] = v.cpu().numpy().item() if v.dim() == 0 else v.cpu().numpy()
     return result
+
 
