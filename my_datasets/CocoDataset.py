@@ -33,13 +33,12 @@ class CocoDataset(Dataset):
 
         if self.processor is not None:
             inputs = self.processor(images=image, text=caption, padding='max_length', max_length=128, return_tensors="pt")
-            img = torch.squeeze(inputs['pixel_values'])
             if self.transform:
-                img = self.transform(img)
-            tokens = torch.squeeze(inputs['input_ids'])
-            token_type = torch.squeeze(inputs['token_type_ids'])
-            mask = torch.squeeze(inputs['attention_mask'])
-            return img, tokens, token_type, mask
+                inputs['pixel_values'] = self.transform(inputs['pixel_values'].to(torch.uint8))
+                #img = self.transform(img.to(torch.uint8))
+            for key in inputs:
+                inputs[key] = torch.squeeze(inputs[key])
+            return inputs
         else:
             if self.transform:
                 image = self.transform(image)

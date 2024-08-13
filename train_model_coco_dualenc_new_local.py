@@ -57,30 +57,33 @@ def get_datasets(config, processor=None):
     if "coco" in config.dataset.train:
         coco = CocoDataset(config.dataset.coco.split_train, 
                            os.path.join(config.dataset.coco.data_dir, "train2014"), 
-                           #processor=processor,
-                           processor=None,
-                           transform=randaugment)
+                           processor=processor,
+                           #processor=None,
+                           #transform=randaugment
+                           )
         train_datasets.append(coco)
         datasets['coco'] = coco
     if "cc3m" in config.dataset.train:
         cc3m = ConceptualCaptionsDataset(root=config.dataset.cc3m.data_dir,
                                         use_llava_split=True, 
-                                        processor=None, 
-                                        transform=randaugment)
+                                        processor=processor, 
+                                        #transform=randaugment
+                                        )
         train_datasets.append(cc3m)
         datasets['cc3m'] = cc3m
     if "vg" in config.dataset.train:
         vg = VisualGenomeDataset(root=config.dataset.vg.data_dir,
                                  use_llava_split=True,
-                                 processor=None,
-                                 transform=randaugment)
+                                 processor=processor,
+                                 #transform=randaugment
+                                 )
         train_datasets.append(vg)
         datasets['vg'] = vg
     
     if "coco_val" in config.dataset.val:
         coco_val = CocoDataset(config.dataset.coco.split_val,
                                os.path.join(config.dataset.coco.data_dir, "val2014"), 
-                               processor=None)
+                               processor=processor)
         val_datasets.append(coco_val)
         datasets['coco_val'] = coco_val
     if "cifar10_val" in config.dataset.val:
@@ -170,7 +173,13 @@ class LitMML(pl.LightningModule):
         self.save_hyperparameters(ignore=["model", "image_encoder", "text_encoder", "tokenizer"])
     
     def common_step(self, batch):
-        outputs = self.model(**batch)       
+        outputs = self.model(**batch)
+        # outputs = self.model(
+        #     pixel_values=batch['pixel_values'],
+        #     input_ids=batch['input_ids'],
+        #     attention_mask=batch['attention_mask'],
+        #     token_type_ids=batch['token_type_ids'],
+        # )
         # Ouptut embeddings are already normalized
         image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
 
@@ -228,13 +237,15 @@ class LitMML(pl.LightningModule):
             forward_func=lambda x: self.model.get_text_features(input_ids=x),
             classnames=['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck'],
             templates="a photo of a {}",
-            tokenizer=self.processor
+            tokenizer=self.processor,
+            device="cpu"
         )
         self.caltech101_classifier = _create_zero_shot_classifier(
             forward_func=lambda x: self.model.get_text_features(input_ids=x),
             classnames=self.trainer.val_dataloaders[2].dataset.categories,
             templates="a photo of a {}",
-            tokenizer=self.processor
+            tokenizer=self.processor,
+            device="cpu"
         )
 
     
@@ -244,14 +255,16 @@ class LitMML(pl.LightningModule):
             classifier=self.cifar10_classifier,
             dataloader=self.trainer.val_dataloaders[1],
             confusion_matrix=True,
-            top_k=(1,)
+            top_k=(1,),
+            device="cpu"
         )
         caltech_101_result = _evaluate_zero_shot(
             forward_func=lambda x: self.model.get_image_features(pixel_values=x),
             classifier=self.caltech101_classifier,
             dataloader=self.trainer.val_dataloaders[2],
             confusion_matrix=True,
-            top_k=(1,)
+            top_k=(1,),
+            device="cpu"
         )
 
         #TODO: refactor this
@@ -371,7 +384,7 @@ def main(config):
     #dataloaders = get_dataloaders(config, get_datasets(config, processor))
     dataloaders = get_dataloaders(config, 
                                   datasets=get_datasets(config, processor=processor), 
-                                  collate_fn=batch_input_processing_func(processor),
+                                  #collate_fn=batch_input_processing_func(processor),
                                   #processor=processor,
                                   )
     train_dataloader = dataloaders['train_all']
@@ -429,8 +442,8 @@ def main(config):
 
 if __name__ == "__main__":
     
-    cfg_path = "configs/train_config.yaml"
-    #cfg_path = "configs/config_local.yaml"
+    #cfg_path = "configs/train_config.yaml"
+    cfg_path = "configs/config_local.yaml"
 
     config = OmegaConf.load(cfg_path)
     config = OmegaConf.merge(config, OmegaConf.from_cli())
