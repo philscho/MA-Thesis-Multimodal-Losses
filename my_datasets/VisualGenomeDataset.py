@@ -6,6 +6,8 @@ import torch
 from PIL import Image
 import numpy as np
 
+
+
 class VisualGenomeDataset:
     def __init__(self, root, processor=None, transform=None, use_llava_split=False):
         self.root = Path(root)
@@ -13,7 +15,7 @@ class VisualGenomeDataset:
             raise ValueError("Root must be a dir.")
         
         if use_llava_split:
-            self.mapper = pd.read_parquet('/home/data/VG_LLaVA/mapper_LLaVA_clean.parquet')
+            self.mapper = pd.read_parquet(self.root/'mapper_LLaVA_clean.parquet')
         else:
             self.mapper = pd.read_parquet(self.root / 'mapper.parquet')
         self.h5_file = h5py.File(self.root / 'vg.h5', 'r')

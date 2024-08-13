@@ -105,3 +105,87 @@ def _evaluate_zero_shot(forward_func,
 
 def make_batches(data, batch_size):
     return [data[i:i + batch_size] for i in range(0, len(data), batch_size)]
+
+
+
+if __name__ == '__main__':
+    
+    config_str = """
+    
+    model:
+      image_encoder_name : 'google/vit-base-patch16-224'
+      text_encoder_name : 'google-bert/bert-base-uncased'
+      tokenizer :
+        use_fast: False
+
+    dataloader:
+      cifar10_val:
+        batch_size: 256
+        shuffle: False
+        num_workers: 2
+        #persistent_workers: True
+        pin_memory: True
+    
+    """
+    
+    device = torch.device('cuda:0')
+    
+    
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from omegaconf import OmegaConf
+    from torch.utils.data import DataLoader
+    
+    from transformers import (
+        VisionTextDualEncoderModel,
+        VisionTextDualEncoderProcessor,
+        AutoImageProcessor,
+        AutoTokenizer,
+        BertConfig,
+        ViTConfig,
+        VisionTextDualEncoderConfig,
+        optimization
+    )
+
+    from my_datasets import Cifar10Dataset
+    
+    config = OmegaConf.create(config_str)
+    
+    model = VisionTextDualEncoderModel(
+        config=VisionTextDualEncoderConfig.from_vision_text_configs(
+        vision_config=ViTConfig(), 
+        text_config=BertConfig()
+    ))
+    model.eval().to(device)
+
+    processor = VisionTextDualEncoderProcessor(
+        image_processor=AutoImageProcessor.from_pretrained(config.model.image_encoder_name), 
+        tokenizer=AutoTokenizer.from_pretrained(config.model.text_encoder_name, **config.model.tokenizer)
+    )
+   
+   
+    cifar10_val = Cifar10Dataset(processor=processor)
+    cifar10_dataloader = DataLoader(cifar10_val, **config.dataloader.cifar10_val)
+    
+    cifar10_classifier = _create_zero_shot_classifier(
+            # forward_func=self.model.get_text_features,
+            forward_func=lambda x: model.get_text_features(input_ids=x),
+            classnames=['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck'],
+            templates="a photo of a {}",
+            tokenizer=processor
+        )
+    
+    result = _evaluate_zero_shot(
+            forward_func=lambda x: model.get_image_features(pixel_values=x),
+            classifier=cifar10_classifier,
+            dataloader=cifar10_dataloader,
+            confusion_matrix=True,
+            top_k=(1,)
+        )
+    
+    print (*result.keys(),sep='\n')
+    
+    plt.figure(figsize=(5,5))
+    plt.imshow(result['ConfusionMatrix'])
+    plt.colorbar()
+    plt.savefig('test1.png')
