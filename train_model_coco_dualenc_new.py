@@ -107,7 +107,7 @@ def get_datasets(config, processor=None):
         val_datasets.append(coco_val)
         datasets["coco_val"] = coco_val
     if "cifar10_val" in config.dataset.val:
-        cifar10_val = Cifar10Dataset(processor=processor)
+        cifar10_val = Cifar10Dataset(processor=processor,download=True)
         val_datasets.append(cifar10_val)
         datasets["cifar10_val"] = cifar10_val
     if "caltech101_val" in config.dataset.val:

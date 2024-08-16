@@ -6,7 +6,7 @@ import torch
 from PIL import Image
 import numpy as np
 
-
+Image.MAX_IMAGE_PIXELS = None
 
 class VisualGenomeDataset:
     def __init__(self, root, processor=None, transform=None, use_llava_split=False):
