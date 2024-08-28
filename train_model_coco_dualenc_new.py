@@ -48,7 +48,7 @@ from my_datasets import (
 )
 from utils.zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_shot
 from utils.utils import get_custom_cosine_schedule_with_warmup
-from callbacks import LinearProbeCallback
+from callbacks import LinearProbeCallback, ZeroShotCallback
 
 from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
 
@@ -509,12 +509,28 @@ def main(config):
         **config.lightning.caltech101_linear_probe_callback,
     )
 
+    zs_config = config.zeroshot
+    cifar10zeroshot = ZeroShotCallback(
+        dataset_name="cifar10",
+        dataloader=cifar10_val_dataloader,
+        classnames=cifar10_val_dataloader.dataset.classnames,
+        templates=zs_config.templates,
+        tokenizer=processor,
+        text_forward=lambda x: model.get_text_features(input_ids=x),
+        modality_forward=lambda x: model.get_image_features(pixel_values=x),
+        batch_size=config.dataloader.cifar10_val.batch_size,
+        device="cuda",
+        top_k=(1,),
+        confusion_matrix=True
+    )
+
     callbacks = [
         ckpt_callback,
         lr_callback,
         early_stopping,
         cifar10linear,
         caltech101linear,
+        cifar10zeroshot,
     ]
 
     trainer = pl.Trainer(
