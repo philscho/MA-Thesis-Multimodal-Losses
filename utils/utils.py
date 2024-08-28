@@ -1,4 +1,4 @@
-from typing import Tuple, List
+from typing import Tuple, List, Mapping, Optional
 
 import math
 import numpy as np
@@ -11,6 +11,11 @@ from torch.optim.lr_scheduler import LambdaLR
 from torchmultimodal.modules.losses.contrastive_loss_with_temperature import (
     _gather_embeddings_and_labels,
 )
+
+import logging
+
+from lightning.fabric.utilities.rank_zero import rank_prefixed_message, rank_zero_only
+
 
 def get_custom_cosine_schedule_with_warmup(
     optimizer: Optimizer,
@@ -97,3 +102,40 @@ def create_views(
 ) -> Tuple[Tensor]:
     z1, z2 = augmentation(image_batch), augmentation(image_batch)
     return z1, z2
+
+
+class RankedLogger(logging.LoggerAdapter):
+    """ A multi-device friendly logger that prefixes messages with the rank. """
+    def __init__(
+            self,
+            name: str = __name__,
+            rank_zero_only: bool = False,
+            extra: Optional[Mapping[str, object]] = None,
+    ) -> None:
+        """
+        Initialize a new logger.
+
+        Parameters
+        ----------
+        name: str = __name__
+            The name of the logger
+        rank_zero_only: bool = False
+            If True, only log on the main process (rank 0)
+        extra: Optional[Mapping[str, object]] = None
+            Extra information to be added to the log message.
+        """
+        super().__init__(logging.getLogger(name), extra=extra)
+        self.rank_zero_only = rank_zero_only
+
+    def log(self, level: int, msg: str, *args, **kwargs) -> None:
+        if self.isEnabledFor(level):
+            msg, kwargs = self.process(msg, kwargs)
+            current_rank = getattr(rank_zero_only, "rank", None)
+            if current_rank is None:
+                raise RuntimeError("The `rank_zero_only.rank` needs to be set before use")
+            msg = rank_prefixed_message(msg, current_rank)
+            if self.rank_zero_only:
+                if current_rank == 0:
+                    self.logger.log(level, msg, *args, **kwargs)
+            else:
+                self.logger.log(level, msg, *args, **kwargs)

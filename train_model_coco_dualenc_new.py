@@ -46,8 +46,9 @@ from my_datasets import (
     ConceptualCaptionsDataset,
     VisualGenomeDataset,
 )
+from utils.loss_functions import NTXentLoss
 from utils.zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_shot
-from utils.utils import get_custom_cosine_schedule_with_warmup
+from utils.utils import calculate_accuracy, get_custom_cosine_schedule_with_warmup, get_negative_embeddings
 from callbacks import LinearProbeCallback, ZeroShotCallback
 
 from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
@@ -75,7 +76,7 @@ def get_datasets(config, processor=None):
             os.path.join(config.dataset.coco.data_dir, "train2014"),
             # processor=processor,
             processor=None,
-            transform=randaugment,
+            # transform=randaugment,
         )
         train_datasets.append(coco)
         datasets["coco"] = coco
@@ -84,7 +85,7 @@ def get_datasets(config, processor=None):
             root=config.dataset.cc3m.data_dir,
             use_llava_split=False,
             processor=None,
-            transform=randaugment,
+            # transform=randaugment,
         )
         train_datasets.append(cc3m)
         datasets["cc3m"] = cc3m
@@ -93,7 +94,7 @@ def get_datasets(config, processor=None):
             root=config.dataset.vg.data_dir,
             use_llava_split=True,
             processor=None,
-            transform=randaugment,
+            # transform=randaugment,
         )
         train_datasets.append(vg)
         datasets["vg"] = vg
@@ -205,6 +206,7 @@ class LitMML(pl.LightningModule):
         loss_cfg,
         optimizer_cfg,
         scheduler_cfg,
+        augmentation=None,
     ):
         super().__init__()
         self.model = model
@@ -229,12 +231,31 @@ class LitMML(pl.LightningModule):
                 nn.ReLU(),
                 nn.Linear(512, 2),
             )
+        if "SimCLR" in self.loss_cfg.losses:
+            self.simclr_loss = NTXentLoss()
+        self.augmentation = augmentation
         self.save_hyperparameters(
             ignore=["model", "image_encoder", "text_encoder", "tokenizer"]
         )
 
     def common_step(self, batch):
-        outputs = self.model(**batch)       
+        token = batch.input_ids
+        images = batch.pixel_values
+        token_type_ids = batch.token_type_ids
+        attention_mask = batch.attention_mask
+        
+        images_v1 = self.augmentation(images.to(torch.uint8))
+        if "SimCLR" in self.loss_cfg.losses:
+            images_v2 = self.augmentation(images.to(torch.uint8))
+
+        outputs = self.model(
+            pixel_values=images_v1, 
+            input_ids=token, 
+            token_type_ids=token_type_ids, 
+            attention_mask=attention_mask
+        )
+
+        #outputs = self.model(**batch)
         # Ouptut embeddings are already normalized
         image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
 
@@ -243,34 +264,34 @@ class LitMML(pl.LightningModule):
             #loss = clip_contrastive_loss(image_out, text_out, self.loss_cfg.temperature).mean()
             #loss = outputs['loss']
             loss_contrastive = self.contrastive_loss(image_embeds, text_embeds)
-            accuracy_contrastive = self.calculate_accuracy(image_embeds, text_embeds)
+            accuracy_contrastive = calculate_accuracy(image_embeds, text_embeds)
             losses["loss-contrastive"] = loss_contrastive
             metrics["acc-contrastive"] = accuracy_contrastive
             
         #TODO: put loss in seperate function
         if "image_text_matching" in self.loss_cfg.losses:
             bs = image_embeds.size(0)
-            neg_image_embeds, neg_text_embeds = self._neg_embeddings(
-                image_embeds,
-                text_embeds,
-                outputs.logits_per_image,
-                outputs.logits_per_text,
-            )
+            neg_image_embeds, neg_text_embeds = get_negative_embeddings(
+                image_embeds, text_embeds, outputs.logits_per_image, outputs.logits_per_text)
             selection = torch.randint(0, 2, (bs,)).to(image_embeds.device)
-            selected_text_embeds = torch.where(
-                selection.unsqueeze(1) == 0, text_embeds, neg_text_embeds
-            )
-            multimodal_embeds = torch.concat(
-                (image_embeds, selected_text_embeds), dim=1
-            )
+            selected_text_embeds = torch.where(selection.unsqueeze(1) == 0, text_embeds, neg_text_embeds)
+            multimodal_embeds = torch.concat((image_embeds, selected_text_embeds), dim=1)
             logits = self.itm_head(multimodal_embeds)
-            # probs = F.softmax(logits, dim=1)
+            #probs = F.softmax(logits, dim=1)
             loss_matching = self.matching_loss(logits, selection.long())
             preds = logits.argmax(dim=1)
             accuracy_matching = (preds == selection).sum() / len(selection)
-            losses["loss-matching"] = loss_matching
+            losses['loss-matching'] = loss_matching
             metrics["acc-matching"] = accuracy_matching
-
+        
+        if "SimCLR" in self.loss_cfg.losses:
+            image_embeds_v2 = self.model.get_image_features(pixel_values=images_v2)
+            image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
+            loss_simclr = self.simclr_loss(image_embeds, image_embeds_v2, pl_module=self)
+            #accuracy_simclr = calculate_accuracy(z_1, z_2)
+            losses["loss-simclr"] = loss_simclr
+            #metrics["acc-simclr"] = accuracy_simclr
+        
         return losses, metrics
 
     def training_step(self, batch, batch_idx, dataloader_idx=0):
@@ -295,141 +316,88 @@ class LitMML(pl.LightningModule):
         else:
             return None
 
-    def on_validation_epoch_start(self):
-        self.cifar10_classifier = _create_zero_shot_classifier(
-            forward_func=lambda x: self.model.get_text_features(input_ids=x),
-            classnames=[
-                "airplane",
-                "automobile",
-                "bird",
-                "cat",
-                "deer",
-                "dog",
-                "frog",
-                "horse",
-                "ship",
-                "truck",
-            ],
-            templates="a photo of a {}",
-            tokenizer=self.processor,
-        )
-        self.caltech101_classifier = _create_zero_shot_classifier(
-            forward_func=lambda x: self.model.get_text_features(input_ids=x),
-            classnames=self.trainer.val_dataloaders[2].dataset.categories,
-            templates="a photo of a {}",
-            tokenizer=self.processor,
-        )
+    # def on_validation_epoch_start(self):
+    #     self.cifar10_classifier = _create_zero_shot_classifier(
+    #         forward_func=lambda x: self.model.get_text_features(input_ids=x),
+    #         classnames=[
+    #             "airplane",
+    #             "automobile",
+    #             "bird",
+    #             "cat",
+    #             "deer",
+    #             "dog",
+    #             "frog",
+    #             "horse",
+    #             "ship",
+    #             "truck",
+    #         ],
+    #         templates="a photo of a {}",
+    #         tokenizer=self.processor,
+    #     )
+    #     self.caltech101_classifier = _create_zero_shot_classifier(
+    #         forward_func=lambda x: self.model.get_text_features(input_ids=x),
+    #         classnames=self.trainer.val_dataloaders[2].dataset.categories,
+    #         templates="a photo of a {}",
+    #         tokenizer=self.processor,
+    #     )
 
-    def on_validation_epoch_end(self):
-        cifar_10_result = _evaluate_zero_shot(
-            forward_func=lambda x: self.model.get_image_features(pixel_values=x),
-            classifier=self.cifar10_classifier,
-            dataloader=self.trainer.val_dataloaders[1],
-            confusion_matrix=True,
-            top_k=(1,),
-        )
-        caltech_101_result = _evaluate_zero_shot(
-            forward_func=lambda x: self.model.get_image_features(pixel_values=x),
-            classifier=self.caltech101_classifier,
-            dataloader=self.trainer.val_dataloaders[2],
-            confusion_matrix=True,
-            top_k=(1,),
-        )
+    # def on_validation_epoch_end(self):
+    #     cifar_10_result = _evaluate_zero_shot(
+    #         forward_func=lambda x: self.model.get_image_features(pixel_values=x),
+    #         classifier=self.cifar10_classifier,
+    #         dataloader=self.trainer.val_dataloaders[1],
+    #         confusion_matrix=True,
+    #         top_k=(1,),
+    #     )
+    #     caltech_101_result = _evaluate_zero_shot(
+    #         forward_func=lambda x: self.model.get_image_features(pixel_values=x),
+    #         classifier=self.caltech101_classifier,
+    #         dataloader=self.trainer.val_dataloaders[2],
+    #         confusion_matrix=True,
+    #         top_k=(1,),
+    #     )
 
-        # TODO: refactor this
-        for k, v in cifar_10_result.items():
-            if k == "ConfusionMatrix":
-                self.logger.log_image(
-                    key="cifar-10-confusionmatrix", images=[v], caption=["ConfMatrix"]
-                )
-            else:
-                self.log("cifar10-accuracy", v, sync_dist=False)
-        for k, v in caltech_101_result.items():
-            if k == "ConfusionMatrix":
-                self.logger.log_image(
-                    key="caltech-101-confusionmatrix",
-                    images=[v],
-                    caption=["ConfMatrix"],
-                )
-            else:
-                self.log("caltech101-accuracy", v, sync_dist=False)
-
-    def calculate_accuracy(self, images, texts):
-        # all_gpus: global_batch_size, embedding_dim), labels: (local_batch_size)
-        (images_all_gpus, texts_all_gpus, labels) = _gather_embeddings_and_labels(
-            images, texts
-        )
-        # shape: (local_batch_size, global_batch_size)
-        logits_per_image = torch.matmul(images, texts_all_gpus.transpose(0, 1))
-        logits_per_text = torch.matmul(texts, images_all_gpus.transpose(0, 1))
-        acc_per_image = (logits_per_image.argmax(dim=-1) == labels).sum()
-        acc_per_text = (logits_per_text.argmax(dim=-1) == labels).sum()
-        accuracy = (acc_per_image + acc_per_text) / 2 / logits_per_image.size(0)
-        return accuracy
-
-    def _neg_embeddings(
-        self,
-        image_embeds: Tensor,
-        text_embeds: Tensor,
-        similarity_i2t: Tensor,
-        similarity_t2i: Tensor,
-        text_atts: Tensor = None,
-    ) -> Tuple[Tensor, Tensor, Tensor]:
-        with torch.no_grad():
-            bs = image_embeds.size(0)
-            weights_i2t = F.softmax(similarity_i2t[:, :bs], dim=1)
-            weights_t2i = F.softmax(similarity_t2i[:, :bs], dim=1)
-            weights_i2t.fill_diagonal_(0)
-            weights_t2i.fill_diagonal_(0)
-
-        image_embeds_neg, text_embeds_neg, text_atts_neg = [], [], []
-        for b in range(bs):
-            neg_idx = int(torch.multinomial(weights_t2i[b], 1).item())
-            image_embeds_neg.append(image_embeds[neg_idx])
-        image_embeds_neg = torch.stack(image_embeds_neg, dim=0)
-
-        for b in range(bs):
-            neg_idx = int(torch.multinomial(weights_i2t[b], 1).item())
-            text_embeds_neg.append(text_embeds[neg_idx])
-            # text_atts_neg.append(text_atts[neg_idx])   #TODO: implement text attention mask?
-        text_embeds_neg = torch.stack(text_embeds_neg, dim=0)
-        # text_atts_neg = torch.stack(text_atts_neg, dim=0)
-        return image_embeds_neg, text_embeds_neg  # , text_atts_neg
+    #     # TODO: refactor this
+    #     for k, v in cifar_10_result.items():
+    #         if k == "ConfusionMatrix":
+    #             self.logger.log_image(
+    #                 key="cifar-10-confusionmatrix", images=[v], caption=["ConfMatrix"]
+    #             )
+    #         else:
+    #             self.log("cifar10-accuracy", v, sync_dist=False)
+    #     for k, v in caltech_101_result.items():
+    #         if k == "ConfusionMatrix":
+    #             self.logger.log_image(
+    #                 key="caltech-101-confusionmatrix",
+    #                 images=[v],
+    #                 caption=["ConfMatrix"],
+    #             )
+    #         else:
+    #             self.log("caltech101-accuracy", v, sync_dist=False)
 
     def configure_optimizers(self):
-
         optimizer = get_optimizer(self.optimizer_cfg, params=self.parameters())
 
         if self.scheduler_cfg.name is None:
             print("No scheduler provided, using only optimizer")
-            return optimizer
-
-        elif (
-            self.scheduler_cfg.name == "CosineWarmup"
-        ):  # TODO: abstract it out in the schedulers file
-            num_warmup_steps = self.scheduler_cfg.kwargs.pop("num_warmup_steps")
-            num_training_steps = self.scheduler_cfg.kwargs.pop("num_training_steps")
-            if num_warmup_steps == "epoch":
-                num_warmup_steps = (
-                    self.trainer.estimated_stepping_batches / self.trainer.max_epochs
-                )
-            if num_training_steps == "all":
-                num_training_steps = (
-                    self.trainer.estimated_stepping_batches - num_warmup_steps
-                )
-            lr_scheduler_config = {
-                "scheduler": get_custom_cosine_schedule_with_warmup(
-                    optimizer,
-                    num_warmup_steps=num_warmup_steps,
-                    num_training_steps=num_training_steps,
-                    **self.scheduler_cfg.kwargs,
-                ),
-                "interval": self.scheduler_cfg.interval,
-            }
-
+            return optimizer        
         else:
             if self.scheduler_cfg.name == "ReduceLROnPlateau":
                 assert self.scheduler_cfg.monitor is not None
+            if self.scheduler_cfg.name == "CosineWarmup":
+                num_warmup_steps = self.scheduler_cfg.kwargs.pop("num_warmup_steps")
+                num_training_steps = self.scheduler_cfg.kwargs.pop("num_training_steps")
+                if num_warmup_steps == "epoch" and num_training_steps == "all":
+                    num_warmup_steps = (
+                        self.trainer.estimated_stepping_batches / self.trainer.max_epochs
+                    )
+                    num_training_steps = (
+                        self.trainer.estimated_stepping_batches - num_warmup_steps
+                    )
+                self.scheduler_cfg.kwargs.update({
+                    "num_warmup_steps": num_warmup_steps,
+                    "num_training_steps": num_training_steps
+                })
 
             monitor_metric = self.scheduler_cfg.pop("monitor")
             interval = self.scheduler_cfg.pop("interval")
@@ -464,9 +432,9 @@ def main(config):
     caltech101_val_dataloader = dataloaders["caltech101_val"]
     val_dataloaders = [
         coco_val_dataloader,
-        cifar10_val_dataloader,
-        caltech101_val_dataloader,
     ]
+
+    randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
 
     net = LitMML(
         model,
@@ -474,6 +442,7 @@ def main(config):
         loss_cfg=config.loss,
         optimizer_cfg=config.optimizer,
         scheduler_cfg=config.scheduler,
+        augmentation=randaugment,
     )
 
     checkpoint = config.get("resume_checkpoint", None)
@@ -497,13 +466,13 @@ def main(config):
     )
 
     cifar10linear = LinearProbeCallback(
-        val_dataloader_idx=1,
+        dataloader=cifar10_val_dataloader,
         linear_probe=torch.nn.Linear(512, 10),
         log_str_prefix="cifar10",
         **config.lightning.cifar_linear_probe_callback,
     )
     caltech101linear = LinearProbeCallback(
-        val_dataloader_idx=2,
+        dataloader=caltech101_val_dataloader,
         linear_probe=torch.nn.Linear(512, 101),
         log_str_prefix="caltech101",
         **config.lightning.caltech101_linear_probe_callback,
@@ -513,7 +482,8 @@ def main(config):
     cifar10zeroshot = ZeroShotCallback(
         dataset_name="cifar10",
         dataloader=cifar10_val_dataloader,
-        classnames=cifar10_val_dataloader.dataset.classnames,
+        #classnames=cifar10_val_dataloader.dataset.classnames,
+        classnames=['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck'],
         templates=zs_config.templates,
         tokenizer=processor,
         text_forward=lambda x: model.get_text_features(input_ids=x),
@@ -521,7 +491,8 @@ def main(config):
         batch_size=config.dataloader.cifar10_val.batch_size,
         device="cuda",
         top_k=(1,),
-        confusion_matrix=True
+        confusion_matrix=True,
+        #verbose=True
     )
 
     callbacks = [

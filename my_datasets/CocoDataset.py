@@ -44,7 +44,7 @@ class CocoDataset(Dataset):
         else:
             if self.transform:
                 image = self.transform(image)
-                return image, caption
+            return image, caption
   
 
 def load_json(filepath):

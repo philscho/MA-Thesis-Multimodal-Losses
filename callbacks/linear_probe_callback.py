@@ -23,7 +23,7 @@ class LinearProbeCallback(pl.Callback):
 
     def __init__(
         self,
-        val_dataloader_idx: int,
+        dataloader: torch.utils.data.dataloader.DataLoader,
         linear_probe: torch.nn.Linear,
         log_str_prefix: str = "unnameddataset",  # do not include 'linear-probe' in the prefix
         logging_interval: str = "epoch",
@@ -47,7 +47,7 @@ class LinearProbeCallback(pl.Callback):
         if logging_interval == "step":
             raise NotImplementedError("Not implemented at the step level yet")
 
-        self.val_dataloader_idx = val_dataloader_idx
+        self.dataloader = dataloader
         self.log_every = (
             log_every  # currently takes only the dataset name due to legacy issues
         )
@@ -77,7 +77,7 @@ class LinearProbeCallback(pl.Callback):
                     forward_func=lambda x: pl_module.model.get_image_features(
                         pixel_values=x
                     ),
-                    dataloader=trainer.val_dataloaders[self.val_dataloader_idx],
+                    dataloader=self.dataloader,
                     linear_layer=self.linear_probe,
                     max_epochs=self.max_epochs,
                     tolerance=self.tolerance,
@@ -96,7 +96,7 @@ class LinearProbeCallback(pl.Callback):
                         pixel_values=x
                     ),
                     classifier=self.trained_linear_probe,
-                    dataloader=trainer.val_dataloaders[self.val_dataloader_idx],
+                    dataloader=self.dataloader,
                     confusion_matrix=self.confusion_matrix,
                     top_k=self.top_k,
                     verbose=self.verbose,
@@ -300,7 +300,7 @@ def eval_linear_probe(
 
     result = metric.compute()
     if verbose:
-        print(f"ZS result {result}")
+        print(f"Linear probe result {result}")
 
     for k, v in result.items():
         result[k] = v.cpu().numpy().item() if v.dim() == 0 else v.cpu().numpy()
