@@ -7,31 +7,6 @@ from torch.optim import Optimizer
 from torch.optim.lr_scheduler import LambdaLR, LRScheduler
 
 
-def get_custom_cosine_schedule_with_warmup(
-    optimizer: Optimizer,
-    num_warmup_steps: int,
-    num_training_steps: int,
-    initial_lr: float,
-):
-    def lr_lambda(current_step: int):
-        if current_step < num_warmup_steps:
-            return current_step / num_warmup_steps * (1 - initial_lr) + initial_lr
-        return max(
-            0.0,
-            0.5
-            * (
-                1.0
-                + math.cos(
-                    math.pi
-                    * (current_step - num_warmup_steps)
-                    / (num_training_steps - num_warmup_steps)
-                )
-            ),
-        )
-
-    return LambdaLR(optimizer, lr_lambda)
-
-
 def get_optimizer_class(optim_name: str) -> Optimizer:
     """
     Get the optmizer instance from pytorch
@@ -70,12 +45,14 @@ def get_scheduler(scheduler_config: OmegaConf, optim: Optimizer) -> LRScheduler:
     Returns a scheduler based on the config.
     The scheduler config should have the following structure.
     """
-    assert scheduler_config.name != "CosineWarmup"
-
     if scheduler_config.name not in ["SequentialLR", "ChainedScheduler"]:
-        scheduler_class = get_scheduler_class(scheduler_config.name)
-        scheduler = scheduler_class(optimizer=optim, **scheduler_config.kwargs)
-        return scheduler
+        if scheduler_config.name == "CosineWarmup":
+            return get_custom_cosine_schedule_with_warmup(
+                    optimizer=optim, **scheduler_config.kwargs)
+        else:
+            scheduler_class = get_scheduler_class(scheduler_config.name)
+            scheduler = scheduler_class(optimizer=optim, **scheduler_config.kwargs)
+            return scheduler
     else:
         outerscheduler = get_scheduler_class(scheduler_config.name)
         all_sub_schedulers = [
@@ -84,6 +61,27 @@ def get_scheduler(scheduler_config: OmegaConf, optim: Optimizer) -> LRScheduler:
         return outerscheduler(
             optimizer=optim, schedulers=all_sub_schedulers, **scheduler_config.kwargs
         )
+
+
+def get_custom_cosine_schedule_with_warmup(
+    optimizer: Optimizer,
+    num_warmup_steps: int,
+    num_training_steps: int,
+    initial_lr: float,
+):
+    def lr_lambda(current_step: int):
+        if current_step < num_warmup_steps:
+            return current_step / num_warmup_steps * (1 - initial_lr) + initial_lr
+        return max(
+            0.0,
+            0.5 * (1.0 + math.cos(math.pi * 
+            (current_step - num_warmup_steps) / (num_training_steps - num_warmup_steps)))
+        )
+    
+    return LambdaLR(optimizer, lr_lambda)
+
+
+
 
 
 if __name__ == "__main__":

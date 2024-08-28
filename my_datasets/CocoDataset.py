@@ -6,11 +6,13 @@ import os
 import json
 
 class CocoDataset(Dataset):
-    def __init__(self, split_file, image_dir, processor, transform=None):
+    def __init__(self, split_file, image_dir, processor, transform=None, simclr=False):
         self.image_dir = image_dir
         self.processor = processor
         self.transform = transform
+        self.simclr = simclr
         #self.split = load_json(split_file)
+
         with open(split_file, 'r') as file:
             self.split = [json.loads(line.strip()) for line in file]
 
@@ -42,7 +44,7 @@ class CocoDataset(Dataset):
         else:
             if self.transform:
                 image = self.transform(image)
-            return image, caption
+                return image, caption
   
 
 def load_json(filepath):

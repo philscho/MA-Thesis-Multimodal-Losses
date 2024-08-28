@@ -10,6 +10,7 @@ class Cifar10Dataset(CIFAR10):
         #self.dataset = CIFAR10(root=os.path.expanduser("~/.cache"), download=True, train=False)
         self.processor = processor
         self.transform = transform
+        self.classnames = self.classes
         self.labels = [f"a photo of a {c}" for c in self.classes]
         if self.processor:
             self.labels_tokenized = self.processor(text=self.labels, padding='max_length', return_tensors='pt')
@@ -38,15 +39,22 @@ class Cifar10Dataset(CIFAR10):
             return image, label
 
 
-# image_processor = AutoImageProcessor.from_pretrained('google/vit-base-patch16-224')
-# tokenizer = AutoTokenizer.from_pretrained('google-bert/bert-base-uncased', max_length=64, use_fast=False)
-# processor = VisionTextDualEncoderProcessor(image_processor=image_processor, tokenizer=tokenizer)
 
-# cifar10 = Cifar10_Dataset(processor=processor)
-# print(len(cifar10))
-# img, tokens, token_type, mask, label = cifar10[100]
-# print(cifar10.labels)
-# print(cifar10.labels_tokenized)
-# print(img.shape, tokens.shape, token_type.shape, mask.shape)
-# print(label)
-# print(cifar10.targets)
+
+if __name__ == "__main__":
+    from transformers import AutoImageProcessor, AutoTokenizer, VisionTextDualEncoderProcessor
+    
+    image_processor = AutoImageProcessor.from_pretrained('google/vit-base-patch16-224')
+    tokenizer = AutoTokenizer.from_pretrained('google-bert/bert-base-uncased', max_length=64, use_fast=False)
+    processor = VisionTextDualEncoderProcessor(image_processor=image_processor, tokenizer=tokenizer)
+
+    cifar10 = Cifar10Dataset()
+    print(cifar10.classnames)
+    
+    # print(len(cifar10))
+    # img, tokens, token_type, mask, label = cifar10[100]
+    # print(cifar10.labels)
+    # print(cifar10.labels_tokenized)
+    # print(img.shape, tokens.shape, token_type.shape, mask.shape)
+    # print(label)
+    # print(cifar10.targets)

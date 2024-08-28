@@ -1,15 +1,12 @@
 #resume_checkpoint: '/home/phisch/multimodal/models/cliplike/ckpts/5m917c9w/last.ckpt'
 
-
 save_dir: './models/cliplike/'
-
-
 
 # wandb args
 wandb:
   offline: True
   #name: 
-  tags : ['clip', 'coco', 'vg', 'cc', 'cifar10','pretrained weights']
+  tags : ['clip', 'coco', 'vg', 'cc', 'cifar10', 'pretrained weights']
   #group: 'debug'
   group: 'test'
   #group: 'run'
@@ -20,7 +17,6 @@ wandb:
   #id: 5m917c9w
 
 
-
 lightning:
   seed : 69
   trainer:
@@ -28,7 +24,7 @@ lightning:
     #overfit_batches: 5 #5
     val_check_interval: 1 #0.3
     log_every_n_steps: 1 #4 #5 #10
-    #devices: 2  #[0,1] #[3] #[0, 1]
+    #devices: 2  #[01] #[3] #[0 1]
     accelerator: 'auto'
     #strategy: 'ddp' #'ddp_find_unused_parameters_true'
     deterministic: True
@@ -47,9 +43,32 @@ lightning:
     confusion_matrix: True
     verbose: False
     max_epochs: 400
+  cifar_zeroshot_callback:
+    use_subset: True
+    subset_fraction: 0.01
 
 gradient_checkpointing: True
 
+zeroshot:
+  templates:
+    - 'a photo of a {}.'
+    - 'a blurry photo of a {}.'
+    - 'a black and white photo of a {}.'
+    - 'a low contrast photo of a {}.'
+    - 'a high contrast photo of a {}.'
+    - 'a bad photo of a {}.'
+    - 'a good photo of a {}.'
+    - 'a photo of a small {}.'
+    - 'a photo of a big {}.'
+    - 'a photo of the {}.'
+    - 'a blurry photo of the {}.'
+    - 'a black and white photo of the {}.'
+    - 'a low contrast photo of the {}.'
+    - 'a high contrast photo of the {}.'
+    - 'a bad photo of the {}.'
+    - 'a good photo of the {}.'
+    - 'a photo of the small {}.'
+    - 'a photo of the big {}.'
 
 dataloader:
   train:
@@ -88,10 +107,14 @@ loss:
   losses:
     - 'contrastive'
     - 'image_text_matching'
+    - 'SimCLR'
   contrastive:
   #  temperature : 1.
   image_text_matching:
     arg1: ''
+  simclr:
+    # temperature:
+    # learn_temperature: True
 
 
 
@@ -100,21 +123,29 @@ optimizer:
   lr: 1e-04
   kwargs:
     weight_decay : 0.005
-    betas : [0.9,0.95]
+    betas : [0.90, 0.95]
 
 
+# scheduler:
+#   name:
+#     - 'CosineWarmup'
+#     #- 'CosineWarmupHardRestarts'
+#   kwargs:
+#     #T_max : 1000
+#     num_warmup_steps: 'epoch'
+#     num_training_steps: 'all' #20000
+#     #num_cycles: 10
+#     initial_lr: 1e-08
+#  interval: "step"
 
 scheduler:
-  name:
-    - 'CosineWarmup'
-    #- 'CosineWarmupHardRestarts'
+  name: CosineWarmup
+  monitor: 'loss-val/dataloader_idx_0'
+  interval: 'step'
   kwargs:
-    #T_max : 1000
-    num_warmup_steps: 'epoch'
-    num_training_steps: 'all' #20000
-    #num_cycles: 10
     initial_lr: 1e-08
-  interval: "step"
+    num_warmup_steps: 'epoch'
+    num_training_steps: 'all'
 
 
 
