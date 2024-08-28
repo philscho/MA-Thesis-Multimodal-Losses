@@ -486,7 +486,7 @@ def main(config):
         classnames=['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck'],
         templates=zs_config.templates,
         tokenizer=processor,
-        text_forward=lambda x: model.get_text_features(input_ids=x),
+        text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
         modality_forward=lambda x: model.get_image_features(pixel_values=x),
         batch_size=config.dataloader.cifar10_val.batch_size,
         device="cuda",

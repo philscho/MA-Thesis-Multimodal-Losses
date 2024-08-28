@@ -110,9 +110,11 @@ def _create_zero_shot_classifier(forward_func,
 
             if tokenizer is not None:
                 #texts = tokenizer(texts).to(device)  # tokenize Shape: batch_size * num_tokens x context_length
-                texts = tokenizer(text=texts, padding=True, truncation=True, return_tensors="pt")['input_ids'].to(device).squeeze_()  # tokenize Shape: batch_size * num_tokens x context_length
+                input = tokenizer(text=texts, padding=True, truncation=True, return_tensors="pt")
+                texts = input['input_ids'].to(device).squeeze_()  # tokenize Shape: batch_size * num_tokens x context_length
+                mask = input['attention_mask'].to(device).squeeze_()
 
-            class_embeddings = forward_func(texts)  # batch_size * num_tokens x embedding_dim
+            class_embeddings = forward_func(texts, mask)  # batch_size * num_tokens x embedding_dim
             #class_embeddings = forward_func(input_ids=texts)  # batch_size * num_tokens x embedding_dim
             # forward_func(texts) => forward_func(input_ids=texts)
 
