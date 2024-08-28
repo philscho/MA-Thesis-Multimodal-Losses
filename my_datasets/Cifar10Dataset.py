@@ -38,6 +38,12 @@ class Cifar10Dataset(CIFAR10):
             return image, label
 
 
+
+
+if __name__ == "main":
+    pass
+    # dataset = Cifar10Dataset(download=True, root="/scratch/vihps/vihps19/datasets/cifar10")
+
 # image_processor = AutoImageProcessor.from_pretrained('google/vit-base-patch16-224')
 # tokenizer = AutoTokenizer.from_pretrained('google-bert/bert-base-uncased', max_length=64, use_fast=False)
 # processor = VisionTextDualEncoderProcessor(image_processor=image_processor, tokenizer=tokenizer)

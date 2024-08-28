@@ -28,8 +28,8 @@ lightning:
     #overfit_batches: 5 #5
     val_check_interval: 0.3
     log_every_n_steps: 4 #5 #10
-    devices: 2  #[0,1] #[3] #[0, 1]
-    accelerator: 'auto'
+    devices: 8  #[0,1] #[3] #[0, 1]
+    accelerator: 'gpu'
     strategy: 'ddp' #'ddp_find_unused_parameters_true'
     deterministic: True
     precision: '16-mixed'
@@ -179,8 +179,8 @@ model:
 dataset:
   train:
     - 'coco'
-    - 'vg'
-    - 'cc3m'
+    #- 'vg'
+    #- 'cc3m'
   val:
     - 'coco_val'
     - 'cifar10_val'
@@ -191,14 +191,21 @@ dataset:
       magnitude: 8
   max_seq_length: 72
   coco:
-    data_dir : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/COCO'
-    split_train : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_train.json'
-    split_val : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_val.json'
-    split_test : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_test.json'
+    data_dir : '/scratch/vihps/vihps19/datasets/coco'
+    split_train : '/home/vihps/vihps19/multimodal/my_datasets/coco_karpathy_train.json'
+    split_val : '/home/vihps/vihps19/multimodal/my_datasets/coco_karpathy_val.json'
+    split_test : '/home/vihps/vihps19/multimodal/my_datasets/coco_karpathy_test.json'
   vg:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
   cc3m:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
+  cifar10 :
+    root : '/scratch/vihps/vihps19/datasets/cifar10'
+    #download : True
+  caltech101 :
+    root : '/scratch/vihps/vihps19/datasets/caltech101'
+    #download : True
+  
   use_subset:
     value: true
     subset_fraction: 0.2

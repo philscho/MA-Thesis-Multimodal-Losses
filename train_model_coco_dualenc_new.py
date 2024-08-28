@@ -107,11 +107,17 @@ def get_datasets(config, processor=None):
         val_datasets.append(coco_val)
         datasets["coco_val"] = coco_val
     if "cifar10_val" in config.dataset.val:
-        cifar10_val = Cifar10Dataset(processor=processor)
+        cifar10_val = Cifar10Dataset(
+            processor=processor,
+            **config.dataset.cifar10,
+        )
         val_datasets.append(cifar10_val)
         datasets["cifar10_val"] = cifar10_val
     if "caltech101_val" in config.dataset.val:
-        caltech101_val = Caltech101Dataset(processor=processor)
+        caltech101_val = Caltech101Dataset(
+            processor=processor,
+            **config.dataset.caltech101,
+        )
         val_datasets.append(caltech101_val)
         datasets["caltech101_val"] = caltech101_val
 
@@ -534,8 +540,13 @@ def main(config):
 
 if __name__ == "__main__":
 
-    cfg_path = "./configs/train_config.yaml"
+    # from torch.utils.collect_env import get_pretty_env_info
+    # if rank_zero_only.rank == 0:
+    #     print(get_pretty_env_info())
+
+    # cfg_path = "./configs/train_config.yaml"
     # cfg_path = "configs/config_local.yaml"
+    cfg_path = "./configs/config_HLR.yaml"
 
     config = OmegaConf.load(cfg_path)
     config = OmegaConf.merge(config, OmegaConf.from_cli())
@@ -544,10 +555,11 @@ if __name__ == "__main__":
     # config.wandb.offline = True
 
     # print the final values and go...
-    print("--" * 30)
-    print("Config for the run : ")
-    print("--" * 30)
-    print(OmegaConf.to_yaml(config))
-    print("--" * 30)
+    if rank_zero_only.rank == 0:
+        print("--" * 30)
+        print("Config for the run : ")
+        print("--" * 30)
+        print(OmegaConf.to_yaml(config))
+        print("--" * 30)
 
     main(config)

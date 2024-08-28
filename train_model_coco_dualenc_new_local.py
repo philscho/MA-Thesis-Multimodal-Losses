@@ -442,8 +442,8 @@ def main(config):
 
 if __name__ == "__main__":
     
-    #cfg_path = "configs/train_config.yaml"
-    cfg_path = "configs/config_local.yaml"
+    cfg_path = "configs/train_config.yaml"
+    #cfg_path = "configs/config_local.yaml"
 
     config = OmegaConf.load(cfg_path)
     config = OmegaConf.merge(config, OmegaConf.from_cli())
