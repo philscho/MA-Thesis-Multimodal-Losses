@@ -73,27 +73,28 @@ dataloader:
     batch_size : 2048 #896 #960 #1024 #256 #180
     num_workers : 2
     persistent_workers : True
-    pin_memory: True
+    #pin_memory: True
   
   cifar10_val:
     batch_size: 512
     shuffle: False
     num_workers: 2
     #persistent_workers: True
-    pin_memory: True
+    #pin_memory: True
 
   caltech101_val:
     batch_size: 512
     shuffle: False
     num_workers: 2
     #persistent_workers: True
-    pin_memory: True
+    #pin_memory: True
 
 
 loss:
   losses:
     - 'contrastive'
-    # - 'image_text_matching'
+    - 'image_text_matching'
+    - 'SimCLR'
   contrastive:
   #  temperature : 1.
   image_text_matching:

@@ -139,3 +139,10 @@ class RankedLogger(logging.LoggerAdapter):
                     self.logger.log(level, msg, *args, **kwargs)
             else:
                 self.logger.log(level, msg, *args, **kwargs)
+
+
+def print_memory_usage(stage):
+    #if rank_zero_only.rank == 0:
+        print(f"{stage}:")
+        print(f"Allocated: {torch.cuda.memory_allocated() / (1024 ** 2):.2f} MB")
+        print(f"Reserved: {torch.cuda.memory_reserved() / (1024 ** 2):.2f} MB\n")

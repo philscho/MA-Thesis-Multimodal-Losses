@@ -3,20 +3,7 @@
 from typing import Tuple
 import os
 
-from omegaconf import OmegaConf
-import numpy as np
-
-import torch
-from torch import nn, Tensor
-import torch.nn.functional as F
-from torch.utils.data import DataLoader, ConcatDataset
-from torchvision import transforms
-from torchmultimodal.modules.losses.contrastive_loss_with_temperature import (
-    ContrastiveLossWithTemperature,
-    contrastive_loss_with_temperature,
-    _gather_embeddings_and_labels,
-)
-
+from dotenv import load_dotenv
 import lightning as pl
 from lightning.pytorch import seed_everything
 from lightning.pytorch.loggers import WandbLogger
@@ -27,7 +14,16 @@ from lightning.pytorch.callbacks import (
     EarlyStopping,
 )
 from lightning.pytorch.utilities import rank_zero_only
-
+import torch
+from torch import nn, Tensor
+import torch.nn.functional as F
+from torch.utils.data import DataLoader, ConcatDataset
+from torchvision import transforms
+from torchmultimodal.modules.losses.contrastive_loss_with_temperature import (
+    ContrastiveLossWithTemperature,
+    contrastive_loss_with_temperature,
+    _gather_embeddings_and_labels,
+)
 from transformers import (
     VisionTextDualEncoderModel,
     VisionTextDualEncoderProcessor,
@@ -38,7 +34,10 @@ from transformers import (
     VisionTextDualEncoderConfig,
     optimization,
 )
+import numpy as np
+from omegaconf import OmegaConf
 
+from callbacks import LinearProbeCallback, ZeroShotCallback
 from my_datasets import (
     Caltech101Dataset,
     CocoDataset,
@@ -46,137 +45,16 @@ from my_datasets import (
     ConceptualCaptionsDataset,
     VisualGenomeDataset,
 )
+from data_module import MyDataModule
 from utils.loss_functions import NTXentLoss
-from utils.zero_shot_func import _create_zero_shot_classifier, _evaluate_zero_shot
-from utils.utils import calculate_accuracy, get_custom_cosine_schedule_with_warmup, get_negative_embeddings
-from callbacks import LinearProbeCallback, ZeroShotCallback
-
+from utils.utils import (
+    calculate_accuracy, get_custom_cosine_schedule_with_warmup, 
+    get_negative_embeddings, print_memory_usage,
+)
 from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
-
-from dotenv import load_dotenv
 
 load_dotenv()
 
-
-def get_datasets(config, processor=None):
-
-    # image_transforms = transforms.Compose([
-    #         transforms.RandomHorizontalFlip(),
-    #         transforms.ColorJitter(brightness=.5, contrast=.2, saturation=.3, hue=.2),
-    #         transforms.GaussianBlur(kernel_size=(5, 9), sigma=(0.1, 5.))
-    # ])
-    randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
-
-    datasets = {}
-    train_datasets, val_datasets = [], []
-
-    if "coco" in config.dataset.train:
-        coco = CocoDataset(
-            config.dataset.coco.split_train,
-            os.path.join(config.dataset.coco.data_dir, "train2014"),
-            # processor=processor,
-            processor=None,
-            # transform=randaugment,
-        )
-        train_datasets.append(coco)
-        datasets["coco"] = coco
-    if "cc3m" in config.dataset.train:
-        cc3m = ConceptualCaptionsDataset(
-            root=config.dataset.cc3m.data_dir,
-            use_llava_split=False,
-            processor=None,
-            # transform=randaugment,
-        )
-        train_datasets.append(cc3m)
-        datasets["cc3m"] = cc3m
-    if "vg" in config.dataset.train:
-        vg = VisualGenomeDataset(
-            root=config.dataset.vg.data_dir,
-            use_llava_split=True,
-            processor=None,
-            # transform=randaugment,
-        )
-        train_datasets.append(vg)
-        datasets["vg"] = vg
-
-    if "coco_val" in config.dataset.val:
-        coco_val = CocoDataset(
-            config.dataset.coco.split_val,
-            os.path.join(config.dataset.coco.data_dir, "val2014"),
-            processor=None,
-        )
-        val_datasets.append(coco_val)
-        datasets["coco_val"] = coco_val
-    if "cifar10_val" in config.dataset.val:
-        cifar10_val = Cifar10Dataset(
-            processor=processor,
-            **config.dataset.cifar10,
-        )
-        val_datasets.append(cifar10_val)
-        datasets["cifar10_val"] = cifar10_val
-    if "caltech101_val" in config.dataset.val:
-        caltech101_val = Caltech101Dataset(
-            processor=processor,
-            **config.dataset.caltech101,
-        )
-        val_datasets.append(caltech101_val)
-        datasets["caltech101_val"] = caltech101_val
-
-    train_all = ConcatDataset(train_datasets)
-    if config.dataset.use_subset.value == True:
-        num_samples = int(
-            np.floor(len(train_all) * config.dataset.use_subset.subset_fraction)
-        )
-        indices = np.random.default_rng(seed=42).choice(
-            len(train_all) + 1,
-            size=num_samples,
-            replace=False,
-        )
-        print(f"Using a {config.dataset.use_subset.subset_fraction} subset of dataset")
-        train_all = torch.utils.data.Subset(train_all, indices=indices)
-
-    datasets["train_all"] = train_all
-    datasets["val_all"] = val_datasets
-    return datasets
-
-
-def collate_fn(batch, processor):
-    images, text = zip(*batch)
-    return processor(
-        images=images, text=text, padding=True, truncation=True, return_tensors="pt"
-    )
-
-
-# def batch_input_processing_func(processor):
-#     # Return a lambda that calls the top-level collate_fn with the processor
-#     return lambda batch: collate_fn(batch, processor)
-
-
-def batch_input_processing_func(processor):
-    def collate_fn(batch):
-        images, text = zip(*batch)
-        return processor(
-            images=images, text=text, padding=True, truncation=True, return_tensors="pt"
-        )
-
-    return collate_fn
-
-
-def get_dataloaders(config, datasets, collate_fn=None):
-    dataloaders = {}
-    dataloaders["train_all"] = DataLoader(
-        datasets["train_all"], collate_fn=collate_fn, **config.dataloader.train
-    )
-    dataloaders["coco_val"] = DataLoader(
-        datasets["coco_val"], collate_fn=collate_fn, **config.dataloader.coco_val
-    )
-    dataloaders["cifar10_val"] = DataLoader(
-        datasets["cifar10_val"], **config.dataloader.cifar10_val
-    )
-    dataloaders["caltech101_val"] = DataLoader(
-        datasets["caltech101_val"], **config.dataloader.caltech101_val
-    )
-    return dataloaders
 
 
 def get_models(config):
@@ -214,14 +92,19 @@ class LitMML(pl.LightningModule):
         self.loss_cfg = loss_cfg
         self.optimizer_cfg = optimizer_cfg
         self.scheduler_cfg = scheduler_cfg
-        self.contrastive_loss = ContrastiveLossWithTemperature()
         self.model.logit_scale.requires_grad = False
-        # self.matching_loss = nn.BCEWithLogitsLoss()
         # self.validation_step_outputs = []
-        self.cifar_results = []
         # self.temperature = temperature
         # self.learning_rate = learning_rate
-        self.cifar10_classifier = None
+        self.augmentation = augmentation
+        self.save_hyperparameters(
+            ignore=["model", "image_encoder", "text_encoder", "tokenizer"]
+        )
+        self._set_loss_functions(loss_cfg)
+
+    def _set_loss_functions(self, loss_cfg):
+        self.contrastive_loss = ContrastiveLossWithTemperature()
+
         if "image_text_matching" in self.loss_cfg.losses:
             self.matching_loss = nn.CrossEntropyLoss()
             self.itm_head = nn.Sequential(
@@ -233,21 +116,20 @@ class LitMML(pl.LightningModule):
             )
         if "SimCLR" in self.loss_cfg.losses:
             self.simclr_loss = NTXentLoss()
-        self.augmentation = augmentation
-        self.save_hyperparameters(
-            ignore=["model", "image_encoder", "text_encoder", "tokenizer"]
-        )
 
     def common_step(self, batch):
+        print_memory_usage("Beginning of step:")
         token = batch.input_ids
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
         attention_mask = batch.attention_mask
         
+        print_memory_usage("After loading batch:")
         images_v1 = self.augmentation(images.to(torch.uint8))
         if "SimCLR" in self.loss_cfg.losses:
             images_v2 = self.augmentation(images.to(torch.uint8))
 
+        print_memory_usage("After augmenting images:")
         outputs = self.model(
             pixel_values=images_v1, 
             input_ids=token, 
@@ -255,6 +137,7 @@ class LitMML(pl.LightningModule):
             attention_mask=attention_mask
         )
 
+        print_memory_usage("After model forward pass:")
         #outputs = self.model(**batch)
         # Ouptut embeddings are already normalized
         image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
@@ -267,7 +150,8 @@ class LitMML(pl.LightningModule):
             accuracy_contrastive = calculate_accuracy(image_embeds, text_embeds)
             losses["loss-contrastive"] = loss_contrastive
             metrics["acc-contrastive"] = accuracy_contrastive
-            
+        
+        print_memory_usage("After calculating contrastive loss:")
         #TODO: put loss in seperate function
         if "image_text_matching" in self.loss_cfg.losses:
             bs = image_embeds.size(0)
@@ -283,7 +167,8 @@ class LitMML(pl.LightningModule):
             accuracy_matching = (preds == selection).sum() / len(selection)
             losses['loss-matching'] = loss_matching
             metrics["acc-matching"] = accuracy_matching
-        
+
+        print_memory_usage("After calculating matching loss:")
         if "SimCLR" in self.loss_cfg.losses:
             image_embeds_v2 = self.model.get_image_features(pixel_values=images_v2)
             image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
@@ -292,29 +177,29 @@ class LitMML(pl.LightningModule):
             losses["loss-simclr"] = loss_simclr
             #metrics["acc-simclr"] = accuracy_simclr
         
+        print_memory_usage("After calculating SimCLR loss:")
         return losses, metrics
 
     def training_step(self, batch, batch_idx, dataloader_idx=0):
         losses, metrics = self.common_step(batch)
         loss = sum(losses.values()) / len(losses)
         self.log("loss-train", loss, sync_dist=True, prog_bar=True)
-        for d in [losses, metrics]:
-            for name, val in d.items():
-                self.log(f"{name}-train", val, sync_dist=True)
         self.log(f"temperature", self.contrastive_loss.logit_scale)
+        self._log_losses_and_metrics(losses, metrics)
         return loss
 
     def validation_step(self, batch, batch_idx, dataloader_idx=0):
-        if dataloader_idx == 0:
-            losses, metrics = self.common_step(batch)
-            loss = sum(losses.values()) / len(losses)
-            self.log("loss-val", loss, sync_dist=True, prog_bar=True)
-            for d in [losses, metrics]:
-                for name, val in d.items():
-                    self.log(f"{name}-val", val, sync_dist=True)
-            return loss
-        else:
-            return None
+        losses, metrics = self.common_step(batch)
+        loss = sum(losses.values()) / len(losses)
+        self.log("loss-val", loss, sync_dist=True, prog_bar=True)
+        self._log_losses_and_metrics(losses, metrics)
+        return loss
+                
+    def _log_losses_and_metrics(self, losses, metrics):
+        for d in [losses, metrics]:
+            for name, val in d.items():
+                self.log(f"{name}-val", val, sync_dist=True)
+
 
     # def on_validation_epoch_start(self):
     #     self.cifar10_classifier = _create_zero_shot_classifier(
@@ -377,6 +262,7 @@ class LitMML(pl.LightningModule):
 
     def configure_optimizers(self):
         optimizer = get_optimizer(self.optimizer_cfg, params=self.parameters())
+        return optimizer
 
         if self.scheduler_cfg.name is None:
             print("No scheduler provided, using only optimizer")
@@ -419,6 +305,8 @@ def main(config):
     torch.set_float32_matmul_precision("medium")
 
     model, processor = get_models(config)
+
+    data_module = MyDataModule(config, processor)
 
     dataloaders = get_dataloaders(
         config,
@@ -519,8 +407,9 @@ def main(config):
 
     trainer.fit(
         net,
-        train_dataloaders=train_dataloader,
-        val_dataloaders=val_dataloaders,
+        # train_dataloaders=train_dataloader,
+        # val_dataloaders=val_dataloaders,
+        datamodule=data_module,
         ckpt_path=checkpoint,
     )
 
