@@ -1,8 +1,5 @@
 # %%
 
-from typing import Tuple
-import os
-
 from dotenv import load_dotenv
 import lightning as pl
 from lightning.pytorch import seed_everything
@@ -15,15 +12,8 @@ from lightning.pytorch.callbacks import (
 )
 from lightning.pytorch.utilities import rank_zero_only
 import torch
-from torch import nn, Tensor
-import torch.nn.functional as F
-from torch.utils.data import DataLoader, ConcatDataset
 from torchvision import transforms
-from torchmultimodal.modules.losses.contrastive_loss_with_temperature import (
-    ContrastiveLossWithTemperature,
-    contrastive_loss_with_temperature,
-    _gather_embeddings_and_labels,
-)
+
 from transformers import (
     VisionTextDualEncoderModel,
     VisionTextDualEncoderProcessor,
@@ -34,25 +24,11 @@ from transformers import (
     VisionTextDualEncoderConfig,
     optimization,
 )
-import numpy as np
 from omegaconf import OmegaConf
 
 from callbacks import LinearProbeCallback, ZeroShotCallback
-from my_datasets import (
-    Caltech101Dataset,
-    CocoDataset,
-    Cifar10Dataset,
-    ConceptualCaptionsDataset,
-    VisualGenomeDataset,
-)
 from data_module import MyDataModule
 from model_module import LitMML
-from utils.loss_functions import NTXentLoss
-from utils.utils import (
-    calculate_accuracy, get_custom_cosine_schedule_with_warmup, 
-    get_negative_embeddings, print_memory_usage,
-)
-from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
 
 load_dotenv()
 
@@ -109,14 +85,14 @@ def main(config):
 
     ckpt_callback = ModelCheckpoint(
         **config.lightning.model_checkpoint_callback,
-        monitor="loss-val/dataloader_idx_0",  # "loss-val"
+        monitor="loss-val",  # "loss-val"
         dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
-        filename="ckpt-{epoch:02d}-{loss-val/dataloader_idx_0:.3f}",
+        filename="ckpt-{epoch:02d}-{loss-val:.3f}",
     )
 
     lr_callback = LearningRateMonitor(logging_interval="step")
     early_stopping = EarlyStopping(
-        monitor="loss-val/dataloader_idx_0", patience=10, verbose=True
+        monitor="loss-val", patience=10, verbose=True
     )
 
     cifar10linear = LinearProbeCallback(
@@ -154,8 +130,8 @@ def main(config):
         lr_callback,
         early_stopping,
         cifar10linear,
-        caltech101linear,
-        cifar10zeroshot,
+        #caltech101linear,
+        # cifar10zeroshot,
     ]
 
     trainer = pl.Trainer(
@@ -181,6 +157,10 @@ def main(config):
 
 
 if __name__ == "__main__":
+
+    # set environment variable torch_distributed_debug to INFO
+    import os
+    os.environ["TORCH_DISTRIBUTED_DEBUG"] = "DETAIL"
 
     # from torch.utils.collect_env import get_pretty_env_info
     # if rank_zero_only.rank == 0:

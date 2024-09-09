@@ -12,7 +12,7 @@ from transformers import (
 from utils.loss_functions import NTXentLoss
 from utils.utils import (
     calculate_accuracy,
-    get_negative_embeddings, print_memory_usage,
+    get_negative_embeddings, #print_memory_usage,
 )
 from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
 
@@ -21,7 +21,7 @@ class LitMML(pl.LightningModule):
         self,
         model: nn.Module,
         processor: VisionTextDualEncoderProcessor,
-        loss_cfg,
+        loss_cfg, 
         optimizer_cfg,
         scheduler_cfg,
         augmentation=None,
@@ -38,7 +38,7 @@ class LitMML(pl.LightningModule):
         # self.learning_rate = learning_rate
         self.augmentation = augmentation
         self.save_hyperparameters(
-            ignore=["model", "image_encoder", "text_encoder", "tokenizer"]
+            ignore=["model", "processor", "augmentation"]
         )
         self._set_loss_functions(loss_cfg)
 
@@ -58,29 +58,36 @@ class LitMML(pl.LightningModule):
             self.simclr_loss = NTXentLoss()
 
     def common_step(self, batch):
-        print_memory_usage("Beginning of step:")
+        #print_memory_usage("Beginning of step:")
         token = batch.input_ids
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
         attention_mask = batch.attention_mask
         
-        print_memory_usage("After loading batch:")
+        torch.use_deterministic_algorithms(False)
+        #print_memory_usage("After loading batch:")
         images_v1 = self.augmentation(images.to(torch.uint8))
-        if "SimCLR" in self.loss_cfg.losses:
-            images_v2 = self.augmentation(images.to(torch.uint8))
+        images_v2 = self.augmentation(images.to(torch.uint8))
+        torch.use_deterministic_algorithms(True)
+        all_images = torch.cat((images_v1, images_v2), dim=0)
 
-        print_memory_usage("After augmenting images:")
+        #print_memory_usage("After augmenting images:")
         outputs = self.model(
-            pixel_values=images_v1, 
+            #pixel_values=images_v1, 
+            pixel_values=all_images,
             input_ids=token, 
             token_type_ids=token_type_ids, 
             attention_mask=attention_mask
         )
 
-        print_memory_usage("After model forward pass:")
+        #print_memory_usage("After model forward pass:")
         #outputs = self.model(**batch)
         # Ouptut embeddings are already normalized
-        image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
+        #image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
+        batch_size = images.size(0)
+        image_embeds = outputs.image_embeds[:batch_size]
+        image_embeds_v2 = outputs.image_embeds[batch_size:]
+        text_embeds = outputs.text_embeds
 
         losses, metrics = {}, {}
         if "contrastive" in self.loss_cfg.losses:
@@ -91,7 +98,7 @@ class LitMML(pl.LightningModule):
             losses["loss-contrastive"] = loss_contrastive
             metrics["acc-contrastive"] = accuracy_contrastive
         
-        print_memory_usage("After calculating contrastive loss:")
+        #print_memory_usage("After calculating contrastive loss:")
         #TODO: put loss in seperate function
         if "image_text_matching" in self.loss_cfg.losses:
             bs = image_embeds.size(0)
@@ -108,16 +115,20 @@ class LitMML(pl.LightningModule):
             losses['loss-matching'] = loss_matching
             metrics["acc-matching"] = accuracy_matching
 
-        print_memory_usage("After calculating matching loss:")
+        del outputs, text_embeds
+        torch.cuda.empty_cache()
+
+        #print_memory_usage("After calculating matching loss:")
         if "SimCLR" in self.loss_cfg.losses:
-            image_embeds_v2 = self.model.get_image_features(pixel_values=images_v2)
-            image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
+            #images_v2 = self.augmentation(images.to(torch.uint8))
+            # image_embeds_v2 = self.model.get_image_features(pixel_values=images_v2)
+            # image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
             loss_simclr = self.simclr_loss(image_embeds, image_embeds_v2, pl_module=self)
             #accuracy_simclr = calculate_accuracy(z_1, z_2)
             losses["loss-simclr"] = loss_simclr
             #metrics["acc-simclr"] = accuracy_simclr
         
-        print_memory_usage("After calculating SimCLR loss:")
+        #print_memory_usage("After calculating SimCLR loss:")
         return losses, metrics
 
     def training_step(self, batch, batch_idx, dataloader_idx=0):

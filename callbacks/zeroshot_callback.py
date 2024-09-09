@@ -84,7 +84,7 @@ class ZeroShotCallback(pl.Callback):
                     key=f"{self.dataset_name}-confusionmatrix", images=[v], caption=["ConfMatrix"]
                 )
             else:
-                trainer.logger.log(f"{self.dataset_name}-accuracy", v, sync_dist=False)
+                trainer.logger.log_metrics({f"{self.dataset_name}-accuracy": v})
 
 
 def _create_zero_shot_classifier(forward_func,

@@ -19,37 +19,38 @@ wandb:
   ### checkpoint args
   #id: 5m917c9w
 
-save_dir: './models/cliplike/'
+save_dir: '/scratch/vihps/vihps19/models/cliplike/'
 
 lightning:
   seed : 69
   trainer:
-    fast_dev_run: True
-    #overfit_batches: 5 #5
-    val_check_interval: 0.3
-    log_every_n_steps: 4 #5 #10
+    #fast_dev_run: True
+    overfit_batches: 1 #5
+    #val_check_interval: 0.3
+    log_every_n_steps: 1 #5 #10
     devices: 8  #[0,1] #[3] #[0, 1]
+    max_epochs: 100
+    num_nodes : 1
+    #========================#
     accelerator: 'gpu'
     strategy: 'ddp' #'ddp_find_unused_parameters_true'
     deterministic: True
     precision: '16-mixed'
     gradient_clip_algorithm: "norm"
-    gradient_clip_val: 1.0
-    max_epochs: 100
-    # num_nodes : 4   
+    gradient_clip_val: 1.0   
   model_checkpoint_callback:
     every_n_epochs: 1
     save_last: True
     save_top_k: 2
   cifar_linear_probe_callback:
     logging_interval: 'epoch'
-    log_every: 3
+    log_every: 1 #3
     confusion_matrix: True
-    verbose: True
+    verbose: False #True
     max_epochs: 400
   caltech101_linear_probe_callback:
     logging_interval: 'epoch'
-    log_every: 3
+    log_every: 1 #3
     confusion_matrix: True
     verbose: False
     max_epochs: 400
@@ -61,7 +62,7 @@ gradient_checkpointing: True
 dataloader:
   train:
     shuffle : True
-    batch_size : 2048  #896 #960 #1024 #256 #180
+    batch_size : 256 #512 #1536 #2048  #896 #960 #1024 #256 #180
     #batch_size : 192
     num_workers : 2
     persistent_workers : True
@@ -70,7 +71,7 @@ dataloader:
   coco_val:
     shuffle : False
     #batch_size : 
-    batch_size : 2048 #896 #960 #1024 #256 #180
+    batch_size : 256 #512 #1536 #896 #960 #1024 #256 #180
     num_workers : 2
     persistent_workers : True
     #pin_memory: True
@@ -206,7 +207,6 @@ dataset:
   caltech101 :
     root : '/scratch/vihps/vihps19/datasets/caltech101'
     #download : True
-  
   use_subset:
     value: true
     subset_fraction: 0.2
