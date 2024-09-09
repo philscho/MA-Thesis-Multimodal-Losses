@@ -13,6 +13,7 @@ from utils.loss_functions import NTXentLoss
 from utils.utils import (
     calculate_accuracy,
     get_negative_embeddings, #print_memory_usage,
+    get_negative_embeddings, #print_memory_usage,
 )
 from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
 
@@ -59,6 +60,7 @@ class LitMML(pl.LightningModule):
 
     def common_step(self, batch):
         #print_memory_usage("Beginning of step:")
+        #print_memory_usage("Beginning of step:")
         token = batch.input_ids
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
@@ -71,6 +73,7 @@ class LitMML(pl.LightningModule):
         torch.use_deterministic_algorithms(True)
         all_images = torch.cat((images_v1, images_v2), dim=0)
 
+        #print_memory_usage("After augmenting images:")
         #print_memory_usage("After augmenting images:")
         outputs = self.model(
             #pixel_values=images_v1, 

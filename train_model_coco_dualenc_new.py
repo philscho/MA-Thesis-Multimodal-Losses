@@ -57,15 +57,15 @@ def main(config):
     seed_everything(config.lightning.seed, workers=True)
     torch.set_float32_matmul_precision("medium")
 
+    wandb_logger = WandbLogger(**config.wandb)
+    # log the config on the master node
+    if rank_zero_only.rank == 0:
+        cfg_dict = OmegaConf.to_container(config, resolve=True)
+        wandb_logger.experiment.config.update(cfg_dict)
+    # wandb_logger.watch(net)
+
     model, processor = get_models(config)
-
-    data_module = MyDataModule(config, processor)
-    callback_dataloaders = data_module.callback_dataloader()
-    cifar10_dataloader = callback_dataloaders["cifar10_val"]
-    caltech101_dataloader = callback_dataloaders["caltech101_val"]
-    
     randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
-
     net = LitMML(
         model,
         processor,
@@ -74,47 +74,34 @@ def main(config):
         scheduler_cfg=config.scheduler,
         augmentation=randaugment,
     )
+    if config.gradient_checkpointing:
+        net.model.vision_model.gradient_checkpointing_enable()
+        net.model.text_model.gradient_checkpointing_enable()
 
-    checkpoint = config.get("resume_checkpoint", None)
-
-    wandb_logger = WandbLogger(**config.wandb)
-    # log the config on the master node
-    if rank_zero_only.rank == 0:
-        cfg_dict = OmegaConf.to_container(config, resolve=True)
-        wandb_logger.experiment.config.update(cfg_dict)
-
-    ckpt_callback = ModelCheckpoint(
-        **config.lightning.model_checkpoint_callback,
-        monitor="loss-val",  # "loss-val"
-        dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
-        filename="ckpt-{epoch:02d}-{loss-val:.3f}",
-    )
-
-    lr_callback = LearningRateMonitor(logging_interval="step")
-    early_stopping = EarlyStopping(
-        monitor="loss-val", patience=10, verbose=True
-    )
-
+    data_module = MyDataModule(config, processor, local_dev=True)
+    callback_dataloaders = data_module.callback_dataloader()
+    cifar10_dataloader = callback_dataloaders["cifar10"]
+    caltech101_dataloader = callback_dataloaders["caltech101"]
     cifar10linear = LinearProbeCallback(
         dataloader=cifar10_dataloader,
         linear_probe=torch.nn.Linear(512, 10),
+        num_classes=10,
         log_str_prefix="cifar10",
         **config.lightning.cifar_linear_probe_callback,
     )
     caltech101linear = LinearProbeCallback(
         dataloader=caltech101_dataloader,
         linear_probe=torch.nn.Linear(512, 101),
+        num_classes=101,
         log_str_prefix="caltech101",
         **config.lightning.caltech101_linear_probe_callback,
     )
-
-    zs_config = config.zeroshot
     cifar10zeroshot = ZeroShotCallback(
         dataset_name="cifar10",
         dataloader=cifar10_dataloader,
         #classnames=cifar10_val_dataloader.dataset.classnames,
         classnames=['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck'],
-        templates=zs_config.templates,
+        templates=config.zeroshot.templates,
         tokenizer=processor,
         text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
         modality_forward=lambda x: model.get_image_features(pixel_values=x),
@@ -125,8 +112,20 @@ def main(config):
         #verbose=True
     )
 
+    checkpoint = config.get("resume_checkpoint", None)
+    ckpt_callback = ModelCheckpoint(
+        **config.lightning.model_checkpoint_callback,
+        monitor="loss-val",  # "loss-val"
+        dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
+        filename="ckpt-{epoch:02d}-{loss-val:.3f}",
+    )
+    lr_callback = LearningRateMonitor(logging_interval="step")
+    early_stopping = EarlyStopping(
+        monitor="loss-val", patience=10, verbose=True
+    )
+
     callbacks = [
-        ckpt_callback,
+        #ckpt_callback,
         lr_callback,
         early_stopping,
         cifar10linear,
@@ -140,19 +139,12 @@ def main(config):
         callbacks=callbacks,
         inference_mode=False,  # to allow the training of the linear probe
     )
-
-    if config.gradient_checkpointing:
-        net.model.vision_model.gradient_checkpointing_enable()
-        net.model.text_model.gradient_checkpointing_enable()
-
-    # wandb_logger.watch(net)
-
     trainer.fit(
         net,
         # train_dataloaders=train_dataloader,
         # val_dataloaders=val_dataloaders,
         datamodule=data_module,
-        ckpt_path=checkpoint,
+        #ckpt_path=checkpoint,
     )
 
 
@@ -167,8 +159,8 @@ if __name__ == "__main__":
     #     print(get_pretty_env_info())
 
     # cfg_path = "./configs/train_config.yaml"
-    # cfg_path = "configs/config_local.yaml"
-    cfg_path = "./configs/config_HLR.yaml"
+    cfg_path = "configs/config_local.yaml"
+    # cfg_path = "./configs/config_HLR.yaml"
 
     config = OmegaConf.load(cfg_path)
     config = OmegaConf.merge(config, OmegaConf.from_cli())

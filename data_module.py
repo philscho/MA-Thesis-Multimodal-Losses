@@ -11,9 +11,10 @@ from my_datasets import (
 )
 
 class MyDataModule(L.LightningDataModule):
-    def __init__(self, config, processor=None):
+    def __init__(self, config, processor=None, local_dev=False):
         super().__init__()
         self.config = config
+        self.local_dev = local_dev
         self.processor = processor
         self.randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
 
@@ -30,31 +31,29 @@ class MyDataModule(L.LightningDataModule):
             coco = CocoDataset(
                 self.config.dataset.coco.split_train,
                 os.path.join(self.config.dataset.coco.data_dir, "train2014"),
-                processor=None,
+                processor=self.processor if self.local_dev else None,
             )
             train_datasets.append(coco)
         if "cc3m" in self.config.dataset.train:
             cc3m = ConceptualCaptionsDataset(
                 root=self.config.dataset.cc3m.data_dir,
                 use_llava_split=False,
-                processor=None,
+                processor=self.processor if self.local_dev else None,
             )
             train_datasets.append(cc3m)
         if "vg" in self.config.dataset.train:
             vg = VisualGenomeDataset(
                 root=self.config.dataset.vg.data_dir,
                 use_llava_split=True,
-                processor=None,
+                processor=self.processor if self.local_dev else None,
             )
             train_datasets.append(vg)
 
         train_all = ConcatDataset(train_datasets)
         if self.config.dataset.use_subset.value:
-            num_samples = int(np.floor(len(train_all) * self.config.dataset.use_subset.subset_fraction))
-            indices = np.random.default_rng(seed=42).choice(len(train_all), size=num_samples, replace=False)
-            train_all = torch.utils.data.Subset(train_all, indices=indices)
+            train_all = self._get_subset_dataset(train_all, self.config.dataset.use_subset.subset_fraction)
             print(f"Using a {self.config.dataset.use_subset.subset_fraction} subset of dataset")
-
+        
         return train_all
 
     def _setup_val_dataset(self):
@@ -62,50 +61,52 @@ class MyDataModule(L.LightningDataModule):
             return CocoDataset(
                 self.config.dataset.coco.split_val,
                 os.path.join(self.config.dataset.coco.data_dir, "val2014"),
-                processor=None,
+                processor=self.processor if self.local_dev else None,
             )
         else:
             raise NotImplementedError(f"Val dataset {self.config.dataset.val} not implemented")
 
-    def _setup_callback_datasets(self):
-        datasets = {}
-        if "cifar10_val" in self.config.dataset.val:
-            datasets["cifar10_val"] = Cifar10Dataset(
-                processor=self.processor,
-                **self.config.dataset.cifar10,
-            )
-        if "caltech101_val" in self.config.dataset.val:
-            datasets["caltech101_val"] = Caltech101Dataset(
-                processor=self.processor,
-                **self.config.dataset.caltech101,
-            )
-        return datasets
-
     def train_dataloader(self):
-        return DataLoader(self.train_dataset, **self.config.dataloader.train, collate_fn=self._collate_fn)
+        return DataLoader(
+            self.train_dataset, 
+            **self.config.dataloader.train, 
+            collate_fn=self._collate_fn if not self.local_dev else None,
+        )
 
     def val_dataloader(self):
-        return DataLoader(self.val_dataset, **self.config.dataloader.coco_val, collate_fn=self._collate_fn)
+        return DataLoader(
+            self.val_dataset, 
+            **self.config.dataloader.coco_val, 
+            collate_fn=self._collate_fn if not self.local_dev else None,
+        )
     
     def callback_dataloader(self):
         loaders = {}
-        if "cifar10_val" in self.config.dataset.val:
-            loaders["cifar10_val"] = DataLoader(
-                Cifar10Dataset(
+        if "cifar10" in self.config.dataset.val:
+            dataset = Cifar10Dataset(
                     processor=self.processor,
                     **self.config.dataset.cifar10,
-                ),
-                **self.config.dataloader.cifar10_val,
-                collate_fn=self._collate_fn,
             )
-        if "caltech101_val" in self.config.dataset.val:
-            loaders["caltech101_val"] = DataLoader(
-                Caltech101Dataset(
+            if self.config.dataset.use_subset_probe.value:
+                dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
+                #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
+            loaders["cifar10"] = DataLoader(
+                dataset=dataset,
+                **self.config.dataloader.cifar10_val,
+                collate_fn=self._collate_fn if not self.local_dev else None,
+            )
+        if "caltech101" in self.config.dataset.val:
+            dataset = Caltech101Dataset(
                     processor=self.processor,
                     **self.config.dataset.caltech101,
-                ),
+            )
+            if self.config.dataset.use_subset_probe.value:
+                dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
+                #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
+            loaders["caltech101"] = DataLoader(
+                dataset=dataset,
                 **self.config.dataloader.caltech101_val,
-                collate_fn=self._collate_fn,
+                collate_fn=self._collate_fn if not self.local_dev else None,
             )
         return loaders
 
@@ -116,3 +117,10 @@ class MyDataModule(L.LightningDataModule):
         return self.processor(
             images=images, text=text, padding=True, truncation=True, return_tensors="pt"
         )
+    
+    def _get_subset_dataset(self, dataset, fraction):
+        num_samples = int(np.floor(len(dataset) * fraction))
+        indices = np.random.default_rng(seed=42).choice(len(dataset), size=num_samples, replace=False)
+        subset = torch.utils.data.Subset(dataset, indices=indices)
+        return subset
+            

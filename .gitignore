@@ -15,3 +15,4 @@ callbacks/__pycache__
 .DS_Store
 .env
 slurm/logs
+debugging.ipynb
