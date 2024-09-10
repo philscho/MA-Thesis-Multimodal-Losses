@@ -11,6 +11,7 @@ from lightning.pytorch.callbacks import (
     EarlyStopping,
 )
 from lightning.pytorch.utilities import rank_zero_only
+from lightning.pytorch.strategies import DDPStrategy
 import torch
 from torchvision import transforms
 
@@ -125,42 +126,48 @@ def main(config):
     )
 
     callbacks = [
-        #ckpt_callback,
+        ckpt_callback,
         lr_callback,
         early_stopping,
         cifar10linear,
-        #caltech101linear,
-        # cifar10zeroshot,
+        caltech101linear,
+        cifar10zeroshot,
     ]
 
+
+
     trainer = pl.Trainer(
-        **config.lightning.trainer,
         logger=wandb_logger,
         callbacks=callbacks,
         inference_mode=False,  # to allow the training of the linear probe
+        strategy=DDPStrategy(static_graph=True)
+            if config.lightning.trainer.pop("static_graph") and
+                config.lightning.trainer.pop("strategy") == "ddp"
+            else config.lightning.trainer.pop("strategy"),
+        **config.lightning.trainer,
     )
     trainer.fit(
         net,
         # train_dataloaders=train_dataloader,
         # val_dataloaders=val_dataloaders,
         datamodule=data_module,
-        #ckpt_path=checkpoint,
+        ckpt_path=checkpoint,
     )
 
 
 if __name__ == "__main__":
 
     # set environment variable torch_distributed_debug to INFO
-    import os
-    os.environ["TORCH_DISTRIBUTED_DEBUG"] = "DETAIL"
+    # import os
+    # os.environ["TORCH_DISTRIBUTED_DEBUG"] = "DETAIL"
 
     # from torch.utils.collect_env import get_pretty_env_info
     # if rank_zero_only.rank == 0:
     #     print(get_pretty_env_info())
 
     # cfg_path = "./configs/train_config.yaml"
-    cfg_path = "configs/config_local.yaml"
-    # cfg_path = "./configs/config_HLR.yaml"
+    #cfg_path = "configs/config_local.yaml"
+    cfg_path = "./configs/config_HLR.yaml"
 
     config = OmegaConf.load(cfg_path)
     config = OmegaConf.merge(config, OmegaConf.from_cli())
