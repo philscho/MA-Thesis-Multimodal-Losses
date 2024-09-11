@@ -34,7 +34,7 @@ lightning:
     #========================#
     accelerator: 'gpu'
     strategy: 'ddp' #'ddp_find_unused_parameters_true'
-    deterministic: True
+    deterministic: 'warn' #True
     precision: '16-mixed'
     gradient_clip_algorithm: "norm"
     gradient_clip_val: 1.0   
@@ -45,16 +45,16 @@ lightning:
     save_top_k: 2
   cifar_linear_probe_callback:
     logging_interval: 'epoch'
-    log_every: 1 #3
+    log_every: 3
     confusion_matrix: True
     verbose: False #True
-    max_epochs: 10 #400
+    max_epochs: 400
   caltech101_linear_probe_callback:
     logging_interval: 'epoch'
-    log_every: 1 #3
+    log_every: 3
     confusion_matrix: True
     verbose: False
-    max_epochs: 10 #400
+    max_epochs: 400
 
 
 
@@ -63,7 +63,7 @@ gradient_checkpointing: True
 dataloader:
   train:
     shuffle : True
-    batch_size : 256 #512 #1536 #2048  #896 #960 #1024 #256 #180
+    batch_size : 1792 #1920 #2048 #256 #512 #1536 #2048  #896 #960 #1024 #256 #180
     #batch_size : 192
     num_workers : 2
     persistent_workers : True
@@ -72,13 +72,13 @@ dataloader:
   coco_val:
     shuffle : False
     #batch_size : 
-    batch_size : 256 #512 #1536 #896 #960 #1024 #256 #180
+    batch_size : 1024 #1792 #1920 #2048 #256 #512 #1536 #896 #960 #1024 #256 #180
     num_workers : 2
     persistent_workers : True
     #pin_memory: True
   
   cifar10_val:
-    batch_size: 512
+    batch_size: 1024 #512
     shuffle: False
     num_workers: 2
     #persistent_workers: True

@@ -60,37 +60,33 @@ class LitMML(pl.LightningModule):
 
     def common_step(self, batch):
         #print_memory_usage("Beginning of step:")
-        #print_memory_usage("Beginning of step:")
         token = batch.input_ids
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
         attention_mask = batch.attention_mask
         
-        torch.use_deterministic_algorithms(False)
+        #torch.use_deterministic_algorithms(False)
         #print_memory_usage("After loading batch:")
         images_v1 = self.augmentation(images.to(torch.uint8))
-        images_v2 = self.augmentation(images.to(torch.uint8))
-        torch.use_deterministic_algorithms(True)
-        all_images = torch.cat((images_v1, images_v2), dim=0)
+        # torch.use_deterministic_algorithms(True)
+        # all_images = torch.cat((images_v1, images_v2), dim=0)
 
         #print_memory_usage("After augmenting images:")
-        #print_memory_usage("After augmenting images:")
         outputs = self.model(
-            #pixel_values=images_v1, 
-            pixel_values=all_images,
+            pixel_values=images_v1, 
             input_ids=token, 
             token_type_ids=token_type_ids, 
             attention_mask=attention_mask
         )
+        #outputs = self.model(**batch)
 
         #print_memory_usage("After model forward pass:")
-        #outputs = self.model(**batch)
         # Ouptut embeddings are already normalized
-        #image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
-        batch_size = images.size(0)
-        image_embeds = outputs.image_embeds[:batch_size]
-        image_embeds_v2 = outputs.image_embeds[batch_size:]
-        text_embeds = outputs.text_embeds
+        image_embeds, text_embeds = outputs.image_embeds, outputs.text_embeds
+        # batch_size = images.size(0)
+        # image_embeds = outputs.image_embeds[:batch_size]
+        # image_embeds_v2 = outputs.image_embeds[batch_size:]
+        # text_embeds = outputs.text_embeds
 
         losses, metrics = {}, {}
         if "contrastive" in self.loss_cfg.losses:
@@ -105,7 +101,7 @@ class LitMML(pl.LightningModule):
         #TODO: put loss in seperate function
         if "image_text_matching" in self.loss_cfg.losses:
             bs = image_embeds.size(0)
-            neg_image_embeds, neg_text_embeds = get_negative_embeddings(
+            _, neg_text_embeds = get_negative_embeddings(
                 image_embeds, text_embeds, outputs.logits_per_image, outputs.logits_per_text)
             selection = torch.randint(0, 2, (bs,)).to(image_embeds.device)
             selected_text_embeds = torch.where(selection.unsqueeze(1) == 0, text_embeds, neg_text_embeds)
@@ -118,14 +114,17 @@ class LitMML(pl.LightningModule):
             losses['loss-matching'] = loss_matching
             metrics["acc-matching"] = accuracy_matching
 
-        del outputs, text_embeds
+        del outputs, text_embeds, neg_text_embeds, batch
         torch.cuda.empty_cache()
 
         #print_memory_usage("After calculating matching loss:")
         if "SimCLR" in self.loss_cfg.losses:
-            #images_v2 = self.augmentation(images.to(torch.uint8))
-            # image_embeds_v2 = self.model.get_image_features(pixel_values=images_v2)
-            # image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
+            images_v2 = self.augmentation(images.to(torch.uint8))
+            del images
+            image_embeds_v2 = self.model.get_image_features(pixel_values=images_v2)
+            del images_v2
+            torch.cuda.empty_cache()
+            image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
             loss_simclr = self.simclr_loss(image_embeds, image_embeds_v2, pl_module=self)
             #accuracy_simclr = calculate_accuracy(z_1, z_2)
             losses["loss-simclr"] = loss_simclr

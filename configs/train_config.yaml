@@ -37,6 +37,7 @@ lightning:
     gradient_clip_val: 1.0
     max_epochs: 100
     # num_nodes : 4   
+    static_graph: True
   model_checkpoint_callback:
     every_n_epochs: 1
     save_last: True
@@ -93,7 +94,8 @@ dataloader:
 loss:
   losses:
     - 'contrastive'
-    # - 'image_text_matching'
+    - 'image_text_matching'
+    - 'SimCLR'
   contrastive:
   #  temperature : 1.
   image_text_matching:
@@ -202,8 +204,31 @@ dataset:
   use_subset:
     value: true
     subset_fraction: 0.2
+  use_subset_probe:
+    value: false
+    subset_fraction: 0.2
     
 
+zeroshot:
+  templates:
+    - 'a photo of a {}.'
+    - 'a blurry photo of a {}.'
+    - 'a black and white photo of a {}.'
+    - 'a low contrast photo of a {}.'
+    - 'a high contrast photo of a {}.'
+    - 'a bad photo of a {}.'
+    - 'a good photo of a {}.'
+    - 'a photo of a small {}.'
+    - 'a photo of a big {}.'
+    - 'a photo of the {}.'
+    - 'a blurry photo of the {}.'
+    - 'a black and white photo of the {}.'
+    - 'a low contrast photo of the {}.'
+    - 'a high contrast photo of the {}.'
+    - 'a bad photo of the {}.'
+    - 'a good photo of the {}.'
+    - 'a photo of the small {}.'
+    - 'a photo of the big {}.'
 
 # scheduler:
 #   name: SequentialLR
