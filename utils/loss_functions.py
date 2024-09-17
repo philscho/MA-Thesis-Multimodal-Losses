@@ -4,6 +4,8 @@ import torch
 import torch.nn.functional as F
 from torch import nn, Tensor
 
+from torchmultimodal.modules.losses.contrastive_loss_with_temperature import ContrastiveLossWithTemperature
+
 def clip_contrastive_loss(image_out, text_out, temperature):
     # credits : https://github.com/moein-shariatnia/OpenAI-CLIP/blob/master/CLIP.py
     # TODO make temperature learnable
@@ -69,3 +71,109 @@ def _neg_embeddings(
         text_embeds_neg = torch.stack(text_embeds_neg, dim=0)
         text_atts_neg = torch.stack(text_atts_neg, dim=0)
         return image_embeds_neg, text_embeds_neg, text_atts_neg
+
+import torch
+from lightning.pytorch import LightningModule
+from torch import Tensor
+from torch import nn
+
+
+def cosine(x: Tensor) -> Tensor:
+    """
+    Computes the pairwise cosine similarity between all vectors in `x`.
+
+    Formula:
+        `cosine(x, y) = (x . y) / (||x||_2 * ||y||_2)`
+
+    Parameters
+    ----------
+    x : torch.Tensor
+        A 2D tensor of shape `[n, d]` where `n` is the number of vectors and `d` is the dimensionality of each vector or
+        a 3D tensor of shape `[b, n, d]` where `b` is the batch size.
+
+    Returns
+    -------
+    out : torch.Tensor
+        A 2D tensor of shape `[n, n]` containing the pairwise cosine distance between all vectors in `x` or
+        a 3D tensor of shape `[b, n, n]` containing the pairwise cosine distance between all vectors in `x`.
+    """
+    norm = x / x.norm(p=2, dim=-1, keepdim=True)
+    return norm.matmul(norm.transpose(-2, -1))
+
+
+class NTXentLoss(nn.Module):
+    """
+    Normalized Temperature-scaled Cross Entropy Loss as proposed in SimCLR paper.
+
+     L = -log exp(sim(z_i, z_j) / tau) / sum_{k=1}^{2N} exp(sim(z_i, z_j)  / tau)
+       = -sim(z_i, z_j) / tau + log sum_{k=1}^{2N} exp(sim(z_i, z_j)  / tau)
+    """
+
+    def __init__(self,
+                 temperature: float = 0.07,
+                 learn_temperature: bool = False,
+                 gather_distributed: bool = True):
+        super().__init__()
+        self.temperature = nn.Parameter(torch.tensor(temperature, requires_grad=learn_temperature))
+        self.sim = cosine
+        self.gather_distributed = gather_distributed
+
+    def forward(self, x: Tensor, x_pair: Tensor, pl_module: LightningModule, **kwargs) -> Tensor:
+        """
+        Calculate the loss given a set of features and their augmented pairs.
+
+        Parameters
+        ----------
+        x : Tensor
+            The first set of features. Shape: (B, D)
+        x_pair : Tensor
+            The second set of features. Shape: (B, D)
+        pl_module : LightningModule
+            The PyTorch Lightning module that is using this loss function to handle distributed training.
+
+        Example Similarity Matrix
+        -----------------
+        * A,B are from device 1
+        * C,D are from device 2
+        * A2 is the augmented version of A1, ...
+           | A1 B1 C1 D1 | A2 B2 C2 D2 |
+         A1| 0  X  X  X    P  X  X  X  |
+         B1| X  0  X  X    X  P  X  X  |
+         C1| X  X  0  X    X  X  P  X  |
+         D1| X  X  X  0    X  X  X  P  |
+           | ------------------------- |
+         A2| P  X  X  X    0  X  X  X  |
+         B2| X  P  X  X    X  0  X  X  |
+         C2| X  X  P  X    X  X  0  X  |
+         D2| X  X  X  P    X  X  X  0  |
+        * P: Positive Sample
+        * X: Negative Sample
+        * 0: Self Similarity (ignored)
+        """
+        num_devices = pl_module.trainer.num_devices
+        batch_size = x.shape[0]
+        N = 2 * batch_size * num_devices
+
+        if self.gather_distributed and num_devices > 1:
+            x = pl_module.all_gather(x, sync_grads=True)  # (num_devices, B, D)
+            x = x.view(-1, x.shape[-1])  # (B * num_devices, D)
+
+            x_pair = pl_module.all_gather(x_pair, sync_grads=True)  # (num_devices, B, D)
+            x_pair = x_pair.view(-1, x_pair.shape[-1])  # (B * num_devices, D)
+
+        # concatenate the two sets of features
+        x = torch.cat([x, x_pair], dim=0)  # x: (N, D)
+
+        # calculate pairwise similarity matrix
+        sim_mat = self.sim(x) / self.temperature  # sim_mat: (2B, 2B)
+
+        # get the entries corresponding to the positive pairs
+        sim_i_j = torch.diag(sim_mat, batch_size * num_devices)  # (B, 1)
+        sim_j_i = torch.diag(sim_mat, -batch_size * num_devices)  # (B, 1)
+        positive_samples = torch.cat((sim_i_j, sim_j_i), dim=0).reshape(N, 1)  # (2B, 1)
+
+        # get the entries corresponding to positive and negative pairs
+        logits = sim_mat.flatten()[1:].view(N - 1, N + 1)[:, :-1].reshape(N, N - 1)
+        negative_loss = torch.logsumexp(logits, dim=1, keepdim=True)
+
+        return (-positive_samples + negative_loss).mean()

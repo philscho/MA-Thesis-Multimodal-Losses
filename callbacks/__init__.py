@@ -1,2 +1,3 @@
-# from .cifar10_linear_probe import CIFAR10LinearProbeCallback
+from .cifar10_linear_probe import CIFAR10LinearProbeCallback
 from .linear_probe_callback import LinearProbeCallback
+from .zeroshot_callback import ZeroShotCallback

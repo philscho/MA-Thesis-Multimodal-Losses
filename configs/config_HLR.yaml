@@ -19,24 +19,25 @@ wandb:
   ### checkpoint args
   #id: 5m917c9w
 
-save_dir: './models/cliplike/'
+save_dir: '/scratch/vihps/vihps19/models/cliplike/'
 
 lightning:
   seed : 69
   trainer:
-    fast_dev_run: True
-    #overfit_batches: 5 #5
-    val_check_interval: 0.3
-    log_every_n_steps: 4 #5 #10
-    devices: 2  #[0,1] #[3] #[0, 1]
-    accelerator: 'auto'
+    #fast_dev_run: True
+    overfit_batches: 4 #5
+    #val_check_interval: 0.3
+    log_every_n_steps: 1 #5 #10
+    devices: 8  #[0,1] #[3] #[0, 1]
+    max_epochs: 3
+    num_nodes : 1
+    #========================#
+    accelerator: 'gpu'
     strategy: 'ddp' #'ddp_find_unused_parameters_true'
-    deterministic: True
+    deterministic: 'warn' #True
     precision: '16-mixed'
     gradient_clip_algorithm: "norm"
-    gradient_clip_val: 1.0
-    max_epochs: 100
-    # num_nodes : 4   
+    gradient_clip_val: 1.0   
     static_graph: True
   model_checkpoint_callback:
     every_n_epochs: 1
@@ -46,7 +47,7 @@ lightning:
     logging_interval: 'epoch'
     log_every: 3
     confusion_matrix: True
-    verbose: False
+    verbose: False #True
     max_epochs: 400
   caltech101_linear_probe_callback:
     logging_interval: 'epoch'
@@ -62,7 +63,7 @@ gradient_checkpointing: True
 dataloader:
   train:
     shuffle : True
-    batch_size : 2048  #896 #960 #1024 #256 #180
+    batch_size : 1792 #1920 #2048 #256 #512 #1536 #2048  #896 #960 #1024 #256 #180
     #batch_size : 192
     num_workers : 2
     persistent_workers : True
@@ -71,24 +72,24 @@ dataloader:
   coco_val:
     shuffle : False
     #batch_size : 
-    batch_size : 2048 #896 #960 #1024 #256 #180
+    batch_size : 1024 #1792 #1920 #2048 #256 #512 #1536 #896 #960 #1024 #256 #180
     num_workers : 2
     persistent_workers : True
-    pin_memory: True
+    #pin_memory: True
   
   cifar10_val:
-    batch_size: 512
+    batch_size: 1024 #512
     shuffle: False
     num_workers: 2
     #persistent_workers: True
-    pin_memory: True
+    #pin_memory: True
 
   caltech101_val:
     batch_size: 512
     shuffle: False
     num_workers: 2
     #persistent_workers: True
-    pin_memory: True
+    #pin_memory: True
 
 
 loss:
@@ -181,26 +182,32 @@ model:
 dataset:
   train:
     - 'coco'
-    - 'vg'
-    - 'cc3m'
+    #- 'vg'
+    #- 'cc3m'
   val:
     - 'coco_val'
-    - 'cifar10_val'
-    - 'caltech101_val'
+    - 'cifar10'
+    - 'caltech101'
   transforms:
     RandAugment:
       num_ops: 3
       magnitude: 8
   max_seq_length: 72
   coco:
-    data_dir : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/COCO'
-    split_train : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_train.json'
-    split_val : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_val.json'
-    split_test : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_test.json'
+    data_dir : '/scratch/vihps/vihps19/datasets/coco'
+    split_train : '/home/vihps/vihps19/multimodal/my_datasets/coco_karpathy_train.json'
+    split_val : '/home/vihps/vihps19/multimodal/my_datasets/coco_karpathy_val.json'
+    split_test : '/home/vihps/vihps19/multimodal/my_datasets/coco_karpathy_test.json'
   vg:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
   cc3m:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
+  cifar10 :
+    root : '/scratch/vihps/vihps19/datasets/cifar10'
+    #download : True
+  caltech101 :
+    root : '/scratch/vihps/vihps19/datasets/caltech101'
+    #download : True
   use_subset:
     value: true
     subset_fraction: 0.2
@@ -229,6 +236,7 @@ zeroshot:
     - 'a good photo of the {}.'
     - 'a photo of the small {}.'
     - 'a photo of the big {}.'
+
 
 # scheduler:
 #   name: SequentialLR

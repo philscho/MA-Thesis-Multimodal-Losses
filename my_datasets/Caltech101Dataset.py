@@ -5,7 +5,7 @@ from torchvision.datasets import Caltech101
 
 
 class Caltech101Dataset(Caltech101):
-    def __init__(self, processor=None, transform=None, download=True, root=os.path.expanduser("~/.cache")):
+    def __init__(self, processor=None, transform=None, download=False, root=os.path.expanduser("~/.cache")):
         super().__init__(root=root, download=download)
         #self.dataset = CIFAR10(root=os.path.expanduser("~/.cache"), download=True, train=False)
         self.processor = processor

@@ -23,8 +23,9 @@ class LinearProbeCallback(pl.Callback):
 
     def __init__(
         self,
-        val_dataloader_idx: int,
+        dataloader: torch.utils.data.dataloader.DataLoader,
         linear_probe: torch.nn.Linear,
+        num_classes: int,
         log_str_prefix: str = "unnameddataset",  # do not include 'linear-probe' in the prefix
         logging_interval: str = "epoch",
         log_every: int = 1,
@@ -35,6 +36,7 @@ class LinearProbeCallback(pl.Callback):
         verbose: bool = False,
         optim: torch.optim = torch.optim.Adam,
         lossfn: str = "crossentropy",
+        device: Union[str, torch.device] = "cuda",
     ) -> None:
         super().__init__()
 
@@ -47,7 +49,8 @@ class LinearProbeCallback(pl.Callback):
         if logging_interval == "step":
             raise NotImplementedError("Not implemented at the step level yet")
 
-        self.val_dataloader_idx = val_dataloader_idx
+        self.dataloader = dataloader
+        self.num_classes = num_classes
         self.log_every = (
             log_every  # currently takes only the dataset name due to legacy issues
         )
@@ -61,6 +64,7 @@ class LinearProbeCallback(pl.Callback):
         self.optim = optim
         self.lossfn = lossfn
         self.linear_probe = linear_probe
+        self.device = device
 
     def run_now_flag(self, trainer: pl.Trainer):
         if self.logging_interval == "epoch":
@@ -77,12 +81,13 @@ class LinearProbeCallback(pl.Callback):
                     forward_func=lambda x: pl_module.model.get_image_features(
                         pixel_values=x
                     ),
-                    dataloader=trainer.val_dataloaders[self.val_dataloader_idx],
+                    dataloader=self.dataloader,
                     linear_layer=self.linear_probe,
                     max_epochs=self.max_epochs,
                     tolerance=self.tolerance,
                     local_optimizer=self.optim,
                     verbose=self.verbose,
+                    device=self.device,
                 )
 
     def on_validation_epoch_end(
@@ -96,10 +101,12 @@ class LinearProbeCallback(pl.Callback):
                         pixel_values=x
                     ),
                     classifier=self.trained_linear_probe,
-                    dataloader=trainer.val_dataloaders[self.val_dataloader_idx],
+                    dataloader=self.dataloader,
+                    num_classes=self.num_classes,
                     confusion_matrix=self.confusion_matrix,
                     top_k=self.top_k,
                     verbose=self.verbose,
+                    device=self.device,
                 )
 
                 # assert len(result) == 1
@@ -231,6 +238,7 @@ def eval_linear_probe(
     forward_func: callable,
     classifier: any,
     dataloader: Union[torch.utils.data.DataLoader, pl.LightningDataModule],
+    num_classes: int,
     top_k: Tuple[int, ...] = (1, 2, 5, 10),
     average: str = "micro",
     device: Union[str, torch.device] = "cuda",
@@ -247,8 +255,6 @@ def eval_linear_probe(
     """
 
     metric_kwargs = dict(dist_sync_on_step=False, sync_on_compute=False)
-
-    num_classes = 10  # this better be 10 for cifar1
 
     if multi_label:
         metric = {
@@ -300,7 +306,7 @@ def eval_linear_probe(
 
     result = metric.compute()
     if verbose:
-        print(f"ZS result {result}")
+        print(f"Linear probe result {result}")
 
     for k, v in result.items():
         result[k] = v.cpu().numpy().item() if v.dim() == 0 else v.cpu().numpy()
