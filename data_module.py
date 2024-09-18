@@ -3,7 +3,7 @@ import os
 import lightning as L
 import numpy as np
 import torch
-from torch.utils.data import ConcatDataset, DataLoader
+from torch.utils.data import ConcatDataset, DataLoader, random_split
 from torchvision import transforms
 
 from my_datasets import (
@@ -84,16 +84,30 @@ class MyDataModule(L.LightningDataModule):
         loaders = {}
         if "cifar10" in self.config.dataset.val:
             dataset = Cifar10Dataset(
+                    train=True,
                     processor=self.processor,
                     **self.config.dataset.cifar10,
             )
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["cifar10"] = DataLoader(
+            loaders["cifar10_train"] = DataLoader(
                 dataset=dataset,
                 **self.config.dataloader.cifar10_val,
-                collate_fn=self._collate_fn if not self.local_dev else None,
+                # collate_fn=self._collate_fn if not self.local_dev else None,
+            )
+            dataset = Cifar10Dataset(
+                    train=False,
+                    processor=self.processor,
+                    **self.config.dataset.cifar10,
+            )
+            if self.config.dataset.use_subset_probe.value:
+                dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
+                #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
+            loaders["cifar10_test"] = DataLoader(
+                dataset=dataset,
+                **self.config.dataloader.cifar10_val,
+                # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         if "caltech101" in self.config.dataset.val:
             dataset = Caltech101Dataset(
@@ -103,10 +117,18 @@ class MyDataModule(L.LightningDataModule):
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["caltech101"] = DataLoader(
-                dataset=dataset,
+            train_size = int(0.8 * len(dataset))
+            test_size = len(dataset) - train_size
+            train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
+            loaders["caltech101_train"] = DataLoader(
+                dataset=train_dataset,
                 **self.config.dataloader.caltech101_val,
-                collate_fn=self._collate_fn if not self.local_dev else None,
+                # collate_fn=self._collate_fn if not self.local_dev else None,
+            )
+            loaders["caltech101_test"] = DataLoader(
+                dataset=test_dataset,
+                **self.config.dataloader.caltech101_val,
+                # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         return loaders
 

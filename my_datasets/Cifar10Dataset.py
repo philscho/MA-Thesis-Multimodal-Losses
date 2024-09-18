@@ -5,8 +5,8 @@ import os
 #from transformers import AutoImageProcessor, AutoTokenizer, VisionTextDualEncoderProcessor
 
 class Cifar10Dataset(CIFAR10):
-    def __init__(self, processor=None, transform=None, download=False, root=os.path.expanduser("~/.cache")):
-        super().__init__(root=root, download=download, train=False)
+    def __init__(self, train, processor=None, transform=None, download=False, root=os.path.expanduser("~/.cache")):
+        super().__init__(root=root, download=download, train=train)
         #self.dataset = CIFAR10(root=os.path.expanduser("~/.cache"), download=True, train=False)
         self.processor = processor
         self.transform = transform

@@ -79,19 +79,21 @@ def main(config):
         net.model.vision_model.gradient_checkpointing_enable()
         net.model.text_model.gradient_checkpointing_enable()
 
-    data_module = MyDataModule(config, processor, local_dev=True)
+    data_module = MyDataModule(config, processor, local_dev=False)
     callback_dataloaders = data_module.callback_dataloader()
-    cifar10_dataloader = callback_dataloaders["cifar10"]
-    caltech101_dataloader = callback_dataloaders["caltech101"]
+    cifar10_train, cifar10_test = callback_dataloaders["cifar10_train"], callback_dataloaders["cifar10_test"]
+    caltech101_train, caltech101_test = callback_dataloaders["caltech101_train"], callback_dataloaders["caltech101_test"]
     cifar10linear = LinearProbeCallback(
-        dataloader=cifar10_dataloader,
+        train_dataloader=cifar10_train,
+        test_dataloader=cifar10_test,
         linear_probe=torch.nn.Linear(512, 10),
         num_classes=10,
         log_str_prefix="cifar10",
         **config.lightning.cifar_linear_probe_callback,
     )
     caltech101linear = LinearProbeCallback(
-        dataloader=caltech101_dataloader,
+        train_dataloader=caltech101_train,
+        test_dataloader=caltech101_test,
         linear_probe=torch.nn.Linear(512, 101),
         num_classes=101,
         log_str_prefix="caltech101",
@@ -99,7 +101,7 @@ def main(config):
     )
     cifar10zeroshot = ZeroShotCallback(
         dataset_name="cifar10",
-        dataloader=cifar10_dataloader,
+        dataloader=cifar10_train,
         #classnames=cifar10_val_dataloader.dataset.classnames,
         classnames=['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck'],
         templates=config.zeroshot.templates,
@@ -107,6 +109,21 @@ def main(config):
         text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
         modality_forward=lambda x: model.get_image_features(pixel_values=x),
         batch_size=config.dataloader.cifar10_val.batch_size,
+        device="cuda",
+        top_k=(1,),
+        confusion_matrix=True,
+        #verbose=True
+    )
+    caltech101zeroshot = ZeroShotCallback(
+        dataset_name="caltech101",
+        dataloader=caltech101_train,
+        #classnames=cifar10_val_dataloader.dataset.classnames,
+        classnames=caltech101_train.dataset.categories,
+        templates=config.zeroshot.templates,
+        tokenizer=processor,
+        text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
+        modality_forward=lambda x: model.get_image_features(pixel_values=x),
+        batch_size=config.dataloader.caltech101_val.batch_size,
         device="cuda",
         top_k=(1,),
         confusion_matrix=True,
@@ -132,6 +149,7 @@ def main(config):
         cifar10linear,
         caltech101linear,
         cifar10zeroshot,
+        caltech101zeroshot,
     ]
 
 
