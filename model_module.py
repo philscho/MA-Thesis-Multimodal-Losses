@@ -138,20 +138,20 @@ class LitMML(pl.LightningModule):
         loss = sum(losses.values()) / len(losses)
         self.log("loss-train", loss, sync_dist=True, prog_bar=True)
         self.log(f"temperature", self.contrastive_loss.logit_scale)
-        self._log_losses_and_metrics(losses, metrics)
+        self._log_losses_and_metrics(losses, metrics, suffix="train")
         return loss
 
     def validation_step(self, batch, batch_idx, dataloader_idx=0):
         losses, metrics = self.common_step(batch)
         loss = sum(losses.values()) / len(losses)
         self.log("loss-val", loss, sync_dist=True, prog_bar=True)
-        self._log_losses_and_metrics(losses, metrics)
+        self._log_losses_and_metrics(losses, metrics, suffix="val")
         return loss
                 
-    def _log_losses_and_metrics(self, losses, metrics):
+    def _log_losses_and_metrics(self, losses, metrics, suffix=""):
         for d in [losses, metrics]:
             for name, val in d.items():
-                self.log(f"{name}-val", val, sync_dist=True)
+                self.log(f"{name}-{suffix}", val, sync_dist=True)
 
 
     # def on_validation_epoch_start(self):
