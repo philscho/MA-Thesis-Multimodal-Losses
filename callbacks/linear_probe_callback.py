@@ -23,7 +23,8 @@ class LinearProbeCallback(pl.Callback):
 
     def __init__(
         self,
-        dataloader: torch.utils.data.dataloader.DataLoader,
+        train_dataloader: torch.utils.data.dataloader.DataLoader,
+        test_dataloader: torch.utils.data.dataloader.DataLoader,
         linear_probe: torch.nn.Linear,
         num_classes: int,
         log_str_prefix: str = "unnameddataset",  # do not include 'linear-probe' in the prefix
@@ -49,7 +50,8 @@ class LinearProbeCallback(pl.Callback):
         if logging_interval == "step":
             raise NotImplementedError("Not implemented at the step level yet")
 
-        self.dataloader = dataloader
+        self.train_dataloader = train_dataloader
+        self.test_dataloader = test_dataloader
         self.num_classes = num_classes
         self.log_every = (
             log_every  # currently takes only the dataset name due to legacy issues
@@ -81,7 +83,7 @@ class LinearProbeCallback(pl.Callback):
                     forward_func=lambda x: pl_module.model.get_image_features(
                         pixel_values=x
                     ),
-                    dataloader=self.dataloader,
+                    dataloader=self.train_dataloader,
                     linear_layer=self.linear_probe,
                     max_epochs=self.max_epochs,
                     tolerance=self.tolerance,
@@ -101,7 +103,7 @@ class LinearProbeCallback(pl.Callback):
                         pixel_values=x
                     ),
                     classifier=self.trained_linear_probe,
-                    dataloader=self.dataloader,
+                    dataloader=self.test_dataloader,
                     num_classes=self.num_classes,
                     confusion_matrix=self.confusion_matrix,
                     top_k=self.top_k,
