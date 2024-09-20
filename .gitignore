@@ -19,3 +19,4 @@ slurm/logs
 debugging.ipynb
 testing_folder/
 analysis/
+config.env

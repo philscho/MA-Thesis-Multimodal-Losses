@@ -17,6 +17,7 @@ wandb:
   #group: 'test'
   #group: 'run'
   #group: 'clip'
+  entity: 'arena-multimodal-lossfns'
   project : 'multimodal'
   dir : './wandb/'
   ### checkpoint args
