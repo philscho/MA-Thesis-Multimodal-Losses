@@ -107,7 +107,7 @@ class MyDataModule(L.LightningDataModule):
             loaders["cifar10_test"] = DataLoader(
                 dataset=dataset,
                 **self.config.dataloader.cifar10_val,
-                # collate_fn=self._collate_fn if not self.local_dev else None,
+                # # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         if "caltech101" in self.config.dataset.val:
             dataset = Caltech101Dataset(
@@ -128,7 +128,7 @@ class MyDataModule(L.LightningDataModule):
             loaders["caltech101_test"] = DataLoader(
                 dataset=test_dataset,
                 **self.config.dataloader.caltech101_val,
-                # collate_fn=self._collate_fn if not self.local_dev else None,
+                # # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         return loaders
 
@@ -136,10 +136,19 @@ class MyDataModule(L.LightningDataModule):
     # return type of processor is custom dict type, not sure if it works with pinned_memory
     def _collate_fn(self, batch):
         images, text = zip(*batch)
-        return self.processor(
-            images=images, text=text, padding=True, truncation=True, return_tensors="pt"
-        )
-    
+        flag  = isinstance(text,list) == True or isinstance(text,tuple) == True
+        assert flag==True, print (f'wrong. Text : {text}')
+        try:
+            a = self.processor(
+                    images=images, text=text, padding=True, truncation=True, return_tensors="pt"
+                )
+            return a
+        except ValueError:
+            print (text)
+            print (type(text[0]))
+            return 1
+        # return a
+        
     def _get_subset_dataset(self, dataset, fraction):
         num_samples = int(np.floor(len(dataset) * fraction))
         indices = np.random.default_rng(seed=42).choice(len(dataset), size=num_samples, replace=False)

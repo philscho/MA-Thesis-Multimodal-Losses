@@ -9,7 +9,7 @@ wandb:
     - 'vg'
     - 'cc_full'
     - 'itmloss'
-
+    - 'simclr'
 
   #group: 'debug'
   group: 'test'
@@ -25,14 +25,14 @@ save_dir: './models/cliplike/'
 lightning:
   seed : 69
   trainer:
-    fast_dev_run: True
+    fast_dev_run: false
     #overfit_batches: 5 #5
     val_check_interval: 0.3
     log_every_n_steps: 4 #5 #10
     devices: 2  #[0,1] #[3] #[0, 1]
     accelerator: 'auto'
     strategy: 'ddp' #'ddp_find_unused_parameters_true'
-    deterministic: True
+    deterministic: 'warn'
     precision: '16-mixed'
     gradient_clip_algorithm: "norm"
     gradient_clip_val: 1.0
@@ -186,8 +186,8 @@ dataset:
     - 'cc3m'
   val:
     - 'coco_val'
-    - 'cifar10_val'
-    - 'caltech101_val'
+    - 'cifar10'
+    - 'caltech101'
   transforms:
     RandAugment:
       num_ops: 3
@@ -202,12 +202,18 @@ dataset:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
   cc3m:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
-  use_subset:
+  cifar10:
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/cifar10'
+    download: false
+  caltech101 :
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/cifar10'
+    download: false
+  use_subset: #for train
     value: true
-    subset_fraction: 0.2
-  use_subset_probe:
+    subset_fraction: 0.4
+  use_subset_probe: #for cifar and caltech only
     value: false
-    subset_fraction: 0.2
+    subset_fraction: 0.0
     
 
 zeroshot:
