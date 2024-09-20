@@ -16,3 +16,5 @@ callbacks/__pycache__
 .env
 slurm/logs
 debugging.ipynb
+testing_folder/
+analysis/
