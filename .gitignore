@@ -10,7 +10,8 @@ callbacks/__pycache__
 /__pycache__
 /.vscode
 /.nfs0000000007ef05f30000072b
-/my_datasets/__pycache__
+my_datasets/__pycache__
+my_datasets\__pycache__
 .ipynb_checkpoints/
 .DS_Store
 .env
