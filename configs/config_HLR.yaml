@@ -218,7 +218,7 @@ dataset:
   use_subset_probe:
     value: false
     subset_fraction: 0.2
-  cateogries:
+  categories:
     cifar10:
       - 'airplane'
       - 'automobile'
