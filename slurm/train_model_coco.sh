@@ -18,9 +18,11 @@ source activate /scratch/vihps/vihps19/multimodal
 export PYTHONFAULTHANDLER=1
 
 echo "---------------------------------------------"
-echo "Running: srun python3 train_model_coco_dualenc_new.py $@"
-
-srun python3 /home/vihps/vihps19/multimodal/train_model_coco_dualenc_new.py $@
-
+if [ "$1" == "overfit" ]; then
+    CONFIG="/home/vihps/vihps19/multimodal/configs/config_HLR_overfit.yaml"
+else
+    CONFIG="/home/vihps/vihps19/multimodal/configs/config_HLR.yaml"
+fi
+echo "Running: srun python3 train_model_coco_dualenc_new.py --config $CONFIG $@"
+srun python3 /home/vihps/vihps19/multimodal/train_model_coco_dualenc_new.py --config $CONFIG $@
 echo "---------------------------------------------"
-

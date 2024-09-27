@@ -44,7 +44,8 @@ class LitMML(pl.LightningModule):
         self._set_loss_functions(loss_cfg)
 
     def _set_loss_functions(self, loss_cfg):
-        self.contrastive_loss = ContrastiveLossWithTemperature()
+        if "contrastive" in self.loss_cfg.losses:
+            self.contrastive_loss = ContrastiveLossWithTemperature()
 
         if "image_text_matching" in self.loss_cfg.losses:
             self.matching_loss = nn.CrossEntropyLoss()
@@ -153,65 +154,6 @@ class LitMML(pl.LightningModule):
             for name, val in d.items():
                 self.log(f"{name}-{suffix}", val, sync_dist=True)
 
-
-    # def on_validation_epoch_start(self):
-    #     self.cifar10_classifier = _create_zero_shot_classifier(
-    #         forward_func=lambda x: self.model.get_text_features(input_ids=x),
-    #         classnames=[
-    #             "airplane",
-    #             "automobile",
-    #             "bird",
-    #             "cat",
-    #             "deer",
-    #             "dog",
-    #             "frog",
-    #             "horse",
-    #             "ship",
-    #             "truck",
-    #         ],
-    #         templates="a photo of a {}",
-    #         tokenizer=self.processor,
-    #     )
-    #     self.caltech101_classifier = _create_zero_shot_classifier(
-    #         forward_func=lambda x: self.model.get_text_features(input_ids=x),
-    #         classnames=self.trainer.val_dataloaders[2].dataset.categories,
-    #         templates="a photo of a {}",
-    #         tokenizer=self.processor,
-    #     )
-
-    # def on_validation_epoch_end(self):
-    #     cifar_10_result = _evaluate_zero_shot(
-    #         forward_func=lambda x: self.model.get_image_features(pixel_values=x),
-    #         classifier=self.cifar10_classifier,
-    #         dataloader=self.trainer.val_dataloaders[1],
-    #         confusion_matrix=True,
-    #         top_k=(1,),
-    #     )
-    #     caltech_101_result = _evaluate_zero_shot(
-    #         forward_func=lambda x: self.model.get_image_features(pixel_values=x),
-    #         classifier=self.caltech101_classifier,
-    #         dataloader=self.trainer.val_dataloaders[2],
-    #         confusion_matrix=True,
-    #         top_k=(1,),
-    #     )
-
-    #     # TODO: refactor this
-    #     for k, v in cifar_10_result.items():
-    #         if k == "ConfusionMatrix":
-    #             self.logger.log_image(
-    #                 key="cifar-10-confusionmatrix", images=[v], caption=["ConfMatrix"]
-    #             )
-    #         else:
-    #             self.log("cifar10-accuracy", v, sync_dist=False)
-    #     for k, v in caltech_101_result.items():
-    #         if k == "ConfusionMatrix":
-    #             self.logger.log_image(
-    #                 key="caltech-101-confusionmatrix",
-    #                 images=[v],
-    #                 caption=["ConfMatrix"],
-    #             )
-    #         else:
-    #             self.log("caltech101-accuracy", v, sync_dist=False)
 
     def configure_optimizers(self):
         optimizer = get_optimizer(self.optimizer_cfg, params=self.parameters())

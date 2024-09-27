@@ -1,5 +1,7 @@
 # %%
 
+import argparse
+import sys
 from dotenv import load_dotenv
 import lightning as pl
 from lightning.pytorch import seed_everything
@@ -55,15 +57,13 @@ def get_models(config):
 
 
 def main(config):
-    seed_everything(config.lightning.seed, workers=True)
     torch.set_float32_matmul_precision("medium")
-
+    seed_everything(config.lightning.seed, workers=True)
+    
     wandb_logger = WandbLogger(**config.wandb)
-    # log the config on the master node
     if rank_zero_only.rank == 0:
         cfg_dict = OmegaConf.to_container(config, resolve=True)
         wandb_logger.experiment.config.update(cfg_dict)
-    # wandb_logger.watch(net)
 
     model, processor = get_models(config)
     randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
@@ -75,84 +75,90 @@ def main(config):
         scheduler_cfg=config.scheduler,
         augmentation=randaugment,
     )
+    # wandb_logger.watch(net)
+    callbacks = []
     if config.gradient_checkpointing:
         net.model.vision_model.gradient_checkpointing_enable()
         net.model.text_model.gradient_checkpointing_enable()
 
     data_module = MyDataModule(config, processor, local_dev=False)
     callback_dataloaders = data_module.callback_dataloader()
-    cifar10_train, cifar10_test = callback_dataloaders["cifar10_train"], callback_dataloaders["cifar10_test"]
-    caltech101_train, caltech101_test = callback_dataloaders["caltech101_train"], callback_dataloaders["caltech101_test"]
-    cifar10linear = LinearProbeCallback(
-        train_dataloader=cifar10_train,
-        test_dataloader=cifar10_test,
-        linear_probe=torch.nn.Linear(512, 10),
-        num_classes=10,
-        log_str_prefix="cifar10",
-        **config.lightning.cifar_linear_probe_callback,
-    )
-    caltech101linear = LinearProbeCallback(
-        train_dataloader=caltech101_train,
-        test_dataloader=caltech101_test,
-        linear_probe=torch.nn.Linear(512, 101),
-        num_classes=101,
-        log_str_prefix="caltech101",
-        **config.lightning.caltech101_linear_probe_callback,
-    )
-    cifar10zeroshot = ZeroShotCallback(
-        dataset_name="cifar10",
-        dataloader=cifar10_train,
-        #classnames=cifar10_val_dataloader.dataset.classnames,
-        classnames=config.dataset.categories.cifar10,
-        templates=config.zeroshot.templates,
-        tokenizer=processor,
-        text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
-        modality_forward=lambda x: model.get_image_features(pixel_values=x),
-        batch_size=config.dataloader.cifar10_val.batch_size,
-        device="cuda",
-        top_k=(1,),
-        confusion_matrix=True,
-        #verbose=True
-    )
-    caltech101zeroshot = ZeroShotCallback(
-        dataset_name="caltech101",
-        dataloader=caltech101_train,
-        #classnames=cifar10_val_dataloader.dataset.classnames,
-        classnames=config.dataset.categories.caltech101,
-        templates=config.zeroshot.templates,
-        tokenizer=processor,
-        text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
-        modality_forward=lambda x: model.get_image_features(pixel_values=x),
-        batch_size=config.dataloader.caltech101_val.batch_size,
-        device="cuda",
-        top_k=(1,),
-        confusion_matrix=True,
-        #verbose=True
-    )
+    if 'caltech101' in config.dataset.val:
+        caltech101_train = callback_dataloaders["caltech101_train"]
+        caltech101_test = callback_dataloaders["caltech101_test"]
+    if 'cifar10' in config.dataset.val:
+        cifar10_train = callback_dataloaders["cifar10_train"]
+        cifar10_test = callback_dataloaders["cifar10_test"]
+        
+    if 'cifar_linear_probe_callback' in config:
+        cifar10linear = LinearProbeCallback(
+            train_dataloader=cifar10_train,
+            test_dataloader=cifar10_test,
+            linear_probe=torch.nn.Linear(512, 10),
+            **config.lightning.cifar_linear_probe_callback,
+        )
+        callbacks.append(cifar10linear)
+    if 'caltech101_linear_probe_callback' in config:
+        caltech101linear = LinearProbeCallback(
+            train_dataloader=caltech101_train,
+            test_dataloader=caltech101_test,
+            linear_probe=torch.nn.Linear(512, 101),
+            **config.lightning.caltech101_linear_probe_callback,
+        )
+        callbacks.append(caltech101linear)
+    if 'cifar10_zeroshot_callback' in config:
+        cifar10zeroshot = ZeroShotCallback(
+            dataset_name="cifar10",
+            dataloader=cifar10_train,
+            #classnames=cifar10_val_dataloader.dataset.classnames,
+            classnames=config.dataset.categories.cifar10,
+            templates=config.zeroshot.templates,
+            tokenizer=processor,
+            text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
+            modality_forward=lambda x: model.get_image_features(pixel_values=x),
+            batch_size=config.dataloader.cifar10_val.batch_size,
+            device="cuda",
+            top_k=(1,),
+            confusion_matrix=True,
+            #verbose=True
+        )
+        callbacks.append(cifar10zeroshot)
+    if 'caltech101_zeroshot_callback' in config:
+        caltech101zeroshot = ZeroShotCallback(
+            dataset_name="caltech101",
+            dataloader=caltech101_train,
+            #classnames=cifar10_val_dataloader.dataset.classnames,
+            classnames=config.dataset.categories.caltech101,
+            templates=config.zeroshot.templates,
+            tokenizer=processor,
+            text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
+            modality_forward=lambda x: model.get_image_features(pixel_values=x),
+            batch_size=config.dataloader.caltech101_val.batch_size,
+            device="cuda",
+            top_k=(1,),
+            confusion_matrix=True,
+            #verbose=True
+        )
+        callbacks.append(caltech101zeroshot)
 
-    checkpoint = config.get("resume_checkpoint", None)
     ckpt_callback = ModelCheckpoint(
         **config.lightning.model_checkpoint_callback,
         monitor="loss-val",  # "loss-val"
         dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
         filename="ckpt-{epoch:02d}-{loss-val:.3f}",
     )
+    callbacks.append(ckpt_callback)
+    
     lr_callback = LearningRateMonitor(logging_interval="step")
-    early_stopping = EarlyStopping(
-        monitor="loss-val", patience=10, verbose=True
-    )
-
-    callbacks = [
-        ckpt_callback,
-        lr_callback,
-        early_stopping,
-        cifar10linear,
-        caltech101linear,
-        cifar10zeroshot,
-        caltech101zeroshot,
-    ]
-
-
+    callbacks.append(lr_callback) 
+    
+    if "early_stopping" in config.lightning:
+        early_stopping = EarlyStopping(
+            monitor="loss-val", 
+            patience=10, 
+            verbose=True,
+        )
+        callbacks.append(early_stopping)       
 
     trainer = pl.Trainer(
         logger=wandb_logger,
@@ -163,17 +169,30 @@ def main(config):
                 config.lightning.trainer.pop("strategy") == "ddp"
             else config.lightning.trainer.pop("strategy"),
         **config.lightning.trainer,
-    )
+    )   
+    
     trainer.fit(
         net,
         # train_dataloaders=train_dataloader,
         # val_dataloaders=val_dataloaders,
         datamodule=data_module,
-        ckpt_path=checkpoint,
+        ckpt_path=config.get("resume_checkpoint", None),
     )
 
 
+
+
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Train a multimodal model.")
+    parser.add_argument('--config', type=str, required=True, help='Path to the configuration file.')
+    args = parser.parse_args()
+
+    cfg_path = args.config
+    print(f"Running with config: {cfg_path}")
+    config = OmegaConf.load(cfg_path)
+    # config = OmegaConf.merge(config, OmegaConf.from_cli())
+    # OmegaConf.resolve(config)
 
     # set environment variable torch_distributed_debug to INFO
     # import os
@@ -183,16 +202,6 @@ if __name__ == "__main__":
     # if rank_zero_only.rank == 0:
     #     print(get_pretty_env_info())
 
-    # cfg_path = "./configs/train_config.yaml"
-    #cfg_path = "configs/config_local.yaml"
-    cfg_path = "./configs/config_HLR.yaml"
-
-    config = OmegaConf.load(cfg_path)
-    config = OmegaConf.merge(config, OmegaConf.from_cli())
-    OmegaConf.resolve(config)
-
-    # config.wandb.offline = True
-
     # print the final values and go...
     if rank_zero_only.rank == 0:
         print("--" * 30)
@@ -200,5 +209,5 @@ if __name__ == "__main__":
         print("--" * 30)
         print(OmegaConf.to_yaml(config))
         print("--" * 30)
-
+    
     main(config)
