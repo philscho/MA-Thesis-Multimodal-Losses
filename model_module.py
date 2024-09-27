@@ -115,7 +115,10 @@ class LitMML(pl.LightningModule):
             losses['loss-matching'] = loss_matching
             metrics["acc-matching"] = accuracy_matching
 
-        del outputs, text_embeds, neg_text_embeds, batch
+            del neg_text_embeds, batch
+
+
+        del outputs, text_embeds
         torch.cuda.empty_cache()
 
         #print_memory_usage("After calculating matching loss:")
