@@ -66,14 +66,17 @@ def main(config):
         wandb_logger.experiment.config.update(cfg_dict)
 
     model, processor = get_models(config)
-    randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
+    if config.dataset.transforms.enabled:
+        augmentation = transforms.RandAugment(**config.dataset.transforms.RandAugment)
+    else:
+        augmentation = None
     net = LitMML(
         model,
         processor,
         loss_cfg=config.loss,
         optimizer_cfg=config.optimizer,
         scheduler_cfg=config.scheduler,
-        augmentation=randaugment,
+        augmentation=augmentation,
     )
     # wandb_logger.watch(net)
     callbacks = []
@@ -141,13 +144,14 @@ def main(config):
         )
         callbacks.append(caltech101zeroshot)
 
-    ckpt_callback = ModelCheckpoint(
-        **config.lightning.model_checkpoint_callback,
-        monitor="loss-val",  # "loss-val"
-        dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
-        filename="ckpt-{epoch:02d}-{loss-val:.3f}",
-    )
-    callbacks.append(ckpt_callback)
+    if "model_checkpoint_callback" in config.lightning:
+        ckpt_callback = ModelCheckpoint(
+            **config.lightning.model_checkpoint_callback,
+            monitor="loss-val",  # "loss-val"
+            dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
+            filename="ckpt-{epoch:02d}-{loss-val:.3f}",
+        )
+        callbacks.append(ckpt_callback)
     
     lr_callback = LearningRateMonitor(logging_interval="step")
     callbacks.append(lr_callback) 

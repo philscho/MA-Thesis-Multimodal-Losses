@@ -48,13 +48,21 @@ class LitMML(pl.LightningModule):
             self.contrastive_loss = ContrastiveLossWithTemperature()
 
         if "image_text_matching" in self.loss_cfg.losses:
-            self.matching_loss = nn.CrossEntropyLoss()
+            # self.matching_loss = nn.CrossEntropyLoss()
+            # self.itm_head = nn.Sequential(
+            #     nn.Linear(
+            #         self.model.config.projection_dim * 2, 512
+            #     ),  # TODO: make dims variable
+            #     nn.ReLU(),
+            #     nn.Linear(512, 2),
+            # )
+            self.matching_loss = nn.BCEWithLogitsLoss()
             self.itm_head = nn.Sequential(
                 nn.Linear(
                     self.model.config.projection_dim * 2, 512
-                ),  # TODO: make dims variable
+                ),
                 nn.ReLU(),
-                nn.Linear(512, 2),
+                nn.Linear(512, 1),
             )
         if "SimCLR" in self.loss_cfg.losses:
             self.simclr_loss = NTXentLoss()
@@ -68,7 +76,10 @@ class LitMML(pl.LightningModule):
         
         #torch.use_deterministic_algorithms(False)
         #print_memory_usage("After loading batch:")
-        images_v1 = self.augmentation(images.to(torch.uint8))
+        if self.augmentation:
+            images_v1 = self.augmentation(images.to(torch.uint8))
+        else:
+            images_v1 = images
         # torch.use_deterministic_algorithms(True)
         # all_images = torch.cat((images_v1, images_v2), dim=0)
 
@@ -109,7 +120,7 @@ class LitMML(pl.LightningModule):
             multimodal_embeds = torch.concat((image_embeds, selected_text_embeds), dim=1)
             logits = self.itm_head(multimodal_embeds)
             #probs = F.softmax(logits, dim=1)
-            loss_matching = self.matching_loss(logits, selection.long())
+            loss_matching = self.matching_loss(logits, selection.unsqueeze(1).float())
             preds = logits.argmax(dim=1)
             accuracy_matching = (preds == selection).sum() / len(selection)
             losses['loss-matching'] = loss_matching
@@ -141,8 +152,9 @@ class LitMML(pl.LightningModule):
         losses, metrics = self.common_step(batch)
         loss = sum(losses.values()) / len(losses)
         self.log("loss-train", loss, sync_dist=True, prog_bar=True)
-        self.log(f"temperature", self.contrastive_loss.logit_scale)
         self._log_losses_and_metrics(losses, metrics, suffix="train")
+        if "contrastive" in self.loss_cfg.losses:
+            self.log(f"temperature", self.contrastive_loss.logit_scale)
         return loss
 
     def validation_step(self, batch, batch_idx, dataloader_idx=0):
@@ -161,7 +173,7 @@ class LitMML(pl.LightningModule):
     def configure_optimizers(self):
         optimizer = get_optimizer(self.optimizer_cfg, params=self.parameters())
         
-        if self.scheduler_cfg.name is None:
+        if not self.scheduler_cfg.enabled:
             print("No scheduler provided, using only optimizer")
             return optimizer        
         else:
