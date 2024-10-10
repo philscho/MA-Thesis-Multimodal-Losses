@@ -9,7 +9,7 @@ import numpy as np
 Image.MAX_IMAGE_PIXELS = None
 
 class ConceptualCaptionsDataset:
-    def __init__(self, root, processor=None, transform=None, use_llava_split=False):
+    def __init__(self, root, processor=None, transform=None, num_views=1, use_llava_split=False):
         self.root = Path(root)
         if not self.root.is_dir():
             raise ValueError("Root must be a dir.")
@@ -21,6 +21,7 @@ class ConceptualCaptionsDataset:
         self.linker = h5py.File(self.root / 'linker.h5', 'r')
         
         self.transform = transform
+        self.num_views = num_views
         self.processor = processor
         
     def __len__(self):
@@ -44,6 +45,8 @@ class ConceptualCaptionsDataset:
 
             return pixel_values, input_ids, token_type_ids, attention_mask
         else:
-            if self.transform is not None:
-                image = self.transform(image)
-            return image, caption
+            if self.transform:
+                images = [self.transform(image) for _ in range(self.num_views)]
+            else:
+                images = [image]
+            return images, caption

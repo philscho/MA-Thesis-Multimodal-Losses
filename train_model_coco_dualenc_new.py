@@ -15,7 +15,7 @@ from lightning.pytorch.callbacks import (
 from lightning.pytorch.utilities import rank_zero_only
 from lightning.pytorch.strategies import DDPStrategy
 import torch
-from torchvision import transforms
+import torchvision.transforms as transforms
 
 from transformers import (
     VisionTextDualEncoderModel,
@@ -66,17 +66,19 @@ def main(config):
         wandb_logger.experiment.config.update(cfg_dict)
 
     model, processor = get_models(config)
+    
     if config.dataset.transforms.enabled:
         augmentation = transforms.RandAugment(**config.dataset.transforms.RandAugment)
     else:
         augmentation = None
+    
     net = LitMML(
         model,
         processor,
         loss_cfg=config.loss,
         optimizer_cfg=config.optimizer,
         scheduler_cfg=config.scheduler,
-        augmentation=augmentation,
+        #augmentation=augmentation,
     )
     # wandb_logger.watch(net)
     callbacks = []
@@ -84,7 +86,12 @@ def main(config):
         net.model.vision_model.gradient_checkpointing_enable()
         net.model.text_model.gradient_checkpointing_enable()
 
-    data_module = MyDataModule(config, processor, local_dev=False)
+    data_module = MyDataModule(config,
+                               processor,
+                               local_dev=False,
+                               augmentation=augmentation,
+                               num_views=2,
+    )
     callback_dataloaders = data_module.callback_dataloader()
     if 'caltech101' in config.dataset.val:
         caltech101_train = callback_dataloaders["caltech101_train"]

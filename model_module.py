@@ -14,6 +14,7 @@ from utils.utils import (
     calculate_accuracy,
     get_negative_embeddings, #print_memory_usage,
     get_negative_embeddings, #print_memory_usage,
+    calculate_accuracy_simclr,
 )
 from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
 
@@ -48,22 +49,22 @@ class LitMML(pl.LightningModule):
             self.contrastive_loss = ContrastiveLossWithTemperature()
 
         if "image_text_matching" in self.loss_cfg.losses:
-            # self.matching_loss = nn.CrossEntropyLoss()
-            # self.itm_head = nn.Sequential(
-            #     nn.Linear(
-            #         self.model.config.projection_dim * 2, 512
-            #     ),  # TODO: make dims variable
-            #     nn.ReLU(),
-            #     nn.Linear(512, 2),
-            # )
-            self.matching_loss = nn.BCEWithLogitsLoss()
+            self.matching_loss = nn.CrossEntropyLoss()
             self.itm_head = nn.Sequential(
                 nn.Linear(
                     self.model.config.projection_dim * 2, 512
-                ),
+                ),  # TODO: make dims variable
                 nn.ReLU(),
-                nn.Linear(512, 1),
+                nn.Linear(512, 2),
             )
+            # self.matching_loss = nn.BCEWithLogitsLoss()
+            # self.itm_head = nn.Sequential(
+            #     nn.Linear(
+            #         self.model.config.projection_dim * 2, 512
+            #     ),
+            #     nn.ReLU(),
+            #     nn.Linear(512, 1),
+            # )
         if "SimCLR" in self.loss_cfg.losses:
             self.simclr_loss = NTXentLoss()
 
@@ -73,6 +74,8 @@ class LitMML(pl.LightningModule):
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
         attention_mask = batch.attention_mask
+        if self.simclr_loss:
+            images_v2 = batch.pixel_values_2
         
         #torch.use_deterministic_algorithms(False)
         #print_memory_usage("After loading batch:")
@@ -120,7 +123,8 @@ class LitMML(pl.LightningModule):
             multimodal_embeds = torch.concat((image_embeds, selected_text_embeds), dim=1)
             logits = self.itm_head(multimodal_embeds)
             #probs = F.softmax(logits, dim=1)
-            loss_matching = self.matching_loss(logits, selection.unsqueeze(1).float())
+            #loss_matching = self.matching_loss(logits, selection.unsqueeze(1).float())
+            loss_matching = self.matching_loss(logits, selection)
             preds = logits.argmax(dim=1)
             accuracy_matching = (preds == selection).sum() / len(selection)
             losses['loss-matching'] = loss_matching
@@ -134,16 +138,16 @@ class LitMML(pl.LightningModule):
 
         #print_memory_usage("After calculating matching loss:")
         if "SimCLR" in self.loss_cfg.losses:
-            images_v2 = self.augmentation(images.to(torch.uint8))
+            #images_v2 = self.augmentation(images.to(torch.uint8))
             del images
             image_embeds_v2 = self.model.get_image_features(pixel_values=images_v2)
             del images_v2
             torch.cuda.empty_cache()
             image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
             loss_simclr = self.simclr_loss(image_embeds, image_embeds_v2, pl_module=self)
-            #accuracy_simclr = calculate_accuracy(z_1, z_2)
+            accuracy_simclr = calculate_accuracy_simclr(self.simclr_loss.logits)
             losses["loss-simclr"] = loss_simclr
-            #metrics["acc-simclr"] = accuracy_simclr
+            metrics["acc-simclr"] = accuracy_simclr
         
         #print_memory_usage("After calculating SimCLR loss:")
         return losses, metrics

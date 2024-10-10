@@ -117,6 +117,8 @@ class NTXentLoss(nn.Module):
         self.temperature = nn.Parameter(torch.tensor(temperature, requires_grad=learn_temperature))
         self.sim = cosine
         self.gather_distributed = gather_distributed
+        self.sim_matrix = None
+        self.logits = None
 
     def forward(self, x: Tensor, x_pair: Tensor, pl_module: LightningModule, **kwargs) -> Tensor:
         """
@@ -166,6 +168,7 @@ class NTXentLoss(nn.Module):
 
         # calculate pairwise similarity matrix
         sim_mat = self.sim(x) / self.temperature  # sim_mat: (2B, 2B)
+        #self.sim_matrix = sim_mat
 
         # get the entries corresponding to the positive pairs
         sim_i_j = torch.diag(sim_mat, batch_size * num_devices)  # (B, 1)
@@ -176,4 +179,5 @@ class NTXentLoss(nn.Module):
         logits = sim_mat.flatten()[1:].view(N - 1, N + 1)[:, :-1].reshape(N, N - 1)
         negative_loss = torch.logsumexp(logits, dim=1, keepdim=True)
 
+        self.logits = logits
         return (-positive_samples + negative_loss).mean()

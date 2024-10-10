@@ -11,12 +11,13 @@ from my_datasets import (
 )
 
 class MyDataModule(L.LightningDataModule):
-    def __init__(self, config, processor=None, local_dev=False):
+    def __init__(self, config, processor=None, augmentation=None, num_views=1, local_dev=False):
         super().__init__()
         self.config = config
-        self.local_dev = local_dev
         self.processor = processor
-        self.randaugment = transforms.RandAugment(**config.dataset.transforms.RandAugment)
+        self.augmentation = augmentation
+        self.local_dev = local_dev
+        self.num_views = num_views
 
     def setup(self, stage=None):
         if stage == "fit":
@@ -29,9 +30,11 @@ class MyDataModule(L.LightningDataModule):
         train_datasets = []
         if "coco" in self.config.dataset.train:
             coco = CocoDataset(
-                self.config.dataset.coco.split_train,
-                os.path.join(self.config.dataset.coco.data_dir, "train2014"),
+                root=self.config.dataset.coco.root,
+                split="train",
                 processor=self.processor if self.local_dev else None,
+                transform=self.augmentation,
+                num_views=self.num_views,
             )
             train_datasets.append(coco)
         if "cc3m" in self.config.dataset.train:
@@ -39,6 +42,8 @@ class MyDataModule(L.LightningDataModule):
                 root=self.config.dataset.cc3m.data_dir,
                 use_llava_split=False,
                 processor=self.processor if self.local_dev else None,
+                transform=self.augmentation,
+                num_views=self.num_views,
             )
             train_datasets.append(cc3m)
         if "vg" in self.config.dataset.train:
@@ -46,6 +51,8 @@ class MyDataModule(L.LightningDataModule):
                 root=self.config.dataset.vg.data_dir,
                 use_llava_split=True,
                 processor=self.processor if self.local_dev else None,
+                transform=self.augmentation,
+                num_views=self.num_views,
             )
             train_datasets.append(vg)
 
@@ -59,9 +66,11 @@ class MyDataModule(L.LightningDataModule):
     def _setup_val_dataset(self):
         if "coco_val" in self.config.dataset.val:
             return CocoDataset(
-                self.config.dataset.coco.split_val,
-                os.path.join(self.config.dataset.coco.data_dir, "val2014"),
+                root=self.config.dataset.coco.root,
+                split="val",
                 processor=self.processor if self.local_dev else None,
+                transform=self.augmentation,
+                num_views=self.num_views,
             )
         else:
             raise NotImplementedError(f"Val dataset {self.config.dataset.val} not implemented")
@@ -136,17 +145,27 @@ class MyDataModule(L.LightningDataModule):
     # return type of processor is custom dict type, not sure if it works with pinned_memory
     def _collate_fn(self, batch):
         images, text = zip(*batch)
-        flag  = isinstance(text,list) == True or isinstance(text,tuple) == True
-        assert flag==True, print (f'wrong. Text : {text}')
-        try:
-            a = self.processor(
-                    images=images, text=text, padding=True, truncation=True, return_tensors="pt"
-                )
-            return a
-        except ValueError:
-            print (text)
-            print (type(text[0]))
-            return 1
+        images_1 = [image[0] for image in images]
+        inputs = self.processor(
+                    images=images_1, text=text, padding=True, truncation=True, return_tensors="pt"
+        )
+        if len(images[0]) == 2:
+            images_2 = [image[1] for image in images]
+            inputs_2 = self.processor(images=images_2, return_tensors="pt")
+            inputs["pixel_values_2"] = inputs_2["pixel_values"]
+        return inputs
+        
+        # flag  = isinstance(text,list) == True or isinstance(text,tuple) == True
+        # assert flag==True, print (f'wrong. Text : {text}')
+        # try:
+        #     a = self.processor(
+        #             images=images, text=text, padding=True, truncation=True, return_tensors="pt"
+        #         )
+        #     return a
+        # except ValueError:
+        #     print (text)
+        #     print (type(text[0]))
+        #     return 1
         # return a
         
     def _get_subset_dataset(self, dataset, fraction):

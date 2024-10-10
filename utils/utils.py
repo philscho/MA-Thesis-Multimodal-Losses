@@ -65,6 +65,16 @@ def calculate_accuracy(images, texts):
     accuracy = (acc_per_image + acc_per_text) / 2 / logits_per_image.size(0)
     return accuracy
 
+def calculate_accuracy_simclr(logits: Tensor) -> Tensor:
+    # labels = torch.concat(
+    #     tuple(reversed(torch.split(torch.arange(sim_matrix.size(-1)), 2)))
+    # )
+    N = logits.size(0)
+    labels = torch.concat((torch.arange(N / 2, N) - 1,
+                          torch.arange(N / 2))
+                          ).to(logits.device)
+    return ((logits.argmax(dim=-1)) == labels).sum() / len(labels)
+
 
 def get_negative_embeddings(
     image_embeds: Tensor,

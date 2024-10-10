@@ -20,3 +20,4 @@ debugging.ipynb
 testing_folder/
 analysis/
 config.env
+**/__pycache__/

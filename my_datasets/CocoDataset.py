@@ -7,46 +7,47 @@ from PIL import Image
 from transformers import VisionTextDualEncoderProcessor
 import torch
 from torch.utils.data import Dataset
+from torchvision import transforms
 
 class CocoDataset(Dataset):
     def __init__(
             self, 
-            split_file: str, 
-            image_dir: str, 
-            processor: VisionTextDualEncoderProcessor, 
-            transform: torch.nn.Module = None, 
-            simclr: bool = False
+            root: str = '/home/data/COCOcaptions',
+            split: str = 'train',
+            processor: VisionTextDualEncoderProcessor = None, 
+            transform: torch.nn.Module = None,
+            num_views: int = 1, 
     ) -> None:
-        self.image_dir = image_dir
+        self.root = root
+        self.split = split
+        self.dir = os.path.join(root, f"{split}2014")
         self.processor = processor
         self.transform = transform
-        self.simclr = simclr
-        self.split: List[Dict[str, Union[str, List[str]]]] = []
-
-        with open(split_file, 'r') as file:
-            self.split = [json.loads(line.strip()) for line in file]
+        self.num_views = num_views
+        with open(f"my_datasets/coco_karpathy_{split}.json", 'r') as f:
+            self.data = [json.loads(line.strip()) for line in f]
 
     def __len__(self) -> int:
-        return len(self.split)
+        return len(self.data)
     
     def __getitem__(self, 
                     idx: int,
-                    caption_idx: Union[int, None] = None
+                    caption_idx: int = None
     ) -> Union[Dict[str, torch.Tensor], Tuple[Image.Image, str]]:
-        example = self.split[idx]
+        example = self.data[idx]
         img_filenames = example['filename']
         img_filename = img_filenames[0] if isinstance(img_filenames, list) else img_filenames
-        img_path = os.path.join(self.image_dir, img_filename)       
+        img_path = os.path.join(self.dir, img_filename)       
         image = Image.open(img_path).convert('RGB')
         
-        if not caption_idx is None:
-            i = caption_idx 
-        else:
-            i = random.randint(0, 4)
+        i = caption_idx if caption_idx else random.randint(0, 4)
         caption = example['sentences'][i]
 
-        if self.processor is not None:
-            inputs = self.processor(images=image, text=caption, padding='max_length', max_length=128, return_tensors="pt")
+        if self.processor:
+            inputs = self.processor(images=image, text=caption, 
+                                    padding='max_length', max_length=128, 
+                                    return_tensors="pt"
+                                    )
             if self.transform:
                 inputs['pixel_values'] = self.transform(inputs['pixel_values'].to(torch.uint8))
             for key in inputs:
@@ -55,8 +56,10 @@ class CocoDataset(Dataset):
         # Return value for use of processor in collate_fn in DataLoader
         else:
             if self.transform:
-                image = self.transform(image)
-            return image, caption
+                images = [self.transform(image) for _ in range(self.num_views)]
+            else:
+                images = [image]
+            return images, caption
   
 
 def load_json(filepath: str) -> List[Dict[str, Union[str, List[str]]]]:

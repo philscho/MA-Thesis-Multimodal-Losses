@@ -3,11 +3,11 @@ save_dir: './models/cliplike/'
 
 wandb:
   tags :
-    - 'itm: binary cross-entropy'
+    #- 'itm: binary cross-entropy'
     - 'overfit'
-    #- 'clip'
+    - 'clip'
     - 'itm'
-    #- 'simclr'
+    - 'simclr'
   offline: ${lightning.trainer.fast_dev_run}
   #name: 
   #group: 'debug'
@@ -22,12 +22,12 @@ wandb:
 lightning:
   seed: 69
   trainer:
-    fast_dev_run: False #True #False #True #False 
+    fast_dev_run: False #True #False
     overfit_batches: 1
     #val_check_interval: 0.3
     log_every_n_steps: 1 #5 #10
     max_epochs: 150
-    devices: [3]  #[01] #[3] #[0 1]
+    devices: [0, 1]  #[01] #[3] #[0 1]
     num_nodes: 1
     #========================#
     accelerator: 'gpu'
@@ -36,7 +36,7 @@ lightning:
     precision: '16-mixed'
     gradient_clip_algorithm: "norm"
     gradient_clip_val: 1.0   
-    static_graph: True #False #True
+    static_graph: True #False #True #False #True
   model_checkpoint_callback:
     every_n_epochs: 5
     save_last: True
@@ -45,9 +45,9 @@ gradient_checkpointing: True
 
 loss:
   losses:
-    #- 'contrastive'
+    - 'contrastive'
     - 'image_text_matching'
-    #- 'SimCLR'
+    - 'SimCLR'
   contrastive:
   #  temperature : 1.
   image_text_matching:
@@ -55,7 +55,7 @@ loss:
 
 optimizer:
   name : "AdamW"
-  lr: 3e-04
+  lr: 2e-05
   kwargs:
     weight_decay : 0.1
     betas : [0.9, 0.95]
@@ -117,13 +117,13 @@ dataset:
   val:
     - 'coco_val'
   transforms: 
-    enabled: False #True
+    enabled: True #False #True
     RandAugment:
       num_ops: 3
       magnitude: 8
   max_seq_length: 72
   coco:
-    data_dir : '/home/data/COCOcaptions/'
+    root: '/home/data/COCOcaptions/'
     split_train : '/home/phisch/multimodal/my_datasets/coco_karpathy_train.json'
     split_val : '/home/phisch/multimodal/my_datasets/coco_karpathy_val.json'
     split_test : '/home/phisch/multimodal/my_datasets/coco_karpathy_test.json'
