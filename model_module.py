@@ -74,7 +74,7 @@ class LitMML(pl.LightningModule):
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
         attention_mask = batch.attention_mask
-        if self.simclr_loss:
+        if "SimCLR" in self.loss_cfg.losses:
             images_v2 = batch.pixel_values_2
         
         #torch.use_deterministic_algorithms(False)

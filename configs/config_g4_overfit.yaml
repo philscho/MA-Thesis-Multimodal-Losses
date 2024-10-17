@@ -22,12 +22,12 @@ wandb:
 lightning:
   seed: 69
   trainer:
-    fast_dev_run: False #True #False
+    fast_dev_run: True #False #True #False
     overfit_batches: 1
     #val_check_interval: 0.3
     log_every_n_steps: 1 #5 #10
     max_epochs: 150
-    devices: [0, 1]  #[01] #[3] #[0 1]
+    devices: [1]  #[01] #[3] #[0 1]
     num_nodes: 1
     #========================#
     accelerator: 'gpu'
@@ -46,8 +46,8 @@ gradient_checkpointing: True
 loss:
   losses:
     - 'contrastive'
-    - 'image_text_matching'
-    - 'SimCLR'
+    # - 'image_text_matching'
+    # - 'SimCLR'
   contrastive:
   #  temperature : 1.
   image_text_matching:
