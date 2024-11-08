@@ -92,7 +92,7 @@ def main(config):
                                augmentation=augmentation,
                                num_views=2,
     )
-    callback_dataloaders = data_module.callback_dataloader()
+    callback_dataloaders = data_module.get_test_dataloaders()
     if 'caltech101' in config.dataset.val:
         caltech101_train = callback_dataloaders["caltech101_train"]
         caltech101_test = callback_dataloaders["caltech101_test"]

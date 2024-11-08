@@ -115,7 +115,7 @@ class LinearProbeCallback(pl.Callback):
                 for k, v in result.items():
                     if k == "ConfusionMatrix":
                         trainer.logger.log_image(
-                            key=f"linear-probe-{self.log_str_prefix}-confusionmatrix",
+                            key=f"{self.log_str_prefix}-linear-probe-confusionmatrix",
                             images=[v],
                             caption=["ConfMatrix"],
                         )

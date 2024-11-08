@@ -7,7 +7,14 @@ from torch.utils.data import ConcatDataset, DataLoader, random_split
 from torchvision import transforms
 
 from my_datasets import (
-    Caltech101Dataset, CocoDataset, Cifar10Dataset, ConceptualCaptionsDataset, VisualGenomeDataset
+    Caltech101Dataset, 
+    CocoDataset, 
+    Cifar10Dataset, 
+    ConceptualCaptionsDataset, 
+    ImageNetADataset, 
+    ImageNetDataset, 
+    ImageNetValDataset,
+    VisualGenomeDataset,
 )
 
 class MyDataModule(L.LightningDataModule):
@@ -22,6 +29,8 @@ class MyDataModule(L.LightningDataModule):
     def setup(self, stage=None):
         if stage == "fit":
             self.train_dataset = self._setup_train_dataset()
+            self.val_dataset = self._setup_val_dataset()
+        if stage == "validate":
             self.val_dataset = self._setup_val_dataset()
         else:
             raise NotImplementedError(f"Stage {stage} not implemented")
@@ -72,9 +81,19 @@ class MyDataModule(L.LightningDataModule):
                 transform=self.augmentation,
                 num_views=self.num_views,
             )
+        if "coco_val_dummy" in self.config.dataset.val:
+            dataset = CocoDataset(
+                root=self.config.dataset.coco.root,
+                split="val",
+                processor=self.processor if self.local_dev else None,
+                transform=self.augmentation,
+                num_views=self.num_views,
+            )
+            dataset = self._get_subset_dataset(dataset, 0.01)
+            return dataset
         else:
             raise NotImplementedError(f"Val dataset {self.config.dataset.val} not implemented")
-
+    
     def train_dataloader(self):
         return DataLoader(
             self.train_dataset, 
@@ -89,9 +108,9 @@ class MyDataModule(L.LightningDataModule):
             collate_fn=self._collate_fn if not self.local_dev else None,
         )
     
-    def callback_dataloader(self):
-        loaders = {}
-        if "cifar10" in self.config.dataset.val:
+    def get_test_dataloaders(self):
+        loaders = dict()
+        if "cifar-10" in self.config.dataset.val:
             dataset = Cifar10Dataset(
                     train=True,
                     processor=self.processor,
@@ -100,7 +119,7 @@ class MyDataModule(L.LightningDataModule):
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["cifar10_train"] = DataLoader(
+            loaders["cifar-10_train"] = DataLoader(
                 dataset=dataset,
                 **self.config.dataloader.cifar10_val,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
@@ -113,12 +132,12 @@ class MyDataModule(L.LightningDataModule):
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["cifar10_test"] = DataLoader(
+            loaders["cifar-10_test"] = DataLoader(
                 dataset=dataset,
                 **self.config.dataloader.cifar10_val,
                 # # collate_fn=self._collate_fn if not self.local_dev else None,
             )
-        if "caltech101" in self.config.dataset.val:
+        if "caltech-101" in self.config.dataset.val:
             dataset = Caltech101Dataset(
                     processor=self.processor,
                     **self.config.dataset.caltech101,
@@ -129,15 +148,35 @@ class MyDataModule(L.LightningDataModule):
             train_size = int(0.8 * len(dataset))
             test_size = len(dataset) - train_size
             train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
-            loaders["caltech101_train"] = DataLoader(
+            loaders["caltech-101_train"] = DataLoader(
                 dataset=train_dataset,
                 **self.config.dataloader.caltech101_val,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
             )
-            loaders["caltech101_test"] = DataLoader(
+            loaders["caltech-101_test"] = DataLoader(
                 dataset=test_dataset,
                 **self.config.dataloader.caltech101_val,
                 # # collate_fn=self._collate_fn if not self.local_dev else None,
+            )
+        if "imagenet" in self.config.dataset.val:
+            dataset = ImageNetValDataset(processor=self.processor)
+            if self.config.dataset.use_subset_probe.value:
+                dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
+                #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
+            loaders["imagenet"] = DataLoader(
+                dataset=dataset,
+                **self.config.dataloader.testset,
+                # collate_fn=self._collate_fn if not self.local_dev else None,
+            )
+        if "imagenet-a" in self.config.dataset.val:
+            dataset = ImageNetADataset(processor=self.processor)
+            if self.config.dataset.use_subset_probe.value:
+                dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
+                #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
+            loaders["imagenet-a"] = DataLoader(
+                dataset=dataset,
+                **self.config.dataloader.testset,
+                # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         return loaders
 

@@ -1,18 +1,21 @@
 save_dir: './models/cliplike/'
-#resume_checkpoint: '/home/phisch/multimodal/models/cliplike/ckpts/5m917c9w/last.ckpt'
+
+checkpoint: '/data/bhavin/ckpts/93t3xgrr/ckpt-epoch=14-loss-val=2.208.ckpt' # CLIP + ITM
+# checkpoint: '/data/bhavin/ckpts/oc0g8fql/ckpt-epoch=19-loss-val=1.908.ckpt' # CLIP + SIMCLR
+# checkpoint: '/data/bhavin/ckpts/yh1adr3g/ckpt-epoch=14-loss-val=3.775.ckpt' # CLIP
+# checkpoint: '/data/bhavin/ckpts/zathvtrx/ckpt-epoch=14-loss-val=0.002.ckpt' # SIMCLR
+# checkpoint: '/data/bhavin/ckpts/9v1wy0vb/ckpt-epoch=09-loss-val=0.350.ckpt' # ITM + SIMCLR
+# checkpoint: '/data/bhavin/ckpts/9nvg456i/ckpt-epoch=24-loss-val=1.435.ckpt' # CLIP + ITM + SIMCLR
 
 wandb:
+  name: 'CLIP + ITM'
   tags :
     #- 'itm: binary cross-entropy'
-    - 'overfit'
-    - 'clip'
-    - 'itm'
-    - 'simclr'
-  offline: True #${lightning.trainer.fast_dev_run}
-  #name: 
-  #group: 'debug'
-  group: 'test'
-  #group: 'run'
+    # - 'clip'
+    # - 'itm'
+    # - 'simclr'
+  offline: False #True #${lightning.trainer.fast_dev_run}
+  group: 'analysis'
   entity: 'arena-multimodal-lossfns'
   project : 'multimodal'
   dir : './wandb/'
@@ -26,8 +29,8 @@ lightning:
     #overfit_batches: 1
     #val_check_interval: 0.3
     log_every_n_steps: 1 #5 #10
-    max_epochs: 150
-    devices: [2, 3]  #[01] #[3] #[0 1]
+    max_epochs: 1
+    devices: [3]  #[01] #[3] #[0 1]
     num_nodes: 1
     #========================#
     accelerator: 'gpu'
@@ -37,73 +40,125 @@ lightning:
     gradient_clip_algorithm: "norm"
     gradient_clip_val: 1.0   
     static_graph: True #False #True #False #True
-  model_checkpoint_callback:
-    every_n_epochs: 5
-    save_last: True
-    save_top_k: 1
+  # model_checkpoint_callback:
+  #   every_n_epochs: 1
+  #   save_last: True
+  #   save_top_k: 2
+
+zeroshot:
+  datasets:
+    - 'cifar-10'
+    - 'caltech-101'
+    - 'imagenet'
+    - 'imagenet-a'
+  cifar10:
+    dataset_name: 'cifar-10'
+    classnames: ${dataset.categories.cifar10}
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.cifar10_val.batch_size}
+    device: "cuda"
+    top_k: [1,]
+    confusion_matrix: True
+    verbose: True
+  caltech101:
+    dataset_name: 'caltech-101'
+    classnames: ${dataset.categories.caltech101}
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.caltech101_val.batch_size}
+    device: "cuda"
+    top_k: [1,]
+    confusion_matrix: True
+    verbose: True
+  imagenet:
+    dataset_name: 'imagenet'
+    #classnames: see imagenet_classnames() in my_datasets/utils
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.testset.batch_size}
+    device: "cuda"
+    top_k: [1,]
+    confusion_matrix: True
+    verbose: True
+  imagenet_a:
+    dataset_name: 'imagenet-a'
+    #classnames: see imagenet_a_classnames() in my_datasets/utils
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.testset.batch_size}
+    device: "cuda"
+    top_k: [1,]
+    confusion_matrix: True
+    verbose: True
+  templates:
+    - 'a photo of a {}.'
+    - 'a blurry photo of a {}.'
+    - 'a black and white photo of a {}.'
+    - 'a low contrast photo of a {}.'
+    - 'a high contrast photo of a {}.'
+    - 'a bad photo of a {}.'
+    - 'a good photo of a {}.'
+    - 'a photo of a small {}.'
+    - 'a photo of a big {}.'
+    - 'a photo of the {}.'
+    - 'a blurry photo of the {}.'
+    - 'a black and white photo of the {}.'
+    - 'a low contrast photo of the {}.'
+    - 'a high contrast photo of the {}.'
+    - 'a bad photo of the {}.'
+    - 'a good photo of the {}.'
+    - 'a photo of the small {}.'
+    - 'a photo of the big {}.'
+
+linear_probe:
+  datasets:
+    # - 'cifar-10'
+    # - 'caltech-101'
+    #- 'imagenet'
+    # - 'imagenet-a'
+  cifar-10:
+    logging_interval: 'epoch'
+    log_every: 1
+    confusion_matrix: True
+    verbose: False #True
+    max_epochs: 400
+    num_classes: 10
+    log_str_prefix: 'cifar-10'
+  caltech-101:
+    logging_interval: 'epoch'
+    log_every: 1
+    confusion_matrix: True
+    verbose: False
+    max_epochs: 400
+    num_classes: 101
+    log_str_prefix: 'caltech-101'
+
 gradient_checkpointing: True
 
-loss:
-  losses:
-    - 'contrastive'
-    # - 'image_text_matching'
-    # - 'SimCLR'
-  contrastive:
-  #  temperature : 1.
-  image_text_matching:
-    arg1: ''
-
-optimizer:
-  name : "AdamW"
-  lr: 2e-05
-  kwargs:
-    weight_decay : 0.1
-    betas : [0.9, 0.95]
-
-scheduler:
-  enabled: True #False #True
-  name: CosineWarmup
-  monitor: 'loss-val'
-  interval: 'step'
-  kwargs:
-    initial_lr: 1e-08
-    num_warmup_steps: 'epoch'
-    num_training_steps: 'all'
-
 dataloader:
-  train:
-    shuffle : True
-    batch_size : 64 #512 #1024 #512 #1792 #1920 #2048 #256 #512 #1536 #2048  #896 #960 #1024 #256 #180
-    #batch_size : 192
+  testset:
+    batch_size: 1024
+    shuffle: False
     num_workers: 8
-    persistent_workers: True
-    pin_memory: True
-
-  coco_val:
-    shuffle : False
-    #batch_size : 
-    batch_size : 64 #512 #1024 #512 #1792 #1024 #1920 #2048 #256 #512 #1536 #896 #960 #1024 #256 #180
-    num_workers : 8
     #persistent_workers: True
     pin_memory: True
-  
   cifar10_val:
     batch_size: 1024 #512
     shuffle: False
     num_workers: 8
     #persistent_workers: True
     pin_memory: True
-
   caltech101_val:
     batch_size: 1024
     shuffle: False
     num_workers: 8
     #persistent_workers: True
     pin_memory: True
+  coco_val:
+    batch_size: 1024
+    shuffle: False
+    num_workers: 2
+    #persistent_workers: True
+    #pin_memory: True
 
 model:
-  #image_encoder_name : 'openai/clip-vit-base-patch32'
-  #text_encoder_name : 'openai/clip-vit-base-patch32'
   image_encoder_name : 'google/vit-base-patch16-224'
   text_encoder_name : 'google-bert/bert-base-uncased'
   tokenizer :
@@ -111,11 +166,15 @@ model:
 
 dataset:
   train:
-    - 'coco'
+    #- 'coco'
     # - 'vg'
     # - 'cc3m'
   val:
-    - 'coco_val'
+    - 'coco_val_dummy'
+    - 'cifar-10'
+    - 'caltech-101'
+    - 'imagenet'
+    - 'imagenet-a'
   transforms: 
     enabled: True #False #True
     RandAugment:
@@ -124,26 +183,23 @@ dataset:
   max_seq_length: 72
   coco:
     root: '/home/data/COCOcaptions/'
-    split_train : '/home/phisch/multimodal/my_datasets/coco_karpathy_train.json'
-    split_val : '/home/phisch/multimodal/my_datasets/coco_karpathy_val.json'
-    split_test : '/home/phisch/multimodal/my_datasets/coco_karpathy_test.json'
   vg:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
   cc3m:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
   cifar10:
-    root: '/home/phisch/data/cifar-10-batches-py'
-    download: false
+    root: '/home/data/cifar10/'
+    download: False
   caltech101 :
-    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/cifar10'
-    download: false
+    root: '/home/data/caltech101/'
+    download: False
   use_subset:
     value: true
     subset_fraction: 0.2
   use_subset_probe:
     value: false
     subset_fraction: 0.2
-  cateogries:
+  categories:
     cifar10:
       - 'airplane'
       - 'automobile'
@@ -157,6 +213,7 @@ dataset:
       - 'truck'
     caltech101:
       - 'face'
+      - 'face easy'
       - 'leopard'
       - 'motorbike'
       - 'accordion'
@@ -256,82 +313,3 @@ dataset:
       - 'windsor chair'
       - 'wrench'
       - 'yin yang'
-    
-
-zeroshot:
-  templates:
-    - 'a photo of a {}.'
-    - 'a blurry photo of a {}.'
-    - 'a black and white photo of a {}.'
-    - 'a low contrast photo of a {}.'
-    - 'a high contrast photo of a {}.'
-    - 'a bad photo of a {}.'
-    - 'a good photo of a {}.'
-    - 'a photo of a small {}.'
-    - 'a photo of a big {}.'
-    - 'a photo of the {}.'
-    - 'a blurry photo of the {}.'
-    - 'a black and white photo of the {}.'
-    - 'a low contrast photo of the {}.'
-    - 'a high contrast photo of the {}.'
-    - 'a bad photo of the {}.'
-    - 'a good photo of the {}.'
-    - 'a photo of the small {}.'
-    - 'a photo of the big {}.'
-
-
-# scheduler:
-#   name: SequentialLR
-#   kwargs: 
-#     milestones: [2]
-#   sub_schedulers:
-#     - name: 'ReduceROnPlateau'
-#       kwargs:
-#         num_warmup_steps: 'epoch'
-#     - name: 'CosineWarmupHardRestarts'
-#       kwargs:
-#             T_max: 1000
-
-# scheduler:
-#   name:
-#     - 'CosineWarmup'
-#     #- 'CosineWarmupHardRestarts'
-#   kwargs:
-#     #T_max : 1000
-#     num_warmup_steps: 'epoch'
-#     num_training_steps: 'all' #20000
-#     #num_cycles: 10
-#     initial_lr: 1e-08
-#   interval: "step"
-
-# scheduler:
-#   name: SequentialLR
-#   monitor: 'loss-val/dataloader_idx_0'
-#   interval: 'step'
-#   kwargs: 
-#     milestones: [100]
-#   sub_schedulers:
-#     - name: 'CosineAnnealingWarmRestarts'
-#       kwargs:
-#         T_0: 100
-#     - name: 'ExponentialLR'
-#       kwargs:
-#         gamma: 0.95
-#         verbose: true
-
-# scheduler:
-#   name: CyclicLR
-#   monitor: 'loss-val/dataloader_idx_0'
-#   interval: 'step'
-#   kwargs:
-#     base_lr: 0.0003
-#     max_lr: 0.0004
-
-# scheduler:
-#   name: OneCycleLR
-#   monitor: 'loss-val/dataloader_idx_0'
-#   interval: 'step'
-#   kwargs:
-#     max_lr: 0.004
-#     steps_per_epoch: 121
-#     epochs: 40

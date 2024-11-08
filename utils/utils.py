@@ -1,8 +1,10 @@
 from typing import Tuple, List, Mapping, Optional
 
+import logging
+import lightning as pl
+from lightning.fabric.utilities.rank_zero import rank_prefixed_message, rank_zero_only
 import math
 import numpy as np
-
 import torch
 from torch import Tensor
 from torch.nn import functional as F
@@ -11,11 +13,6 @@ from torch.optim.lr_scheduler import LambdaLR
 from torchmultimodal.modules.losses.contrastive_loss_with_temperature import (
     _gather_embeddings_and_labels,
 )
-
-import logging
-
-from lightning.fabric.utilities.rank_zero import rank_prefixed_message, rank_zero_only
-
 
 def get_custom_cosine_schedule_with_warmup(
     optimizer: Optimizer,
@@ -156,3 +153,39 @@ def print_memory_usage(stage):
         print(f"{stage}:")
         print(f"Allocated: {torch.cuda.memory_allocated() / (1024 ** 2):.2f} MB")
         print(f"Reserved: {torch.cuda.memory_reserved() / (1024 ** 2):.2f} MB\n")
+
+
+class EmptyDataset(torch.utils.data.Dataset):
+    def __init__(self):
+        pass
+
+    def __len__(self):
+        return 1
+
+    def __getitem__(self, idx):
+        return 1
+
+
+class LightningModelWrapper(pl.LightningModule):
+    def __init__(self, model):
+        super().__init__()
+        self.model = model
+
+    def forward(self, inputs, target):
+        return self.model(inputs, target)
+
+    def training_step(self, batch, batch_idx):
+        pass
+        # inputs, target = batch
+        # output = self(inputs, target)
+        # loss = torch.nn.functional.nll_loss(output, target.view(-1))
+        # return loss
+
+    def validation_step(self, batch, batch_idx):
+        pass
+    
+    def configure_optimizers(self):
+        pass
+        # return torch.optim.SGD(self.model.parameters(), lr=0.1)
+
+

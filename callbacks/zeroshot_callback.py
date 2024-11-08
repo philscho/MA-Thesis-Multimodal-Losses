@@ -34,7 +34,8 @@ class ZeroShotCallback(pl.Callback):
             dtype: torch.dtype = torch.float32,
             confusion_matrix: bool = False,
             multi_label: bool = False,
-            verbose: bool = False
+            verbose: bool = False,
+            
         ) -> None:
         super().__init__()
 
@@ -53,8 +54,11 @@ class ZeroShotCallback(pl.Callback):
         self.verbose = verbose
         self.text_forward = text_forward
         self.modality_forward = modality_forward
+        self.result = None
 
     def on_validation_end(self, trainer: pl.Trainer, pl_module: pl.LightningModule) -> None:
+        print(f"Starting zero-shot evaluation for {self.dataset_name}")
+        
         self.classifier = _create_zero_shot_classifier(
             forward_func=self.text_forward,
             classnames=self.classnames,
@@ -65,7 +69,7 @@ class ZeroShotCallback(pl.Callback):
             verbose=self.verbose,
         )
 
-        result = _evaluate_zero_shot(
+        self.result = _evaluate_zero_shot(
             forward_func=self.modality_forward,
             classifier=self.classifier,
             dataloader=self.dataloader,
@@ -78,13 +82,14 @@ class ZeroShotCallback(pl.Callback):
             verbose=self.verbose
         )
 
-        for k, v in result.items():
+        for k, v in self.result.items():
             if k == "ConfusionMatrix":
                 trainer.logger.log_image(
-                    key=f"{self.dataset_name}-confusionmatrix", images=[v], caption=["ConfMatrix"]
+                    key=f"{self.dataset_name}-zeroshot-confusionmatrix", images=[v], caption=["ConfMatrix"]
                 )
             else:
-                trainer.logger.log_metrics({f"{self.dataset_name}-accuracy": v})
+                trainer.logger.log_metrics({f"{self.dataset_name}-zeroshot-accuracy": v})
+                #trainer.logger.log_table(key="zero-shot", columns=[self.dataset_name], data=[[v]])
 
 
 def _create_zero_shot_classifier(forward_func,
@@ -115,6 +120,7 @@ def _create_zero_shot_classifier(forward_func,
                 mask = input['attention_mask'].to(device).squeeze_()
 
             class_embeddings = forward_func(texts, mask)  # batch_size * num_tokens x embedding_dim
+            #class_embeddings = forward_func(texts)  # batch_size * num_tokens x embedding_dim
             #class_embeddings = forward_func(input_ids=texts)  # batch_size * num_tokens x embedding_dim
             # forward_func(texts) => forward_func(input_ids=texts)
 

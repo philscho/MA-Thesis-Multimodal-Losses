@@ -7,7 +7,7 @@ wandb:
     - 'clip'
     - 'itm'
     - 'simclr'
-  offline: ${lightning.trainer.fast_dev_run}
+  offline: True #${lightning.trainer.fast_dev_run}
   #name: 
   #group: 'debug'
   #group: 'test'
@@ -26,7 +26,7 @@ lightning:
     val_check_interval: 0.3
     log_every_n_steps: 1 #5 #10
     max_epochs: 150
-    devices: [0, 1]  #[01] #[3] #[0 1]
+    devices: [2, 3]  #[01] #[3] #[0 1]
     num_nodes: 1
     #========================#
     accelerator: 'gpu'
@@ -60,7 +60,7 @@ optimizer:
     betas : [0.9, 0.95]
 
 scheduler:
-  enabled: True
+  enabled: True #False #True
   name: CosineWarmup
   monitor: 'loss-val'
   interval: 'step'
@@ -72,7 +72,7 @@ scheduler:
 dataloader:
   train:
     shuffle : True
-    batch_size : 64 #512 #1024 #512 #1792 #1920 #2048 #256 #512 #1536 #2048  #896 #960 #1024 #256 #180
+    batch_size : 256 #64 #512 #1024 #512 #1792 #1920 #2048 #256 #512 #1536 #2048  #896 #960 #1024 #256 #180
     #batch_size : 192
     num_workers: 8
     persistent_workers: True
@@ -111,12 +111,12 @@ model:
 dataset:
   train:
     - 'coco'
-    - 'vg'
-    - 'cc3m'
+    # - 'vg'
+    # - 'cc3m'
   val:
     - 'coco_val'
-    - 'cifar10'
-    - 'caltech101'
+    # - 'cifar10'
+    # - 'caltech101'
   transforms: 
     enabled: True #False #True
     RandAugment:
