@@ -1,0 +1,310 @@
+## THIS CONFIG SHOULD BE USED FOR TESTING THE MODEL ON ZEROSHOT AND LINEAR PROBES
+
+
+## !!!!! CHECKPOINT REMOVED FROM HERE, MAKE SURE TO ADD IT IN THE FILE!!!!!!!
+
+save_dir: './models/cliplike/'
+
+
+lightning:
+  seed: 69
+  trainer:
+    fast_dev_run: True #True #False #True #False
+    log_every_n_steps: 1 #5 #10
+    max_epochs: 1
+    devices: 2  #[01] #[3] #[0 1]
+    num_nodes: 1
+    #========================#
+    accelerator: 'gpu'
+    strategy: 'ddp' #'ddp_find_unused_parameters_true'
+    deterministic: 'warn' #True
+    precision: '16-mixed'
+    gradient_clip_algorithm: "norm"
+    gradient_clip_val: 1.0   
+
+
+model:
+  image_encoder_name : 'google/vit-base-patch16-224'
+  text_encoder_name : 'google-bert/bert-base-uncased'
+  tokenizer :
+    use_fast: False
+  
+gradient_checkpointing: True
+
+
+dataset:
+  train:
+    #- 'coco'
+    # - 'vg'
+    # - 'cc3m'
+  val:
+    # - 'coco_val_dummy'
+    - 'cifar10'
+    - 'caltech101'
+    - 'imagenet'
+    - 'imagenet_a'
+  transforms: 
+    enabled: True #False #True
+    RandAugment:
+      num_ops: 3
+      magnitude: 8
+  max_seq_length: 72
+  coco:
+    root: '/home/data/COCOcaptions/'
+  vg:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
+  cc3m:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
+  cifar10:
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/cifar10/'
+    download: False
+  caltech101 :
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/caltech101/'
+    download: False
+  use_subset:
+    value: true
+    subset_fraction: 1.0
+  use_subset_probe:
+    value: false
+    subset_fraction: 0.2
+  categories:
+    cifar10:
+      - 'airplane'
+      - 'automobile'
+      - 'bird'
+      - 'cat'
+      - 'deer'
+      - 'dog'
+      - 'frog'
+      - 'horse'
+      - 'ship'
+      - 'truck'
+    caltech101:
+      - 'face'
+      - 'face easy'
+      - 'leopard'
+      - 'motorbike'
+      - 'accordion'
+      - 'airplane'
+      - 'anchor'
+      - 'ant'
+      - 'barrel'
+      - 'bass'
+      - 'beaver'
+      - 'binocular'
+      - 'bonsai'
+      - 'brain'
+      - 'brontosaurus'
+      - 'buddha'
+      - 'butterfly'
+      - 'camera'
+      - 'cannon'
+      - 'car side'
+      - 'ceiling fan'
+      - 'cellphone'
+      - 'chair'
+      - 'chandelier'
+      - 'body of a cougar'
+      - 'face of a cougar'
+      - 'crab'
+      - 'crayfish'
+      - 'crocodile'
+      - 'crocodile head'
+      - 'cup'
+      - 'dalmatian'
+      - 'dollar bill'
+      - 'dolphin'
+      - 'dragonfly'
+      - 'electric guitar'
+      - 'elephant'
+      - 'emu'
+      - 'euphonium'
+      - 'ewer'
+      - 'ferry'
+      - 'flamingo'
+      - 'flamingo head'
+      - 'garfield'
+      - 'gerenuk'
+      - 'gramophone'
+      - 'grand piano'
+      - 'hawksbill'
+      - 'headphone'
+      - 'hedgehog'
+      - 'helicopter'
+      - 'ibis'
+      - 'inline skates'
+      - 'joshua tree'
+      - 'kangaroo'
+      - 'ketch'
+      - 'lamp'
+      - 'laptop'
+      - 'llama'
+      - 'lobster'
+      - 'lotus'
+      - 'mandolin'
+      - 'mayfly'
+      - 'menorah'
+      - 'metronome'
+      - 'minaret'
+      - 'nautilus'
+      - 'octopus'
+      - 'okapi'
+      - 'pagoda'
+      - 'panda'
+      - 'pigeon'
+      - 'pizza'
+      - 'platypus'
+      - 'pyramid'
+      - 'revolver'
+      - 'rhino'
+      - 'rooster'
+      - 'saxophone'
+      - 'schooner'
+      - 'scissors'
+      - 'scorpion'
+      - 'sea horse'
+      - 'snoopy'
+      - 'soccer ball'
+      - 'stapler'
+      - 'starfish'
+      - 'stegosaurus'
+      - 'stop sign'
+      - 'strawberry'
+      - 'sunflower'
+      - 'tick'
+      - 'trilobite'
+      - 'umbrella'
+      - 'watch'
+      - 'water lilly'
+      - 'wheelchair'
+      - 'wild cat'
+      - 'windsor chair'
+      - 'wrench'
+      - 'yin yang'
+
+
+dataloader:
+  imagenet: #for imagenet and imagenet_a
+    batch_size: 1024
+    shuffle: False
+    num_workers: 8
+    pin_memory: True
+  cifar10_val:
+    batch_size: 128 #512
+    shuffle: False
+    num_workers: 8
+    pin_memory: True
+  caltech101_val:
+    batch_size: 128
+    shuffle: False
+    num_workers: 8
+    pin_memory: True
+  coco_val:
+    batch_size: 1024
+    shuffle: False
+    num_workers: 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+zeroshot:
+  datasets:
+    - 'cifar10'
+    - 'caltech101'
+    - 'imagenet'
+    - 'imagenet_a'
+  cifar10:
+    dataset_name: 'cifar10'
+    classnames: ${dataset.categories.cifar10}
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.cifar10_val.batch_size}
+    device: "cuda"
+    top_k: [1,3,5]
+    confusion_matrix: False
+    verbose: True
+  caltech101:
+    dataset_name: 'caltech101'
+    classnames: ${dataset.categories.caltech101}
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.caltech101_val.batch_size}
+    device: "cuda"
+    top_k: [1,3,5]
+    confusion_matrix: False
+    verbose: True
+  imagenet:
+    dataset_name: 'imagenet'
+    #classnames: see imagenet_classnames() in my_datasets/utils
+    
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.imagenet.batch_size}
+    device: "cuda"
+    top_k: [1,3,5]
+    confusion_matrix: False
+    verbose: True
+  imagenet_a:
+    dataset_name: 'imagenet_a'
+    #classnames: see imagenet_a_classnames() in my_datasets/utils
+    templates: ${zeroshot.templates}
+    batch_size: ${dataloader.imagenet.batch_size}
+    device: "cuda"
+    top_k: [1,]
+    confusion_matrix: True
+    verbose: True
+  templates:
+    - 'a photo of a {}.'
+    - 'a blurry photo of a {}.'
+    - 'a black and white photo of a {}.'
+    - 'a low contrast photo of a {}.'
+    - 'a high contrast photo of a {}.'
+    - 'a bad photo of a {}.'
+    - 'a good photo of a {}.'
+    - 'a photo of a small {}.'
+    - 'a photo of a big {}.'
+    - 'a photo of the {}.'
+    - 'a blurry photo of the {}.'
+    - 'a black and white photo of the {}.'
+    - 'a low contrast photo of the {}.'
+    - 'a high contrast photo of the {}.'
+    - 'a bad photo of the {}.'
+    - 'a good photo of the {}.'
+    - 'a photo of the small {}.'
+    - 'a photo of the big {}.'
+
+
+
+
+
+
+linear_probe:
+  datasets:
+    - 'cifar10'
+    - 'caltech101'
+    # - 'imagenet'
+    # - 'imagenet_a'
+  cifar10:
+    logging_interval: 'epoch'
+    log_every: 1
+    confusion_matrix: True
+    verbose: True #True
+    max_epochs: 400
+    num_classes: 10
+    top_k: [1,3,5]
+    log_str_prefix: 'cifar_10'
+  caltech101:
+    logging_interval: 'epoch'
+    log_every: 1
+    confusion_matrix: True
+    verbose: True
+    max_epochs: 400
+    top_k: [1,3,5]
+    num_classes: 101
+    log_str_prefix: 'caltech_101'

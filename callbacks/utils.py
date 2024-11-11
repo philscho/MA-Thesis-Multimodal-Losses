@@ -6,18 +6,18 @@ from my_datasets.utils import imagenet_classnames, imagenet_a_classnames
 
 def instantiate_zeroshot_callbacks(config, dataloaders, model, processor):
     callbacks = dict()
-    if 'cifar-10' in config.datasets:
-        callbacks['cifar-10'] = ZeroShotCallback(
-            dataloader=dataloaders["cifar-10_train"],
+    if 'cifar10' in config.datasets:
+        callbacks['cifar10'] = ZeroShotCallback(
+            dataloader=dataloaders["cifar10_train"],
             tokenizer=processor,
             text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
             #text_forward=lambda x: model.get_text_features(input_ids=x),
             modality_forward=lambda x: model.get_image_features(pixel_values=x),
             **config.cifar10,
         )
-    if 'caltech-101' in config.datasets:
-        callbacks['caltech-101'] = ZeroShotCallback(
-            dataloader=dataloaders["caltech-101_train"],
+    if 'caltech101' in config.datasets:
+        callbacks['caltech101'] = ZeroShotCallback(
+            dataloader=dataloaders["caltech101_train"],
             tokenizer=processor,
             text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
             modality_forward=lambda x: model.get_image_features(pixel_values=x),
@@ -32,9 +32,9 @@ def instantiate_zeroshot_callbacks(config, dataloaders, model, processor):
             **config.imagenet,
             classnames=imagenet_classnames(),
         )
-    if 'imagenet-a' in config.datasets:
-        callbacks['imagenet-a'] = ZeroShotCallback(
-            dataloader=dataloaders["imagenet-a"],
+    if 'imagenet_a' in config.datasets:
+        callbacks['imagenet_a'] = ZeroShotCallback(
+            dataloader=dataloaders["imagenet_a"],
             tokenizer=processor,
             text_forward=lambda x, y: model.get_text_features(input_ids=x, attention_mask=y),
             modality_forward=lambda x: model.get_image_features(pixel_values=x),
@@ -47,15 +47,15 @@ def instantiate_zeroshot_callbacks(config, dataloaders, model, processor):
 def instantiate_linear_probe_callbacks(config, dataloaders):
     callbacks = dict()
 
-    if 'cifar-10' in config.datasets:
-        callbacks['cifar-10'] = LinearProbeCallback(
+    if 'cifar10' in config.datasets:
+        callbacks['cifar10'] = LinearProbeCallback(
             train_dataloader=dataloaders["cifar-10_train"],
             test_dataloader=dataloaders["cifar-10_test"],
             linear_probe=torch.nn.Linear(512, 10),
             **config.cifar-10,
         )
-    if 'caltech-101' in config.datasets:
-        callbacks['caltech-101'] = LinearProbeCallback(
+    if 'caltech101' in config.datasets:
+        callbacks['caltech101'] = LinearProbeCallback(
             train_dataloader=dataloaders["caltech-101_train"],
             test_dataloader=dataloaders["caltech-101_test"],
             linear_probe=torch.nn.Linear(512, 101),

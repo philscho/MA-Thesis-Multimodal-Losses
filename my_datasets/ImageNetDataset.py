@@ -8,10 +8,10 @@ from torchvision import transforms
 class ImageNetDataset(Dataset):
     def __init__(self, 
                  split='val',
-                 root_dir='/home/data/ImageNet/ILSVRC/Data/CLS-LOC/', 
+                 root_dir='/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/ImageNet/val', 
                  transform=None,
                  processor=None,
-                 classnames_path='my_datasets/imagenet-simple-labels.json'
+                 classnames_path='/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/imagenet-simple-labels.json'
                 ):
         """
         Args:

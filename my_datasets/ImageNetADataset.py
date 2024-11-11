@@ -7,10 +7,10 @@ from torchvision import transforms
 
 class ImageNetADataset(Dataset):
     def __init__(self, 
-                 root_dir='/home/data/phisch/imagenet-a/val', 
+                 root_dir='/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/imagenet-A/imagenet-a', 
                  transform=None, 
                  processor=None,
-                 classnames_path='my_datasets/imagenet-a_class-names.json'
+                 classnames_path='/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/imagenet-a_class-names.json'
                  ):
         """
         Args:

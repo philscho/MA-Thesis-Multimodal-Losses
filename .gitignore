@@ -21,3 +21,7 @@ testing_folder/
 analysis/
 config.env
 **/__pycache__/
+configs/hessian_train_config.yaml
+configs/categories.yaml
+changing_groups_wandb.py
+config.env
