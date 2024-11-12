@@ -30,7 +30,7 @@ class MyDataModule(L.LightningDataModule):
         if stage == "fit":
             self.train_dataset = self._setup_train_dataset()
             self.val_dataset = self._setup_val_dataset()
-        if stage == "validate":
+        elif stage == "validate":
             self.val_dataset = self._setup_val_dataset()
         else:
             raise NotImplementedError(f"Stage {stage} not implemented")
@@ -108,9 +108,9 @@ class MyDataModule(L.LightningDataModule):
             collate_fn=self._collate_fn if not self.local_dev else None,
         )
     
-    def get_test_dataloaders(self):
+    def callback_dataloader(self):
         loaders = dict()
-        if "cifar-10" in self.config.dataset.val:
+        if "cifar10" in self.config.dataset.val:
             dataset = Cifar10Dataset(
                     train=True,
                     processor=self.processor,
@@ -119,7 +119,7 @@ class MyDataModule(L.LightningDataModule):
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["cifar-10_train"] = DataLoader(
+            loaders["cifar10_train"] = DataLoader(
                 dataset=dataset,
                 **self.config.dataloader.cifar10_val,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
@@ -132,12 +132,12 @@ class MyDataModule(L.LightningDataModule):
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["cifar-10_test"] = DataLoader(
+            loaders["cifar10_test"] = DataLoader(
                 dataset=dataset,
                 **self.config.dataloader.cifar10_val,
                 # # collate_fn=self._collate_fn if not self.local_dev else None,
             )
-        if "caltech-101" in self.config.dataset.val:
+        if "caltech101" in self.config.dataset.val:
             dataset = Caltech101Dataset(
                     processor=self.processor,
                     **self.config.dataset.caltech101,
@@ -148,45 +148,34 @@ class MyDataModule(L.LightningDataModule):
             train_size = int(0.8 * len(dataset))
             test_size = len(dataset) - train_size
             train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
-            loaders["caltech-101_train"] = DataLoader(
+            loaders["caltech101_train"] = DataLoader(
                 dataset=train_dataset,
                 **self.config.dataloader.caltech101_val,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
             )
-            loaders["caltech-101_test"] = DataLoader(
+            loaders["caltech101_test"] = DataLoader(
                 dataset=test_dataset,
                 **self.config.dataloader.caltech101_val,
                 # # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         if "imagenet" in self.config.dataset.val:
-            dataset = ImageNetValDataset(processor=self.processor)
+            dataset = ImageNetDataset(processor=self.processor)
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            train_size = int(0.8 * len(dataset))
-            test_size = len(dataset) - train_size
-            train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
-            loaders["imagenet_train"] = DataLoader(
-                dataset=train_dataset,
-                **self.config.dataloader.testset,
+            loaders["imagenet"] = DataLoader(
+                dataset=dataset,
+                **self.config.dataloader.imagenet,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
             )
-            loaders["imagenet_test"] = DataLoader(
-                dataset=test_dataset,
-                **self.config.dataloader.caltech101_val,
-                # # collate_fn=self._collate_fn if not self.local_dev else None,
-            )
-        if "imagenet-a" in self.config.dataset.val:
+        if "imagenet_a" in self.config.dataset.val:
             dataset = ImageNetADataset(processor=self.processor)
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            train_size = int(0.8 * len(dataset))
-            test_size = len(dataset) - train_size
-            train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
-            loaders["imagenet-a_train"] = DataLoader(
-                dataset=train_dataset,
-                **self.config.dataloader.testset,
+            loaders["imagenet_a"] = DataLoader(
+                dataset=dataset,
+                **self.config.dataloader.imagenet,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
             )
             loaders["imagenet-a_test"] = DataLoader(

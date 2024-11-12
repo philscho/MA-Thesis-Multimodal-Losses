@@ -20,8 +20,8 @@ from transformers import (
 )
 from omegaconf import OmegaConf
 
-from callbacks import LinearProbeCallback, ZeroShotCallback
-from callbacks.utils import instantiate_linear_probe_callbacks, instantiate_zeroshot_callbacks
+from utils.callbacks import LinearProbeCallback, ZeroShotCallback
+from utils.callbacks.utils import instantiate_linear_probe_callbacks, instantiate_zeroshot_callbacks
 from data_module import MyDataModule
 from model_module import LitMML
 from utils.utils import EmptyDataset, LightningModelWrapper, log_callback_metrics

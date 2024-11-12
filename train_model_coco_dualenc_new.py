@@ -29,18 +29,23 @@ from transformers import (
 )
 from omegaconf import OmegaConf
 
-from callbacks import LinearProbeCallback, ZeroShotCallback
+from utils.callbacks import LinearProbeCallback, ZeroShotCallback
 from data_module import MyDataModule
 from model_module import LitMML
 
 load_dotenv()
 
 
-
 def get_models(config):
+    
+    vision_config=ViTConfig()
+    if '384' in config.model.image_encoder_name:
+        print ('Changing the vision config to load the model...')
+        vision_config.image_size = 384
+    
     model = VisionTextDualEncoderModel(
         config=VisionTextDualEncoderConfig.from_vision_text_configs(
-            vision_config=ViTConfig(), text_config=BertConfig()
+            vision_config=vision_config, text_config=BertConfig()
         )
     )
 
@@ -92,7 +97,8 @@ def main(config):
                                augmentation=augmentation,
                                num_views=2,
     )
-    callback_dataloaders = data_module.get_test_dataloaders()
+    callback_dataloaders = data_module.callback_dataloader() 
+    # callback_dataloaders = data_module.get_test_dataloaders()
     if 'caltech101' in config.dataset.val:
         caltech101_train = callback_dataloaders["caltech101_train"]
         caltech101_test = callback_dataloaders["caltech101_test"]
@@ -105,7 +111,7 @@ def main(config):
             train_dataloader=cifar10_train,
             test_dataloader=cifar10_test,
             linear_probe=torch.nn.Linear(512, 10),
-            **config.lightning.cifar_linear_probe_callback,
+            **config.cifar_linear_probe_callback,
         )
         callbacks.append(cifar10linear)
     if 'caltech101_linear_probe_callback' in config:
@@ -113,7 +119,7 @@ def main(config):
             train_dataloader=caltech101_train,
             test_dataloader=caltech101_test,
             linear_probe=torch.nn.Linear(512, 101),
-            **config.lightning.caltech101_linear_probe_callback,
+            **config.caltech101_linear_probe_callback,
         )
         callbacks.append(caltech101linear)
     if 'cifar10_zeroshot_callback' in config:
@@ -151,9 +157,9 @@ def main(config):
         )
         callbacks.append(caltech101zeroshot)
 
-    if "model_checkpoint_callback" in config.lightning:
+    if "model_checkpoint_callback" in config:
         ckpt_callback = ModelCheckpoint(
-            **config.lightning.model_checkpoint_callback,
+            **config.model_checkpoint_callback,
             monitor="loss-val",  # "loss-val"
             dirpath=f"{config.save_dir}/ckpts/{wandb_logger.experiment.id}",
             filename="ckpt-{epoch:02d}-{loss-val:.3f}",
@@ -163,7 +169,7 @@ def main(config):
     lr_callback = LearningRateMonitor(logging_interval="step")
     callbacks.append(lr_callback) 
     
-    if "early_stopping" in config.lightning:
+    if "early_stopping" in config:
         early_stopping = EarlyStopping(
             monitor="loss-val", 
             patience=10, 
@@ -195,16 +201,22 @@ def main(config):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train a multimodal model.")
-    parser.add_argument('--config', type=str, required=True, help='Path to the configuration file.')
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser(description="Train a multimodal model.")
+    # parser.add_argument('--config', type=str, required=True, help='Path to the configuration file.')
+    # args = parser.parse_args()
 
-    cfg_path = args.config
+
+    #---------OmegaConf Setup--------------
+    # allows me to change parameters using cli without opening configs
+    cfg_path = 'configs/hessian_train_config.yaml'
     print(f"Running with config: {cfg_path}")
     config = OmegaConf.load(cfg_path)
-    # config = OmegaConf.merge(config, OmegaConf.from_cli())
-    # OmegaConf.resolve(config)
-
+    categories_config = OmegaConf.load('configs/categories.yaml')
+        
+    config = OmegaConf.merge(config, OmegaConf.from_cli())
+    OmegaConf.resolve(config)
+    #-------------------------------------
+     
     # set environment variable torch_distributed_debug to INFO
     # import os
     # os.environ["TORCH_DISTRIBUTED_DEBUG"] = "DETAIL"
@@ -220,5 +232,8 @@ if __name__ == "__main__":
         print("--" * 30)
         print(OmegaConf.to_yaml(config))
         print("--" * 30)
+        
+    config = OmegaConf.merge(config,categories_config)
+
     
     main(config)

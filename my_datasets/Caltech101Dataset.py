@@ -20,24 +20,7 @@ class Caltech101Dataset(Caltech101):
         image = image.convert('RGB')
 
         if self.processor is not None:
-            # inputs = self.processor(images=image, 
-            #                         #text=self.labels, 
-            #                         padding='max_length', return_tensors="pt")
-            # img = torch.squeeze(inputs['pixel_values'])
-            # if self.transform:
-            #     img = self.transform(img)
-            # tokens = torch.squeeze(self.labels_tokenized['input_ids'])
-            # token_type = torch.squeeze(self.labels_tokenized['token_type_ids'])
-            # mask = torch.squeeze(self.labels_tokenized['attention_mask'])
-
-            # return img, tokens, token_type, mask, label
-            # try:
             image = torch.squeeze(self.processor(images=image, return_tensors="pt")['pixel_values'])
-            # except ValueError:
-            #     print (f"Issue found at {idx} with label {label}")
-            #     import matplotlib.pyplot as plt
-            #     plt.imshow(image)
-            #     plt.savefig(f"./{idx}.jpg")
             return image, label
         else:
             if self.transform:

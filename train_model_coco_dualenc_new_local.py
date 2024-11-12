@@ -39,8 +39,8 @@ from transformers import (
     optimization
 )
 
-from callbacks import CIFAR10LinearProbeCallback
-from callbacks import ZeroShotCallback
+from utils.callbacks import CIFAR10LinearProbeCallback
+from utils.callbacks import ZeroShotCallback
 from my_datasets import (
     Caltech101Dataset,
     CocoDataset,

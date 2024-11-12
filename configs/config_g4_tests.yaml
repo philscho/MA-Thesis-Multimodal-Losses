@@ -1,6 +1,8 @@
-save_dir: './models/cliplike/'
+# save_dir: './models/cliplike/'
 
-checkpoint: '/data/bhavin/ckpts/93t3xgrr/ckpt-epoch=14-loss-val=2.208.ckpt' # CLIP + ITM
+
+checkpoint: '/Volumes/CVAI-SSD-1/phillipscholl/multimodal/ckpts/93t3xgrr/ckpt-epoch=14-loss-val=2.208.ckpt'
+# checkpoint: '/data/bhavin/ckpts/93t3xgrr/ckpt-epoch=14-loss-val=2.208.ckpt' # CLIP + ITM
 # checkpoint: '/data/bhavin/ckpts/oc0g8fql/ckpt-epoch=19-loss-val=1.908.ckpt' # CLIP + SIMCLR
 # checkpoint: '/data/bhavin/ckpts/yh1adr3g/ckpt-epoch=14-loss-val=3.775.ckpt' # CLIP
 # checkpoint: '/data/bhavin/ckpts/zathvtrx/ckpt-epoch=14-loss-val=0.002.ckpt' # SIMCLR
@@ -8,13 +10,13 @@ checkpoint: '/data/bhavin/ckpts/93t3xgrr/ckpt-epoch=14-loss-val=2.208.ckpt' # CL
 # checkpoint: '/data/bhavin/ckpts/9nvg456i/ckpt-epoch=24-loss-val=1.435.ckpt' # CLIP + ITM + SIMCLR
 
 wandb:
-  #name: 'CLIP + ITM'
-  tags :
+  name: 'CLIP + ITM'
+  tags:
     #- 'itm: binary cross-entropy'
     # - 'clip'
     # - 'itm'
     # - 'simclr'
-  offline: False #True #${lightning.trainer.fast_dev_run}
+  offline: True #True #${lightning.trainer.fast_dev_run}
   group: 'analysis'
   entity: 'arena-multimodal-lossfns'
   project : 'multimodal'
@@ -25,87 +27,24 @@ wandb:
 lightning:
   seed: 69
   trainer:
+    strategy: 'auto'
     fast_dev_run: False #True #False #True #False
     #overfit_batches: 1
     #val_check_interval: 0.3
     log_every_n_steps: 1 #5 #10
     max_epochs: 1
-    devices: [3]  #[01] #[3] #[0 1]
+    # devices: [3]    #[01] #[3] #[0 1]
     num_nodes: 1
-    #========================#
-    accelerator: 'gpu'
-    strategy: 'ddp' #'ddp_find_unused_parameters_true'
+    accelerator: 'auto'
     deterministic: 'warn' #True
     precision: '16-mixed'
     gradient_clip_algorithm: "norm"
     gradient_clip_val: 1.0   
-    static_graph: True #False #True #False #True
+    # static_graph: True #False #True #False #True
   # model_checkpoint_callback:
   #   every_n_epochs: 1
   #   save_last: True
   #   save_top_k: 2
-
-zeroshot:
-  datasets:
-    - 'cifar-10'
-    # - 'caltech-101'
-    # - 'imagenet'
-    # - 'imagenet-a'
-  cifar10:
-    dataset_name: 'cifar-10'
-    classnames: ${dataset.categories.cifar10}
-    templates: ${zeroshot.templates}
-    batch_size: ${dataloader.cifar10_val.batch_size}
-    device: "cuda"
-    top_k: [1,]
-    confusion_matrix: True
-    verbose: True
-  caltech101:
-    dataset_name: 'caltech-101'
-    classnames: ${dataset.categories.caltech101}
-    templates: ${zeroshot.templates}
-    batch_size: ${dataloader.caltech101_val.batch_size}
-    device: "cuda"
-    top_k: [1,]
-    confusion_matrix: True
-    verbose: True
-  imagenet:
-    dataset_name: 'imagenet'
-    #classnames: see imagenet_classnames() in my_datasets/utils
-    templates: ${zeroshot.templates}
-    batch_size: ${dataloader.testset.batch_size}
-    device: "cuda"
-    top_k: [1,]
-    confusion_matrix: True
-    verbose: True
-  imagenet_a:
-    dataset_name: 'imagenet-a'
-    #classnames: see imagenet_a_classnames() in my_datasets/utils
-    templates: ${zeroshot.templates}
-    batch_size: ${dataloader.testset.batch_size}
-    device: "cuda"
-    top_k: [1,]
-    confusion_matrix: True
-    verbose: True
-  templates:
-    - 'a photo of a {}.'
-    - 'a blurry photo of a {}.'
-    - 'a black and white photo of a {}.'
-    - 'a low contrast photo of a {}.'
-    - 'a high contrast photo of a {}.'
-    - 'a bad photo of a {}.'
-    - 'a good photo of a {}.'
-    - 'a photo of a small {}.'
-    - 'a photo of a big {}.'
-    - 'a photo of the {}.'
-    - 'a blurry photo of the {}.'
-    - 'a black and white photo of the {}.'
-    - 'a low contrast photo of the {}.'
-    - 'a high contrast photo of the {}.'
-    - 'a bad photo of the {}.'
-    - 'a good photo of the {}.'
-    - 'a photo of the small {}.'
-    - 'a photo of the big {}.'
 
 linear_probe:
   datasets:
@@ -189,8 +128,8 @@ dataset:
     - 'coco_val_dummy'
     - 'cifar-10'
     - 'caltech-101'
-    - 'imagenet'
-    - 'imagenet-a'
+    # - 'imagenet'
+    # - 'imagenet-a'
   transforms: 
     enabled: True #False #True
     RandAugment:
@@ -204,17 +143,17 @@ dataset:
   cc3m:
     data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
   cifar10:
-    root: '/home/data/cifar10/'
+    root: '/Users/bhavin/Documents/Projects/datasets/cifar10'
     download: False
   caltech101 :
-    root: '/home/data/caltech101/'
+    root: '/Users/bhavin/Documents/Projects/datasets/caltech101/'
     download: False
   use_subset:
     value: true
     subset_fraction: 0.2
   use_subset_probe:
     value: false
-    subset_fraction: 0.2
+    subset_fraction: 1.0
   categories:
     cifar10:
       - 'airplane'
