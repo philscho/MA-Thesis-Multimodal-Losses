@@ -163,20 +163,36 @@ class MyDataModule(L.LightningDataModule):
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["imagenet"] = DataLoader(
-                dataset=dataset,
+            train_size = int(0.8 * len(dataset))
+            test_size = len(dataset) - train_size
+            train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
+            loaders["imagenet_train"] = DataLoader(
+                dataset=train_dataset,
                 **self.config.dataloader.testset,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
+            )
+            loaders["imagenet_test"] = DataLoader(
+                dataset=test_dataset,
+                **self.config.dataloader.caltech101_val,
+                # # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         if "imagenet-a" in self.config.dataset.val:
             dataset = ImageNetADataset(processor=self.processor)
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            loaders["imagenet-a"] = DataLoader(
-                dataset=dataset,
+            train_size = int(0.8 * len(dataset))
+            test_size = len(dataset) - train_size
+            train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
+            loaders["imagenet-a_train"] = DataLoader(
+                dataset=train_dataset,
                 **self.config.dataloader.testset,
                 # collate_fn=self._collate_fn if not self.local_dev else None,
+            )
+            loaders["imagenet-a_test"] = DataLoader(
+                dataset=test_dataset,
+                **self.config.dataloader.caltech101_val,
+                # # collate_fn=self._collate_fn if not self.local_dev else None,
             )
         return loaders
 

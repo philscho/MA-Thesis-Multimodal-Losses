@@ -24,7 +24,7 @@ from callbacks import LinearProbeCallback, ZeroShotCallback
 from callbacks.utils import instantiate_linear_probe_callbacks, instantiate_zeroshot_callbacks
 from data_module import MyDataModule
 from model_module import LitMML
-from utils.utils import EmptyDataset, LightningModelWrapper
+from utils.utils import EmptyDataset, LightningModelWrapper, log_callback_metrics
 
 # --------------------------------- Setup ------------------------------------
 
@@ -69,10 +69,11 @@ data_module = MyDataModule(config,
 # val_dataloader = data_module.val_dataloader()
 dataloaders = data_module.get_test_dataloaders()
 
+callbacks = list()
 zeroshot_callbacks = instantiate_zeroshot_callbacks(config.zeroshot, dataloaders, model, processor)
-#linear_probe_callbacks = instantiate_linear_probe_callbacks(config.linear_probe, dataloaders)
-
-callbacks = list(zeroshot_callbacks.values()) #+ list(linear_probe_callbacks.values())
+callbacks.extend(list(zeroshot_callbacks.values()))
+linear_probe_callbacks = instantiate_linear_probe_callbacks(config.linear_probe, dataloaders)
+callbacks.extend(list(linear_probe_callbacks.values()))
 
 # --------------------------------- Training ---------------------------------
 
@@ -103,18 +104,16 @@ trainer.validate(lit_model, datamodule=data_module)
 # --------------------------------- Logging ----------------------------------
 
 # Log zero-shot results
-columns, data = ["model"], [] # to populate wandb table
-row = [f"{config.wandb.name}"]
-
-for callback in zeroshot_callbacks.values(): # a callback evaluates a specific dataset
-    if isinstance(callback, ZeroShotCallback): # trainer adds its own callbacks to list
-        result = callback.result
-        dataset_name = callback.dataset_name
-        columns.append(dataset_name)
-        for k, v in result.items():
-            if k != "ConfusionMatrix": # k == Top{x}Accuracy
-                row.append(v)
-data.append(row)
-
+columns, data = log_callback_metrics(model_name=config.wandb.name,
+                                     callbacks=zeroshot_callbacks.values(), 
+                                     logger=wandb_logger, 
+                                     config=config)
 wandb_logger.log_table(key="zero-shot", columns=columns, data=data)
+
+# Log linear probe results
+columns, data = log_callback_metrics(model_name=config.wandb.name,
+                                     callbacks=linear_probe_callbacks.values(), 
+                                     logger=wandb_logger, 
+                                     config=config)
+wandb_logger.log_table(key="linear_probe", columns=columns, data=data)
 

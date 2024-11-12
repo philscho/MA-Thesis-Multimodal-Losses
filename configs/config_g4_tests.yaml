@@ -8,7 +8,7 @@ checkpoint: '/data/bhavin/ckpts/93t3xgrr/ckpt-epoch=14-loss-val=2.208.ckpt' # CL
 # checkpoint: '/data/bhavin/ckpts/9nvg456i/ckpt-epoch=24-loss-val=1.435.ckpt' # CLIP + ITM + SIMCLR
 
 wandb:
-  name: 'CLIP + ITM'
+  #name: 'CLIP + ITM'
   tags :
     #- 'itm: binary cross-entropy'
     # - 'clip'
@@ -48,9 +48,9 @@ lightning:
 zeroshot:
   datasets:
     - 'cifar-10'
-    - 'caltech-101'
-    - 'imagenet'
-    - 'imagenet-a'
+    # - 'caltech-101'
+    # - 'imagenet'
+    # - 'imagenet-a'
   cifar10:
     dataset_name: 'cifar-10'
     classnames: ${dataset.categories.cifar10}
@@ -109,26 +109,42 @@ zeroshot:
 
 linear_probe:
   datasets:
-    # - 'cifar-10'
+    - 'cifar-10'
     # - 'caltech-101'
-    #- 'imagenet'
+    # - 'imagenet'
     # - 'imagenet-a'
-  cifar-10:
+  cifar10:
     logging_interval: 'epoch'
     log_every: 1
     confusion_matrix: True
-    verbose: False #True
+    verbose: True
     max_epochs: 400
     num_classes: 10
     log_str_prefix: 'cifar-10'
-  caltech-101:
+  caltech101:
     logging_interval: 'epoch'
     log_every: 1
     confusion_matrix: True
-    verbose: False
+    verbose: True
     max_epochs: 400
     num_classes: 101
     log_str_prefix: 'caltech-101'
+  imagenet:
+    logging_interval: 'epoch'
+    log_every: 1
+    confusion_matrix: True
+    verbose: True
+    max_epochs: 400
+    num_classes: 1000
+    log_str_prefix: 'imagenet'
+  imagenet_a:
+    logging_interval: 'epoch'
+    log_every: 1
+    confusion_matrix: True
+    verbose: True
+    max_epochs: 400
+    num_classes: 200
+    log_str_prefix: 'imagenet-a'
 
 gradient_checkpointing: True
 

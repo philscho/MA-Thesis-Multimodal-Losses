@@ -189,3 +189,17 @@ class LightningModelWrapper(pl.LightningModule):
         # return torch.optim.SGD(self.model.parameters(), lr=0.1)
 
 
+def log_callback_metrics(model_name, callbacks, logger, config):
+    columns, data = ["model"], [] # to populate wandb table
+    row = [model_name]
+
+    for callback in callbacks: # a callback evaluates a specific dataset
+        #if isinstance(callback, LinearProbeCallback): # trainer adds its own callbacks to list
+            result = callback.result
+            dataset_name = callback.dataset_name
+            columns.append(dataset_name)
+            for k, v in result.items():
+                if k != "ConfusionMatrix": # k == Top{x}Accuracy
+                    row.append(v)
+    data.append(row)
+    return columns, data

@@ -79,6 +79,7 @@ class LinearProbeCallback(pl.Callback):
 
         if self.run_now_flag(trainer):
             if trainer.is_global_zero:
+                print(f"Starting linear probe training for {self.log_str_prefix}...")
                 self.trained_linear_probe = create_linear_probe(
                     forward_func=lambda x: pl_module.model.get_image_features(
                         pixel_values=x

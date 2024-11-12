@@ -52,14 +52,28 @@ def instantiate_linear_probe_callbacks(config, dataloaders):
             train_dataloader=dataloaders["cifar-10_train"],
             test_dataloader=dataloaders["cifar-10_test"],
             linear_probe=torch.nn.Linear(512, 10),
-            **config.cifar-10,
+            **config.cifar10,
         )
     if 'caltech-101' in config.datasets:
         callbacks['caltech-101'] = LinearProbeCallback(
             train_dataloader=dataloaders["caltech-101_train"],
             test_dataloader=dataloaders["caltech-101_test"],
             linear_probe=torch.nn.Linear(512, 101),
-            **config.caltech-101,
+            **config.caltech101,
+        )
+    if 'imagenet' in config.datasets:
+        callbacks['imagenet'] = LinearProbeCallback(
+            train_dataloader=dataloaders["imagenet_train"],
+            test_dataloader=dataloaders["imagenet_test"],
+            linear_probe=torch.nn.Linear(512, 1000),
+            **config.imagenet,
+        )
+    if 'imagenet-a' in config.datasets:
+        callbacks['imagenet-a'] = LinearProbeCallback(
+            train_dataloader=dataloaders["imagenet-a_train"],
+            test_dataloader=dataloaders["imagenet-a_test"],
+            linear_probe=torch.nn.Linear(512, 200),
+            **config.imagnet_a,
         )
     
     return callbacks
