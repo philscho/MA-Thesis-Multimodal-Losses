@@ -106,13 +106,15 @@ def _create_zero_shot_classifier(forward_func,
     batch_size = 2 ** ((batch_size // num_templates) - 1).bit_length() # batch_size = 2 ** ((64 // 1) - 1).bit_length() = 2 ** 6 = 64
 
     batch_class_names = make_batches(classnames, batch_size)
-
+    if verbose:
+        print ('batch_class_names : \n ',batch_class_names)
     with torch.no_grad():
         zeroshot_weights = []
         bar = tqdm(batch_class_names, desc="Classifier weights...") if verbose else batch_class_names
         for batch_class_name in bar:
             texts = [template.format(classname) for classname in batch_class_name for template in templates]
-
+            if verbose:
+                print ('texts',texts)
             if tokenizer is not None:
                 #texts = tokenizer(texts).to(device)  # tokenize Shape: batch_size * num_tokens x context_length
                 input = tokenizer(text=texts, padding=True, truncation=True, return_tensors="pt")

@@ -1,5 +1,6 @@
-#%%
+# %%
 
+from pathlib import Path
 import lightning as pl
 from lightning.pytorch import seed_everything
 from lightning.pytorch.loggers import WandbLogger
@@ -23,9 +24,26 @@ from transformers import (
 from omegaconf import OmegaConf
 import pickle
 
+
+from torchvision.datasets import (
+    SBU,
+    Caltech101,
+    Caltech256,
+    CIFAR100,
+    CIFAR10,
+    Cityscapes,
+    OxfordIIITPet,
+    StanfordCars,
+    STL10,
+    Flowers102,
+    Food101,
+    FGVCAircraft,
+    DTD,
+)
+
 # from callbacks.zeroshot_callback import _create_zero_shot_classifier,_evaluate_zero_shot
-from callbacks import LinearProbeCallback, ZeroShotCallback
-from callbacks.utils import instantiate_zeroshot_callbacks
+from utils.callbacks import LinearProbeCallback, ZeroShotCallback
+from utils.callbacks.utils import instantiate_zeroshot_callbacks
 from data_module import MyDataModule
 from model_module import LitMML
 from utils.utils import EmptyDataset, LightningModelWrapper
@@ -49,6 +67,10 @@ def instantiate_linear_probe_callbacks(config, dataloaders):
             **config.caltech101,
         )
     
+    
+    
+    
+    
     return callbacks
 
 def get_models(config):
@@ -68,6 +90,26 @@ def get_models(config):
         ),
     )
     return model, processor
+
+
+DATASET_ROOT = Path('/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/')
+
+all_datasets = {
+    'SBU' : SBU(root=DATASET_ROOT/'SBU-Captions'),
+    'Caltech101':Caltech101(root=DATASET_ROOT/'caltech101'),
+    'Caltech256':Caltech256(root=DATASET_ROOT/'caltech256',download=True),
+    'CIFAR10': CIFAR10(root=DATASET_ROOT/'cifar10',train=False),
+    'CIFAR100': CIFAR100(root=DATASET_ROOT/'cifar100',train=False),
+    'DTD': DTD(root=DATASET_ROOT/'dtd',split='test'),
+    'CityScapes':Cityscapes(root=DATASET_ROOT/'Citescapes',split='test'),
+    'OxfordsIIITPet':OxfordIIITPet(root=DATASET_ROOT/'oxford-iiit-pet',split='test'),
+    'StanfordCars':StanfordCars(root=DATASET_ROOT/'stanford_cars',split='test'),
+    'Flowers102': Flowers102(root=DATASET_ROOT/'flowers-102',split='test'),
+    'FGVCAircraft':FGVCAircraft(root=DATASET_ROOT/'fgvc-aircraft-2013b',split='test'),
+    'Food101':Food101(root=DATASET_ROOT/'food-101',split='test'),
+    'STL10':STL10(root=DATASET_ROOT/'stl10_binary',split='test'),
+}
+
 
 
 
@@ -130,7 +172,7 @@ if __name__ == '__main__':
         return datadict
     
     data_dict = {}
-    for model in model_list:
+    for model in model_list[::-1]:
         print ('--')
         print (model)
         print ('--')
@@ -138,3 +180,4 @@ if __name__ == '__main__':
         
     with open('linear_results.p','wb') as f:
         pickle.dump(data_dict,f)
+ # needs some fixingc

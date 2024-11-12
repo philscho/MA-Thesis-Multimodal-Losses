@@ -23,12 +23,14 @@ from omegaconf import OmegaConf
 import pickle
 
 # from callbacks.zeroshot_callback import _create_zero_shot_classifier,_evaluate_zero_shot
-from callbacks.linear_probe_callback import create_linear_probe,eval_linear_probe 
-from callbacks.utils import instantiate_zeroshot_callbacks
+from utils.callbacks.linear_probe_callback import create_linear_probe,eval_linear_probe 
+from utils.callbacks.utils import instantiate_zeroshot_callbacks
 from data_module import MyDataModule
 from model_module import LitMML
 from utils.utils import EmptyDataset, LightningModelWrapper
 
+
+#%%
 # --------------------------------- Setup ------------------------------------
 
 def get_models(config):

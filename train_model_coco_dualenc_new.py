@@ -29,7 +29,7 @@ from transformers import (
 )
 from omegaconf import OmegaConf
 
-from callbacks import LinearProbeCallback, ZeroShotCallback
+from utils.callbacks import LinearProbeCallback, ZeroShotCallback
 from data_module import MyDataModule
 from model_module import LitMML
 

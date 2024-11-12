@@ -18,7 +18,8 @@ my_datasets\__pycache__
 slurm/logs
 debugging.ipynb
 testing_folder/
-analysis/
+analysis/data
+analysis/figures
 config.env
 **/__pycache__/
 configs/hessian_train_config.yaml
