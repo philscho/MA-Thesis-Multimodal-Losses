@@ -36,6 +36,28 @@ from model_module import LitMML
 load_dotenv()
 
 
+
+
+class MLMWrapper(torch.nn.Module):
+    def __init__(self,model):
+        super().__init__()
+        self.basemodel = model
+        self.mlm_head = torch.nn.Linear(768,30522)
+        
+        
+        #exposing for all the callbacks
+        self.config = model.config
+        self.logit_scale = model.logit_scale
+        self.get_text_features = model.get_text_features
+        self.get_image_features = model.get_image_features
+        
+    def forward(self,*args,**kwargs):
+        # out = self.model.forward(batch)
+
+        return self.basemodel(*args,**kwargs)
+
+
+
 def get_models(config):
     
     vision_config=ViTConfig()
@@ -48,15 +70,16 @@ def get_models(config):
             vision_config=vision_config, text_config=BertConfig()
         )
     )
-
+    model = MLMWrapper(model) 
+    
     # model = VisionTextDualEncoderModel.from_vision_text_pretrained(config.model.image_encoder_name, config.model.text_encoder_name)
     processor = VisionTextDualEncoderProcessor(
-        image_processor=AutoImageProcessor.from_pretrained(
-            config.model.image_encoder_name, input_data_format="channels_last"
-        ),
-        tokenizer=AutoTokenizer.from_pretrained(
-            config.model.text_encoder_name, **config.model.tokenizer
-        ),
+    image_processor=AutoImageProcessor.from_pretrained(
+        config.model.image_encoder_name, input_data_format="channels_last"
+    ),
+    tokenizer=AutoTokenizer.from_pretrained(
+        config.model.text_encoder_name, **config.model.tokenizer
+    ),
     )
     return model, processor
 
@@ -73,7 +96,13 @@ def main(config):
     model, processor = get_models(config)
     
     if config.dataset.transforms.enabled:
-        augmentation = transforms.RandAugment(**config.dataset.transforms.RandAugment)
+        
+
+        # augmentation = transforms.RandAugment(**config.dataset.transforms.RandAugment)
+        # size = processor.image_processor.size['width']
+        augmentation = transforms.Compose([transforms.RandomResizedCrop(size = 224),#FIXME: do i need to rescale here? 
+                                           transforms.RandomHorizontalFlip(),
+                                           transforms.RandAugment(**config.dataset.transforms.RandAugment)]) 
     else:
         augmentation = None
     
@@ -88,8 +117,8 @@ def main(config):
     # wandb_logger.watch(net)
     callbacks = []
     if config.gradient_checkpointing:
-        net.model.vision_model.gradient_checkpointing_enable()
-        net.model.text_model.gradient_checkpointing_enable()
+        net.model.basemodel.vision_model.gradient_checkpointing_enable()
+        net.model.basemodel.text_model.gradient_checkpointing_enable()
 
     data_module = MyDataModule(config,
                                processor,
@@ -215,6 +244,17 @@ if __name__ == "__main__":
         
     config = OmegaConf.merge(config, OmegaConf.from_cli())
     OmegaConf.resolve(config)
+    
+    for _losstype in config.loss.losses:
+        if _losstype == 'contrastive':
+            config.wandb.tags.append('clip')
+        if _losstype == 'SimCLR':
+            config.wandb.tags.append('simclr')
+        if _losstype == 'image_text_matching':
+            config.wandb.tags.append('itm')
+        if _losstype == 'MLM':
+            config.wandb.tags.append("mlm")
+            
     #-------------------------------------
      
     # set environment variable torch_distributed_debug to INFO

@@ -9,14 +9,18 @@ from transformers import (
     VisionTextDualEncoderProcessor,
 )
 
+from torchmetrics.classification import Accuracy
+
 from utils.loss_functions import NTXentLoss
 from utils.utils import (
     calculate_accuracy,
     get_negative_embeddings, #print_memory_usage,
     get_negative_embeddings, #print_memory_usage,
     calculate_accuracy_simclr,
+    mask_tokens
 )
 from utils.optimizer_and_scheduler import get_optimizer, get_scheduler
+
 
 class LitMML(pl.LightningModule):
     def __init__(
@@ -43,6 +47,9 @@ class LitMML(pl.LightningModule):
             ignore=["model", "processor", "augmentation"]
         )
         self._set_loss_functions(loss_cfg)
+        
+        if 'MLM' in self.loss_cfg.losses:
+            self.mlm_accuracy = Accuracy(task='multiclass',num_classes=30522,ignore_index=-100)
 
     def _set_loss_functions(self, loss_cfg):
         if "contrastive" in self.loss_cfg.losses:
@@ -111,6 +118,28 @@ class LitMML(pl.LightningModule):
             accuracy_contrastive = calculate_accuracy(image_embeds, text_embeds)
             losses["loss-contrastive"] = loss_contrastive
             metrics["acc-contrastive"] = accuracy_contrastive
+        
+        
+        if 'MLM' in self.loss_cfg.losses:
+            mlm_probability = 0.2
+            inp_ids = token.clone()
+            lbls = inp_ids.clone()
+            probability_matrix = torch.full(lbls.shape,mlm_probability)
+            
+            inp_ids, lbls = mask_tokens(input_ids=inp_ids, vocab_size=30522,
+                                            tokenizer=self.processor.tokenizer, device=self.device,
+                                            targets=lbls, probability_matrix=probability_matrix)            
+            masked_text_features = self.model.basemodel.text_model(input_ids=inp_ids,
+                                                            attention_mask=attention_mask,
+                                                            token_type_ids=token_type_ids
+                                                            ).last_hidden_state
+            prediction_scores = self.model.mlm_head(masked_text_features).view(-1,30522)
+            lbls = lbls.view(-1)
+            mlm_loss = torch.nn.functional.cross_entropy(prediction_scores,lbls,ignore_index=-100)
+            losses['loss-mlm'] = mlm_loss
+            metrics['acc-mlm'] = self.mlm_accuracy(prediction_scores,lbls)
+            
+            del inp_ids, lbls 
         
         #print_memory_usage("After calculating contrastive loss:")
         #TODO: put loss in seperate function
