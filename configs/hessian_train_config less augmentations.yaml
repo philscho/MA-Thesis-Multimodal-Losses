@@ -1,0 +1,204 @@
+save_dir: './models/cliplike/'
+resume_checkpoint: null
+# resume_checkpoint: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/models/cliplike/ckpts/51viazq4/last.ckpt'
+
+
+wandb:
+  tags : []
+    #- 'itm: binary cross-entropy'
+    # - 'overfit'
+    # - 'clip'
+    # - 'mlm'
+    # - 'itm'
+    # - 'simclr'
+    # - 'higher augmentations'
+    # - 'imageRes384'
+  offline: ${lightning.trainer.fast_dev_run}
+  #name: 
+  #group: 'debug'
+  group: 'ContrastiveLoss'
+  #group: 'run'
+  entity: 'arena-multimodal-lossfns'
+  project : 'multimodal'
+  dir : './wandb/'
+  ### checkpoint args
+  #id: 5m917c9w
+ 
+
+loss:
+  losses:
+    - 'contrastive'
+    # - 'MLM'
+    # - 'image_text_matching'
+    # - 'SimCLR'
+  contrastive:
+  #  temperature : 1.
+  image_text_matching:
+    arg1: ''
+
+optimizer:
+  name : "AdamW"
+  lr: 2e-05
+  kwargs:
+    weight_decay : 0.1
+    betas : [0.9, 0.95]
+
+scheduler:
+  enabled: True #True
+  name: CosineWarmup
+  monitor: 'loss-val'
+  interval: 'step'
+  kwargs:
+    initial_lr: 1e-08
+    num_warmup_steps: 'epoch'
+    num_training_steps: 'all'
+
+
+
+
+
+lightning:
+  seed: 69
+  trainer:
+    fast_dev_run: False #True #False
+    # overfit_batches: 1
+    #val_check_interval: 0.3
+    log_every_n_steps: 5 #5 #10
+    max_epochs: 150
+    devices: 2  #[01] #[3] #[0 1]
+    # num_nodes: 1
+    #========================#
+    accelerator: 'gpu'
+    strategy: 'ddp' #'ddp_find_unused_parameters_true'
+    deterministic: 'warn' #True
+    precision: '16-mixed'
+    gradient_clip_algorithm: "norm"
+    gradient_clip_val: 1.0   
+    static_graph: True #False #True #False #True
+  # cifar10_zeroshot_callback: True
+  # caltech101_zeroshot_callback: True
+  # cifar_linear_probe_callback:
+  #   logging_interval: 'epoch'
+  #   log_every: 3
+  #   confusion_matrix: True
+  #   verbose: False
+  #   max_epochs: 400
+  #   num_classes: 10
+  # caltech101_linear_probe_callback:
+  #   logging_interval: 'epoch'
+  #   log_every: 3
+  #   confusion_matrix: True
+  #   verbose: False
+  #   max_epochs: 400
+  #   num_classes: 101
+
+
+
+early_stopping: True
+model_checkpoint_callback:
+  every_n_epochs: 5
+  save_last: True
+  save_top_k: 1
+cifar10_zeroshot_callback: True
+caltech101_zeroshot_callback: True
+cifar_linear_probe_callback:
+  logging_interval: 'epoch'
+  log_every: 3
+  confusion_matrix: True
+  verbose: False
+  max_epochs: 400
+  num_classes: 10
+  log_str_prefix: 'cifar10'
+caltech101_linear_probe_callback:
+  logging_interval: 'epoch'
+  log_every: 3
+  confusion_matrix: True
+  verbose: False
+  max_epochs: 400
+  num_classes: 101
+  log_str_prefix: 'caltech101'
+
+
+gradient_checkpointing: True
+
+
+
+
+dataloader:
+  train:
+    shuffle : True
+    batch_size : 2048 #512 #1024 #512 #1792 #1920 #2048 #256 #512 #1536 #2048  #896 #960 #1024 #256 #180
+    # batch_size : 512
+    num_workers: 8
+    persistent_workers: True
+    pin_memory: True
+
+  coco_val:
+    shuffle : False
+    #batch_size : 
+    batch_size : 512 #512 #1024 #512 #1792 #1024 #1920 #2048 #256 #512 #1536 #896 #960 #1024 #256 #180
+    num_workers : 8
+    persistent_workers: True
+    pin_memory: True
+  
+  cifar10_val:
+    batch_size: 512 #512
+    shuffle: False
+    num_workers: 8
+    persistent_workers: True
+    pin_memory: True
+
+  caltech101_val:
+    batch_size: 512
+    shuffle: False
+    num_workers: 8
+    persistent_workers: True
+    pin_memory: True
+
+
+model:
+  #image_encoder_name : 'openai/clip-vit-base-patch32'
+  #text_encoder_name : 'openai/clip-vit-base-patch32'
+  image_encoder_name : 'google/vit-base-patch16-224'
+  text_encoder_name : 'google-bert/bert-base-uncased'
+  tokenizer :
+    use_fast: False
+
+
+
+dataset:
+  train:
+    - 'coco'
+    - 'vg'
+    - 'cc3m'
+  val:
+    - 'coco_val'
+    - 'cifar10'
+    - 'caltech101'
+  transforms: 
+    enabled: True #False #True
+    RandAugment:
+      num_ops: 3
+      magnitude: 8
+  max_seq_length: 72
+  coco:
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/COCO'
+    split_train : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_train.json'
+    split_val : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_val.json'
+    split_test : '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/bhavin/students/phillipscholl/multimodal/my_datasets/coco_karpathy_test.json'
+  vg:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG/h5/'
+  cc3m:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
+  cifar10:
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/cifar10'
+    download: false
+  caltech101 :
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/caltech101'
+    download: false
+  use_subset:
+    value: true
+    subset_fraction: 0.1
+  use_subset_probe:
+    value: false
+    subset_fraction: 0.2
