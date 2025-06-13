@@ -1,0 +1,1729 @@
+model_id,dataset,method,metric,score,method_notes,dataset_notes,model_name,dataset_fraction
+9nvg456i,CIFAR10,zeroshot-text_layer_0,Top1Accuracy,0.1254000067710876,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_0,Top3Accuracy,0.4180000126361847,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_0,Top5Accuracy,0.6725999712944031,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_1,Top1Accuracy,0.1940000057220459,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_1,Top3Accuracy,0.4483999907970428,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_1,Top5Accuracy,0.652999997138977,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_2,Top1Accuracy,0.2492000013589859,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_2,Top3Accuracy,0.60589998960495,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_2,Top5Accuracy,0.8188999891281128,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_3,Top1Accuracy,0.2976999878883362,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_3,Top3Accuracy,0.6796000003814697,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_3,Top5Accuracy,0.8755999803543091,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_4,Top1Accuracy,0.2876000106334686,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_4,Top3Accuracy,0.676800012588501,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_4,Top5Accuracy,0.8654000163078308,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_5,Top1Accuracy,0.3488999903202057,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_5,Top3Accuracy,0.7135000228881836,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_5,Top5Accuracy,0.8651000261306763,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_6,Top1Accuracy,0.3490999937057495,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_6,Top3Accuracy,0.6664000153541565,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_6,Top5Accuracy,0.8356999754905701,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_7,Top1Accuracy,0.4007000029087066,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_7,Top3Accuracy,0.6960999965667725,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_7,Top5Accuracy,0.8539000153541565,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_8,Top1Accuracy,0.4447999894618988,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_8,Top3Accuracy,0.7314000129699707,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_8,Top5Accuracy,0.8650000095367432,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_9,Top1Accuracy,0.4498000144958496,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_9,Top3Accuracy,0.7360000014305115,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_9,Top5Accuracy,0.866100013256073,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_10,Top1Accuracy,0.4329000115394592,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_10,Top3Accuracy,0.7426999807357788,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_10,Top5Accuracy,0.857699990272522,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_11,Top1Accuracy,0.4101000130176544,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_11,Top3Accuracy,0.7258999943733215,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR10,zeroshot-text_layer_11,Top5Accuracy,0.8428000211715698,1_templates,,CLIP + SimCLR + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_0,Top1Accuracy,0.1510999947786331,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_0,Top3Accuracy,0.412200003862381,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_0,Top5Accuracy,0.6223000288009644,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_1,Top1Accuracy,0.1254999935626983,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_1,Top3Accuracy,0.4277999997138977,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_1,Top5Accuracy,0.7014999985694885,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_2,Top1Accuracy,0.2468000054359436,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_2,Top3Accuracy,0.6191999912261963,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_2,Top5Accuracy,0.8159999847412109,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_3,Top1Accuracy,0.3203999996185303,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_3,Top3Accuracy,0.6743000149726868,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_3,Top5Accuracy,0.8440999984741211,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_4,Top1Accuracy,0.386599987745285,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_4,Top3Accuracy,0.7455000281333923,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_4,Top5Accuracy,0.8913999795913696,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_5,Top1Accuracy,0.418500006198883,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_5,Top3Accuracy,0.7613999843597412,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_5,Top5Accuracy,0.9047999978065492,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_6,Top1Accuracy,0.3828999996185303,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_6,Top3Accuracy,0.7329999804496765,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_6,Top5Accuracy,0.8909000158309937,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_7,Top1Accuracy,0.3847000002861023,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_7,Top3Accuracy,0.7145000100135803,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_7,Top5Accuracy,0.8646000027656555,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_8,Top1Accuracy,0.3465000092983246,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_8,Top3Accuracy,0.6970999836921692,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_8,Top5Accuracy,0.8770999908447266,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_9,Top1Accuracy,0.3632999956607818,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_9,Top3Accuracy,0.6937999725341797,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_9,Top5Accuracy,0.8294000029563904,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_10,Top1Accuracy,0.3025000095367431,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_10,Top3Accuracy,0.684499979019165,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_10,Top5Accuracy,0.8215000033378601,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_11,Top1Accuracy,0.305400013923645,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_11,Top3Accuracy,0.671500027179718,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR10,zeroshot-text_layer_11,Top5Accuracy,0.7953000068664551,1_templates,,CLIP + ITM,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_0,Top1Accuracy,0.130400002002716,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_0,Top3Accuracy,0.4007999897003174,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_0,Top5Accuracy,0.6406000256538391,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_1,Top1Accuracy,0.1756000071763992,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_1,Top3Accuracy,0.4063999950885772,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_1,Top5Accuracy,0.6541000008583069,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_2,Top1Accuracy,0.210999995470047,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_2,Top3Accuracy,0.5394999980926514,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_2,Top5Accuracy,0.7505999803543091,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_3,Top1Accuracy,0.3122999966144562,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_3,Top3Accuracy,0.6908000111579895,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_3,Top5Accuracy,0.8777999877929688,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_4,Top1Accuracy,0.3815000057220459,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_4,Top3Accuracy,0.7595999836921692,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_4,Top5Accuracy,0.9097999930381776,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_5,Top1Accuracy,0.3725000023841858,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_5,Top3Accuracy,0.7716000080108643,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_5,Top5Accuracy,0.9243999719619752,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_6,Top1Accuracy,0.4061000049114227,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_6,Top3Accuracy,0.7857999801635742,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_6,Top5Accuracy,0.9297000169754028,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_7,Top1Accuracy,0.4156999886035919,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_7,Top3Accuracy,0.7687000036239624,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_7,Top5Accuracy,0.9162999987602234,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_8,Top1Accuracy,0.4494999945163727,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_8,Top3Accuracy,0.7868000268936157,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_8,Top5Accuracy,0.921999990940094,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_9,Top1Accuracy,0.4735000133514404,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_9,Top3Accuracy,0.7968000173568726,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_9,Top5Accuracy,0.9247000217437744,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_10,Top1Accuracy,0.4226000010967254,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_10,Top3Accuracy,0.753600001335144,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_10,Top5Accuracy,0.88919997215271,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_11,Top1Accuracy,0.4154999852180481,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_11,Top3Accuracy,0.722000002861023,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR10,zeroshot-text_layer_11,Top5Accuracy,0.8593000173568726,1_templates,,CLIP,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_0,Top1Accuracy,0.1653999984264373,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_0,Top3Accuracy,0.4729000031948089,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_0,Top5Accuracy,0.6912000179290771,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_1,Top1Accuracy,0.1852999925613403,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_1,Top3Accuracy,0.4379999935626983,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_1,Top5Accuracy,0.6642000079154968,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_2,Top1Accuracy,0.2000000029802322,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_2,Top3Accuracy,0.5785999894142151,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_2,Top5Accuracy,0.8052999973297119,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_3,Top1Accuracy,0.2876000106334686,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_3,Top3Accuracy,0.7368000149726868,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_3,Top5Accuracy,0.8992000222206116,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_4,Top1Accuracy,0.313400000333786,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_4,Top3Accuracy,0.7821000218391418,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_4,Top5Accuracy,0.9212999939918518,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_5,Top1Accuracy,0.3517999947071075,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_5,Top3Accuracy,0.7479000091552734,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_5,Top5Accuracy,0.9067999720573424,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_6,Top1Accuracy,0.321399986743927,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_6,Top3Accuracy,0.767799973487854,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_6,Top5Accuracy,0.925000011920929,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_7,Top1Accuracy,0.3851999938488006,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_7,Top3Accuracy,0.760200023651123,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_7,Top5Accuracy,0.921500027179718,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_8,Top1Accuracy,0.4074000120162964,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_8,Top3Accuracy,0.7786999940872192,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_8,Top5Accuracy,0.9241999983787536,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_9,Top1Accuracy,0.4666000008583069,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_9,Top3Accuracy,0.7802000045776367,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_9,Top5Accuracy,0.9081000089645386,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_10,Top1Accuracy,0.4422000050544739,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_10,Top3Accuracy,0.7752000093460083,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_10,Top5Accuracy,0.9031999707221984,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_11,Top1Accuracy,0.4083000123500824,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_11,Top3Accuracy,0.7333999872207642,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR10,zeroshot-text_layer_11,Top5Accuracy,0.8711000084877014,1_templates,,CLIP + SimCLR,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_0,Top1Accuracy,0.0036800000816583,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_0,Top3Accuracy,0.0104000000283122,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_0,Top5Accuracy,0.017060000449419,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_1,Top1Accuracy,0.0082000000402331,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_1,Top3Accuracy,0.0206000003963708,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_1,Top5Accuracy,0.0304000005125999,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_2,Top1Accuracy,0.0218199994415044,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_2,Top3Accuracy,0.0518799982964992,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_2,Top5Accuracy,0.0737200006842613,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_3,Top1Accuracy,0.0453400015830993,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_3,Top3Accuracy,0.0935600027441978,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_3,Top5Accuracy,0.127020001411438,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_4,Top1Accuracy,0.0625199973583221,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_4,Top3Accuracy,0.1210400015115737,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_4,Top5Accuracy,0.159620001912117,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_5,Top1Accuracy,0.0768600031733512,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_5,Top3Accuracy,0.1446599960327148,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_5,Top5Accuracy,0.1870200037956237,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_6,Top1Accuracy,0.093299999833107,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_6,Top3Accuracy,0.1708000004291534,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_6,Top5Accuracy,0.2156800031661987,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_7,Top1Accuracy,0.1026000007987022,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_7,Top3Accuracy,0.1868599951267242,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_7,Top5Accuracy,0.2336400002241134,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_8,Top1Accuracy,0.1148400008678436,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_8,Top3Accuracy,0.2022799998521804,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_8,Top5Accuracy,0.2515000104904175,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_9,Top1Accuracy,0.1191399991512298,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_9,Top3Accuracy,0.2083200067281723,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_9,Top5Accuracy,0.2569800019264221,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_10,Top1Accuracy,0.1244599968194961,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_10,Top3Accuracy,0.2129600048065185,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_10,Top5Accuracy,0.2628799974918365,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_11,Top1Accuracy,0.123539999127388,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_11,Top3Accuracy,0.2114199995994568,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,ImageNet,zeroshot-text_layer_11,Top5Accuracy,0.2583599984645843,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_0,Top1Accuracy,0.0263650771230459,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_0,Top3Accuracy,0.068433940410614,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_0,Top5Accuracy,0.1011381670832634,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_1,Top1Accuracy,0.0462469384074211,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_1,Top3Accuracy,0.1187148839235305,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_1,Top5Accuracy,0.1684195399284362,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_2,Top1Accuracy,0.0959515944123268,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_2,Top3Accuracy,0.1978101134300232,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_2,Top5Accuracy,0.271430641412735,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_3,Top1Accuracy,0.1888776868581771,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_3,Top3Accuracy,0.3240167200565338,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_3,Top5Accuracy,0.4002305269241333,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_4,Top1Accuracy,0.2397349029779434,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_4,Top3Accuracy,0.3859674334526062,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_4,Top5Accuracy,0.4688085317611694,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_5,Top1Accuracy,0.2701339721679687,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_5,Top3Accuracy,0.4310618042945862,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_5,Top5Accuracy,0.5176487565040588,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_6,Top1Accuracy,0.3253133594989776,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_6,Top3Accuracy,0.5143350958824158,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_6,Top5Accuracy,0.589540421962738,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_7,Top1Accuracy,0.3675262928009033,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_7,Top3Accuracy,0.5564039945602417,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_7,Top5Accuracy,0.6180665493011475,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_8,Top1Accuracy,0.40757817029953,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_8,Top3Accuracy,0.5857945680618286,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_8,Top5Accuracy,0.6445757150650024,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_9,Top1Accuracy,0.421409010887146,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_9,Top3Accuracy,0.6150410771369934,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_9,Top5Accuracy,0.678000271320343,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_10,Top1Accuracy,0.426883727312088,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_10,Top3Accuracy,0.6161936521530151,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_10,Top5Accuracy,0.6752629280090332,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_11,Top1Accuracy,0.4352398812770843,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_11,Top3Accuracy,0.6354991793632507,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech101,zeroshot-text_layer_11,Top5Accuracy,0.6967296004295349,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_0,Top1Accuracy,0.0120481923222541,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_0,Top3Accuracy,0.0366755165159702,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_0,Top5Accuracy,0.0568102933466434,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_1,Top1Accuracy,0.0245047993957996,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_1,Top3Accuracy,0.0624872371554374,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_1,Top5Accuracy,0.092587299644947,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_2,Top1Accuracy,0.0716356933116912,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_2,Top3Accuracy,0.1463753283023834,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_2,Top5Accuracy,0.1942005306482315,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_3,Top1Accuracy,0.1454359740018844,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_3,Top3Accuracy,0.2600367665290832,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_3,Top5Accuracy,0.3236675560474396,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_4,Top1Accuracy,0.1842352449893951,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_4,Top3Accuracy,0.313702255487442,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_4,Top5Accuracy,0.3800694346427917,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_5,Top1Accuracy,0.218991219997406,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_5,Top3Accuracy,0.3539718091487884,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_5,Top5Accuracy,0.4194813072681427,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_6,Top1Accuracy,0.2566469311714172,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_6,Top3Accuracy,0.3971410989761352,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_6,Top5Accuracy,0.464774340391159,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_7,Top1Accuracy,0.2809883654117584,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_7,Top3Accuracy,0.4264651834964752,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_7,Top5Accuracy,0.4891566336154938,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_8,Top1Accuracy,0.3013681769371032,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_8,Top3Accuracy,0.4492546319961548,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_8,Top5Accuracy,0.5124362111091614,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_9,Top1Accuracy,0.321298748254776,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_9,Top3Accuracy,0.4685317575931549,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_9,Top5Accuracy,0.5326117873191833,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_10,Top1Accuracy,0.3382887542247772,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_10,Top3Accuracy,0.480784147977829,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_10,Top5Accuracy,0.545558512210846,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_11,Top1Accuracy,0.349152535200119,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_11,Top3Accuracy,0.4917296171188354,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Caltech256,zeroshot-text_layer_11,Top5Accuracy,0.5540943145751953,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_0,Top1Accuracy,0.019200000911951,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_0,Top3Accuracy,0.0557399988174438,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_0,Top5Accuracy,0.0886799991130828,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_1,Top1Accuracy,0.0265399999916553,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_1,Top3Accuracy,0.0770599991083145,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_1,Top5Accuracy,0.1202000007033348,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_2,Top1Accuracy,0.0570599995553493,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_2,Top3Accuracy,0.1435600072145462,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_2,Top5Accuracy,0.2070399969816208,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_3,Top1Accuracy,0.0734999999403953,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_3,Top3Accuracy,0.1815599948167801,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_3,Top5Accuracy,0.263480007648468,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_4,Top1Accuracy,0.0959800034761428,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_4,Top3Accuracy,0.2150599956512451,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_4,Top5Accuracy,0.2959400117397308,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_5,Top1Accuracy,0.1049600020051002,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_5,Top3Accuracy,0.2327399998903274,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_5,Top5Accuracy,0.3219200074672699,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_6,Top1Accuracy,0.1123199984431266,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_6,Top3Accuracy,0.2419600039720535,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_6,Top5Accuracy,0.3227199912071228,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_7,Top1Accuracy,0.1281799972057342,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_7,Top3Accuracy,0.2624599933624267,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_7,Top5Accuracy,0.3453800082206726,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_8,Top1Accuracy,0.1392399966716766,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_8,Top3Accuracy,0.2828199863433838,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_8,Top5Accuracy,0.3666400015354156,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_9,Top1Accuracy,0.1423799991607666,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_9,Top3Accuracy,0.2889400124549866,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_9,Top5Accuracy,0.3731200098991394,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_10,Top1Accuracy,0.1565199941396713,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_10,Top3Accuracy,0.3049399852752685,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_10,Top5Accuracy,0.3885399997234344,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_11,Top1Accuracy,0.169620007276535,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_11,Top3Accuracy,0.3171800076961517,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,CIFAR100,zeroshot-text_layer_11,Top5Accuracy,0.3985800147056579,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_0,Top1Accuracy,0.0303191486746072,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_0,Top3Accuracy,0.0824468061327934,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_0,Top5Accuracy,0.125,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_1,Top1Accuracy,0.0287234038114547,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_1,Top3Accuracy,0.0893617048859596,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_1,Top5Accuracy,0.136170208454132,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_2,Top1Accuracy,0.046808511018753,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_2,Top3Accuracy,0.1239361688494682,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_2,Top5Accuracy,0.1829787194728851,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_3,Top1Accuracy,0.0787234008312225,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_3,Top3Accuracy,0.1824468076229095,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_3,Top5Accuracy,0.2601063847541809,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_4,Top1Accuracy,0.0962765961885452,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_4,Top3Accuracy,0.2037234008312225,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_4,Top5Accuracy,0.27553191781044,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_5,Top1Accuracy,0.0882978737354278,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_5,Top3Accuracy,0.2037234008312225,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_5,Top5Accuracy,0.2787234187126159,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_6,Top1Accuracy,0.102127656340599,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_6,Top3Accuracy,0.2085106372833252,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_6,Top5Accuracy,0.2819148898124695,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_7,Top1Accuracy,0.097340427339077,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_7,Top3Accuracy,0.2117021232843399,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_7,Top5Accuracy,0.3015957474708557,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_8,Top1Accuracy,0.102127656340599,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_8,Top3Accuracy,0.2191489338874817,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_8,Top5Accuracy,0.3031914830207824,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_9,Top1Accuracy,0.0968085080385208,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_9,Top3Accuracy,0.2324468046426773,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_9,Top5Accuracy,0.3218085169792175,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_10,Top1Accuracy,0.1000000014901161,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_10,Top3Accuracy,0.235638290643692,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_10,Top5Accuracy,0.3207446932792663,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_11,Top1Accuracy,0.1069148927927017,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_11,Top3Accuracy,0.220212772488594,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,DTD,zeroshot-text_layer_11,Top5Accuracy,0.3175531923770904,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_0,Top1Accuracy,0.0077984402887523,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_0,Top3Accuracy,0.0224955007433891,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_0,Top5Accuracy,0.0452909432351589,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_1,Top1Accuracy,0.0113977203145623,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_1,Top3Accuracy,0.0341931618750095,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_1,Top5Accuracy,0.0527894422411918,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_2,Top1Accuracy,0.0116976602002978,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_2,Top3Accuracy,0.0302939414978027,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_2,Top5Accuracy,0.0473905205726623,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_3,Top1Accuracy,0.0113977203145623,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_3,Top3Accuracy,0.0311937611550092,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_3,Top5Accuracy,0.0524895004928112,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_4,Top1Accuracy,0.0104979006573557,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_4,Top3Accuracy,0.0332933403551578,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_4,Top5Accuracy,0.0533893220126628,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_5,Top1Accuracy,0.0113977203145623,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_5,Top3Accuracy,0.0356928631663322,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_5,Top5Accuracy,0.0584883019328117,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_6,Top1Accuracy,0.0116976602002978,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_6,Top3Accuracy,0.0311937611550092,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_6,Top5Accuracy,0.0554889030754566,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_7,Top1Accuracy,0.0110977804288268,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_7,Top3Accuracy,0.0314937010407447,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_7,Top5Accuracy,0.0560887828469276,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_8,Top1Accuracy,0.0110977804288268,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_8,Top3Accuracy,0.0353929214179515,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_8,Top5Accuracy,0.0581883639097213,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_9,Top1Accuracy,0.0116976602002978,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_9,Top3Accuracy,0.0341931618750095,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_9,Top5Accuracy,0.0548890233039855,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_10,Top1Accuracy,0.0128974206745624,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_10,Top3Accuracy,0.0356928631663322,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_10,Top5Accuracy,0.0518896207213401,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_11,Top1Accuracy,0.0101979607716202,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_11,Top3Accuracy,0.0344930998980999,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,FGVCAircraft,zeroshot-text_layer_11,Top5Accuracy,0.0554889030754566,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_0,Top1Accuracy,0.0174917485564947,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_0,Top3Accuracy,0.0437227711081504,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_0,Top5Accuracy,0.0657557770609855,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_1,Top1Accuracy,0.0159339942038059,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_1,Top3Accuracy,0.0474059395492076,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_1,Top5Accuracy,0.0759075880050659,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_2,Top1Accuracy,0.0301650166511535,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_2,Top3Accuracy,0.0792343243956565,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_2,Top5Accuracy,0.1180198043584823,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_3,Top1Accuracy,0.0444092415273189,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_3,Top3Accuracy,0.1034719496965408,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_3,Top5Accuracy,0.1484356373548507,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_4,Top1Accuracy,0.0568712875247001,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_4,Top3Accuracy,0.1239736005663871,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_4,Top5Accuracy,0.1720132082700729,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_5,Top1Accuracy,0.0633399337530136,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_5,Top3Accuracy,0.136039599776268,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_5,Top5Accuracy,0.1844092458486557,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_6,Top1Accuracy,0.0800660029053688,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_6,Top3Accuracy,0.1632607281208038,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_6,Top5Accuracy,0.2174785435199737,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_7,Top1Accuracy,0.0878547877073288,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_7,Top3Accuracy,0.1769769042730331,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_7,Top5Accuracy,0.2324488461017608,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_8,Top1Accuracy,0.0961056128144264,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_8,Top3Accuracy,0.189716175198555,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_8,Top5Accuracy,0.2480528056621551,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_9,Top1Accuracy,0.0946006625890731,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_9,Top3Accuracy,0.1901518106460571,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_9,Top5Accuracy,0.249650165438652,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_10,Top1Accuracy,0.1026930660009384,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_10,Top3Accuracy,0.207366332411766,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_10,Top5Accuracy,0.2732541263103485,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_11,Top1Accuracy,0.1105082482099533,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_11,Top3Accuracy,0.2177821844816208,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Food101,zeroshot-text_layer_11,Top5Accuracy,0.2834323346614837,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_0,Top1Accuracy,0.0388586968183517,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_0,Top3Accuracy,0.1021739095449447,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_0,Top5Accuracy,0.1649456471204757,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_1,Top1Accuracy,0.0195652171969413,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_1,Top3Accuracy,0.0771739110350608,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_1,Top5Accuracy,0.136684775352478,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_2,Top1Accuracy,0.0532608702778816,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_2,Top3Accuracy,0.1489130407571792,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_2,Top5Accuracy,0.2247282564640045,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_3,Top1Accuracy,0.0562499985098838,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_3,Top3Accuracy,0.1527173966169357,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_3,Top5Accuracy,0.2255434840917587,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_4,Top1Accuracy,0.0687500014901161,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_4,Top3Accuracy,0.1793478280305862,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_4,Top5Accuracy,0.249728262424469,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_5,Top1Accuracy,0.0758152157068252,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_5,Top3Accuracy,0.1812500059604644,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_5,Top5Accuracy,0.2663043439388275,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_6,Top1Accuracy,0.0690217390656471,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_6,Top3Accuracy,0.176630437374115,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_6,Top5Accuracy,0.260597825050354,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_7,Top1Accuracy,0.0671195685863494,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_7,Top3Accuracy,0.1644021719694137,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_7,Top5Accuracy,0.2451086938381195,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_8,Top1Accuracy,0.0654891282320022,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_8,Top3Accuracy,0.1597826033830642,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_8,Top5Accuracy,0.2383152246475219,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_9,Top1Accuracy,0.0668478235602378,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_9,Top3Accuracy,0.156521737575531,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_9,Top5Accuracy,0.2328804284334182,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_10,Top1Accuracy,0.0711956545710563,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_10,Top3Accuracy,0.1633152216672897,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_10,Top5Accuracy,0.2423913031816482,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_11,Top1Accuracy,0.0711956545710563,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_11,Top3Accuracy,0.1635869592428207,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,OxfordIIITPet,zeroshot-text_layer_11,Top5Accuracy,0.250815212726593,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_0,Top1Accuracy,0.0118904113769531,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_0,Top3Accuracy,0.0315342471003532,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_0,Top5Accuracy,0.0487671233713626,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_1,Top1Accuracy,0.0192054789513349,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_1,Top3Accuracy,0.0483013689517974,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_1,Top5Accuracy,0.0715616419911384,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_2,Top1Accuracy,0.0339452065527439,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_2,Top3Accuracy,0.0798904076218605,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_2,Top5Accuracy,0.1167123317718505,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_3,Top1Accuracy,0.0619726032018661,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_3,Top3Accuracy,0.1344109624624252,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_3,Top5Accuracy,0.1847123354673385,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_4,Top1Accuracy,0.0823561623692512,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_4,Top3Accuracy,0.1737808287143707,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_4,Top5Accuracy,0.232958897948265,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_5,Top1Accuracy,0.1018082201480865,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_5,Top3Accuracy,0.2070136964321136,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_5,Top5Accuracy,0.2729315161705017,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_6,Top1Accuracy,0.1180000007152557,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_6,Top3Accuracy,0.237041100859642,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_6,Top5Accuracy,0.3050684928894043,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_7,Top1Accuracy,0.1285753399133682,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_7,Top3Accuracy,0.2527671158313751,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_7,Top5Accuracy,0.3258904218673706,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_8,Top1Accuracy,0.1449041068553924,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_8,Top3Accuracy,0.2786027491092682,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_8,Top5Accuracy,0.3567123413085937,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_9,Top1Accuracy,0.1522191762924194,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_9,Top3Accuracy,0.2922465801239013,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_9,Top5Accuracy,0.3691780865192413,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_10,Top1Accuracy,0.1625753492116928,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_10,Top3Accuracy,0.3029315173625946,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_10,Top5Accuracy,0.382931500673294,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_11,Top1Accuracy,0.1627671271562576,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_11,Top3Accuracy,0.3034794628620147,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,Places365,zeroshot-text_layer_11,Top5Accuracy,0.3838356137275696,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_0,Top1Accuracy,0.0034381139557808,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_0,Top3Accuracy,0.0135068763047456,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_0,Top5Accuracy,0.0240667983889579,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_1,Top1Accuracy,0.0061394893564283,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_1,Top3Accuracy,0.0171905700117349,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_1,Top5Accuracy,0.0298379175364971,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_2,Top1Accuracy,0.0044204322621226,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_2,Top3Accuracy,0.0141208255663514,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_2,Top5Accuracy,0.0246807467192411,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_3,Top1Accuracy,0.0061394893564283,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_3,Top3Accuracy,0.0182956773787736,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_3,Top5Accuracy,0.0293467584997415,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_4,Top1Accuracy,0.0073673869483172,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_4,Top3Accuracy,0.0191552061587572,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_4,Top5Accuracy,0.0320481322705745,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_5,Top1Accuracy,0.0045432220213115,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_5,Top3Accuracy,0.0163310412317514,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_5,Top5Accuracy,0.0292239692062139,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_6,Top1Accuracy,0.0063850688748061,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_6,Top3Accuracy,0.0186640471220016,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_6,Top5Accuracy,0.0330304503440856,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_7,Top1Accuracy,0.0079813357442617,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_7,Top3Accuracy,0.0232072696089744,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_7,Top5Accuracy,0.0351178795099258,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_8,Top1Accuracy,0.0073673869483172,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_8,Top3Accuracy,0.0263998042792081,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_8,Top5Accuracy,0.0400294698774814,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_9,Top1Accuracy,0.0084724947810173,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_9,Top3Accuracy,0.0257858540862798,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_9,Top5Accuracy,0.0435903742909431,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_10,Top1Accuracy,0.0097003933042287,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_10,Top3Accuracy,0.0279960706830024,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_10,Top5Accuracy,0.0419941060245037,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_11,Top1Accuracy,0.0093320235610008,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_11,Top3Accuracy,0.0265225935727357,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,StanfordCars,zeroshot-text_layer_11,Top5Accuracy,0.0389243625104427,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_0,Top1Accuracy,0.2822000086307525,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_0,Top3Accuracy,0.5914000272750854,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_0,Top5Accuracy,0.7871999740600586,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_1,Top1Accuracy,0.2897999882698059,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_1,Top3Accuracy,0.6549999713897705,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_1,Top5Accuracy,0.8381999731063843,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_2,Top1Accuracy,0.401199996471405,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_2,Top3Accuracy,0.8001999855041504,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_2,Top5Accuracy,0.944000005722046,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_3,Top1Accuracy,0.5230000019073486,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_3,Top3Accuracy,0.8913999795913696,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_3,Top5Accuracy,0.963800013065338,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_4,Top1Accuracy,0.5486000180244446,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_4,Top3Accuracy,0.9028000235557556,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_4,Top5Accuracy,0.9710000157356262,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_5,Top1Accuracy,0.6272000074386597,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_5,Top3Accuracy,0.920199990272522,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_5,Top5Accuracy,0.982200026512146,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_6,Top1Accuracy,0.6516000032424927,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_6,Top3Accuracy,0.9300000071525574,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_6,Top5Accuracy,0.9832000136375428,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_7,Top1Accuracy,0.6790000200271606,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_7,Top3Accuracy,0.9350000023841858,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_7,Top5Accuracy,0.9864000082015992,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_8,Top1Accuracy,0.696399986743927,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_8,Top3Accuracy,0.9251999855041504,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_8,Top5Accuracy,0.9854000210762024,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_9,Top1Accuracy,0.7175999879837036,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_9,Top3Accuracy,0.9369999766349792,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_9,Top5Accuracy,0.9869999885559082,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_10,Top1Accuracy,0.7206000089645386,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_10,Top3Accuracy,0.9377999901771544,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_10,Top5Accuracy,0.9842000007629396,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_11,Top1Accuracy,0.7426000237464905,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_11,Top3Accuracy,0.9381999969482422,1_templates,,CLIP + SimCLR + ITM,1.0
+9nvg456i,STL10,zeroshot-text_layer_11,Top5Accuracy,0.9855999946594238,1_templates,,CLIP + SimCLR + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_0,Top1Accuracy,0.0024200000334531,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_0,Top3Accuracy,0.0058200000785291,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_0,Top5Accuracy,0.0095600001513957,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_1,Top1Accuracy,0.0064400001429021,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_1,Top3Accuracy,0.0149800004437565,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_1,Top5Accuracy,0.0234600007534027,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_2,Top1Accuracy,0.0207000002264976,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_2,Top3Accuracy,0.047019999474287,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_2,Top5Accuracy,0.0654399991035461,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_3,Top1Accuracy,0.0472999997437,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_3,Top3Accuracy,0.0973600000143051,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_3,Top5Accuracy,0.1299999952316284,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_4,Top1Accuracy,0.0630199983716011,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_4,Top3Accuracy,0.123039998114109,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_4,Top5Accuracy,0.1628399938344955,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_5,Top1Accuracy,0.0786800011992454,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_5,Top3Accuracy,0.1529799997806549,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_5,Top5Accuracy,0.1974799931049347,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_6,Top1Accuracy,0.0920799970626831,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_6,Top3Accuracy,0.1731999963521957,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_6,Top5Accuracy,0.220440000295639,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_7,Top1Accuracy,0.1055800020694732,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_7,Top3Accuracy,0.193900004029274,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_7,Top5Accuracy,0.2424000054597854,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_8,Top1Accuracy,0.1152400001883506,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_8,Top3Accuracy,0.2062799930572509,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_8,Top5Accuracy,0.258760005235672,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_9,Top1Accuracy,0.1228400021791458,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_9,Top3Accuracy,0.2146800011396408,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_9,Top5Accuracy,0.2648999989032745,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_10,Top1Accuracy,0.1266199946403503,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_10,Top3Accuracy,0.2196400016546249,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_10,Top5Accuracy,0.269459992647171,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_11,Top1Accuracy,0.1250800043344497,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_11,Top3Accuracy,0.2162999957799911,1_templates,,CLIP + ITM,1.0
+93t3xgrr,ImageNet,zeroshot-text_layer_11,Top5Accuracy,0.2637400031089782,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_0,Top1Accuracy,0.010661288164556,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_0,Top3Accuracy,0.0350093655288219,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_0,Top5Accuracy,0.0623829402029514,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_1,Top1Accuracy,0.0413485094904899,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_1,Top3Accuracy,0.0936464518308639,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_1,Top5Accuracy,0.136147528886795,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_2,Top1Accuracy,0.1027229502797126,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_2,Top3Accuracy,0.2296499013900756,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_2,Top5Accuracy,0.2976516485214233,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_3,Top1Accuracy,0.1514191031455993,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_3,Top3Accuracy,0.3035585582256317,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_3,Top5Accuracy,0.3900014460086822,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_4,Top1Accuracy,0.2120731920003891,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_4,Top3Accuracy,0.4034000933170318,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_4,Top5Accuracy,0.5015127658843994,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_5,Top1Accuracy,0.2586082816123962,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_5,Top3Accuracy,0.4581472277641296,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_5,Top5Accuracy,0.5649042129516602,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_6,Top1Accuracy,0.3068722188472748,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_6,Top3Accuracy,0.5231234431266785,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_6,Top5Accuracy,0.6262786388397217,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_7,Top1Accuracy,0.367958515882492,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_7,Top3Accuracy,0.5827690362930298,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_7,Top5Accuracy,0.6697882413864136,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_8,Top1Accuracy,0.4051289558410644,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_8,Top3Accuracy,0.6218124032020569,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_8,Top5Accuracy,0.7104163765907288,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_9,Top1Accuracy,0.4113240242004394,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_9,Top3Accuracy,0.6367958784103394,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_9,Top5Accuracy,0.7229505777359009,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_10,Top1Accuracy,0.4300532937049866,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_10,Top3Accuracy,0.6630168557167053,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_10,Top5Accuracy,0.7409595251083374,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_11,Top1Accuracy,0.4265955984592438,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_11,Top3Accuracy,0.6683474779129028,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech101,zeroshot-text_layer_11,Top5Accuracy,0.7424002289772034,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_0,Top1Accuracy,0.0113947317004203,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_0,Top3Accuracy,0.0289565045386552,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_0,Top5Accuracy,0.0442311614751815,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_1,Top1Accuracy,0.019358791410923,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_1,Top3Accuracy,0.0497038997709751,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_1,Top5Accuracy,0.0771492719650268,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_2,Top1Accuracy,0.0741270184516906,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_2,Top3Accuracy,0.1524606943130493,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_2,Top5Accuracy,0.2028180509805679,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_3,Top1Accuracy,0.1348172277212143,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_3,Top3Accuracy,0.2507249414920807,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_3,Top5Accuracy,0.3167245388031006,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_4,Top1Accuracy,0.1863589882850647,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_4,Top3Accuracy,0.3212170600891113,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_4,Top5Accuracy,0.3950581848621368,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_5,Top1Accuracy,0.2258525639772415,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_5,Top3Accuracy,0.3705942332744598,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_5,Top5Accuracy,0.4423933029174804,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_6,Top1Accuracy,0.2595058083534241,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_6,Top3Accuracy,0.4091076254844665,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_6,Top5Accuracy,0.4784970283508301,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_7,Top1Accuracy,0.2882581055164337,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_7,Top3Accuracy,0.4445987343788147,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_7,Top5Accuracy,0.5115376710891724,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_8,Top1Accuracy,0.3172146081924438,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_8,Top3Accuracy,0.4707371890544891,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_8,Top5Accuracy,0.5393097996711731,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_9,Top1Accuracy,0.3268940150737762,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_9,Top3Accuracy,0.4782111644744873,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_9,Top5Accuracy,0.5448233485221863,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_10,Top1Accuracy,0.3413926959037781,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_10,Top3Accuracy,0.4973248839378357,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_10,Top5Accuracy,0.563732922077179,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_11,Top1Accuracy,0.3458035588264465,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_11,Top3Accuracy,0.4981417059898376,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Caltech256,zeroshot-text_layer_11,Top5Accuracy,0.5639779567718506,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_0,Top1Accuracy,0.0196800008416175,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_0,Top3Accuracy,0.0574200004339218,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_0,Top5Accuracy,0.09391999989748,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_1,Top1Accuracy,0.0165800005197525,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_1,Top3Accuracy,0.0564399994909763,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_1,Top5Accuracy,0.0938400030136108,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_2,Top1Accuracy,0.0480599999427795,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_2,Top3Accuracy,0.1209200024604797,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_2,Top5Accuracy,0.1765799969434738,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_3,Top1Accuracy,0.0593000017106533,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_3,Top3Accuracy,0.1590799987316131,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_3,Top5Accuracy,0.2316000014543533,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_4,Top1Accuracy,0.0858799964189529,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_4,Top3Accuracy,0.1930200010538101,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_4,Top5Accuracy,0.2656199932098388,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_5,Top1Accuracy,0.1047800034284591,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_5,Top3Accuracy,0.2238799929618835,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_5,Top5Accuracy,0.3007000088691711,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_6,Top1Accuracy,0.1244800016283989,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_6,Top3Accuracy,0.2576799988746643,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_6,Top5Accuracy,0.3376399874687195,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_7,Top1Accuracy,0.1259399950504303,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_7,Top3Accuracy,0.2612999975681305,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_7,Top5Accuracy,0.3481799960136413,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_8,Top1Accuracy,0.1397400051355362,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_8,Top3Accuracy,0.2786599993705749,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_8,Top5Accuracy,0.3635599911212921,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_9,Top1Accuracy,0.1551200002431869,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_9,Top3Accuracy,0.299919992685318,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_9,Top5Accuracy,0.3838399946689605,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_10,Top1Accuracy,0.1580000072717666,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_10,Top3Accuracy,0.3000800013542175,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_10,Top5Accuracy,0.379940003156662,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_11,Top1Accuracy,0.1423600018024444,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_11,Top3Accuracy,0.2722600102424621,1_templates,,CLIP + ITM,1.0
+93t3xgrr,CIFAR100,zeroshot-text_layer_11,Top5Accuracy,0.3486999869346618,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_0,Top1Accuracy,0.0239361710846424,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_0,Top3Accuracy,0.0734042525291442,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_0,Top5Accuracy,0.1234042569994926,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_1,Top1Accuracy,0.037234041839838,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_1,Top3Accuracy,0.0925531908869743,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_1,Top5Accuracy,0.1430851072072982,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_2,Top1Accuracy,0.0558510646224021,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_2,Top3Accuracy,0.1276595741510391,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_2,Top5Accuracy,0.1973404288291931,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_3,Top1Accuracy,0.0670212730765342,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_3,Top3Accuracy,0.1563829779624939,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_3,Top5Accuracy,0.2329787164926529,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_4,Top1Accuracy,0.0728723406791687,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_4,Top3Accuracy,0.1962765902280807,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_4,Top5Accuracy,0.2718085050582886,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_5,Top1Accuracy,0.087234042584896,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_5,Top3Accuracy,0.2042553126811981,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_5,Top5Accuracy,0.2840425670146942,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_6,Top1Accuracy,0.0941489338874816,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_6,Top3Accuracy,0.2101063877344131,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_6,Top5Accuracy,0.2914893627166748,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_7,Top1Accuracy,0.1047872304916381,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_7,Top3Accuracy,0.2106382995843887,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_7,Top5Accuracy,0.2829787135124206,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_8,Top1Accuracy,0.1117021292448043,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_8,Top3Accuracy,0.214361697435379,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_8,Top5Accuracy,0.2835106253623962,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_9,Top1Accuracy,0.1063829809427261,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_9,Top3Accuracy,0.2244680821895599,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_9,Top5Accuracy,0.289893627166748,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_10,Top1Accuracy,0.0962765961885452,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_10,Top3Accuracy,0.2053191512823104,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_10,Top5Accuracy,0.2723404169082641,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_11,Top1Accuracy,0.1000000014901161,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_11,Top3Accuracy,0.220212772488594,1_templates,,CLIP + ITM,1.0
+93t3xgrr,DTD,zeroshot-text_layer_11,Top5Accuracy,0.2973404228687286,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_0,Top1Accuracy,0.0104979006573557,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_0,Top3Accuracy,0.0305938813835382,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_0,Top5Accuracy,0.0581883639097213,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_1,Top1Accuracy,0.0083983205258846,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_1,Top3Accuracy,0.0290941819548606,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_1,Top5Accuracy,0.0515896826982498,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_2,Top1Accuracy,0.0077984402887523,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_2,Top3Accuracy,0.0302939414978027,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_2,Top5Accuracy,0.0515896826982498,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_3,Top1Accuracy,0.0098980199545621,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_3,Top3Accuracy,0.0302939414978027,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_3,Top5Accuracy,0.0521895624697208,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_4,Top1Accuracy,0.0089982002973556,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_4,Top3Accuracy,0.0296940617263317,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_4,Top5Accuracy,0.0515896826982498,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_5,Top1Accuracy,0.0092981401830911,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_5,Top3Accuracy,0.0263947211205959,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_5,Top5Accuracy,0.0479904003441333,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_6,Top1Accuracy,0.0089982002973556,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_6,Top3Accuracy,0.0311937611550092,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_6,Top5Accuracy,0.0533893220126628,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_7,Top1Accuracy,0.0089982002973556,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_7,Top3Accuracy,0.0323935225605964,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_7,Top5Accuracy,0.0515896826982498,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_8,Top1Accuracy,0.0110977804288268,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_8,Top3Accuracy,0.0323935225605964,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_8,Top5Accuracy,0.0485902801156044,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_9,Top1Accuracy,0.0104979006573557,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_9,Top3Accuracy,0.0317936427891254,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_9,Top5Accuracy,0.0548890233039855,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_10,Top1Accuracy,0.0098980199545621,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_10,Top3Accuracy,0.0287942420691251,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_10,Top5Accuracy,0.0515896826982498,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_11,Top1Accuracy,0.0107978405430912,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_11,Top3Accuracy,0.0332933403551578,1_templates,,CLIP + ITM,1.0
+93t3xgrr,FGVCAircraft,zeroshot-text_layer_11,Top5Accuracy,0.056388720870018,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_0,Top1Accuracy,0.0153003297746181,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_0,Top3Accuracy,0.0384290441870689,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_0,Top5Accuracy,0.0602376237511634,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_1,Top1Accuracy,0.0127920787781476,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_1,Top3Accuracy,0.0377557761967182,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_1,Top5Accuracy,0.0620330050587654,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_2,Top1Accuracy,0.0205280520021915,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_2,Top3Accuracy,0.0580726079642772,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_2,Top5Accuracy,0.0923036336898803,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_3,Top1Accuracy,0.043471947312355,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_3,Top3Accuracy,0.0980065986514091,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_3,Top5Accuracy,0.1397359669208526,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_4,Top1Accuracy,0.0584554448723793,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_4,Top3Accuracy,0.1274191439151764,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_4,Top5Accuracy,0.1713795363903045,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_5,Top1Accuracy,0.0675643533468246,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_5,Top3Accuracy,0.1443036347627639,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_5,Top5Accuracy,0.1953003257513046,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_6,Top1Accuracy,0.0723828375339508,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_6,Top3Accuracy,0.1540858149528503,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_6,Top5Accuracy,0.2077887803316116,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_7,Top1Accuracy,0.0869306921958923,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_7,Top3Accuracy,0.1803696304559707,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_7,Top5Accuracy,0.2378745824098587,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_8,Top1Accuracy,0.0975049510598182,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_8,Top3Accuracy,0.1956435590982437,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_8,Top5Accuracy,0.2581650018692016,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_9,Top1Accuracy,0.0965280532836914,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_9,Top3Accuracy,0.2004488408565521,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_9,Top5Accuracy,0.2636171579360962,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_10,Top1Accuracy,0.1018481850624084,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_10,Top3Accuracy,0.2093861401081085,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_10,Top5Accuracy,0.2752475142478943,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_11,Top1Accuracy,0.1102574244141578,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_11,Top3Accuracy,0.2193135321140289,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Food101,zeroshot-text_layer_11,Top5Accuracy,0.2834587395191192,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_0,Top1Accuracy,0.0260869562625885,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_0,Top3Accuracy,0.0861413031816482,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_0,Top5Accuracy,0.146467387676239,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_1,Top1Accuracy,0.0421195663511753,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_1,Top3Accuracy,0.114673912525177,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_1,Top5Accuracy,0.1801630407571792,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_2,Top1Accuracy,0.0334239117801189,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_2,Top3Accuracy,0.1054347828030586,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_2,Top5Accuracy,0.1701086908578872,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_3,Top1Accuracy,0.0483695641160011,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_3,Top3Accuracy,0.1323369592428207,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_3,Top5Accuracy,0.2024456560611724,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_4,Top1Accuracy,0.062771737575531,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_4,Top3Accuracy,0.1483695656061172,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_4,Top5Accuracy,0.2135869562625885,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_5,Top1Accuracy,0.0687500014901161,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_5,Top3Accuracy,0.1649456471204757,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_5,Top5Accuracy,0.2388586997985839,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_6,Top1Accuracy,0.0804347842931747,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_6,Top3Accuracy,0.1839673966169357,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_6,Top5Accuracy,0.2486412972211837,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_7,Top1Accuracy,0.0861413031816482,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_7,Top3Accuracy,0.1845108717679977,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_7,Top5Accuracy,0.2546195685863495,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_8,Top1Accuracy,0.0804347842931747,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_8,Top3Accuracy,0.1815217435359954,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_8,Top5Accuracy,0.2535326182842254,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_9,Top1Accuracy,0.0828804373741149,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_9,Top3Accuracy,0.1847826093435287,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_9,Top5Accuracy,0.2489130496978759,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_10,Top1Accuracy,0.0798913016915321,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_10,Top3Accuracy,0.1793478280305862,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_10,Top5Accuracy,0.2532608807086944,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_11,Top1Accuracy,0.0817934796214103,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_11,Top3Accuracy,0.1921195685863495,1_templates,,CLIP + ITM,1.0
+93t3xgrr,OxfordIIITPet,zeroshot-text_layer_11,Top5Accuracy,0.2671195566654205,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_0,Top1Accuracy,0.0073972600512206,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_0,Top3Accuracy,0.0194520540535449,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_0,Top5Accuracy,0.031178081408143,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_1,Top1Accuracy,0.011753425002098,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_1,Top3Accuracy,0.034493152052164,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_1,Top5Accuracy,0.0529041104018688,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_2,Top1Accuracy,0.0343013703823089,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_2,Top3Accuracy,0.0827397257089614,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_2,Top5Accuracy,0.1208767145872116,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_3,Top1Accuracy,0.0663013681769371,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_3,Top3Accuracy,0.1374794542789459,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_3,Top5Accuracy,0.1889863014221191,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_4,Top1Accuracy,0.0803013667464256,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_4,Top3Accuracy,0.1604383587837219,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_4,Top5Accuracy,0.2167671173810959,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_5,Top1Accuracy,0.0948219150304794,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_5,Top3Accuracy,0.1870684921741485,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_5,Top5Accuracy,0.2467671185731887,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_6,Top1Accuracy,0.1072328761219978,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_6,Top3Accuracy,0.2148493081331253,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_6,Top5Accuracy,0.2827397286891937,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_7,Top1Accuracy,0.1201917827129364,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_7,Top3Accuracy,0.2338082194328308,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_7,Top5Accuracy,0.3050136864185333,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_8,Top1Accuracy,0.129835620522499,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_8,Top3Accuracy,0.2573424577713012,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_8,Top5Accuracy,0.331972599029541,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_9,Top1Accuracy,0.1423287689685821,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_9,Top3Accuracy,0.2788767218589782,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_9,Top5Accuracy,0.3558904230594635,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_10,Top1Accuracy,0.1582191735506057,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_10,Top3Accuracy,0.3024657666683197,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_10,Top5Accuracy,0.3830410838127136,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_11,Top1Accuracy,0.1599452048540115,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_11,Top3Accuracy,0.3048219084739685,1_templates,,CLIP + ITM,1.0
+93t3xgrr,Places365,zeroshot-text_layer_11,Top5Accuracy,0.3860822021961212,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_0,Top1Accuracy,0.0049115912988781,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_0,Top3Accuracy,0.0152259329333901,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_0,Top5Accuracy,0.0260314345359802,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_1,Top1Accuracy,0.0057711196132004,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_1,Top3Accuracy,0.0135068763047456,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_1,Top5Accuracy,0.023330058902502,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_2,Top1Accuracy,0.0062622791156172,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_2,Top3Accuracy,0.016085460782051,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_2,Top5Accuracy,0.0265225935727357,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_3,Top1Accuracy,0.0051571708172559,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_3,Top3Accuracy,0.0159626714885234,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_3,Top5Accuracy,0.02811885997653,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_4,Top1Accuracy,0.0057711196132004,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_4,Top3Accuracy,0.0195235759019851,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_4,Top5Accuracy,0.0308202356100082,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_5,Top1Accuracy,0.0069990176707506,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_5,Top3Accuracy,0.0201375242322683,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_5,Top5Accuracy,0.0318025536835193,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_6,Top1Accuracy,0.0085952850058674,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_6,Top3Accuracy,0.0212426334619522,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_6,Top5Accuracy,0.0363457761704921,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_7,Top1Accuracy,0.0077357562258839,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_7,Top3Accuracy,0.0227161105722188,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_7,Top5Accuracy,0.037082515656948,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_8,Top1Accuracy,0.0078585464507341,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_8,Top3Accuracy,0.0212426334619522,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_8,Top5Accuracy,0.0348722971975803,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_9,Top1Accuracy,0.008718074299395,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_9,Top3Accuracy,0.0235756393522024,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_9,Top5Accuracy,0.0389243625104427,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_10,Top1Accuracy,0.0100687621161341,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_10,Top3Accuracy,0.0254174843430519,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_10,Top5Accuracy,0.0395383089780807,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_11,Top1Accuracy,0.009086444042623,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_11,Top3Accuracy,0.0259086452424526,1_templates,,CLIP + ITM,1.0
+93t3xgrr,StanfordCars,zeroshot-text_layer_11,Top5Accuracy,0.0390471518039703,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_0,Top1Accuracy,0.1695999950170517,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_0,Top3Accuracy,0.4702000021934509,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_0,Top5Accuracy,0.6679999828338623,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_1,Top1Accuracy,0.3337999880313873,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_1,Top3Accuracy,0.6430000066757202,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_1,Top5Accuracy,0.8234000205993652,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_2,Top1Accuracy,0.5049999952316284,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_2,Top3Accuracy,0.8434000015258789,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_2,Top5Accuracy,0.9399999976158142,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_3,Top1Accuracy,0.5720000267028809,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_3,Top3Accuracy,0.8894000053405762,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_3,Top5Accuracy,0.9613999724388124,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_4,Top1Accuracy,0.6567999720573425,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_4,Top3Accuracy,0.9223999977111816,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_4,Top5Accuracy,0.9810000061988832,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_5,Top1Accuracy,0.7016000151634216,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_5,Top3Accuracy,0.9319999814033508,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_5,Top5Accuracy,0.9861999750137328,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_6,Top1Accuracy,0.6966000199317932,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_6,Top3Accuracy,0.9318000078201294,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_6,Top5Accuracy,0.9865999817848206,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_7,Top1Accuracy,0.7102000117301941,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_7,Top3Accuracy,0.9355999827384948,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_7,Top5Accuracy,0.9851999878883362,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_8,Top1Accuracy,0.7175999879837036,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_8,Top3Accuracy,0.9362000226974488,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_8,Top5Accuracy,0.9837999939918518,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_9,Top1Accuracy,0.6977999806404114,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_9,Top3Accuracy,0.9337999820709229,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_9,Top5Accuracy,0.9793999791145324,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_10,Top1Accuracy,0.7031999826431274,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_10,Top3Accuracy,0.9301999807357788,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_10,Top5Accuracy,0.9775999784469604,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_11,Top1Accuracy,0.7103999853134155,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_11,Top3Accuracy,0.920799970626831,1_templates,,CLIP + ITM,1.0
+93t3xgrr,STL10,zeroshot-text_layer_11,Top5Accuracy,0.9765999913215636,1_templates,,CLIP + ITM,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_0,Top1Accuracy,0.0020600000862032,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_0,Top3Accuracy,0.0051000001840293,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_0,Top5Accuracy,0.0082999998703598,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_1,Top1Accuracy,0.0035200000274926,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_1,Top3Accuracy,0.0103599997237324,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_1,Top5Accuracy,0.0170399993658065,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_2,Top1Accuracy,0.0187999997287988,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_2,Top3Accuracy,0.0445000007748603,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_2,Top5Accuracy,0.06385999917984,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_3,Top1Accuracy,0.0458599999547004,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_3,Top3Accuracy,0.097860001027584,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_3,Top5Accuracy,0.1318999975919723,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_4,Top1Accuracy,0.0629400014877319,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_4,Top3Accuracy,0.1274600028991699,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_4,Top5Accuracy,0.1686999946832656,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_5,Top1Accuracy,0.0799800008535385,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_5,Top3Accuracy,0.1577800065279007,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_5,Top5Accuracy,0.2032999992370605,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_6,Top1Accuracy,0.0929600000381469,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_6,Top3Accuracy,0.1721200048923492,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_6,Top5Accuracy,0.2188600003719329,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_7,Top1Accuracy,0.1036200001835823,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_7,Top3Accuracy,0.1895799934864044,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_7,Top5Accuracy,0.2368399947881698,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_8,Top1Accuracy,0.1159199997782707,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_8,Top3Accuracy,0.2048400044441223,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_8,Top5Accuracy,0.2544600069522857,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_9,Top1Accuracy,0.1228400021791458,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_9,Top3Accuracy,0.2128600031137466,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_9,Top5Accuracy,0.2634600102901459,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_10,Top1Accuracy,0.1285399943590164,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_10,Top3Accuracy,0.2216999977827072,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_10,Top5Accuracy,0.2735199928283691,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_11,Top1Accuracy,0.1272200047969818,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_11,Top3Accuracy,0.2183399945497512,1_templates,,CLIP,1.0
+yh1adr3g,ImageNet,zeroshot-text_layer_11,Top5Accuracy,0.2689599990844726,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_0,Top1Accuracy,0.0113816456869244,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_0,Top3Accuracy,0.0332805067300796,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_0,Top5Accuracy,0.0658406540751457,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_1,Top1Accuracy,0.0321279354393482,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_1,Top3Accuracy,0.080391876399517,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_1,Top5Accuracy,0.123469240963459,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_2,Top1Accuracy,0.0857225209474563,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_2,Top3Accuracy,0.1982423216104507,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_2,Top5Accuracy,0.2852614820003509,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_3,Top1Accuracy,0.1622244566679,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_3,Top3Accuracy,0.3260337114334106,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_3,Top5Accuracy,0.4286125898361206,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_4,Top1Accuracy,0.2354127615690231,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_4,Top3Accuracy,0.4267396628856659,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_4,Top5Accuracy,0.5209624171257019,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_5,Top1Accuracy,0.2750324308872223,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_5,Top3Accuracy,0.4610286653041839,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_5,Top5Accuracy,0.5455986261367798,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_6,Top1Accuracy,0.3011093437671661,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_6,Top3Accuracy,0.5002161264419556,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_6,Top5Accuracy,0.5915573835372925,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_7,Top1Accuracy,0.3332372903823852,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_7,Top3Accuracy,0.5358017683029175,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_7,Top5Accuracy,0.6082696914672852,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_8,Top1Accuracy,0.363204151391983,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_8,Top3Accuracy,0.5565480589866638,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_8,Top5Accuracy,0.6242616176605225,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_9,Top1Accuracy,0.3868318796157837,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_9,Top3Accuracy,0.58003169298172,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_9,Top5Accuracy,0.640829861164093,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_10,Top1Accuracy,0.4113240242004394,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_10,Top3Accuracy,0.597176194190979,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_10,Top5Accuracy,0.6640253663063049,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_11,Top1Accuracy,0.402823805809021,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_11,Top3Accuracy,0.6053882837295532,1_templates,,CLIP,1.0
+yh1adr3g,Caltech101,zeroshot-text_layer_11,Top5Accuracy,0.6679152846336365,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_0,Top1Accuracy,0.0071063917130231,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_0,Top3Accuracy,0.0180927105247974,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_0,Top5Accuracy,0.0284664072096347,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_1,Top1Accuracy,0.0160914845764637,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_1,Top3Accuracy,0.0421482548117637,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_1,Top5Accuracy,0.063794158399105,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_2,Top1Accuracy,0.0744537487626075,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_2,Top3Accuracy,0.1498876810073852,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_2,Top5Accuracy,0.1992240101099014,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_3,Top1Accuracy,0.1465795338153839,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_3,Top3Accuracy,0.2581988871097564,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_3,Top5Accuracy,0.3258729875087738,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_4,Top1Accuracy,0.1943638920783996,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_4,Top3Accuracy,0.3244843780994415,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_4,Top5Accuracy,0.39219930768013,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_5,Top1Accuracy,0.2355319559574127,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_5,Top3Accuracy,0.3701449930667877,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_5,Top5Accuracy,0.4360629022121429,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_6,Top1Accuracy,0.2564427256584167,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_6,Top3Accuracy,0.3935879170894623,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_6,Top5Accuracy,0.4610169529914856,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_7,Top1Accuracy,0.2875638008117676,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_7,Top3Accuracy,0.4230753481388092,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_7,Top5Accuracy,0.4871145486831665,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_8,Top1Accuracy,0.3058607280254364,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_8,Top3Accuracy,0.447906881570816,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_8,Top5Accuracy,0.5116193294525146,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_9,Top1Accuracy,0.3201552033424377,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_9,Top3Accuracy,0.4626097679138183,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_9,Top5Accuracy,0.5237084031105042,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_10,Top1Accuracy,0.3414335250854492,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_10,Top3Accuracy,0.4821727573871612,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_10,Top5Accuracy,0.545150101184845,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_11,Top1Accuracy,0.3435164391994476,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_11,Top3Accuracy,0.4829078912734985,1_templates,,CLIP,1.0
+yh1adr3g,Caltech256,zeroshot-text_layer_11,Top5Accuracy,0.5486215949058533,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_0,Top1Accuracy,0.0143999997526407,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_0,Top3Accuracy,0.0440599992871284,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_0,Top5Accuracy,0.0759399980306625,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_1,Top1Accuracy,0.0248000007122755,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_1,Top3Accuracy,0.0674199983477592,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_1,Top5Accuracy,0.1053600013256073,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_2,Top1Accuracy,0.0435199998319149,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_2,Top3Accuracy,0.1152999997138977,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_2,Top5Accuracy,0.1736200004816055,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_3,Top1Accuracy,0.0720999985933303,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_3,Top3Accuracy,0.1779000014066696,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_3,Top5Accuracy,0.2578999996185303,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_4,Top1Accuracy,0.0979800000786781,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_4,Top3Accuracy,0.2205999940633773,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_4,Top5Accuracy,0.3061000108718872,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_5,Top1Accuracy,0.1156999990344047,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_5,Top3Accuracy,0.2509399950504303,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_5,Top5Accuracy,0.3403199911117553,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_6,Top1Accuracy,0.1204200014472007,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_6,Top3Accuracy,0.2540600001811981,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_6,Top5Accuracy,0.3426400125026703,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_7,Top1Accuracy,0.130620002746582,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_7,Top3Accuracy,0.2657800018787384,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_7,Top5Accuracy,0.3569200038909912,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_8,Top1Accuracy,0.1442800015211105,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_8,Top3Accuracy,0.2874799966812134,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_8,Top5Accuracy,0.3805400133132934,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_9,Top1Accuracy,0.1551000028848648,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_9,Top3Accuracy,0.3006600141525268,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_9,Top5Accuracy,0.3957599997520447,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_10,Top1Accuracy,0.1592999994754791,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_10,Top3Accuracy,0.3064000010490417,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_10,Top5Accuracy,0.3991999924182892,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_11,Top1Accuracy,0.1563200056552887,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_11,Top3Accuracy,0.2906000018119812,1_templates,,CLIP,1.0
+yh1adr3g,CIFAR100,zeroshot-text_layer_11,Top5Accuracy,0.3757799863815307,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_0,Top1Accuracy,0.0164893623441457,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_0,Top3Accuracy,0.0569148920476436,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_0,Top5Accuracy,0.1074468120932579,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_1,Top1Accuracy,0.0367021262645721,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_1,Top3Accuracy,0.0925531908869743,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_1,Top5Accuracy,0.1436170190572738,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_2,Top1Accuracy,0.0601063817739486,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_2,Top3Accuracy,0.1276595741510391,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_2,Top5Accuracy,0.1952127665281295,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_3,Top1Accuracy,0.0622340440750122,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_3,Top3Accuracy,0.1659574508666992,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_3,Top5Accuracy,0.2351063787937164,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_4,Top1Accuracy,0.0845744684338569,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_4,Top3Accuracy,0.1925531923770904,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_4,Top5Accuracy,0.278191477060318,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_5,Top1Accuracy,0.1074468120932579,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_5,Top3Accuracy,0.2218085080385208,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_5,Top5Accuracy,0.2989361584186554,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_6,Top1Accuracy,0.0984042584896087,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_6,Top3Accuracy,0.227127656340599,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_6,Top5Accuracy,0.3058510720729828,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_7,Top1Accuracy,0.1196808516979217,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_7,Top3Accuracy,0.2367021292448043,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_7,Top5Accuracy,0.3170212805271148,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_8,Top1Accuracy,0.1308510601520538,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_8,Top3Accuracy,0.2489361763000488,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_8,Top5Accuracy,0.3218085169792175,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_9,Top1Accuracy,0.1308510601520538,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_9,Top3Accuracy,0.2585106492042541,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_9,Top5Accuracy,0.3313829898834228,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_10,Top1Accuracy,0.1297872364521026,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_10,Top3Accuracy,0.2553191483020782,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_10,Top5Accuracy,0.3154255449771881,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_11,Top1Accuracy,0.1265957504510879,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_11,Top3Accuracy,0.248404249548912,1_templates,,CLIP,1.0
+yh1adr3g,DTD,zeroshot-text_layer_11,Top5Accuracy,0.3196808397769928,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_0,Top1Accuracy,0.0083983205258846,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_0,Top3Accuracy,0.0239952001720666,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_0,Top5Accuracy,0.0452909432351589,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_1,Top1Accuracy,0.0065986802801489,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_1,Top3Accuracy,0.0236952602863311,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_1,Top5Accuracy,0.04019196331501,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_2,Top1Accuracy,0.0092981401830911,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_2,Top3Accuracy,0.0299940016120672,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_2,Top5Accuracy,0.0485902801156044,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_3,Top1Accuracy,0.0047990400344133,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_3,Top3Accuracy,0.0257948413491249,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_3,Top5Accuracy,0.0491901636123657,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_4,Top1Accuracy,0.0104979006573557,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_4,Top3Accuracy,0.0335932821035385,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_4,Top5Accuracy,0.0515896826982498,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_5,Top1Accuracy,0.0131973605602979,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_5,Top3Accuracy,0.0350929796695709,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_5,Top5Accuracy,0.0539892017841339,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_6,Top1Accuracy,0.0128974206745624,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_6,Top3Accuracy,0.0365926809608936,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_6,Top5Accuracy,0.056388720870018,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_7,Top1Accuracy,0.0137972403317689,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_7,Top3Accuracy,0.0362927429378032,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_7,Top5Accuracy,0.0554889030754566,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_8,Top1Accuracy,0.0152969406917691,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_8,Top3Accuracy,0.0377924405038356,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_8,Top5Accuracy,0.0551889613270759,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_9,Top1Accuracy,0.0101979607716202,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_9,Top3Accuracy,0.0299940016120672,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_9,Top5Accuracy,0.056388720870018,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_10,Top1Accuracy,0.0071985605172812,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_10,Top3Accuracy,0.0314937010407447,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_10,Top5Accuracy,0.0551889613270759,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_11,Top1Accuracy,0.0098980199545621,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_11,Top3Accuracy,0.0287942420691251,1_templates,,CLIP,1.0
+yh1adr3g,FGVCAircraft,zeroshot-text_layer_11,Top5Accuracy,0.0587882436811924,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_0,Top1Accuracy,0.0080396039411425,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_0,Top3Accuracy,0.0259933993220329,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_0,Top5Accuracy,0.0465478561818599,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_1,Top1Accuracy,0.0143498349934816,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_1,Top3Accuracy,0.0450561046600341,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_1,Top5Accuracy,0.0742970332503318,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_2,Top1Accuracy,0.0247656758874654,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_2,Top3Accuracy,0.0605544559657573,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_2,Top5Accuracy,0.092765673995018,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_3,Top1Accuracy,0.037214521318674,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_3,Top3Accuracy,0.0886336639523506,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_3,Top5Accuracy,0.1316303610801696,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_4,Top1Accuracy,0.0456897690892219,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_4,Top3Accuracy,0.1063762381672859,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_4,Top5Accuracy,0.1532673239707946,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_5,Top1Accuracy,0.0502838268876075,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_5,Top3Accuracy,0.1182310208678245,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_5,Top5Accuracy,0.1723168343305587,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_6,Top1Accuracy,0.0640264004468917,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_6,Top3Accuracy,0.1375577598810196,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_6,Top5Accuracy,0.1929240971803665,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_7,Top1Accuracy,0.0744158402085304,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_7,Top3Accuracy,0.1567524820566177,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_7,Top5Accuracy,0.2141650170087814,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_8,Top1Accuracy,0.0840924084186554,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_8,Top3Accuracy,0.1741122156381607,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_8,Top5Accuracy,0.2328580915927887,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_9,Top1Accuracy,0.0905082523822784,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_9,Top3Accuracy,0.1870891153812408,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_9,Top5Accuracy,0.249848186969757,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_10,Top1Accuracy,0.0971617177128791,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_10,Top3Accuracy,0.1990891098976135,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_10,Top5Accuracy,0.2644752562046051,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_11,Top1Accuracy,0.1044092401862144,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_11,Top3Accuracy,0.2086204588413238,1_templates,,CLIP,1.0
+yh1adr3g,Food101,zeroshot-text_layer_11,Top5Accuracy,0.2760396003723144,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_0,Top1Accuracy,0.0252717398107051,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_0,Top3Accuracy,0.0815217420458793,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_0,Top5Accuracy,0.1502717435359954,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_1,Top1Accuracy,0.0355978272855281,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_1,Top3Accuracy,0.0904891267418861,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_1,Top5Accuracy,0.1410326063632965,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_2,Top1Accuracy,0.0478260852396488,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_2,Top3Accuracy,0.1317934840917587,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_2,Top5Accuracy,0.2043478190898895,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_3,Top1Accuracy,0.0622282624244689,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_3,Top3Accuracy,0.1527173966169357,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_3,Top5Accuracy,0.2236413061618805,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_4,Top1Accuracy,0.072826087474823,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_4,Top3Accuracy,0.166304349899292,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_4,Top5Accuracy,0.2413043528795242,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_5,Top1Accuracy,0.0785326063632965,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_5,Top3Accuracy,0.167119562625885,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_5,Top5Accuracy,0.2467391341924667,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_6,Top1Accuracy,0.0853260904550552,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_6,Top3Accuracy,0.1845108717679977,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_6,Top5Accuracy,0.2673912942409515,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_7,Top1Accuracy,0.0804347842931747,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_7,Top3Accuracy,0.1793478280305862,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_7,Top5Accuracy,0.2657608687877655,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_8,Top1Accuracy,0.0766304358839988,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_8,Top3Accuracy,0.178260862827301,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_8,Top5Accuracy,0.2565217316150665,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_9,Top1Accuracy,0.0785326063632965,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_9,Top3Accuracy,0.1798913031816482,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_9,Top5Accuracy,0.261141300201416,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_10,Top1Accuracy,0.0725543498992919,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_10,Top3Accuracy,0.1749999970197677,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_10,Top5Accuracy,0.2548913061618805,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_11,Top1Accuracy,0.0722826123237609,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_11,Top3Accuracy,0.187771737575531,1_templates,,CLIP,1.0
+yh1adr3g,OxfordIIITPet,zeroshot-text_layer_11,Top5Accuracy,0.2736413180828094,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_0,Top1Accuracy,0.0074520548805594,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_0,Top3Accuracy,0.0207945201545953,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_0,Top5Accuracy,0.0315616428852081,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_1,Top1Accuracy,0.0107671236619353,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_1,Top3Accuracy,0.0296164378523826,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_1,Top5Accuracy,0.0473698638379573,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_2,Top1Accuracy,0.0376712344586849,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_2,Top3Accuracy,0.0862191766500473,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_2,Top5Accuracy,0.1213424652814865,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_3,Top1Accuracy,0.0728767141699791,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_3,Top3Accuracy,0.150109589099884,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_3,Top5Accuracy,0.2029588967561721,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_4,Top1Accuracy,0.0893698632717132,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_4,Top3Accuracy,0.1797260344028473,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_4,Top5Accuracy,0.2370684891939163,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_5,Top1Accuracy,0.1010958924889564,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_5,Top3Accuracy,0.2028493136167526,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_5,Top5Accuracy,0.2673972547054291,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_6,Top1Accuracy,0.1095342487096786,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_6,Top3Accuracy,0.215835615992546,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_6,Top5Accuracy,0.2855068445205688,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_7,Top1Accuracy,0.1249862983822822,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_7,Top3Accuracy,0.2453424632549286,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_7,Top5Accuracy,0.3160821795463562,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_8,Top1Accuracy,0.1454794555902481,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_8,Top3Accuracy,0.277315080165863,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_8,Top5Accuracy,0.3555616438388824,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_9,Top1Accuracy,0.1583561599254608,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_9,Top3Accuracy,0.2936164438724518,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_9,Top5Accuracy,0.3776438236236572,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_10,Top1Accuracy,0.1732602715492248,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_10,Top3Accuracy,0.3149315118789673,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_10,Top5Accuracy,0.3945753276348114,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_11,Top1Accuracy,0.169917806982994,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_11,Top3Accuracy,0.3121095895767212,1_templates,,CLIP,1.0
+yh1adr3g,Places365,zeroshot-text_layer_11,Top5Accuracy,0.3935616314411163,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_0,Top1Accuracy,0.0055255400948226,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_0,Top3Accuracy,0.0128929270431399,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_0,Top5Accuracy,0.0232072696089744,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_1,Top1Accuracy,0.0040520629845559,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_1,Top3Accuracy,0.0137524558231234,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_1,Top5Accuracy,0.0240667983889579,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_2,Top1Accuracy,0.005034381058067,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_2,Top3Accuracy,0.0166994109749794,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_2,Top5Accuracy,0.0279960706830024,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_3,Top1Accuracy,0.0074901767075061,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_3,Top3Accuracy,0.0205058939754962,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_3,Top5Accuracy,0.0347495079040527,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_4,Top1Accuracy,0.008718074299395,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_4,Top3Accuracy,0.0219793710857629,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_4,Top5Accuracy,0.0333988219499588,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_5,Top1Accuracy,0.0089636538177728,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_5,Top3Accuracy,0.0213654227554798,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_5,Top5Accuracy,0.0313113965094089,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_6,Top1Accuracy,0.0047888015396893,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_6,Top3Accuracy,0.016453830525279,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_6,Top5Accuracy,0.0265225935727357,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_7,Top1Accuracy,0.0051571708172559,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_7,Top3Accuracy,0.0158398821949958,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_7,Top5Accuracy,0.0256630647927522,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_8,Top1Accuracy,0.0051571708172559,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_8,Top3Accuracy,0.016085460782051,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_8,Top5Accuracy,0.0265225935727357,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_9,Top1Accuracy,0.0051571708172559,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_9,Top3Accuracy,0.016453830525279,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_9,Top5Accuracy,0.0277504902333021,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_10,Top1Accuracy,0.0072445971891283,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_10,Top3Accuracy,0.0194007866084575,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_10,Top5Accuracy,0.0325392931699752,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_11,Top1Accuracy,0.0067534381523728,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_11,Top3Accuracy,0.0191552061587572,1_templates,,CLIP,1.0
+yh1adr3g,StanfordCars,zeroshot-text_layer_11,Top5Accuracy,0.0318025536835193,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_0,Top1Accuracy,0.1928000003099441,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_0,Top3Accuracy,0.4828000068664551,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_0,Top5Accuracy,0.7013999819755554,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_1,Top1Accuracy,0.2433999925851822,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_1,Top3Accuracy,0.5723999738693237,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_1,Top5Accuracy,0.7919999957084656,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_2,Top1Accuracy,0.3495999872684479,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_2,Top3Accuracy,0.7703999876976013,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_2,Top5Accuracy,0.9282000064849854,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_3,Top1Accuracy,0.5519999861717224,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_3,Top3Accuracy,0.8841999769210815,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_3,Top5Accuracy,0.9696000218391418,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_4,Top1Accuracy,0.6696000099182129,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_4,Top3Accuracy,0.9308000206947328,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_4,Top5Accuracy,0.9842000007629396,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_5,Top1Accuracy,0.694599986076355,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_5,Top3Accuracy,0.9269999861717224,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_5,Top5Accuracy,0.9846000075340272,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_6,Top1Accuracy,0.6850000023841858,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_6,Top3Accuracy,0.9193999767303468,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_6,Top5Accuracy,0.984000027179718,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_7,Top1Accuracy,0.6988000273704529,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_7,Top3Accuracy,0.9228000044822692,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_7,Top5Accuracy,0.9814000129699708,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_8,Top1Accuracy,0.7107999920845032,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_8,Top3Accuracy,0.9376000165939332,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_8,Top5Accuracy,0.980400025844574,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_9,Top1Accuracy,0.7188000082969666,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_9,Top3Accuracy,0.9373999834060668,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_9,Top5Accuracy,0.9818000197410583,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_10,Top1Accuracy,0.7318000197410583,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_10,Top3Accuracy,0.9350000023841858,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_10,Top5Accuracy,0.9765999913215636,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_11,Top1Accuracy,0.7608000040054321,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_11,Top3Accuracy,0.9401999711990356,1_templates,,CLIP,1.0
+yh1adr3g,STL10,zeroshot-text_layer_11,Top5Accuracy,0.9814000129699708,1_templates,,CLIP,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_0,Top1Accuracy,0.0035399999469518,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_0,Top3Accuracy,0.0100400000810623,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_0,Top5Accuracy,0.0156199997290968,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_1,Top1Accuracy,0.0080399997532367,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_1,Top3Accuracy,0.0199999995529651,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_1,Top5Accuracy,0.0301799997687339,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_2,Top1Accuracy,0.0207800008356571,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_2,Top3Accuracy,0.0453800000250339,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_2,Top5Accuracy,0.0637800022959709,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_3,Top1Accuracy,0.0423399992287159,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_3,Top3Accuracy,0.0880599990487098,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_3,Top5Accuracy,0.1194799989461898,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_4,Top1Accuracy,0.0588800013065338,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_4,Top3Accuracy,0.1185799986124038,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_4,Top5Accuracy,0.156259998679161,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_5,Top1Accuracy,0.0670399963855743,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_5,Top3Accuracy,0.131300002336502,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_5,Top5Accuracy,0.1717599928379058,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_6,Top1Accuracy,0.0820199996232986,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_6,Top3Accuracy,0.1580400019884109,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_6,Top5Accuracy,0.2019400000572204,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_7,Top1Accuracy,0.097460001707077,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_7,Top3Accuracy,0.1773200035095214,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_7,Top5Accuracy,0.2243600040674209,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_8,Top1Accuracy,0.1086200028657913,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_8,Top3Accuracy,0.1918399930000305,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_8,Top5Accuracy,0.2387399971485138,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_9,Top1Accuracy,0.1157800033688545,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_9,Top3Accuracy,0.2020799964666366,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_9,Top5Accuracy,0.2501200139522552,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_10,Top1Accuracy,0.1218400001525878,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_10,Top3Accuracy,0.2128199934959411,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_10,Top5Accuracy,0.2618399858474731,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_11,Top1Accuracy,0.1212799996137619,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_11,Top3Accuracy,0.2091200053691864,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,ImageNet,zeroshot-text_layer_11,Top5Accuracy,0.2553600072860718,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_0,Top1Accuracy,0.0165682174265384,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_0,Top3Accuracy,0.0576285831630229,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_0,Top5Accuracy,0.1037314534187316,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_1,Top1Accuracy,0.0512894392013549,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_1,Top3Accuracy,0.1122316643595695,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_1,Top5Accuracy,0.1612159609794616,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_2,Top1Accuracy,0.0806800201535224,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_2,Top3Accuracy,0.1787926852703094,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_2,Top5Accuracy,0.2446333318948745,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_3,Top1Accuracy,0.1674110293388366,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_3,Top3Accuracy,0.3192623555660248,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_3,Top5Accuracy,0.4133410155773163,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_4,Top1Accuracy,0.2214378267526626,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_4,Top3Accuracy,0.398933857679367,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_4,Top5Accuracy,0.5049704909324646,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_5,Top1Accuracy,0.2480910569429397,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_5,Top3Accuracy,0.4287566542625427,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_5,Top5Accuracy,0.5290303826332092,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_6,Top1Accuracy,0.2862699925899505,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_6,Top3Accuracy,0.4940210282802582,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_6,Top5Accuracy,0.5935744047164917,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_7,Top1Accuracy,0.3444748520851135,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_7,Top3Accuracy,0.5591413378715515,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_7,Top5Accuracy,0.6461604833602905,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_8,Top1Accuracy,0.3786197900772095,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_8,Top3Accuracy,0.5873793363571167,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_8,Top5Accuracy,0.6667627096176147,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_9,Top1Accuracy,0.3964846432209015,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_9,Top3Accuracy,0.615761399269104,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_9,Top5Accuracy,0.6860682964324951,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_10,Top1Accuracy,0.4179513156414032,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_10,Top3Accuracy,0.6421265006065369,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_10,Top5Accuracy,0.7158910632133484,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_11,Top1Accuracy,0.3997983038425445,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_11,Top3Accuracy,0.6349229216575623,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech101,zeroshot-text_layer_11,Top5Accuracy,0.7043653726577759,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_0,Top1Accuracy,0.013763528317213,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_0,Top3Accuracy,0.03455176576972,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_0,Top5Accuracy,0.0528895258903503,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_1,Top1Accuracy,0.0248315297067165,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_1,Top3Accuracy,0.0611394718289375,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_1,Top5Accuracy,0.0926689803600311,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_2,Top1Accuracy,0.0571778640151023,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_2,Top3Accuracy,0.1209311857819557,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_2,Top5Accuracy,0.1654482334852218,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_3,Top1Accuracy,0.1269757002592086,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_3,Top3Accuracy,0.2344292402267456,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_3,Top5Accuracy,0.3036961257457733,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_4,Top1Accuracy,0.1765570789575576,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_4,Top3Accuracy,0.3031243681907654,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_4,Top5Accuracy,0.3740657567977905,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_5,Top1Accuracy,0.2012660801410675,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_5,Top3Accuracy,0.3355523645877838,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_5,Top5Accuracy,0.4032264649868011,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_6,Top1Accuracy,0.2394118905067443,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_6,Top3Accuracy,0.3798243701457977,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_6,Top5Accuracy,0.450643241405487,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_7,Top1Accuracy,0.2700020372867584,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_7,Top3Accuracy,0.420053094625473,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_7,Top5Accuracy,0.4925464689731598,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_8,Top1Accuracy,0.2914437353610992,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_8,Top3Accuracy,0.4485194981098175,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_8,Top5Accuracy,0.5216254591941833,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_9,Top1Accuracy,0.3093730807304382,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_9,Top3Accuracy,0.470451295375824,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_9,Top5Accuracy,0.5386971831321716,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_10,Top1Accuracy,0.3300796449184418,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_10,Top3Accuracy,0.4912395477294922,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_10,Top5Accuracy,0.5563814640045166,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_11,Top1Accuracy,0.3340412378311157,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_11,Top3Accuracy,0.4851950109004974,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Caltech256,zeroshot-text_layer_11,Top5Accuracy,0.5506636500358582,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_0,Top1Accuracy,0.0251400005072355,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_0,Top3Accuracy,0.0710000023245811,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_0,Top5Accuracy,0.1125999987125396,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_1,Top1Accuracy,0.0264999996870756,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_1,Top3Accuracy,0.0792400017380714,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_1,Top5Accuracy,0.1241799965500831,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_2,Top1Accuracy,0.0591799989342689,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_2,Top3Accuracy,0.1373399943113327,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_2,Top5Accuracy,0.2006800025701522,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_3,Top1Accuracy,0.093419998884201,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_3,Top3Accuracy,0.2027399986982345,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_3,Top5Accuracy,0.2778599858283996,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_4,Top1Accuracy,0.1053000018000602,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_4,Top3Accuracy,0.23887999355793,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_4,Top5Accuracy,0.3235599994659424,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_5,Top1Accuracy,0.1187399998307228,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_5,Top3Accuracy,0.2469000071287155,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_5,Top5Accuracy,0.3288399875164032,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_6,Top1Accuracy,0.1339399963617324,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_6,Top3Accuracy,0.2606599926948547,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_6,Top5Accuracy,0.3428399860858917,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_7,Top1Accuracy,0.1426800042390823,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_7,Top3Accuracy,0.2804999947547912,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_7,Top5Accuracy,0.3655399978160858,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_8,Top1Accuracy,0.1463000029325485,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_8,Top3Accuracy,0.2851200103759765,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_8,Top5Accuracy,0.3692399859428406,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_9,Top1Accuracy,0.1543799936771392,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_9,Top3Accuracy,0.3041200041770935,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_9,Top5Accuracy,0.3930599987506866,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_10,Top1Accuracy,0.1580400019884109,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_10,Top3Accuracy,0.2992199957370758,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_10,Top5Accuracy,0.385919988155365,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_11,Top1Accuracy,0.1691800057888031,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_11,Top3Accuracy,0.3100999891757965,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,CIFAR100,zeroshot-text_layer_11,Top5Accuracy,0.3935999870300293,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_0,Top1Accuracy,0.0255319140851497,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_0,Top3Accuracy,0.0675531923770904,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_0,Top5Accuracy,0.1239361688494682,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_1,Top1Accuracy,0.0319148935377597,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_1,Top3Accuracy,0.0861702114343643,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_1,Top5Accuracy,0.1351063847541809,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_2,Top1Accuracy,0.0430851057171821,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_2,Top3Accuracy,0.1276595741510391,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_2,Top5Accuracy,0.193085104227066,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_3,Top1Accuracy,0.0686170235276222,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_3,Top3Accuracy,0.1601063758134842,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_3,Top5Accuracy,0.2351063787937164,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_4,Top1Accuracy,0.0840425565838813,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_4,Top3Accuracy,0.1936170160770416,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_4,Top5Accuracy,0.2611702084541321,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_5,Top1Accuracy,0.1117021292448043,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_5,Top3Accuracy,0.2260638326406479,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_5,Top5Accuracy,0.3015957474708557,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_6,Top1Accuracy,0.1058510616421699,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_6,Top3Accuracy,0.2244680821895599,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_6,Top5Accuracy,0.3031914830207824,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_7,Top1Accuracy,0.1106382980942726,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_7,Top3Accuracy,0.2313829809427261,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_7,Top5Accuracy,0.3138297796249389,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_8,Top1Accuracy,0.1111702099442482,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_8,Top3Accuracy,0.2281914949417114,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_8,Top5Accuracy,0.3085106313228607,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_9,Top1Accuracy,0.1090425550937652,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_9,Top3Accuracy,0.2372340410947799,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_9,Top5Accuracy,0.3117021322250366,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_10,Top1Accuracy,0.110106386244297,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_10,Top3Accuracy,0.2473404258489608,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_10,Top5Accuracy,0.3287234008312225,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_11,Top1Accuracy,0.1228723376989364,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_11,Top3Accuracy,0.2590425610542297,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,DTD,zeroshot-text_layer_11,Top5Accuracy,0.3351063728332519,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_0,Top1Accuracy,0.0104979006573557,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_0,Top3Accuracy,0.028194360435009,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_0,Top5Accuracy,0.0431913621723651,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_1,Top1Accuracy,0.0095980800688266,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_1,Top3Accuracy,0.0290941819548606,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_1,Top5Accuracy,0.0503899231553077,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_2,Top1Accuracy,0.0107978405430912,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_2,Top3Accuracy,0.0356928631663322,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_2,Top5Accuracy,0.0647870451211929,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_3,Top1Accuracy,0.0125974807888269,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_3,Top3Accuracy,0.0359928011894226,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_3,Top5Accuracy,0.0659868046641349,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_4,Top1Accuracy,0.0122975409030914,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_4,Top3Accuracy,0.0383923202753067,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_4,Top5Accuracy,0.065686859190464,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_5,Top1Accuracy,0.0122975409030914,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_5,Top3Accuracy,0.0365926809608936,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_5,Top5Accuracy,0.0602879412472248,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_6,Top1Accuracy,0.0116976602002978,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_6,Top3Accuracy,0.0332933403551578,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_6,Top5Accuracy,0.0578884221613407,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_7,Top1Accuracy,0.0122975409030914,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_7,Top3Accuracy,0.0335932821035385,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_7,Top5Accuracy,0.0566886626183986,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_8,Top1Accuracy,0.0149970008060336,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_8,Top3Accuracy,0.0299940016120672,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_8,Top5Accuracy,0.0512897409498691,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_9,Top1Accuracy,0.0137972403317689,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_9,Top3Accuracy,0.0335932821035385,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_9,Top5Accuracy,0.0533893220126628,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_10,Top1Accuracy,0.0155968805775046,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_10,Top3Accuracy,0.0365926809608936,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_10,Top5Accuracy,0.056388720870018,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_11,Top1Accuracy,0.0140971802175045,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_11,Top3Accuracy,0.0377924405038356,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,FGVCAircraft,zeroshot-text_layer_11,Top5Accuracy,0.0578884221613407,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_0,Top1Accuracy,0.0115643562749028,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_0,Top3Accuracy,0.035313531756401,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_0,Top5Accuracy,0.0582838281989097,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_1,Top1Accuracy,0.015089108608663,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_1,Top3Accuracy,0.04389438778162,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_1,Top5Accuracy,0.0711419135332107,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_2,Top1Accuracy,0.0254785474389791,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_2,Top3Accuracy,0.0691749155521392,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_2,Top5Accuracy,0.1068118810653686,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_3,Top1Accuracy,0.0401980206370353,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_3,Top3Accuracy,0.0955643579363823,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_3,Top5Accuracy,0.1384026408195495,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_4,Top1Accuracy,0.0581650175154209,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_4,Top3Accuracy,0.1314059346914291,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_4,Top5Accuracy,0.1820858120918274,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_5,Top1Accuracy,0.0665082484483718,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_5,Top3Accuracy,0.1426270604133606,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_5,Top5Accuracy,0.1932805329561233,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_6,Top1Accuracy,0.074310228228569,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_6,Top3Accuracy,0.1574785411357879,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_6,Top5Accuracy,0.2112739235162735,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_7,Top1Accuracy,0.0792739242315292,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_7,Top3Accuracy,0.1667854785919189,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_7,Top5Accuracy,0.2247392684221267,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_8,Top1Accuracy,0.0803828388452529,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_8,Top3Accuracy,0.1750099062919616,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_8,Top5Accuracy,0.2359207868576049,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_9,Top1Accuracy,0.0931881219148635,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_9,Top3Accuracy,0.1940726041793823,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_9,Top5Accuracy,0.2565808594226837,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_10,Top1Accuracy,0.1018745899200439,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_10,Top3Accuracy,0.206323429942131,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_10,Top5Accuracy,0.2707194685935974,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_11,Top1Accuracy,0.1073003336787223,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_11,Top3Accuracy,0.2158679813146591,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Food101,zeroshot-text_layer_11,Top5Accuracy,0.2821914255619049,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_0,Top1Accuracy,0.0380434766411781,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_0,Top3Accuracy,0.1114130467176437,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_0,Top5Accuracy,0.167934775352478,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_1,Top1Accuracy,0.0480978265404701,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_1,Top3Accuracy,0.1141304373741149,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_1,Top5Accuracy,0.1760869622230529,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_2,Top1Accuracy,0.0548913031816482,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_2,Top3Accuracy,0.1472826153039932,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_2,Top5Accuracy,0.2269021719694137,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_3,Top1Accuracy,0.060597825795412,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_3,Top3Accuracy,0.1586956530809402,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_3,Top5Accuracy,0.2334239184856414,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_4,Top1Accuracy,0.0812499970197677,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_4,Top3Accuracy,0.1725543439388275,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_4,Top5Accuracy,0.2437500059604644,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_5,Top1Accuracy,0.0823369547724723,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_5,Top3Accuracy,0.176630437374115,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_5,Top5Accuracy,0.25,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_6,Top1Accuracy,0.0853260904550552,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_6,Top3Accuracy,0.177173912525177,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_6,Top5Accuracy,0.2538043558597564,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_7,Top1Accuracy,0.0864130407571792,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_7,Top3Accuracy,0.186956524848938,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_7,Top5Accuracy,0.25951087474823,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_8,Top1Accuracy,0.0883152186870575,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_8,Top3Accuracy,0.1923913061618805,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_8,Top5Accuracy,0.2771739065647125,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_9,Top1Accuracy,0.0951086953282356,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_9,Top3Accuracy,0.198369562625885,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_9,Top5Accuracy,0.2750000059604645,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_10,Top1Accuracy,0.0902173891663551,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_10,Top3Accuracy,0.1940217465162277,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_10,Top5Accuracy,0.2750000059604645,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_11,Top1Accuracy,0.0894021764397621,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_11,Top3Accuracy,0.1945652216672897,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,OxfordIIITPet,zeroshot-text_layer_11,Top5Accuracy,0.2839674055576324,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_0,Top1Accuracy,0.0109863011166453,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_0,Top3Accuracy,0.0303835608065128,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_0,Top5Accuracy,0.0471780821681022,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_1,Top1Accuracy,0.0239726025611162,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_1,Top3Accuracy,0.0569041110575199,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_1,Top5Accuracy,0.0817260295152664,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_2,Top1Accuracy,0.0430684946477413,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_2,Top3Accuracy,0.0920000001788139,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_2,Top5Accuracy,0.1252876669168472,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_3,Top1Accuracy,0.0670958906412124,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_3,Top3Accuracy,0.1360000073909759,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_3,Top5Accuracy,0.1815616488456726,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_4,Top1Accuracy,0.0819178074598312,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_4,Top3Accuracy,0.1658904105424881,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_4,Top5Accuracy,0.2224931567907333,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_5,Top1Accuracy,0.0916438326239585,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_5,Top3Accuracy,0.186958909034729,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_5,Top5Accuracy,0.2496164441108703,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_6,Top1Accuracy,0.1090684905648231,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_6,Top3Accuracy,0.2146575301885604,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_6,Top5Accuracy,0.2807397246360779,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_7,Top1Accuracy,0.1184931471943855,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_7,Top3Accuracy,0.2329315096139907,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_7,Top5Accuracy,0.3005479574203491,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_8,Top1Accuracy,0.132191777229309,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_8,Top3Accuracy,0.2578082084655761,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_8,Top5Accuracy,0.3310137093067169,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_9,Top1Accuracy,0.1479178071022033,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_9,Top3Accuracy,0.2823835611343384,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_9,Top5Accuracy,0.3576164245605469,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_10,Top1Accuracy,0.1582465767860412,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_10,Top3Accuracy,0.2956986427307129,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_10,Top5Accuracy,0.3724109530448913,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_11,Top1Accuracy,0.1596164405345916,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_11,Top3Accuracy,0.2953972518444061,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,Places365,zeroshot-text_layer_11,Top5Accuracy,0.3758630156517029,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_0,Top1Accuracy,0.0061394893564283,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_0,Top3Accuracy,0.0165766216814517,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_0,Top5Accuracy,0.0272593311965465,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_1,Top1Accuracy,0.0066306483931839,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_1,Top3Accuracy,0.0186640471220016,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_1,Top5Accuracy,0.0295923370867967,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_2,Top1Accuracy,0.0052799605764448,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_2,Top3Accuracy,0.0196463651955127,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_2,Top5Accuracy,0.0346267186105251,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_3,Top1Accuracy,0.0060166995972394,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_3,Top3Accuracy,0.0197691544890403,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_3,Top5Accuracy,0.0337671898305416,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_4,Top1Accuracy,0.005034381058067,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_4,Top3Accuracy,0.016085460782051,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_4,Top5Accuracy,0.0304518658667802,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_5,Top1Accuracy,0.0058939098380506,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_5,Top3Accuracy,0.0228388998657464,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_5,Top5Accuracy,0.037819255143404,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_6,Top1Accuracy,0.0073673869483172,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_6,Top3Accuracy,0.0235756393522024,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_6,Top5Accuracy,0.0421168953180313,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_7,Top1Accuracy,0.0083497054874897,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_7,Top3Accuracy,0.0256630647927522,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_7,Top5Accuracy,0.0435903742909431,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_8,Top1Accuracy,0.0066306483931839,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_8,Top3Accuracy,0.0227161105722188,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_8,Top5Accuracy,0.037082515656948,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_9,Top1Accuracy,0.0072445971891283,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_9,Top3Accuracy,0.0217337924987077,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_9,Top5Accuracy,0.0386787801980972,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_10,Top1Accuracy,0.0066306483931839,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_10,Top3Accuracy,0.0205058939754962,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_10,Top5Accuracy,0.0356090366840362,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_11,Top1Accuracy,0.0071218074299395,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_11,Top3Accuracy,0.0240667983889579,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,StanfordCars,zeroshot-text_layer_11,Top5Accuracy,0.041502945125103,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_0,Top1Accuracy,0.2349999994039535,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_0,Top3Accuracy,0.6218000054359436,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_0,Top5Accuracy,0.8388000130653381,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_1,Top1Accuracy,0.3129999935626983,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_1,Top3Accuracy,0.6299999952316284,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_1,Top5Accuracy,0.8456000089645386,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_2,Top1Accuracy,0.4444000124931335,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_2,Top3Accuracy,0.7656000256538391,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_2,Top5Accuracy,0.9236000180244446,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_3,Top1Accuracy,0.555400013923645,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_3,Top3Accuracy,0.8885999917984009,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_3,Top5Accuracy,0.9775999784469604,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_4,Top1Accuracy,0.6209999918937683,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_4,Top3Accuracy,0.9174000024795532,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_4,Top5Accuracy,0.9850000143051147,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_5,Top1Accuracy,0.6251999735832214,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_5,Top3Accuracy,0.902999997138977,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_5,Top5Accuracy,0.9851999878883362,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_6,Top1Accuracy,0.6664000153541565,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_6,Top3Accuracy,0.9277999997138976,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_6,Top5Accuracy,0.9861999750137328,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_7,Top1Accuracy,0.6809999942779541,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_7,Top3Accuracy,0.9380000233650208,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_7,Top5Accuracy,0.9878000020980836,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_8,Top1Accuracy,0.7211999893188477,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_8,Top3Accuracy,0.9448000192642212,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_8,Top5Accuracy,0.9873999953269958,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_9,Top1Accuracy,0.7253999710083008,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_9,Top3Accuracy,0.9437999725341796,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_9,Top5Accuracy,0.98580002784729,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_10,Top1Accuracy,0.7148000001907349,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_10,Top3Accuracy,0.9430000185966492,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_10,Top5Accuracy,0.9865999817848206,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_11,Top1Accuracy,0.7271999716758728,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_11,Top3Accuracy,0.9368000030517578,1_templates,,CLIP + SimCLR,1.0
+oc0g8fql,STL10,zeroshot-text_layer_11,Top5Accuracy,0.9824000000953674,1_templates,,CLIP + SimCLR,1.0
