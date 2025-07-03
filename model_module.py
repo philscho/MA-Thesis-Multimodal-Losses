@@ -75,6 +75,7 @@ class LitMML(pl.LightningModule):
         if "SimCLR" in self.loss_cfg.losses:
             self.simclr_loss = NTXentLoss()
         if "SimCLR_v2" in self.loss_cfg.losses:
+            self.simclr_loss = NTXentLoss()
             self.simclr_projection = nn.Linear(
                 self.model.vision_embed_dim, self.model.projection_dim, bias=False
             )
