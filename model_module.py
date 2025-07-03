@@ -74,6 +74,10 @@ class LitMML(pl.LightningModule):
             # )
         if "SimCLR" in self.loss_cfg.losses:
             self.simclr_loss = NTXentLoss()
+        if "SimCLR_v2" in self.loss_cfg.losses:
+            self.simclr_projection = nn.Linear(
+                self.model.vision_embed_dim, self.model.projection_dim, bias=False
+            )
 
     def common_step(self, batch):
         #print_memory_usage("Beginning of step:")
@@ -81,7 +85,7 @@ class LitMML(pl.LightningModule):
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
         attention_mask = batch.attention_mask
-        if "SimCLR" in self.loss_cfg.losses:
+        if "SimCLR" or "SimCLR_v2" in self.loss_cfg.losses:
             images_v2 = batch.pixel_values_2
         
         #torch.use_deterministic_algorithms(False)
@@ -174,6 +178,16 @@ class LitMML(pl.LightningModule):
             torch.cuda.empty_cache()
             image_embeds_v2 = image_embeds_v2 / image_embeds_v2.norm(dim=-1, keepdim=True) # need to be normalized
             loss_simclr = self.simclr_loss(image_embeds, image_embeds_v2, pl_module=self)
+            accuracy_simclr = calculate_accuracy_simclr(self.simclr_loss.logits)
+            losses["loss-simclr"] = loss_simclr
+            metrics["acc-simclr"] = accuracy_simclr
+        elif "SimCLR v2" in self.loss_cfg.losses:
+            image_embeds_v1 = self.model.vision_model(pixel_values=images_v1).pooler_output
+            image_embeds_v2 = self.model.vision_model(pixel_values=images_v2).pooler_output            
+            image_embeds_v1 = self.simclr_projection(image_embeds_v1)
+            image_embeds_v2 = self.simclr_projection(image_embeds_v2)
+            
+            loss_simclr = self.simclr_loss(image_embeds_v1, image_embeds_v2, pl_module=self)
             accuracy_simclr = calculate_accuracy_simclr(self.simclr_loss.logits)
             losses["loss-simclr"] = loss_simclr
             metrics["acc-simclr"] = accuracy_simclr
