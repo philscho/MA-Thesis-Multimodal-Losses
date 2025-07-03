@@ -1,0 +1,6 @@
+CLIP-SimCLR-ITM_1-aug,/home/data/bhavin/higher_augmentations_ckpts/ng70n4a4/last.ckpt
+CLIP-ITM_1-aug,/home/data/bhavin/higher_augmentations_ckpts/7m9tx2jf/last.ckpt
+CLIP_1-aug,/home/data/bhavin/higher_augmentations_ckpts/3burj4np/last.ckpt
+SimCLR-ITM_1-aug,/home/data/bhavin/higher_augmentations_ckpts/xpbl8wfc/last.ckpt
+SimCLR_1-aug,/home/data/bhavin/higher_augmentations_ckpts/p99godxb/last.ckpt
+CLIP-SimCLR_1-aug,/home/data/bhavin/higher_augmentations_ckpts/95ddsmmz/last.ckpt

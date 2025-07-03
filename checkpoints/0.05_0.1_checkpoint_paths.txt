@@ -1,0 +1,12 @@
+CLIP_0.1,/home/data/bhavin/0.1_and_0.5_ckpts/jgjh5o3y/last.ckpt
+CLIP-ITM_0.05,/home/data/bhavin/0.1_and_0.5_ckpts/8gpipykd/last.ckpt
+SimCLR-ITM_0.05,/home/data/bhavin/0.1_and_0.5_ckpts/668yutoa/last.ckpt
+SimCLR_0.1,/home/data/bhavin/0.1_and_0.5_ckpts/hd0d88w6/last.ckpt
+SimCLR_0.05,/home/data/bhavin/0.1_and_0.5_ckpts/c5v74o65/last.ckpt
+CLIP-SimCLR-ITM_0.1,/home/data/bhavin/0.1_and_0.5_ckpts/usf43diq/last.ckpt
+SimCLR-ITM_0.1,/home/data/bhavin/0.1_and_0.5_ckpts/2ctuh8qt/last.ckpt
+CLIP-SimCLR-ITM_0.05,/home/data/bhavin/0.1_and_0.5_ckpts/07xhwbwd/last.ckpt
+CLIP-ITM_0.1,/home/data/bhavin/0.1_and_0.5_ckpts/v7kw2sco/last.ckpt
+CLIP-SimCLR_0.05,/home/data/bhavin/0.1_and_0.5_ckpts/f19vtgpv/last.ckpt
+CLIP_0.05,/home/data/bhavin/0.1_and_0.5_ckpts/pllfz8k6/last.ckpt
+CLIP-SimCLR_0.1,/home/data/bhavin/0.1_and_0.5_ckpts/e35tvg9i/last.ckpt

@@ -1,28 +1,71 @@
-/old
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Output, logs, and temporary files
+*.log
+*.out
+*.err
+output.stderr
+*.tmp
+*.bak
+*.nfs*
+
+# VSCode settings
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+*.env
+
+# Data, cache, and experiment folders
+debug/
+misc/
+old/
+ddd/
+slurm/
+wandb/
+logs/
+outputs/
+# Only ignore subfolders in test_results, not files
+test_results/*
+!test_results/*
+test_results/*/
+my_datasets/
+data/
+
+# Python virtual environments
+venv/
+.env/
+.venv/
+
+# Plots and figures
+plots/
+*.png
+
+# CSV and YAML outputs
+*.csv
+*.yaml
+
+# Project-specific ignores
+/personal
 /to-do
-/wandb
-/debug
+/SentEval
 /LLaVA-CC3M-Pretrain-595K
 /models
-/multimodal
-utils/__pycache__
-callbacks/__pycache__
-/__pycache__
-/.vscode
-/.nfs0000000007ef05f30000072b
-my_datasets/__pycache__
-my_datasets\__pycache__
-.ipynb_checkpoints/
-.DS_Store
-.env
-slurm/logs
+changing_groups_wandb.py
 debugging.ipynb
 testing_folder/
 analysis/data
 analysis/figures
-config.env
-**/__pycache__/
 configs/hessian_train_config.yaml
 configs/categories.yaml
-changing_groups_wandb.py
 config.env

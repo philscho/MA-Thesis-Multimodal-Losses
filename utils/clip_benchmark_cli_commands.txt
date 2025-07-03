@@ -1,0 +1,38 @@
+python3 src/clip_benchmark/cli.py eval \
+  --model_type "my_model" \
+  --pretrained "/home/data/bhavin/n5trwpk9/ckpt-epoch=34-loss-val=4.378.ckpt" \
+  --task "zeroshot_classification"  \
+  --dataset "cifar10"
+
+
+python3 src/clip_benchmark/cli.py eval \
+  --model_type "ja_clip" \
+  --pretrained "rinna/japanese-cloob-vit-b-16" \
+  --language "jp" \
+  --task "zeroshot_classification"  \
+  --dataset "cifar10"
+
+clip_benchmark eval --root=/home/data/COCOCaptions --dataset=mscoco_captions --task=zeroshot_retrieval --pretrained=/home/data/bhavin/n5trwpk9/ckpt-epoch=34-loss-val=4.378.ckpt --model_type=my_model --output=retrieval_result.json --batch_size=64
+
+clip_benchmark eval --pretrained=/home/data/bhavin/n5trwpk9/ckpt-epoch=34-loss-val=4.378.ckpt --model_type=my_model   \
+--dataset retrieval --dataset_root "/home/data/{dataset}" \
+ --output "{dataset}.json" --device=cuda:3
+
+clip_benchmark eval --pretrained_model src/CLIP_benchmark/benchmark/model_checkpoints_test.txt --model_type my_model \
+ --dataset retrieval --recall_k 1 5 10 --dataset_root "/home/data/{dataset}" \
+ --output "test_results/retrieval/{dataset}_{model}_{task}.json" --device cuda:1
+
+nohup clip_benchmark eval --pretrained_model src/CLIP_benchmark/benchmark/model_checkpoints.txt --model_type my_model \
+ --dataset retrieval --recall_k 1 5 10 --dataset_root "/home/data/{dataset}" \
+ --output "test_results/retrieval/{dataset}_{model}_{task}.json" --device cuda:1 \
+ > logs/zeroshot_retrieval_all_models.log 2>&1 &
+
+nohup clip_benchmark eval --pretrained_model higher_aug_checkpoints.txt --model_type my_model \
+ --dataset retrieval --recall_k 1 5 10 --dataset_root "/home/data/{dataset}" \
+ --output "test_results/retrieval/{dataset}_{model}_{task}.json" --device cuda:2 \
+ > logs/zeroshot_retrieval_higher_aug_models.log 2>&1 &
+
+ nohup clip_benchmark eval --pretrained_model mlm_checkpoint_paths.txt --model_type my_model \
+ --dataset retrieval --recall_k 1 5 10 --dataset_root "/home/data/{dataset}" \
+ --output "test_results/retrieval/mlm/{dataset}_{model}_{task}.json" --device cuda:1 \
+ > logs/zeroshot_retrieval_mlm_models.log 2>&1 &
