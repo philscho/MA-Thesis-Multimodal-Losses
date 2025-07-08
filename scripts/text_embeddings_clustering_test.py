@@ -12,7 +12,8 @@ from tqdm import tqdm
 from sklearn.cluster import KMeans
 from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score
 from sklearn.decomposition import PCA
-
+import json
+import numpy as np
 
 ROOT = rootutils.setup_root("/home/phisch/multimodal", indicator=".project-root", pythonpath=True)
 
@@ -21,8 +22,7 @@ from src.model.utils import get_model_and_processor
 from src.model.model_module import LitMML, MLMWrapper
 from src.data.data_module import MyDataModule
 
-
-@hydra.main(version_base=None, config_path="configs", config_name="text_clustering")
+@hydra.main(version_base=None, config_path=os.path.join(ROOT, "configs"), config_name="text_clustering")
 def main(cfg):
     print(OmegaConf.to_yaml(cfg))
 
@@ -84,47 +84,79 @@ def main(cfg):
                 input_ids = input_ids.to(device)
                 attention_mask = attention_mask.to(device)
 
-                outputs = model.basemodel.text_model(input_ids=input_ids, attention_mask=attention_mask)
-                # Nimm z.B. den CLS-Token als Repräsentation
-                cls_embeddings = outputs.last_hidden_state[:, 0, :]  # (batch_size, hidden_dim)
-                all_embeddings.append(cls_embeddings.cpu())
+                layer = cfg.get("layer", None)
+                if layer == "text_projection":
+                    text_embeddings = model.get_text_features(input_ids=input_ids, attention_mask=attention_mask)
+                    all_embeddings.append(text_embeddings.cpu())
+                elif layer == "last_encoder_layer":
+                    outputs = model.basemodel.text_model(input_ids=input_ids, attention_mask=attention_mask)
+                    cls_embeddings = outputs.last_hidden_state[:, 0, :]  # (batch_size, hidden_dim)
+                    all_embeddings.append(cls_embeddings.cpu())
+                else:
+                    raise ValueError(f"Unknown layer type: {layer}")
 
         # Endgültige Matrix: (num_samples, hidden_dim)
         text_embeddings = torch.cat(all_embeddings, dim=0).numpy()
         
-        kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-        preds = kmeans.fit_predict(text_embeddings)
+        if cfg.get("run_kmeans", True):
+            kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+            preds = kmeans.fit_predict(text_embeddings)
 
-        nmi = normalized_mutual_info_score(labels, preds)
-        ari = adjusted_rand_score(labels, preds)
-        print(f"NMI: {nmi:.3f}, ARI: {ari:.3f}")
+            nmi = normalized_mutual_info_score(labels, preds)
+            ari = adjusted_rand_score(labels, preds)
+            print(f"NMI: {nmi:.3f}, ARI: {ari:.3f}")
 
-        pca = PCA(n_components=2)
-        embeddings_2d = pca.fit_transform(text_embeddings)
+            # Save results to JSON
+            results = {
+                "model_id": model_id,
+                "model_name": model_name,
+                "dataset": dataset_name,
+                "num_samples": len(texts),
+                "num_clusters": n_clusters,
+                "nmi": nmi,
+                "ari": ari,
+            }
+            results_path = f"test_results/kmeans_text/{layer}/clustering_results_{model_id}.json"
+            with open(results_path, "w") as f:
+                json.dump(results, f, indent=2)
 
-        plt.figure(figsize=(8, 6))
-        plt.scatter(embeddings_2d[:, 0], embeddings_2d[:, 1], c=preds, cmap="tab10", alpha=0.7)
-        plt.title("K-Means Clustering of Text Embeddings (PCA)")
-        plt.xlabel("PC1")
-        plt.ylabel("PC2")
-        plt.grid(True)
-        plot_path = f"test_results/kmeans_text/clustering_plot_{model_id}.png"
-        plt.savefig(plot_path)
+            # Save kmeans preds to a separate file
+            preds_path = f"test_results/kmeans_text/{layer}/clustering_preds_{model_id}.npz"
+            np.savez(
+                preds_path, 
+                preds=preds,
+                labels=np.array(labels),
+            )
 
-        # Save results to JSON
-        import json
-        results = {
-            "model_id": model_id,
-            "model_name": model_name,
-            "dataset": dataset_name,
-            "num_samples": len(texts),
-            "num_clusters": n_clusters,
-            "nmi": nmi,
-            "ari": ari
-        }
-        results_path = f"test_results/kmeans_text/clustering_results_{model_id}.json"
-        with open(results_path, "w") as f:
-            json.dump(results, f, indent=2)
+        if cfg.get("run_pca", True):
+            pca = PCA(n_components=2)
+            embeddings_2d = pca.fit_transform(text_embeddings)
+
+            # Save PCA data and all PCA attributes
+            pca_data_path = f"test_results/kmeans_text/{layer}/clustering_pca_data_{model_id}.npz"
+            np.savez(
+                pca_data_path,
+                embeddings_2d=embeddings_2d,
+                pca_components_=pca.components_,
+                pca_explained_variance_=pca.explained_variance_,
+                pca_explained_variance_ratio_=pca.explained_variance_ratio_,
+                pca_singular_values_=pca.singular_values_,
+                pca_mean_=pca.mean_,
+                pca_n_components_=pca.n_components_,
+                pca_n_features_in_=getattr(pca, "n_features_in_", None),
+                pca_n_samples_=getattr(pca, "n_samples_", None),
+                pca_noise_variance_=getattr(pca, "noise_variance_", None)
+            )
+
+        if cfg.get("run_kmeans", True) and cfg.get("run_pca", True):
+            plt.figure(figsize=(8, 6))
+            plt.scatter(embeddings_2d[:, 0], embeddings_2d[:, 1], c=preds, cmap="tab10", alpha=0.7)
+            plt.title("K-Means Clustering of Text Embeddings (PCA)")
+            plt.xlabel("PC1")
+            plt.ylabel("PC2")
+            plt.grid(True)
+            plot_path = f"test_results/kmeans_text/{layer}/clustering_plot_{model_id}.png"
+            plt.savefig(plot_path)
 
 
 if __name__ == "__main__":

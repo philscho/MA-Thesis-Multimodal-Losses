@@ -1,7 +1,8 @@
 import csv
 import yaml
 
-csv_path = "test_results/model_scores_zero-shot.csv"
+# csv_path = "test_results/model_scores_zero-shot.csv"
+csv_path = "test_results/linear_probing_layers_results.csv"
 yaml_path = "configs/checkpoints/model_id_mapping.yaml"
 output_path = csv_path
 
