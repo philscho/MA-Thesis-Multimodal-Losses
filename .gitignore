@@ -35,6 +35,7 @@ slurm/
 wandb/
 logs/
 outputs/
+multimodal/
 # Only ignore subfolders in test_results, not files
 test_results/*
 !test_results/*
