@@ -1,0 +1,207 @@
+CIFAR100:
+  dataset_kwargs:
+    root: '/home/data/cifar100/'
+    
+
+root: '/home/data'
+
+dataloader:
+  train:
+    shuffle : True
+    batch_size : 64 #512 #1024 #512 #1792 #1920 #2048 #256 #512 #1536 #2048  #896 #960 #1024 #256 #180
+    #batch_size : 192
+    num_workers: 8
+    persistent_workers: True
+    pin_memory: True
+
+  coco_val:
+    shuffle : False
+    #batch_size : 
+    batch_size : 64 #512 #1024 #512 #1792 #1024 #1920 #2048 #256 #512 #1536 #896 #960 #1024 #256 #180
+    num_workers : 8
+    #persistent_workers: True
+    pin_memory: True
+  
+  cifar10_val:
+    batch_size: 1024 #512
+    shuffle: False
+    num_workers: 8
+    #persistent_workers: True
+    pin_memory: True
+
+  caltech101_val:
+    batch_size: 1024
+    shuffle: False
+    num_workers: 8
+    #persistent_workers: True
+    pin_memory: True
+  
+  test:
+    batch_size: 1024
+    shuffle: False
+    num_workers: 8
+    #persistent_workers: True
+    pin_memory: True
+
+dataset:
+  train:
+    # - 'coco'
+    # - 'vg'
+    # - 'cc3m'
+  val:
+    # - 'coco_val'
+  test:
+    # - Caltech101
+    - Caltech256
+    # - CIFAR10
+    # - CIFAR100
+    # #- CityScapes # Need to download
+    # - DTD
+    # #- Flowers102  # Need to add labels
+    # - FGVCAircraft
+    # - Food101
+    # - OxfordIIITPet
+    # #- SBU
+    # - StanfordCars
+    # - STL10
+  transforms: 
+    enabled: True #False #True
+    RandAugment:
+      num_ops: 3
+      magnitude: 8
+  max_seq_length: 72
+  coco:
+    root: '/home/data/COCOcaptions/'
+    split_train : '/home/phisch/multimodal/my_datasets/coco_karpathy_train.json'
+    split_val : '/home/phisch/multimodal/my_datasets/coco_karpathy_val.json'
+    split_test : '/home/phisch/multimodal/my_datasets/coco_karpathy_test.json'
+  vg:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
+  cc3m:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
+  cifar10:
+    root: '/home/phisch/data/cifar-10-batches-py'
+    download: false
+  caltech101 :
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/cifar10'
+    download: false
+  use_subset:
+    value: true
+    subset_fraction: 0.2
+  use_subset_probe:
+    value: false
+    subset_fraction: 0.2
+  cateogries:
+    cifar10:
+      - 'airplane'
+      - 'automobile'
+      - 'bird'
+      - 'cat'
+      - 'deer'
+      - 'dog'
+      - 'frog'
+      - 'horse'
+      - 'ship'
+      - 'truck'
+    caltech101:
+      - 'face'
+      - 'leopard'
+      - 'motorbike'
+      - 'accordion'
+      - 'airplane'
+      - 'anchor'
+      - 'ant'
+      - 'barrel'
+      - 'bass'
+      - 'beaver'
+      - 'binocular'
+      - 'bonsai'
+      - 'brain'
+      - 'brontosaurus'
+      - 'buddha'
+      - 'butterfly'
+      - 'camera'
+      - 'cannon'
+      - 'car side'
+      - 'ceiling fan'
+      - 'cellphone'
+      - 'chair'
+      - 'chandelier'
+      - 'body of a cougar'
+      - 'face of a cougar'
+      - 'crab'
+      - 'crayfish'
+      - 'crocodile'
+      - 'crocodile head'
+      - 'cup'
+      - 'dalmatian'
+      - 'dollar bill'
+      - 'dolphin'
+      - 'dragonfly'
+      - 'electric guitar'
+      - 'elephant'
+      - 'emu'
+      - 'euphonium'
+      - 'ewer'
+      - 'ferry'
+      - 'flamingo'
+      - 'flamingo head'
+      - 'garfield'
+      - 'gerenuk'
+      - 'gramophone'
+      - 'grand piano'
+      - 'hawksbill'
+      - 'headphone'
+      - 'hedgehog'
+      - 'helicopter'
+      - 'ibis'
+      - 'inline skates'
+      - 'joshua tree'
+      - 'kangaroo'
+      - 'ketch'
+      - 'lamp'
+      - 'laptop'
+      - 'llama'
+      - 'lobster'
+      - 'lotus'
+      - 'mandolin'
+      - 'mayfly'
+      - 'menorah'
+      - 'metronome'
+      - 'minaret'
+      - 'nautilus'
+      - 'octopus'
+      - 'okapi'
+      - 'pagoda'
+      - 'panda'
+      - 'pigeon'
+      - 'pizza'
+      - 'platypus'
+      - 'pyramid'
+      - 'revolver'
+      - 'rhino'
+      - 'rooster'
+      - 'saxophone'
+      - 'schooner'
+      - 'scissors'
+      - 'scorpion'
+      - 'sea horse'
+      - 'snoopy'
+      - 'soccer ball'
+      - 'stapler'
+      - 'starfish'
+      - 'stegosaurus'
+      - 'stop sign'
+      - 'strawberry'
+      - 'sunflower'
+      - 'tick'
+      - 'trilobite'
+      - 'umbrella'
+      - 'watch'
+      - 'water lilly'
+      - 'wheelchair'
+      - 'wild cat'
+      - 'windsor chair'
+      - 'wrench'
+      - 'yin yang'
+ 

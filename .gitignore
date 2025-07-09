@@ -27,7 +27,7 @@ Thumbs.db
 *.env
 
 # Data, cache, and experiment folders
-debug/
+/debug
 misc/
 old/
 ddd/
@@ -40,7 +40,7 @@ test_results/*
 !test_results/*
 test_results/*/
 my_datasets/
-data/
+/data
 
 # Python virtual environments
 venv/
@@ -62,6 +62,4 @@ debugging.ipynb
 testing_folder/
 analysis/data
 analysis/figures
-configs/hessian_train_config.yaml
-configs/categories.yaml
-config.env
+!configs/

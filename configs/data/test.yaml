@@ -1,0 +1,75 @@
+datasets:
+  # - ImageNet-0.01
+  # - ImageNet-100-0.1
+  # - ImageNet-100-0.01
+  - ImageNet
+  - Caltech101
+  - Caltech256
+  - CIFAR10
+  - CIFAR100
+  #- CityScapes # Need to download
+  - DTD
+  #- Flowers102  # Need to add labels
+  - FGVCAircraft
+  - Food101
+  - OxfordIIITPet
+  - Places365
+  #- SBU
+  - StanfordCars
+  - STL10
+
+dataloader:
+  coco_val:
+    batch_size: 128
+    shuffle : False
+  test:
+    batch_size: 128
+    shuffle: False
+    num_workers: 8
+    #persistent_workers: True
+    pin_memory: True
+
+#root: '/home/data'
+root: ${paths.data_dir}
+
+Places365:
+  root: "/home/data/places365/"
+   
+
+use_subset_probe:
+  value: False
+  subset_fraction: 0.1
+
+dataset:
+  val:
+    - 'coco_val_dummy'
+  transforms: 
+    enabled: True #False #True
+    RandAugment:
+      num_ops: 3
+      magnitude: 8
+  max_seq_length: 72
+  coco:
+    root: '/home/data/mscoco_captions/'
+    split_train : '/home/phisch/multimodal/my_datasets/coco_karpathy_train.json'
+    split_val : ${paths.root_dir}src/data/datasets/coco_karpathy_val.json  #'/home/phisch/multimodal/my_datasets/coco_karpathy_val.json'
+    split_test : '/home/phisch/multimodal/my_datasets/coco_karpathy_test.json'
+  vg:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/VG_Bhavin/VG'
+  cc3m:
+    data_dir: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/CC3m/h5'
+  cifar10:
+    root: '/home/phisch/data/cifar-10-batches-py'
+    download: false
+  caltech101 :
+    root: '/pfss/mlde/workspaces/mlde_wsp_PI_Roig/shared/datasets/cifar10'
+    download: false
+  use_subset:
+    value: true
+    subset_fraction: 0.2
+  use_subset_probe:
+    value: False
+    subset_fraction: 0.1
+  label_as_caption: False # returns label as textual caption instead of class integer
+  caption_template: "{}"
+

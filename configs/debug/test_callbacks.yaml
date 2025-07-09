@@ -1,0 +1,9 @@
+# @package _global_
+data:
+  use_subset_probe:
+    value: True
+    subset_fraction: 0.1
+
+callbacks:
+  linear_probe:
+    max_epochs: 1
