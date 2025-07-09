@@ -1,0 +1,27 @@
+# @package _global_
+
+data:
+  datasets:
+    - ImageNet
+    - Caltech101
+    - Caltech256
+    - CIFAR10
+    - CIFAR100
+    - DTD
+    - FGVCAircraft
+    - Food101
+    - OxfordIIITPet
+    - Places365
+    - StanfordCars
+    - STL10
+
+callbacks:
+  linear_probe: null
+
+logger:
+  wandb:
+    tags: ["model evaluation"]
+    offline: False
+
+paths:
+  ckpts_dir: /home/data/bhavin/0.1_and_0.5_ckpts/

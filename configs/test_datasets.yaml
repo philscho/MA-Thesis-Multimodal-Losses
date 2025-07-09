@@ -1,0 +1,18 @@
+# TODO: put all (torchvision) datasets in single directory to have one root for all datasets
+
+CIFAR10:
+  dataset_kwargs:
+    root: '/home/phisch/data/'
+  linear_probe_kwargs:
+    num_classes: 10
+Caltech101:
+  dataset_kwargs:
+    root: '/home/data/caltech101/'
+DTD:
+  dataset_kwargs:
+    root: '/home/data/dtd/'
+    # download: True
+  linear_probe_kwargs:
+    num_classes: 47
+
+

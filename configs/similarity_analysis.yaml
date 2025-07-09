@@ -1,0 +1,42 @@
+# @package _global_
+
+defaults:
+  - model: dual_encoder
+  - data: test
+  - lightning: default
+  # - callbacks: test
+  - callbacks/linear_probe: null
+  - callbacks/zeroshot: template_sets_and_itm
+  - paths: g4
+  - logger: wandb
+  - checkpoints: full_dataset_aug_mlm
+  - debug: null
+  - _self_
+  - custom_run: null
+
+data:
+  datasets:
+    - CIFAR10
+
+device: [1]
+
+lightning:
+  trainer:
+    devices: ${device}
+
+paths:
+  ckpts_dir: /home/data/bhavin/0.1_and_0.5_ckpts/
+
+dataset_split: full_dataset_aug_mlm
+
+dataset: CIFAR10
+
+callbacks:
+  zeroshot:
+    use_itm_head: False
+    callback:
+      only_itm: False
+
+visual_reps: True
+model_layers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+

@@ -1,0 +1,23 @@
+defaults:
+  - override /model: dual_encoder
+  - override /data: test
+  - override /lightning: default
+  - override /callbacks: test
+  - override /paths: g4
+  - override /logger: wandb
+  - _self_
+
+models:
+  - yh1adr3g  # ContrastiveLoss
+  - zathvtrx  # SimCLR
+  - 9v1wy0vb  # SimCLR+ITM
+  - oc0g8fql  # Contrastive+SimCLR
+  - 9nvg456i  # Contrastive+SimCLR+ITM
+  - 93t3xgrr  # Constrastive+ITM
+
+
+logger:
+  wandb:
+    name: ''
+    tags: ['model_test']
+    group: 'model_testing'

@@ -1,0 +1,27 @@
+# @package _global_
+
+defaults:
+  - model: dual_encoder
+  - data: test
+  - lightning: default
+  - callbacks: test
+  - paths: g4
+  - logger: wandb
+  - checkpoints: full_dataset_aug_mlm
+  - _self_
+  - custom_run: null
+
+paths:
+  ckpts_dir: /home/data/bhavin/higher_augmentations_ckpts/
+
+device: [3]
+
+lightning:
+  trainer:
+    devices: ${device}
+
+dataset: CIFAR10
+
+data:
+  datasets:
+    - ${dataset}

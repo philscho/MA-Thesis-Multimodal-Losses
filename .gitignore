@@ -52,10 +52,6 @@ venv/
 plots/
 *.png
 
-# CSV and YAML outputs
-*.csv
-*.yaml
-
 # Project-specific ignores
 /personal
 /to-do

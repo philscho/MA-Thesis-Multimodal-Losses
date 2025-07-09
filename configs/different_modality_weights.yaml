@@ -1,0 +1,29 @@
+# @package _global_
+
+defaults:
+  - model: dual_encoder
+  - data: test
+  - lightning: default
+  - callbacks: test
+  - loss: default
+  - optimizer: default
+  - scheduler: default
+  - paths: g4
+  - logger: wandb
+  - checkpoints: full_dataset_aug #full_dataset  #
+  - debug: null
+  - _self_
+  - custom_run: zeroshot_higher_aug_models #zeroshot_mlm_models #linear_probe # #null
+
+device: ???
+
+lightning:
+  trainer:
+    devices: ${device}
+
+result_subdir: "different_modality_weights"
+result_file_suffix: 'zeroshot-results'
+
+different_modality_weights:
+  ckpt_path: "/home/data/bhavin/shf56cne/ckpt-epoch=94-loss-val=2.031.ckpt" # CLIP + MLM model
+  # ckpt_path: "/home/data/arena-multimodal/mlm_ckpts/mkqp8hhx/ckpt-epoch=74-loss-val=0.885.ckpt" # ITM + MLM model

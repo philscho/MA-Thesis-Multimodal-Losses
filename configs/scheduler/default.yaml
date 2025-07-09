@@ -1,0 +1,8 @@
+enabled: True #False #True
+name: CosineWarmup
+monitor: 'loss-val'
+interval: 'step'
+kwargs:
+  initial_lr: 1e-08
+  num_warmup_steps: 'epoch'
+  num_training_steps: 'all'

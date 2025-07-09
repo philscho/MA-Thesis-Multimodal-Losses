@@ -1,0 +1,47 @@
+yh1adr3g:
+  name: 'CLIP'
+  color: red
+
+# qkk0yi2q:
+#   image_encoder: google/vit-base-patch16-384
+#   name: CLIP + SimCLR
+#   subset_fraction: 1
+#   color: green
+# x7kjrc29:
+#   image_encoder: google/vit-base-patch16-384
+#   name: CLIP + SimCLR + ITM
+#   subset_fraction: 1
+#   color: orange
+
+# gh3j06nh:
+#   image_encoder: google/vit-base-patch16-224
+#   name: CLIP + ITM
+#   subset_fraction: 0.2
+#   color: pink
+# n5trwpk9:
+#   image_encoder: google/vit-base-patch16-224
+#   name: CLIP
+#   subset_fraction: 0.2
+#   color: red
+
+# 93t3xgrr:
+#   name: 'CLIP + ITM'
+#   subset_fraction: 1.0
+#   color : pink
+# 9nvg456i:
+#   name: 'CLIP + SimCLR + ITM'
+#   color: orange
+
+# n5trwpk9:
+#   image_encoder: google/vit-base-patch16-224
+#   name: CLIP
+#   subset_fraction: 0.2
+#   color: red
+# dsp551hg:
+#   image_encoder: google/vit-base-patch16-224
+#   name: CLIP
+#   subset_fraction: 0.8
+#   color: red
+# zathvtrx:
+#   name: 'SimCLR'
+#   color: black
