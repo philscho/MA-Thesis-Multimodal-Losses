@@ -1,0 +1,10 @@
+wandb:
+  entity: 'arena-multimodal-lossfns'
+  project : 'multimodal'
+  name: "" #'CLIP + ITM'
+  tags: []
+  offline: True #False
+  group: '' #'analysis'
+  dir : '${paths.root_dir}/wandb/'
+  ### checkpoint args
+  #id: "" #5m917c9w

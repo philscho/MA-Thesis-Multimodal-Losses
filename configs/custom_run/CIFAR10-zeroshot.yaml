@@ -1,0 +1,20 @@
+# @package _global_
+
+# defaults:
+#   - override /model: dual_encoder
+#   - override /data: test
+#   - override /lightning: default
+#   - override /callbacks: test
+#   - override /logger: wandb
+  # - _self_
+
+# lightning:
+#   trainer:
+#     devices: ???
+
+data:
+  datasets:
+    - "CIFAR10"
+
+callbacks:
+  linear_probe: null

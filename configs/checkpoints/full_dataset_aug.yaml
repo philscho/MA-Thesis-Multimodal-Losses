@@ -1,0 +1,36 @@
+3burj4np:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/3burj4np/last.ckpt
+7m9tx2jf:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + ITM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/7m9tx2jf/last.ckpt
+95ddsmmz:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/95ddsmmz/last.ckpt
+ng70n4a4:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR + ITM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/ng70n4a4/last.ckpt
+p99godxb:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/p99godxb/last.ckpt
+xpbl8wfc:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR + ITM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/xpbl8wfc/last.ckpt
+
+
+
+
+
+

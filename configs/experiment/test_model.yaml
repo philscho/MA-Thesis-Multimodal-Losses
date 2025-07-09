@@ -1,0 +1,19 @@
+# Example file
+
+defaults:
+  - override /model: dual_encoder
+  - override /data: test
+  - override /lightning: default
+  - override /callbacks: test
+  - override /paths: g4
+  - override /logger: wandb
+
+data:
+  datasets: ''
+
+logger:
+  wandb:
+    name: ''
+    tags: []
+    group: ''
+

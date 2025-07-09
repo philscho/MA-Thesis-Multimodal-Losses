@@ -1,0 +1,3 @@
+defaults:
+  - zeroshot: default
+  - linear_probe: default

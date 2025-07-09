@@ -1,0 +1,17 @@
+# @package _global_
+
+# defaults:
+#   - override /model: dual_encoder
+#   - override /data: test
+#   - override /lightning: default
+#   - override /callbacks: test
+#   - override /logger: wandb
+  # - _self_
+
+callbacks:
+  zeroshot: null
+
+data:
+  datasets:
+    - "ImageNet-100-0.1"
+    - "ImageNet-100-0.01"

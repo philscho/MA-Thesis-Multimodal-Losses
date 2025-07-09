@@ -1,0 +1,30 @@
+# @package _global_
+
+# defaults:
+#   - override /model: dual_encoder
+#   - override /data: test
+#   - override /lightning: default
+#   - override /callbacks: test
+#   - override /logger: wandb
+  # - _self_
+
+# lightning:
+#   trainer:
+#     devices: ???
+
+data:
+  datasets:
+    - "Caltech101"
+
+callbacks:
+  linear_probe: null
+  zeroshot:
+    use_itm_head: True
+    callback:
+      top_k_preds: 1000
+
+# checkpoints: ???
+
+lightning:
+  trainer:
+    devices: [1]

@@ -1,0 +1,123 @@
+# @package _global_
+
+defaults:
+  - model: dual_encoder
+  - data: test
+  - lightning: default
+  - callbacks: test
+  - loss: default
+  - optimizer: default
+  - scheduler: default
+  - paths: g4
+  - logger: wandb
+  - checkpoints: full_dataset_aug_mlm #0.05_dataset #???
+  - debug: null
+  - _self_
+  - custom_run: null
+
+data:
+  datasets:
+    - CIFAR10
+  dataset:
+    label_as_caption: False
+
+device: [3] #???
+
+lightning:
+  trainer:
+    devices: ${device}
+
+paths:
+  ckpts_dir: /home/data/bhavin/0.1_and_0.5_ckpts/
+
+model_pairs:
+  # - ["mkqp8hhx", "3burj4np"]
+  # - ["gtp8w6c4", "7m9tx2jf"]
+  # - ["gtp8w6c4", "gtp8w6c4"]
+
+# use_pretrained_model: True
+
+# exclude_model_pairs:
+#   - ["ng70n4a4", "khb9ltyn"]
+#   - ["7m9tx2jf", "shf56cne"]
+#   - ["mkqp8hhx", "tibwkymx"]
+#   - ["txva2y48", "txva2y48"]
+#   - ["khb9ltyn", "shf56cne"]
+#   - ["3burj4np", "3burj4np"]
+#   - ["3burj4np", "gtp8w6c4"]
+#   - ["ng70n4a4", "tibwkymx"]
+#   - ["7m9tx2jf", "gtp8w6c4"]
+#   - ["mkqp8hhx", "txva2y48"]
+#   - ["p99godxb", "shf56cne"]
+#   - ["khb9ltyn", "gtp8w6c4"]
+#   - ["khb9ltyn", "tibwkymx"]
+#   - ["mkqp8hhx", "shf56cne"]
+#   - ["ng70n4a4", "txva2y48"]
+#   - ["ng70n4a4", "shf56cne"]
+#   - ["p99godxb", "xpbl8wfc"]
+#   - ["p99godxb", "gtp8w6c4"]
+#   - ["khb9ltyn", "txva2y48"]
+#   - ["p99godxb", "tibwkymx"]
+#   - ["mkqp8hhx", "gtp8w6c4"]
+#   - ["ng70n4a4", "xpbl8wfc"]
+#   - ["3burj4np", "p99godxb"]
+#   - ["95ddsmmz", "p99godxb"]
+#   - ["ng70n4a4", "gtp8w6c4"]
+#   - ["p99godxb", "txva2y48"]
+#   - ["7m9tx2jf", "p99godxb"]
+#   - ["bj2tw5qt", "mkqp8hhx"]
+#   - ["3burj4np", "mkqp8hhx"]
+#   - ["95ddsmmz", "mkqp8hhx"]
+#   - ["xpbl8wfc", "mkqp8hhx"]
+#   - ["ng70n4a4", "ng70n4a4"]
+#   - ["7m9tx2jf", "mkqp8hhx"]
+#   - ["bj2tw5qt", "bj2tw5qt"]
+#   - ["bj2tw5qt", "khb9ltyn"]
+#   - ["3burj4np", "bj2tw5qt"]
+#   - ["95ddsmmz", "bj2tw5qt"]
+#   - ["95ddsmmz", "khb9ltyn"]
+#   - ["xpbl8wfc", "bj2tw5qt"]
+#   - ["mkqp8hhx", "3burj4np"]
+#   - ["xpbl8wfc", "khb9ltyn"]
+#   - ["7m9tx2jf", "bj2tw5qt"]
+#   - ["bj2tw5qt", "tibwkymx"]
+#   - ["3burj4np", "7m9tx2jf"]
+#   - ["xpbl8wfc", "tibwkymx"]
+#   - ["7m9tx2jf", "7m9tx2jf"]
+#   - ["bj2tw5qt", "txva2y48"]
+#   - ["95ddsmmz", "95ddsmmz"]
+#   - ["xpbl8wfc", "txva2y48"]
+#   - ["bj2tw5qt", "shf56cne"]
+#   - ["95ddsmmz", "shf56cne"]
+#   - ["xpbl8wfc", "shf56cne"]
+#   - ["khb9ltyn", "mkqp8hhx"]
+#   - ["7m9tx2jf", "95ddsmmz"]
+#   - ["ng70n4a4", "bj2tw5qt"]
+#   - ["p99godxb", "p99godxb"]
+#   - ["3burj4np", "khb9ltyn"]
+#   - ["bj2tw5qt", "gtp8w6c4"]
+#   - ["7m9tx2jf", "khb9ltyn"]
+#   - ["3burj4np", "xpbl8wfc"]
+#   - ["95ddsmmz", "xpbl8wfc"]
+#   - ["95ddsmmz", "gtp8w6c4"]
+#   - ["xpbl8wfc", "xpbl8wfc"]
+#   - ["khb9ltyn", "khb9ltyn"]
+#   - ["p99godxb", "mkqp8hhx"]
+#   - ["3burj4np", "tibwkymx"]
+#   - ["xpbl8wfc", "gtp8w6c4"]
+#   - ["95ddsmmz", "tibwkymx"]
+#   - ["ng70n4a4", "p99godxb"]
+#   - ["7m9tx2jf", "xpbl8wfc"]
+#   - ["mkqp8hhx", "mkqp8hhx"]
+#   - ["7m9tx2jf", "tibwkymx"]
+#   - ["3burj4np", "ng70n4a4"]
+#   - ["95ddsmmz", "ng70n4a4"]
+#   - ["ng70n4a4", "mkqp8hhx"]
+#   - ["p99godxb", "bj2tw5qt"]
+#   - ["3burj4np", "txva2y48"]
+#   - ["95ddsmmz", "txva2y48"]
+#   - ["p99godxb", "khb9ltyn"]
+#   - ["3burj4np", "95ddsmmz"]
+#   - ["7m9tx2jf", "ng70n4a4"]
+#   - ["7m9tx2jf", "txva2y48"]
+#   - ["3burj4np", "shf56cne"]

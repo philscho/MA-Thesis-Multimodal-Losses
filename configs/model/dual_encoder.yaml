@@ -1,0 +1,5 @@
+model:
+  image_encoder_name: 'google/vit-base-patch16-224'
+  text_encoder_name: 'google-bert/bert-base-uncased'
+  tokenizer:
+    use_fast: False

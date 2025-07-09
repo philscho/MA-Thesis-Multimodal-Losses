@@ -1,0 +1,35 @@
+# @package _global_
+
+defaults:
+  - model: dual_encoder
+  - data: test
+  - lightning: default
+  - callbacks: test
+  - loss: default
+  - optimizer: default
+  - scheduler: default
+  - paths: g4
+  - logger: wandb
+  - checkpoints: full_dataset_aug_mlm #0.05_dataset #???
+  - debug: null
+  - _self_
+  - custom_run: null
+
+layer: "last_encoder_layer"
+
+run_kmeans: True
+run_pca: True
+
+data:
+  datasets:
+  dataset:
+    label_as_caption: False
+
+device: [2] #???
+
+lightning:
+  trainer:
+    devices: ${device}
+
+paths:
+  ckpts_dir: /home/data/bhavin/0.1_and_0.5_ckpts/

@@ -1,0 +1,30 @@
+e2kwl0iu:
+  image_encoder: google/vit-base-patch16-224
+  name: SimCLR
+  subset_fraction: 0.8
+  color: black
+ojnkbbrd:
+  image_encoder: google/vit-base-patch16-224
+  name: SimCLR + ITM
+  subset_fraction: 0.8
+  color: blue
+1j1wb3o6:
+  image_encoder: google/vit-base-patch16-224
+  name: CLIP + SimCLR
+  subset_fraction: 0.8
+  color: green
+2k0xgnrt:
+  image_encoder: google/vit-base-patch16-224
+  name: CLIP + SimCLR + ITM
+  subset_fraction: 0.8
+  color: orange
+2udboe06:
+  image_encoder: google/vit-base-patch16-224
+  name: CLIP + ITM
+  subset_fraction: 0.8
+  color: pink
+dsp551hg:
+  image_encoder: google/vit-base-patch16-224
+  name: CLIP
+  subset_fraction: 0.8
+  color: red

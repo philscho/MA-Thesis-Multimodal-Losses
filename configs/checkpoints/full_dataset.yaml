@@ -1,0 +1,23 @@
+zathvtrx:
+  name: 'SimCLR'
+  color: black
+
+9v1wy0vb: 
+  name: 'SimCLR + ITM'
+  color : blue
+  
+oc0g8fql:
+  name: 'CLIP + SimCLR'
+  color: green
+
+9nvg456i:
+  name: 'CLIP + SimCLR + ITM'
+  color: orange
+
+93t3xgrr:
+  name: 'CLIP + ITM'
+  color : pink
+
+yh1adr3g:
+  name: 'CLIP'
+  color: red

@@ -1,0 +1,32 @@
+# @package _global_
+
+data:
+  datasets:
+    - ImageNet-100-0.1
+    - ImageNet-100-0.01
+    - Caltech101
+    - Caltech256
+    - CIFAR10
+    - CIFAR100
+    - DTD
+    - FGVCAircraft
+    - Food101
+    - OxfordIIITPet
+    - Places365
+    - StanfordCars
+    - STL10
+
+callbacks:
+  zeroshot: null
+  linear_probe:
+    input_dim: 768
+    learning_rates: [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3]
+
+logger:
+  wandb:
+    tags: ["model evaluation", "linear probe"]
+    offline: False
+
+paths:
+  ckpts_dir: /home/data/arena-multimodal/mlm_ckpts/
+  #ckpts_dir: /home/data/bhavin/

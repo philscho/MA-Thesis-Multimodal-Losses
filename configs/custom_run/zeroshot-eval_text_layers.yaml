@@ -1,0 +1,26 @@
+# @package _global_
+
+data:
+  datasets:
+    - ImageNet
+    - Caltech101
+    - Caltech256
+    # - CIFAR10
+    - CIFAR100
+    - DTD
+    - FGVCAircraft
+    - Food101
+    - OxfordIIITPet
+    - Places365
+    - StanfordCars
+    - STL10
+
+callbacks:
+  linear_probe: null
+  zeroshot:
+    eval_all_text_layers: True
+
+logger:
+  wandb:
+    tags: ["model evaluation", "zero shot all text layers"]
+    offline: False

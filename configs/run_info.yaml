@@ -1,0 +1,24 @@
+3burj4np:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP
+  subset_fraction: 1-higher-augmentation
+7m9tx2jf:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + ITM
+  subset_fraction: 1-higher-augmentation
+95ddsmmz:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR
+  subset_fraction: 1-higher-augmentation
+ng70n4a4:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR + ITM
+  subset_fraction: 1-higher-augmentation
+p99godxb:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR
+  subset_fraction: 1-higher-augmentation
+xpbl8wfc:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR + ITM
+  subset_fraction: 1-higher-augmentation

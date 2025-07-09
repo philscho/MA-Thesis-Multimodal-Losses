@@ -1,0 +1,25 @@
+# @package _global_
+
+defaults:
+  - model: dual_encoder
+  - data: test
+  - lightning: default
+  - callbacks: test
+  - loss: default
+  - optimizer: default
+  - scheduler: default
+  - paths: g4
+  - logger: wandb
+  - checkpoints: full_dataset_aug #full_dataset  #
+  - debug: null
+  - _self_
+  - custom_run: linear-probe_higher_aug_models #zeroshot_mlm_models #linear_probe # #null
+
+device: ???
+
+lightning:
+  trainer:
+    devices: ${device}
+
+result_subdir: "linear_probe-image_enc-last_hidden/full_dataset_aug"
+result_file_suffix: 'linear_probe-results'

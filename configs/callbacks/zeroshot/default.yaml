@@ -1,0 +1,67 @@
+defaults:
+  - templates: 1_template
+
+use_itm_head: False
+
+eval_all_text_layers: False
+
+callback:
+  batch_size: ${data.dataloader.test.batch_size} #128
+  device: cuda
+  top_k: [1,3,5]
+  top_k_preds: 20
+  average: micro
+  #dtype: torch.dtype = torch.float32,
+  confusion_matrix: True
+  multi_label: False
+  verbose: True
+  templates:
+    # - ['a photo of a {}.']
+    - ['a photo of a {}.',
+      'a blurry photo of a {}.',
+      'a black and white photo of a {}.',
+      'a low contrast photo of a {}.',
+      'a high contrast photo of a {}.',
+      'a bad photo of a {}.',
+      'a good photo of a {}.',
+      'a photo of a small {}.',
+      'a photo of a big {}.']
+    - ['a photo of a {}.',
+      'a blurry photo of a {}.',
+      'a black and white photo of a {}.',
+      'a low contrast photo of a {}.',
+      'a high contrast photo of a {}.',
+      'a bad photo of a {}.',
+      'a good photo of a {}.',
+      'a photo of a small {}.',
+      'a photo of a big {}.',
+      'a photo of the {}.',
+      'a blurry photo of the {}.',
+      'a black and white photo of the {}.',
+      'a low contrast photo of the {}.',
+      'a high contrast photo of the {}.',
+      'a bad photo of the {}.',
+      'a good photo of the {}.',
+      'a photo of the small {}.',
+      'a photo of the big {}.']
+      
+  # templates: ${callbacks.zeroshot.templates}
+  # templates:
+  #   - 'a photo of a {}.'
+  #   - 'a blurry photo of a {}.'
+  #   - 'a black and white photo of a {}.'
+  #   - 'a low contrast photo of a {}.'
+  #   - 'a high contrast photo of a {}.'
+  #   - 'a bad photo of a {}.'
+  #   - 'a good photo of a {}.'
+  #   - 'a photo of a small {}.'
+  #   - 'a photo of a big {}.'
+  #   - 'a photo of the {}.'
+  #   - 'a blurry photo of the {}.'
+  #   - 'a black and white photo of the {}.'
+  #   - 'a low contrast photo of the {}.'
+  #   - 'a high contrast photo of the {}.'
+  #   - 'a bad photo of the {}.'
+  #   - 'a good photo of the {}.'
+  #   - 'a photo of the small {}.'
+  #   - 'a photo of the big {}.'

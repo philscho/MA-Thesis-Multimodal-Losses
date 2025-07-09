@@ -1,0 +1,8 @@
+losses:
+  - 'contrastive'
+  - 'image_text_matching'
+  - 'SimCLR'
+contrastive:
+#  temperature : 1.
+image_text_matching:
+  arg1: ''

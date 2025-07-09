@@ -1,0 +1,33 @@
+# @package _global_
+
+defaults:
+  - model: dual_encoder
+  - data: test
+  - lightning: default
+  - callbacks/zeroshot: template_sets_and_itm
+  - callbacks/linear_probe: null
+  - loss: default
+  - optimizer: default
+  - scheduler: default
+  - paths: g4
+  - logger: wandb
+  - checkpoints: full_dataset_aug_mlm
+  - debug: null
+  - _self_
+  - custom_run: null
+
+device: ???
+
+lightning:
+  trainer:
+    devices: ${device}
+
+result_subdir: "zero_shot/sanity_check"
+result_file_suffix: ''
+
+callbacks:
+  zeroshot:
+    use_itm_head: False
+    callback:
+      only_itm: False
+
