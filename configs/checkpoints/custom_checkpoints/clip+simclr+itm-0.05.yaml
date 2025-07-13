@@ -1,0 +1,10 @@
+9ndb3gbo:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR
+  subset_fraction: 0.05
+  path: /home/data/bhavin/9ndb3gbo/last.ckpt
+8oujijoq:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR + ITM
+  subset_fraction: 0.05
+  path: /home/data/bhavin/8oujijoq/last.ckpt
