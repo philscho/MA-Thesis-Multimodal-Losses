@@ -1,8 +1,8 @@
-3burj4np:
-  image_encoder: google/vit-base-patch16-224
-  model: CLIP
-  subset_fraction: 1-aug
-  path: /home/data/bhavin/higher_augmentations_ckpts/3burj4np/last.ckpt
+# 3burj4np:
+#   image_encoder: google/vit-base-patch16-224
+#   model: CLIP
+#   subset_fraction: 1-aug
+#   path: /home/data/bhavin/higher_augmentations_ckpts/3burj4np/last.ckpt
 # 7m9tx2jf:
 #   image_encoder: google/vit-base-patch16-224
 #   model: CLIP + ITM
@@ -53,13 +53,13 @@
 #   model: CLIP + MLM
 #   subset_fraction: 1-aug
 #   path: /home/data/bhavin/shf56cne/ckpt-epoch=94-loss-val=2.031.ckpt
-# gtp8w6c4:
-#   image_encoder: google/vit-base-patch16-224
-#   model: SimCLR + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/gtp8w6c4/ckpt-epoch=39-loss-val=0.851.ckpt
-# tibwkymx:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + ITM + SimCLR + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/tibwkymx/ckpt-epoch=119-loss-val=1.134.ckpt
+gtp8w6c4:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR + MLM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/gtp8w6c4/ckpt-epoch=39-loss-val=0.851.ckpt
+tibwkymx:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + ITM + SimCLR + MLM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/tibwkymx/ckpt-epoch=119-loss-val=1.134.ckpt

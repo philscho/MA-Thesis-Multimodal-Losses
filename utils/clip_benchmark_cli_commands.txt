@@ -36,3 +36,8 @@ nohup clip_benchmark eval --pretrained_model higher_aug_checkpoints.txt --model_
  --dataset retrieval --recall_k 1 5 10 --dataset_root "/home/data/{dataset}" \
  --output "test_results/retrieval/mlm/{dataset}_{model}_{task}.json" --device cuda:1 \
  > logs/zeroshot_retrieval_mlm_models.log 2>&1 &
+
+ nohup clip_benchmark eval --pretrained_model mlm-0.05_0.4-checkpoints.txt --model_type my_model \
+ --dataset retrieval --recall_k 1 5 10 --dataset_root "/home/data/{dataset}" \
+ --output "test_results/retrieval/mlm/{dataset}_{model}_{task}.json" --device cuda:2 \
+ > logs/zeroshot_retrieval_mlm_0.05_0.4.log 2>&1 &

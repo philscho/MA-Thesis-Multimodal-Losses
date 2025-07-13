@@ -7,8 +7,7 @@ PROJECT_NAME = 'multimodal'
 ENTITY_NAME = 'arena-multimodal-lossfns'
 
 # Directory containing the checkpoints
-ckpts_dir = "/home/data/bhavin/higher_augmentations_ckpts"
-
+ckpts_dir = "/home/data/bhavin/"
 # Initialize wandb API
 api = wandb.Api()
 
@@ -18,6 +17,7 @@ run_info_dict = {}
 # Iterate over the checkpoint files
 for model_id in os.listdir(ckpts_dir):
     if model_id == ".DS_Store": continue
+    if len(model_id) != 8: continue
     run_id = model_id  # Get the run ID from the checkpoint file name
     try:
         # Access the run information using the run ID
@@ -36,6 +36,8 @@ for model_id in os.listdir(ckpts_dir):
             model_name = model_name + " + SimCLR" if model_name else "SimCLR"
         if "image_text_matching" in loss_functions:
             model_name = model_name + " + ITM"
+        if "MLM" in loss_functions:
+            model_name = model_name + " + MLM"
         image_encoder = run.config["model"]["image_encoder_name"]
         
         # Store the information in the dictionary

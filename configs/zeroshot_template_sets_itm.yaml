@@ -11,7 +11,7 @@ defaults:
   - scheduler: default
   - paths: g4
   - logger: wandb
-  - checkpoints: full_dataset_aug_mlm
+  - checkpoints: full_dataset #full_dataset_aug_mlm
   - debug: null
   - _self_
   - custom_run: null
@@ -22,12 +22,12 @@ lightning:
   trainer:
     devices: ${device}
 
-result_subdir: "zero_shot/sanity_check"
+result_subdir: "zero_shot/CLIP+SimCLR-lower_aug"
 result_file_suffix: ''
 
 callbacks:
   zeroshot:
-    use_itm_head: False
+    use_itm_head: True
     callback:
       only_itm: False
 

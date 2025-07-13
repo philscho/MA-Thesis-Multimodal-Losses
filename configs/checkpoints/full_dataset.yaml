@@ -1,10 +1,10 @@
-zathvtrx:
-  name: 'SimCLR'
-  color: black
+# zathvtrx:
+#   name: 'SimCLR'
+#   color: black
 
-9v1wy0vb: 
-  name: 'SimCLR + ITM'
-  color : blue
+# 9v1wy0vb: 
+#   name: 'SimCLR + ITM'
+#   color : blue
   
 oc0g8fql:
   name: 'CLIP + SimCLR'
@@ -14,10 +14,10 @@ oc0g8fql:
   name: 'CLIP + SimCLR + ITM'
   color: orange
 
-93t3xgrr:
-  name: 'CLIP + ITM'
-  color : pink
+# 93t3xgrr:
+#   name: 'CLIP + ITM'
+#   color : pink
 
-yh1adr3g:
-  name: 'CLIP'
-  color: red
+# yh1adr3g:
+#   name: 'CLIP'
+#   color: red

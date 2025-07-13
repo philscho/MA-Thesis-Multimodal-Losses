@@ -1,0 +1,3 @@
+CLIP-SimCLR-ITM-MLM_0.1,/home/data/bhavin/x1ew8qu2/last.ckpt
+SimCLR-ITM-MLM_0.2,/home/data/bhavin/y6uywz5i/last.ckpt
+SimCLR-ITM-MLM_0.4,/home/data/bhavin/xe8pps2q/last.ckpt

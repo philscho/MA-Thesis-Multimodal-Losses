@@ -43,7 +43,7 @@ def get_model_data(ckpt_path,
     model, processor = get_model_and_processor(model_config)
     # if "0.1_and_0.5_ckpts" in ckpt_path or "higher_augmentations_ckpts" in ckpt_path:
     #     model = MLMWrapper(model)
-    model = MLMWrapper(model)
+    # model = MLMWrapper(model)
     lit_model = LitMML.load_from_checkpoint(ckpt_path, 
                                             model=model, 
                                             processor=processor,

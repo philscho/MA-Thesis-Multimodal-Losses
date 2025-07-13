@@ -3,7 +3,7 @@ import json
 import csv
 
 # Paths
-folder = "/home/phisch/multimodal/test_results/zero_shot/no_template"
+folder = "/home/phisch/multimodal/test_results/zero_shot/mlm-0.05_0.4"
 csv_path = "/home/phisch/multimodal/test_results/model_scores_zero-shot.csv"
 
 # Read CSV header
@@ -49,7 +49,7 @@ for fname in os.listdir(folder):
             metrics = result.get("metrics", {})
             # Find which template set this result corresponds to (by template_count)
             method_notes = f"{template_count}_templates"
-            method_notes = "0_templates"
+            # method_notes = "0_templates"
             for metric, score in metrics.items():
                 row = [
                     model_id,
