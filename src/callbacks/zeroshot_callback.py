@@ -78,7 +78,10 @@ class ZeroShotCallback(pl.Callback):
                 verbose=self.verbose,
             )
             classifiers.append(classifier)
-            template_counts.append(len(template_set))
+            if template_set == ["{}"]:
+                template_counts.append(int(0))
+            else:
+                template_counts.append(len(template_set))
 
         # Evaluate all classifiers in one pass
         self.result = _evaluate_multi_zero_shot(

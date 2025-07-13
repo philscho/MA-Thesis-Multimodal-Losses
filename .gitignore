@@ -27,6 +27,7 @@ Thumbs.db
 *.env
 
 # Data, cache, and experiment folders
+/local
 /debug
 misc/
 old/
