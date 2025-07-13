@@ -3,63 +3,63 @@
   model: CLIP
   subset_fraction: 1-aug
   path: /home/data/bhavin/higher_augmentations_ckpts/3burj4np/last.ckpt
-# 7m9tx2jf:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + ITM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/higher_augmentations_ckpts/7m9tx2jf/last.ckpt
-# 95ddsmmz:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + SimCLR
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/higher_augmentations_ckpts/95ddsmmz/last.ckpt
-# ng70n4a4:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + SimCLR + ITM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/higher_augmentations_ckpts/ng70n4a4/last.ckpt
-# p99godxb:
-#   image_encoder: google/vit-base-patch16-224
-#   model: SimCLR
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/higher_augmentations_ckpts/p99godxb/last.ckpt
-# xpbl8wfc:
-#   image_encoder: google/vit-base-patch16-224
-#   model: SimCLR + ITM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/higher_augmentations_ckpts/xpbl8wfc/last.ckpt
-# bj2tw5qt:
-#   image_encoder: google/vit-base-patch16-224
-#   model: SimCLR + ITM + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/arena-multimodal/mlm_ckpts/bj2tw5qt/ckpt-epoch=84-loss-val=0.599.ckpt
-# khb9ltyn:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + ITM + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/arena-multimodal/mlm_ckpts/khb9ltyn/ckpt-epoch=49-loss-val=1.601.ckpt
-# mkqp8hhx:
-#   image_encoder: google/vit-base-patch16-224
-#   model: ITM + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/arena-multimodal/mlm_ckpts/mkqp8hhx/ckpt-epoch=74-loss-val=0.885.ckpt
-# txva2y48:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + SimCLR + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/arena-multimodal/mlm_ckpts/txva2y48/ckpt-epoch=79-loss-val=1.435.ckpt
-# shf56cne:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/shf56cne/ckpt-epoch=94-loss-val=2.031.ckpt
-# gtp8w6c4:
-#   image_encoder: google/vit-base-patch16-224
-#   model: SimCLR + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/gtp8w6c4/ckpt-epoch=39-loss-val=0.851.ckpt
-# tibwkymx:
-#   image_encoder: google/vit-base-patch16-224
-#   model: CLIP + ITM + SimCLR + MLM
-#   subset_fraction: 1-aug
-#   path: /home/data/bhavin/tibwkymx/ckpt-epoch=119-loss-val=1.134.ckpt
+7m9tx2jf:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + ITM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/7m9tx2jf/last.ckpt
+95ddsmmz:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/95ddsmmz/last.ckpt
+ng70n4a4:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR + ITM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/ng70n4a4/last.ckpt
+p99godxb:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/p99godxb/last.ckpt
+xpbl8wfc:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR + ITM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/higher_augmentations_ckpts/xpbl8wfc/last.ckpt
+bj2tw5qt:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR + ITM + MLM
+  subset_fraction: 1-aug
+  path: /home/data/arena-multimodal/mlm_ckpts/bj2tw5qt/ckpt-epoch=84-loss-val=0.599.ckpt
+khb9ltyn:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + ITM + MLM
+  subset_fraction: 1-aug
+  path: /home/data/arena-multimodal/mlm_ckpts/khb9ltyn/ckpt-epoch=49-loss-val=1.601.ckpt
+mkqp8hhx:
+  image_encoder: google/vit-base-patch16-224
+  model: ITM + MLM
+  subset_fraction: 1-aug
+  path: /home/data/arena-multimodal/mlm_ckpts/mkqp8hhx/ckpt-epoch=74-loss-val=0.885.ckpt
+txva2y48:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + SimCLR + MLM
+  subset_fraction: 1-aug
+  path: /home/data/arena-multimodal/mlm_ckpts/txva2y48/ckpt-epoch=79-loss-val=1.435.ckpt
+shf56cne:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + MLM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/shf56cne/ckpt-epoch=94-loss-val=2.031.ckpt
+gtp8w6c4:
+  image_encoder: google/vit-base-patch16-224
+  model: SimCLR + MLM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/gtp8w6c4/ckpt-epoch=39-loss-val=0.851.ckpt
+tibwkymx:
+  image_encoder: google/vit-base-patch16-224
+  model: CLIP + ITM + SimCLR + MLM
+  subset_fraction: 1-aug
+  path: /home/data/bhavin/tibwkymx/ckpt-epoch=119-loss-val=1.134.ckpt

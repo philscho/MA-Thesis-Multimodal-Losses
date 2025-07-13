@@ -11,7 +11,8 @@ from transformers import (
 # Standard default configuration (based on configs/model/dual_encoder.yaml)
 DEFAULT_IMAGE_ENCODER = "google/vit-base-patch16-224"
 DEFAULT_TEXT_ENCODER = "google-bert/bert-base-uncased"
-DEFAULT_TOKENIZER_CONFIG = {"use_fast": False, "padding": "max_length", "truncation": True, "max_length": 512}
+# DEFAULT_TOKENIZER_CONFIG = {"use_fast": False, "padding": "max_length", "truncation": True, "max_length": 512}
+DEFAULT_TOKENIZER_CONFIG = {"use_fast": False}
 
 def get_model_and_processor(
     config=None, 

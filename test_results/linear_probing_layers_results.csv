@@ -506,510 +506,510 @@ khb9ltyn,Caltech101,encoder_layer_11,Top5Accuracy,0.9798387289047241,CLIP + ITM 
 khb9ltyn,Caltech101,projection_layer,Top1Accuracy,0.8536866307258606,CLIP + ITM + MLM,1-aug,1-aug
 khb9ltyn,Caltech101,projection_layer,Top3Accuracy,0.940092146396637,CLIP + ITM + MLM,1-aug,1-aug
 khb9ltyn,Caltech101,projection_layer,Top5Accuracy,0.9660138487815857,CLIP + ITM + MLM,1-aug,1-aug
-ng70n4a4,CIFAR10,encoder_layer_0,Top1Accuracy,0.39070001244544983,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_0,Top3Accuracy,0.7214999794960022,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_0,Top5Accuracy,0.8744000196456909,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_1,Top1Accuracy,0.5552999973297119,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_1,Top3Accuracy,0.8539000153541565,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_1,Top5Accuracy,0.947700023651123,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_2,Top1Accuracy,0.5997999906539917,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_2,Top3Accuracy,0.8780999779701233,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_2,Top5Accuracy,0.9562000036239624,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_3,Top1Accuracy,0.6514999866485596,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_3,Top3Accuracy,0.8998000025749207,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_3,Top5Accuracy,0.9686999917030334,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_4,Top1Accuracy,0.703000009059906,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_4,Top3Accuracy,0.9265999794006348,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_4,Top5Accuracy,0.9790999889373779,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_5,Top1Accuracy,0.7383999824523926,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_5,Top3Accuracy,0.9409999847412109,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_5,Top5Accuracy,0.9842000007629395,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_6,Top1Accuracy,0.7731999754905701,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_6,Top3Accuracy,0.9559000134468079,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_6,Top5Accuracy,0.9908999800682068,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_7,Top1Accuracy,0.8109999895095825,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_7,Top3Accuracy,0.96670001745224,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_7,Top5Accuracy,0.9944000244140625,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_8,Top1Accuracy,0.8259000182151794,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_8,Top3Accuracy,0.972000002861023,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_8,Top5Accuracy,0.9945999979972839,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_9,Top1Accuracy,0.8418999910354614,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_9,Top3Accuracy,0.9765999913215637,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_9,Top5Accuracy,0.9962999820709229,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_10,Top1Accuracy,0.8557999730110168,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_10,Top3Accuracy,0.9796000123023987,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_10,Top5Accuracy,0.9959999918937683,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_11,Top1Accuracy,0.855400025844574,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_11,Top3Accuracy,0.9790999889373779,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,encoder_layer_11,Top5Accuracy,0.9959999918937683,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,projection_layer,Top1Accuracy,0.8158000111579895,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,projection_layer,Top3Accuracy,0.9697999954223633,CLIP + SimCLR + ITM,,1-aug
-ng70n4a4,CIFAR10,projection_layer,Top5Accuracy,0.992900013923645,CLIP + SimCLR + ITM,,1-aug
-3burj4np,CIFAR10,encoder_layer_0,Top1Accuracy,0.40290001034736633,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_0,Top3Accuracy,0.7265999913215637,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_0,Top5Accuracy,0.8741999864578247,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_1,Top1Accuracy,0.5702999830245972,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_1,Top3Accuracy,0.8601999878883362,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_1,Top5Accuracy,0.9484999775886536,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_2,Top1Accuracy,0.6274999976158142,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_2,Top3Accuracy,0.8870999813079834,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_2,Top5Accuracy,0.9616000056266785,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_3,Top1Accuracy,0.6872000098228455,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_3,Top3Accuracy,0.9172999858856201,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_3,Top5Accuracy,0.9769999980926514,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_4,Top1Accuracy,0.7315000295639038,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_4,Top3Accuracy,0.9376999735832214,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_4,Top5Accuracy,0.9851999878883362,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_5,Top1Accuracy,0.767300009727478,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_5,Top3Accuracy,0.9531000256538391,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_5,Top5Accuracy,0.9889000058174133,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_6,Top1Accuracy,0.8061000108718872,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_6,Top3Accuracy,0.9659000039100647,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_6,Top5Accuracy,0.9927999973297119,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_7,Top1Accuracy,0.8313999772071838,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_7,Top3Accuracy,0.9728999733924866,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_7,Top5Accuracy,0.9959999918937683,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_8,Top1Accuracy,0.8532999753952026,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_8,Top3Accuracy,0.9796000123023987,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_8,Top5Accuracy,0.9958999752998352,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_9,Top1Accuracy,0.8654000163078308,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_9,Top3Accuracy,0.9825000166893005,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_9,Top5Accuracy,0.9962000250816345,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_10,Top1Accuracy,0.8682000041007996,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_10,Top3Accuracy,0.983299970626831,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_10,Top5Accuracy,0.9973999857902527,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_11,Top1Accuracy,0.8730000257492065,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_11,Top3Accuracy,0.9840999841690063,CLIP,,1-aug
-3burj4np,CIFAR10,encoder_layer_11,Top5Accuracy,0.9968000054359436,CLIP,,1-aug
-3burj4np,CIFAR10,projection_layer,Top1Accuracy,0.8313000202178955,CLIP,,1-aug
-3burj4np,CIFAR10,projection_layer,Top3Accuracy,0.9722999930381775,CLIP,,1-aug
-3burj4np,CIFAR10,projection_layer,Top5Accuracy,0.9937000274658203,CLIP,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_0,Top1Accuracy,0.4163999855518341,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_0,Top3Accuracy,0.753000020980835,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_0,Top5Accuracy,0.8938999772071838,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_1,Top1Accuracy,0.5676000118255615,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_1,Top3Accuracy,0.8598999977111816,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_1,Top5Accuracy,0.949400007724762,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_2,Top1Accuracy,0.6292999982833862,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_2,Top3Accuracy,0.8881000280380249,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_2,Top5Accuracy,0.9627000093460083,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_3,Top1Accuracy,0.6832000017166138,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_3,Top3Accuracy,0.9108999967575073,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_3,Top5Accuracy,0.9757999777793884,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_4,Top1Accuracy,0.7297000288963318,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_4,Top3Accuracy,0.9354000091552734,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_4,Top5Accuracy,0.9843000173568726,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_5,Top1Accuracy,0.7664999961853027,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_5,Top3Accuracy,0.9503999948501587,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_5,Top5Accuracy,0.9883000254631042,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_6,Top1Accuracy,0.7978000044822693,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_6,Top3Accuracy,0.9642999768257141,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_6,Top5Accuracy,0.9912999868392944,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_7,Top1Accuracy,0.8284000158309937,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_7,Top3Accuracy,0.9746999740600586,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_7,Top5Accuracy,0.9951000213623047,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_8,Top1Accuracy,0.8533999919891357,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_8,Top3Accuracy,0.9819999933242798,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_8,Top5Accuracy,0.9966999888420105,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_9,Top1Accuracy,0.864300012588501,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_9,Top3Accuracy,0.9828000068664551,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_9,Top5Accuracy,0.9968000054359436,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_10,Top1Accuracy,0.8646000027656555,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_10,Top3Accuracy,0.984000027179718,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_10,Top5Accuracy,0.9965000152587891,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_11,Top1Accuracy,0.8637999892234802,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_11,Top3Accuracy,0.9824000000953674,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,encoder_layer_11,Top5Accuracy,0.9973000288009644,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,projection_layer,Top1Accuracy,0.8156999945640564,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,projection_layer,Top3Accuracy,0.9706000089645386,CLIP + ITM + MLM,,1-aug
-khb9ltyn,CIFAR10,projection_layer,Top5Accuracy,0.9943000078201294,CLIP + ITM + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_0,Top1Accuracy,0.3991999924182892,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_0,Top3Accuracy,0.7250999808311462,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_0,Top5Accuracy,0.8726999759674072,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_1,Top1Accuracy,0.5582000017166138,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_1,Top3Accuracy,0.8557999730110168,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_1,Top5Accuracy,0.9460999965667725,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_2,Top1Accuracy,0.6309000253677368,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_2,Top3Accuracy,0.8871999979019165,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_2,Top5Accuracy,0.9596999883651733,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_3,Top1Accuracy,0.6804999709129333,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_3,Top3Accuracy,0.9132999777793884,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_3,Top5Accuracy,0.9757999777793884,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_4,Top1Accuracy,0.7307999730110168,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_4,Top3Accuracy,0.9391999840736389,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_4,Top5Accuracy,0.9839000105857849,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_5,Top1Accuracy,0.7732999920845032,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_5,Top3Accuracy,0.9545000195503235,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_5,Top5Accuracy,0.9905999898910522,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_6,Top1Accuracy,0.8138999938964844,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_6,Top3Accuracy,0.9689000248908997,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_6,Top5Accuracy,0.9937000274658203,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_7,Top1Accuracy,0.8398000001907349,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_7,Top3Accuracy,0.9760000109672546,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_7,Top5Accuracy,0.9955000281333923,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_8,Top1Accuracy,0.8657000064849854,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_8,Top3Accuracy,0.9811000227928162,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_8,Top5Accuracy,0.9961000084877014,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_9,Top1Accuracy,0.8790000081062317,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_9,Top3Accuracy,0.9842000007629395,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_9,Top5Accuracy,0.9973000288009644,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_10,Top1Accuracy,0.8822000026702881,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_10,Top3Accuracy,0.98580002784729,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_10,Top5Accuracy,0.9968000054359436,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_11,Top1Accuracy,0.8837000131607056,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_11,Top3Accuracy,0.9847999811172485,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,encoder_layer_11,Top5Accuracy,0.9976999759674072,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,projection_layer,Top1Accuracy,0.8277000188827515,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,projection_layer,Top3Accuracy,0.9699000120162964,CLIP + MLM,,1-aug
-shf56cne,CIFAR10,projection_layer,Top5Accuracy,0.9937000274658203,CLIP + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_0,Top1Accuracy,0.3912999927997589,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_0,Top3Accuracy,0.7107999920845032,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_0,Top5Accuracy,0.8673999905586243,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_1,Top1Accuracy,0.5454000234603882,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_1,Top3Accuracy,0.8442999720573425,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_1,Top5Accuracy,0.9390000104904175,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_2,Top1Accuracy,0.5982999801635742,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_2,Top3Accuracy,0.8709999918937683,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_2,Top5Accuracy,0.9562000036239624,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_3,Top1Accuracy,0.645799994468689,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_3,Top3Accuracy,0.8962000012397766,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_3,Top5Accuracy,0.9656000137329102,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_4,Top1Accuracy,0.6972000002861023,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_4,Top3Accuracy,0.9189000129699707,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_4,Top5Accuracy,0.9775000214576721,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_5,Top1Accuracy,0.7322999835014343,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_5,Top3Accuracy,0.9409000277519226,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_5,Top5Accuracy,0.9851999878883362,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_6,Top1Accuracy,0.7799999713897705,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_6,Top3Accuracy,0.9569000005722046,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_6,Top5Accuracy,0.9894000291824341,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_7,Top1Accuracy,0.8061000108718872,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_7,Top3Accuracy,0.9664999842643738,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_7,Top5Accuracy,0.9922000169754028,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_8,Top1Accuracy,0.8342000246047974,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_8,Top3Accuracy,0.9747999906539917,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_8,Top5Accuracy,0.9957000017166138,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_9,Top1Accuracy,0.8600000143051147,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_9,Top3Accuracy,0.9811999797821045,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_9,Top5Accuracy,0.9973000288009644,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_10,Top1Accuracy,0.867900013923645,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_10,Top3Accuracy,0.9818999767303467,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_10,Top5Accuracy,0.9970999956130981,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_11,Top1Accuracy,0.8726999759674072,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_11,Top3Accuracy,0.9846000075340271,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,encoder_layer_11,Top5Accuracy,0.9976999759674072,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,projection_layer,Top1Accuracy,0.8348000049591064,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,projection_layer,Top3Accuracy,0.9726999998092651,CLIP + ITM + SimCLR + MLM,,1-aug
-tibwkymx,CIFAR10,projection_layer,Top5Accuracy,0.9948999881744385,CLIP + ITM + SimCLR + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_0,Top1Accuracy,0.41100001335144043,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_0,Top3Accuracy,0.7445999979972839,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_0,Top5Accuracy,0.8840000033378601,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_1,Top1Accuracy,0.5351999998092651,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_1,Top3Accuracy,0.835099995136261,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_1,Top5Accuracy,0.9387000203132629,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_2,Top1Accuracy,0.5942999720573425,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_2,Top3Accuracy,0.8729000091552734,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_2,Top5Accuracy,0.9557999968528748,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_3,Top1Accuracy,0.633400022983551,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_3,Top3Accuracy,0.8920999765396118,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_3,Top5Accuracy,0.9648000001907349,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_4,Top1Accuracy,0.6782000064849854,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_4,Top3Accuracy,0.9128999710083008,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_4,Top5Accuracy,0.9761999845504761,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_5,Top1Accuracy,0.7200000286102295,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_5,Top3Accuracy,0.9320999979972839,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_5,Top5Accuracy,0.9828000068664551,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_6,Top1Accuracy,0.7408000230789185,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_6,Top3Accuracy,0.9434000253677368,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_6,Top5Accuracy,0.9861000180244446,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_7,Top1Accuracy,0.7577000260353088,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_7,Top3Accuracy,0.9506000280380249,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_7,Top5Accuracy,0.9891999959945679,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_8,Top1Accuracy,0.7817999720573425,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_8,Top3Accuracy,0.9595999717712402,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_8,Top5Accuracy,0.9900000095367432,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_9,Top1Accuracy,0.7894999980926514,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_9,Top3Accuracy,0.9652000069618225,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_9,Top5Accuracy,0.9916999936103821,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_10,Top1Accuracy,0.7980999946594238,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_10,Top3Accuracy,0.9641000032424927,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_10,Top5Accuracy,0.9926999807357788,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_11,Top1Accuracy,0.7965999841690063,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_11,Top3Accuracy,0.9642999768257141,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,encoder_layer_11,Top5Accuracy,0.9914000034332275,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,projection_layer,Top1Accuracy,0.7300999760627747,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,projection_layer,Top3Accuracy,0.9437000155448914,SimCLR + ITM + MLM,,1-aug
-bj2tw5qt,CIFAR10,projection_layer,Top5Accuracy,0.9843000173568726,SimCLR + ITM + MLM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_0,Top1Accuracy,0.40790000557899475,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_0,Top3Accuracy,0.7376999855041504,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_0,Top5Accuracy,0.8758999705314636,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_1,Top1Accuracy,0.5706999897956848,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_1,Top3Accuracy,0.8603000044822693,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_1,Top5Accuracy,0.9480000138282776,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_2,Top1Accuracy,0.6254000067710876,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_2,Top3Accuracy,0.8906999826431274,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_2,Top5Accuracy,0.961899995803833,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_3,Top1Accuracy,0.7008000016212463,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_3,Top3Accuracy,0.9229999780654907,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_3,Top5Accuracy,0.9786999821662903,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_4,Top1Accuracy,0.7394999861717224,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_4,Top3Accuracy,0.9397000074386597,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_4,Top5Accuracy,0.9861999750137329,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_5,Top1Accuracy,0.7663000226020813,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_5,Top3Accuracy,0.9563000202178955,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_5,Top5Accuracy,0.9902999997138977,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_6,Top1Accuracy,0.8016999959945679,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_6,Top3Accuracy,0.9671000242233276,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_6,Top5Accuracy,0.9926999807357788,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_7,Top1Accuracy,0.8299999833106995,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_7,Top3Accuracy,0.9732000231742859,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_7,Top5Accuracy,0.9947999715805054,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_8,Top1Accuracy,0.85589998960495,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_8,Top3Accuracy,0.9801999926567078,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_8,Top5Accuracy,0.9958000183105469,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_9,Top1Accuracy,0.8661999702453613,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_9,Top3Accuracy,0.9839000105857849,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_9,Top5Accuracy,0.9965999722480774,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_10,Top1Accuracy,0.8691999912261963,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_10,Top3Accuracy,0.9835000038146973,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_10,Top5Accuracy,0.996999979019165,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_11,Top1Accuracy,0.8741000294685364,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_11,Top3Accuracy,0.9825999736785889,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,encoder_layer_11,Top5Accuracy,0.9969000220298767,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,projection_layer,Top1Accuracy,0.828499972820282,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,projection_layer,Top3Accuracy,0.97079998254776,CLIP + ITM,,1-aug
-7m9tx2jf,CIFAR10,projection_layer,Top5Accuracy,0.994700014591217,CLIP + ITM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_0,Top1Accuracy,0.4302000105381012,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_0,Top3Accuracy,0.762499988079071,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_0,Top5Accuracy,0.8984000086784363,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_1,Top1Accuracy,0.5383999943733215,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_1,Top3Accuracy,0.8399999737739563,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_1,Top5Accuracy,0.9394000172615051,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_2,Top1Accuracy,0.59170001745224,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_2,Top3Accuracy,0.8719000220298767,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_2,Top5Accuracy,0.9556999802589417,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_3,Top1Accuracy,0.6337000131607056,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_3,Top3Accuracy,0.8873999714851379,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_3,Top5Accuracy,0.965399980545044,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_4,Top1Accuracy,0.664900004863739,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_4,Top3Accuracy,0.9075999855995178,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_4,Top5Accuracy,0.9736999869346619,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_5,Top1Accuracy,0.703499972820282,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_5,Top3Accuracy,0.9246000051498413,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_5,Top5Accuracy,0.9803000092506409,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_6,Top1Accuracy,0.7152000069618225,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_6,Top3Accuracy,0.9322999715805054,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_6,Top5Accuracy,0.9821000099182129,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_7,Top1Accuracy,0.7347999811172485,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_7,Top3Accuracy,0.9387999773025513,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_7,Top5Accuracy,0.9850999712944031,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_8,Top1Accuracy,0.7443000078201294,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_8,Top3Accuracy,0.9460999965667725,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_8,Top5Accuracy,0.9879999756813049,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_9,Top1Accuracy,0.7549999952316284,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_9,Top3Accuracy,0.949999988079071,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_9,Top5Accuracy,0.9879000186920166,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_10,Top1Accuracy,0.7533000111579895,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_10,Top3Accuracy,0.9509000182151794,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_10,Top5Accuracy,0.9882000088691711,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_11,Top1Accuracy,0.7501000165939331,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_11,Top3Accuracy,0.9510999917984009,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,encoder_layer_11,Top5Accuracy,0.987500011920929,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,projection_layer,Top1Accuracy,0.6819999814033508,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,projection_layer,Top3Accuracy,0.9193999767303467,SimCLR + MLM,,1-aug
-gtp8w6c4,CIFAR10,projection_layer,Top5Accuracy,0.9778000116348267,SimCLR + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_0,Top1Accuracy,0.48429998755455017,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_0,Top3Accuracy,0.8083000183105469,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_0,Top5Accuracy,0.9187999963760376,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_1,Top1Accuracy,0.5478000044822693,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_1,Top3Accuracy,0.8501999974250793,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_1,Top5Accuracy,0.945900022983551,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_2,Top1Accuracy,0.5842000246047974,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_2,Top3Accuracy,0.8668000102043152,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_2,Top5Accuracy,0.95169997215271,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_3,Top1Accuracy,0.6018000245094299,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_3,Top3Accuracy,0.8773000240325928,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_3,Top5Accuracy,0.9596999883651733,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_4,Top1Accuracy,0.6098999977111816,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_4,Top3Accuracy,0.8894000053405762,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_4,Top5Accuracy,0.9641000032424927,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_5,Top1Accuracy,0.6218000054359436,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_5,Top3Accuracy,0.8924000263214111,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_5,Top5Accuracy,0.96670001745224,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_6,Top1Accuracy,0.628000020980835,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_6,Top3Accuracy,0.897599995136261,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_6,Top5Accuracy,0.9670000076293945,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_7,Top1Accuracy,0.6248999834060669,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_7,Top3Accuracy,0.8989999890327454,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_7,Top5Accuracy,0.9678999781608582,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_8,Top1Accuracy,0.6306999921798706,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_8,Top3Accuracy,0.9006999731063843,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_8,Top5Accuracy,0.9681000113487244,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_9,Top1Accuracy,0.635699987411499,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_9,Top3Accuracy,0.9023000001907349,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_9,Top5Accuracy,0.9700999855995178,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_10,Top1Accuracy,0.6394000053405762,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_10,Top3Accuracy,0.9057999849319458,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_10,Top5Accuracy,0.968999981880188,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_11,Top1Accuracy,0.6391000151634216,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_11,Top3Accuracy,0.9035999774932861,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,encoder_layer_11,Top5Accuracy,0.970300018787384,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,projection_layer,Top1Accuracy,0.4494999945163727,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,projection_layer,Top3Accuracy,0.786899983882904,ITM + MLM,,1-aug
-mkqp8hhx,CIFAR10,projection_layer,Top5Accuracy,0.9190000295639038,ITM + MLM,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_0,Top1Accuracy,0.3898000121116638,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_0,Top3Accuracy,0.7172999978065491,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_0,Top5Accuracy,0.8704000115394592,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_1,Top1Accuracy,0.5480999946594238,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_1,Top3Accuracy,0.8464000225067139,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_1,Top5Accuracy,0.9426000118255615,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_2,Top1Accuracy,0.5964000225067139,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_2,Top3Accuracy,0.8763999938964844,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_2,Top5Accuracy,0.954200029373169,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_3,Top1Accuracy,0.6500999927520752,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_3,Top3Accuracy,0.9021999835968018,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_3,Top5Accuracy,0.9689000248908997,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_4,Top1Accuracy,0.7084000110626221,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_4,Top3Accuracy,0.9272000193595886,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_4,Top5Accuracy,0.9797000288963318,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_5,Top1Accuracy,0.7437000274658203,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_5,Top3Accuracy,0.942300021648407,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_5,Top5Accuracy,0.9846000075340271,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_6,Top1Accuracy,0.7748000025749207,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_6,Top3Accuracy,0.9563000202178955,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_6,Top5Accuracy,0.9896000027656555,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_7,Top1Accuracy,0.8037999868392944,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_7,Top3Accuracy,0.9646000266075134,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_7,Top5Accuracy,0.9915000200271606,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_8,Top1Accuracy,0.828000009059906,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_8,Top3Accuracy,0.9722999930381775,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_8,Top5Accuracy,0.9944999814033508,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_9,Top1Accuracy,0.8392000198364258,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_9,Top3Accuracy,0.9763000011444092,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_9,Top5Accuracy,0.996399998664856,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_10,Top1Accuracy,0.8493000268936157,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_10,Top3Accuracy,0.9786999821662903,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_10,Top5Accuracy,0.9959999918937683,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_11,Top1Accuracy,0.8539000153541565,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_11,Top3Accuracy,0.9793999791145325,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,encoder_layer_11,Top5Accuracy,0.9968000054359436,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,projection_layer,Top1Accuracy,0.8176000118255615,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,projection_layer,Top3Accuracy,0.9685999751091003,CLIP + SimCLR,,1-aug
-95ddsmmz,CIFAR10,projection_layer,Top5Accuracy,0.9944999814033508,CLIP + SimCLR,,1-aug
-txva2y48,CIFAR10,encoder_layer_0,Top1Accuracy,0.4018000066280365,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_0,Top3Accuracy,0.7311000227928162,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_0,Top5Accuracy,0.8784999847412109,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_1,Top1Accuracy,0.5425000190734863,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_1,Top3Accuracy,0.8395000100135803,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_1,Top5Accuracy,0.9347000122070312,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_2,Top1Accuracy,0.5895000100135803,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_2,Top3Accuracy,0.8738999962806702,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_2,Top5Accuracy,0.955299973487854,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_3,Top1Accuracy,0.6468999981880188,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_3,Top3Accuracy,0.8932999968528748,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_3,Top5Accuracy,0.9645000100135803,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_4,Top1Accuracy,0.7001000046730042,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_4,Top3Accuracy,0.9207000136375427,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_4,Top5Accuracy,0.9769999980926514,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_5,Top1Accuracy,0.7358999848365784,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_5,Top3Accuracy,0.9383000135421753,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_5,Top5Accuracy,0.9840999841690063,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_6,Top1Accuracy,0.769599974155426,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_6,Top3Accuracy,0.9527000188827515,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_6,Top5Accuracy,0.9902999997138977,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_7,Top1Accuracy,0.8015000224113464,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_7,Top3Accuracy,0.9641000032424927,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_7,Top5Accuracy,0.9927999973297119,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_8,Top1Accuracy,0.8263000249862671,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_8,Top3Accuracy,0.9728000164031982,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_8,Top5Accuracy,0.9940000176429749,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_9,Top1Accuracy,0.8507000207901001,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_9,Top3Accuracy,0.9771999716758728,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_9,Top5Accuracy,0.9962000250816345,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_10,Top1Accuracy,0.8632000088691711,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_10,Top3Accuracy,0.9825999736785889,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_10,Top5Accuracy,0.9970999956130981,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_11,Top1Accuracy,0.8632000088691711,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_11,Top3Accuracy,0.9828000068664551,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,encoder_layer_11,Top5Accuracy,0.9968000054359436,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,projection_layer,Top1Accuracy,0.8305000066757202,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,projection_layer,Top3Accuracy,0.9735999703407288,CLIP + SimCLR + MLM,,1-aug
-txva2y48,CIFAR10,projection_layer,Top5Accuracy,0.994700014591217,CLIP + SimCLR + MLM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_0,Top1Accuracy,0.487199991941452,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_0,Top3Accuracy,0.8040000200271606,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_0,Top5Accuracy,0.9204000234603882,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_1,Top1Accuracy,0.5561000108718872,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_1,Top3Accuracy,0.853600025177002,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_1,Top5Accuracy,0.9491999745368958,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_2,Top1Accuracy,0.6098999977111816,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_2,Top3Accuracy,0.8837000131607056,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_2,Top5Accuracy,0.961899995803833,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_3,Top1Accuracy,0.6432999968528748,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_3,Top3Accuracy,0.8999999761581421,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_3,Top5Accuracy,0.9699000120162964,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_4,Top1Accuracy,0.6694999933242798,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_4,Top3Accuracy,0.9103999733924866,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_4,Top5Accuracy,0.9745000004768372,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_5,Top1Accuracy,0.6877999901771545,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_5,Top3Accuracy,0.9186000227928162,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_5,Top5Accuracy,0.9781000018119812,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_6,Top1Accuracy,0.691100001335144,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_6,Top3Accuracy,0.9240999817848206,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_6,Top5Accuracy,0.9790999889373779,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_7,Top1Accuracy,0.7056000232696533,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_7,Top3Accuracy,0.9265000224113464,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_7,Top5Accuracy,0.9797000288963318,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_8,Top1Accuracy,0.7134000062942505,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_8,Top3Accuracy,0.9296000003814697,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_8,Top5Accuracy,0.9785000085830688,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_9,Top1Accuracy,0.7156000137329102,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_9,Top3Accuracy,0.9316999912261963,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_9,Top5Accuracy,0.9800000190734863,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_10,Top1Accuracy,0.7189000248908997,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_10,Top3Accuracy,0.9351000189781189,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_10,Top5Accuracy,0.9815000295639038,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_11,Top1Accuracy,0.722100019454956,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_11,Top3Accuracy,0.9383000135421753,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,encoder_layer_11,Top5Accuracy,0.9829999804496765,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,projection_layer,Top1Accuracy,0.6711999773979187,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,projection_layer,Top3Accuracy,0.9168999791145325,SimCLR + ITM,,1-aug
-xpbl8wfc,CIFAR10,projection_layer,Top5Accuracy,0.9751999974250793,SimCLR + ITM,,1-aug
-p99godxb,CIFAR10,encoder_layer_0,Top1Accuracy,0.4887999892234802,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_0,Top3Accuracy,0.8041999936103821,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_0,Top5Accuracy,0.9222999811172485,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_1,Top1Accuracy,0.5554999709129333,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_1,Top3Accuracy,0.8551999926567078,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_1,Top5Accuracy,0.946399986743927,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_2,Top1Accuracy,0.6087999939918518,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_2,Top3Accuracy,0.8823999762535095,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_2,Top5Accuracy,0.9611999988555908,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_3,Top1Accuracy,0.6414999961853027,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_3,Top3Accuracy,0.8946999907493591,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_3,Top5Accuracy,0.9674999713897705,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_4,Top1Accuracy,0.6711000204086304,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_4,Top3Accuracy,0.9090999960899353,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_4,Top5Accuracy,0.9733999967575073,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_5,Top1Accuracy,0.6862999796867371,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_5,Top3Accuracy,0.9223999977111816,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_5,Top5Accuracy,0.9761999845504761,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_6,Top1Accuracy,0.699999988079071,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_6,Top3Accuracy,0.9240000247955322,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_6,Top5Accuracy,0.9781000018119812,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_7,Top1Accuracy,0.7092999815940857,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_7,Top3Accuracy,0.929099977016449,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_7,Top5Accuracy,0.9799000024795532,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_8,Top1Accuracy,0.7172999978065491,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_8,Top3Accuracy,0.9304999709129333,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_8,Top5Accuracy,0.9803000092506409,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_9,Top1Accuracy,0.7177000045776367,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_9,Top3Accuracy,0.9363999962806702,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_9,Top5Accuracy,0.9830999970436096,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_10,Top1Accuracy,0.715399980545044,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_10,Top3Accuracy,0.9373999834060669,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_10,Top5Accuracy,0.9836000204086304,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_11,Top1Accuracy,0.7210000157356262,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_11,Top3Accuracy,0.9376000165939331,SimCLR,,1-aug
-p99godxb,CIFAR10,encoder_layer_11,Top5Accuracy,0.9824000000953674,SimCLR,,1-aug
-p99godxb,CIFAR10,projection_layer,Top1Accuracy,0.6629999876022339,SimCLR,,1-aug
-p99godxb,CIFAR10,projection_layer,Top3Accuracy,0.9125000238418579,SimCLR,,1-aug
-p99godxb,CIFAR10,projection_layer,Top5Accuracy,0.9713000059127808,SimCLR,,1-aug
+ng70n4a4,CIFAR10,encoder_layer_0,Top1Accuracy,0.39070001244544983,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_0,Top3Accuracy,0.7214999794960022,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_0,Top5Accuracy,0.8744000196456909,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_1,Top1Accuracy,0.5552999973297119,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_1,Top3Accuracy,0.8539000153541565,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_1,Top5Accuracy,0.947700023651123,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_2,Top1Accuracy,0.5997999906539917,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_2,Top3Accuracy,0.8780999779701233,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_2,Top5Accuracy,0.9562000036239624,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_3,Top1Accuracy,0.6514999866485596,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_3,Top3Accuracy,0.8998000025749207,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_3,Top5Accuracy,0.9686999917030334,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_4,Top1Accuracy,0.703000009059906,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_4,Top3Accuracy,0.9265999794006348,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_4,Top5Accuracy,0.9790999889373779,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_5,Top1Accuracy,0.7383999824523926,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_5,Top3Accuracy,0.9409999847412109,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_5,Top5Accuracy,0.9842000007629395,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_6,Top1Accuracy,0.7731999754905701,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_6,Top3Accuracy,0.9559000134468079,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_6,Top5Accuracy,0.9908999800682068,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_7,Top1Accuracy,0.8109999895095825,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_7,Top3Accuracy,0.96670001745224,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_7,Top5Accuracy,0.9944000244140625,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_8,Top1Accuracy,0.8259000182151794,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_8,Top3Accuracy,0.972000002861023,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_8,Top5Accuracy,0.9945999979972839,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_9,Top1Accuracy,0.8418999910354614,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_9,Top3Accuracy,0.9765999913215637,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_9,Top5Accuracy,0.9962999820709229,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_10,Top1Accuracy,0.8557999730110168,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_10,Top3Accuracy,0.9796000123023987,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_10,Top5Accuracy,0.9959999918937683,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_11,Top1Accuracy,0.855400025844574,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_11,Top3Accuracy,0.9790999889373779,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,encoder_layer_11,Top5Accuracy,0.9959999918937683,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,projection_layer,Top1Accuracy,0.8158000111579895,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,projection_layer,Top3Accuracy,0.9697999954223633,CLIP + SimCLR + ITM,1-aug,1-aug
+ng70n4a4,CIFAR10,projection_layer,Top5Accuracy,0.992900013923645,CLIP + SimCLR + ITM,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_0,Top1Accuracy,0.40290001034736633,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_0,Top3Accuracy,0.7265999913215637,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_0,Top5Accuracy,0.8741999864578247,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_1,Top1Accuracy,0.5702999830245972,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_1,Top3Accuracy,0.8601999878883362,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_1,Top5Accuracy,0.9484999775886536,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_2,Top1Accuracy,0.6274999976158142,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_2,Top3Accuracy,0.8870999813079834,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_2,Top5Accuracy,0.9616000056266785,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_3,Top1Accuracy,0.6872000098228455,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_3,Top3Accuracy,0.9172999858856201,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_3,Top5Accuracy,0.9769999980926514,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_4,Top1Accuracy,0.7315000295639038,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_4,Top3Accuracy,0.9376999735832214,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_4,Top5Accuracy,0.9851999878883362,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_5,Top1Accuracy,0.767300009727478,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_5,Top3Accuracy,0.9531000256538391,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_5,Top5Accuracy,0.9889000058174133,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_6,Top1Accuracy,0.8061000108718872,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_6,Top3Accuracy,0.9659000039100647,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_6,Top5Accuracy,0.9927999973297119,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_7,Top1Accuracy,0.8313999772071838,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_7,Top3Accuracy,0.9728999733924866,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_7,Top5Accuracy,0.9959999918937683,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_8,Top1Accuracy,0.8532999753952026,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_8,Top3Accuracy,0.9796000123023987,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_8,Top5Accuracy,0.9958999752998352,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_9,Top1Accuracy,0.8654000163078308,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_9,Top3Accuracy,0.9825000166893005,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_9,Top5Accuracy,0.9962000250816345,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_10,Top1Accuracy,0.8682000041007996,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_10,Top3Accuracy,0.983299970626831,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_10,Top5Accuracy,0.9973999857902527,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_11,Top1Accuracy,0.8730000257492065,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_11,Top3Accuracy,0.9840999841690063,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,encoder_layer_11,Top5Accuracy,0.9968000054359436,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,projection_layer,Top1Accuracy,0.8313000202178955,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,projection_layer,Top3Accuracy,0.9722999930381775,CLIP,1-aug,1-aug
+3burj4np,CIFAR10,projection_layer,Top5Accuracy,0.9937000274658203,CLIP,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_0,Top1Accuracy,0.4163999855518341,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_0,Top3Accuracy,0.753000020980835,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_0,Top5Accuracy,0.8938999772071838,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_1,Top1Accuracy,0.5676000118255615,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_1,Top3Accuracy,0.8598999977111816,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_1,Top5Accuracy,0.949400007724762,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_2,Top1Accuracy,0.6292999982833862,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_2,Top3Accuracy,0.8881000280380249,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_2,Top5Accuracy,0.9627000093460083,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_3,Top1Accuracy,0.6832000017166138,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_3,Top3Accuracy,0.9108999967575073,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_3,Top5Accuracy,0.9757999777793884,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_4,Top1Accuracy,0.7297000288963318,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_4,Top3Accuracy,0.9354000091552734,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_4,Top5Accuracy,0.9843000173568726,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_5,Top1Accuracy,0.7664999961853027,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_5,Top3Accuracy,0.9503999948501587,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_5,Top5Accuracy,0.9883000254631042,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_6,Top1Accuracy,0.7978000044822693,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_6,Top3Accuracy,0.9642999768257141,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_6,Top5Accuracy,0.9912999868392944,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_7,Top1Accuracy,0.8284000158309937,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_7,Top3Accuracy,0.9746999740600586,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_7,Top5Accuracy,0.9951000213623047,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_8,Top1Accuracy,0.8533999919891357,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_8,Top3Accuracy,0.9819999933242798,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_8,Top5Accuracy,0.9966999888420105,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_9,Top1Accuracy,0.864300012588501,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_9,Top3Accuracy,0.9828000068664551,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_9,Top5Accuracy,0.9968000054359436,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_10,Top1Accuracy,0.8646000027656555,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_10,Top3Accuracy,0.984000027179718,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_10,Top5Accuracy,0.9965000152587891,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_11,Top1Accuracy,0.8637999892234802,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_11,Top3Accuracy,0.9824000000953674,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,encoder_layer_11,Top5Accuracy,0.9973000288009644,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,projection_layer,Top1Accuracy,0.8156999945640564,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,projection_layer,Top3Accuracy,0.9706000089645386,CLIP + ITM + MLM,1-aug,1-aug
+khb9ltyn,CIFAR10,projection_layer,Top5Accuracy,0.9943000078201294,CLIP + ITM + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_0,Top1Accuracy,0.3991999924182892,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_0,Top3Accuracy,0.7250999808311462,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_0,Top5Accuracy,0.8726999759674072,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_1,Top1Accuracy,0.5582000017166138,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_1,Top3Accuracy,0.8557999730110168,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_1,Top5Accuracy,0.9460999965667725,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_2,Top1Accuracy,0.6309000253677368,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_2,Top3Accuracy,0.8871999979019165,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_2,Top5Accuracy,0.9596999883651733,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_3,Top1Accuracy,0.6804999709129333,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_3,Top3Accuracy,0.9132999777793884,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_3,Top5Accuracy,0.9757999777793884,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_4,Top1Accuracy,0.7307999730110168,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_4,Top3Accuracy,0.9391999840736389,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_4,Top5Accuracy,0.9839000105857849,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_5,Top1Accuracy,0.7732999920845032,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_5,Top3Accuracy,0.9545000195503235,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_5,Top5Accuracy,0.9905999898910522,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_6,Top1Accuracy,0.8138999938964844,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_6,Top3Accuracy,0.9689000248908997,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_6,Top5Accuracy,0.9937000274658203,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_7,Top1Accuracy,0.8398000001907349,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_7,Top3Accuracy,0.9760000109672546,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_7,Top5Accuracy,0.9955000281333923,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_8,Top1Accuracy,0.8657000064849854,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_8,Top3Accuracy,0.9811000227928162,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_8,Top5Accuracy,0.9961000084877014,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_9,Top1Accuracy,0.8790000081062317,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_9,Top3Accuracy,0.9842000007629395,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_9,Top5Accuracy,0.9973000288009644,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_10,Top1Accuracy,0.8822000026702881,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_10,Top3Accuracy,0.98580002784729,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_10,Top5Accuracy,0.9968000054359436,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_11,Top1Accuracy,0.8837000131607056,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_11,Top3Accuracy,0.9847999811172485,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,encoder_layer_11,Top5Accuracy,0.9976999759674072,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,projection_layer,Top1Accuracy,0.8277000188827515,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,projection_layer,Top3Accuracy,0.9699000120162964,CLIP + MLM,1-aug,1-aug
+shf56cne,CIFAR10,projection_layer,Top5Accuracy,0.9937000274658203,CLIP + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_0,Top1Accuracy,0.3912999927997589,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_0,Top3Accuracy,0.7107999920845032,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_0,Top5Accuracy,0.8673999905586243,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_1,Top1Accuracy,0.5454000234603882,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_1,Top3Accuracy,0.8442999720573425,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_1,Top5Accuracy,0.9390000104904175,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_2,Top1Accuracy,0.5982999801635742,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_2,Top3Accuracy,0.8709999918937683,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_2,Top5Accuracy,0.9562000036239624,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_3,Top1Accuracy,0.645799994468689,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_3,Top3Accuracy,0.8962000012397766,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_3,Top5Accuracy,0.9656000137329102,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_4,Top1Accuracy,0.6972000002861023,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_4,Top3Accuracy,0.9189000129699707,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_4,Top5Accuracy,0.9775000214576721,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_5,Top1Accuracy,0.7322999835014343,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_5,Top3Accuracy,0.9409000277519226,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_5,Top5Accuracy,0.9851999878883362,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_6,Top1Accuracy,0.7799999713897705,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_6,Top3Accuracy,0.9569000005722046,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_6,Top5Accuracy,0.9894000291824341,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_7,Top1Accuracy,0.8061000108718872,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_7,Top3Accuracy,0.9664999842643738,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_7,Top5Accuracy,0.9922000169754028,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_8,Top1Accuracy,0.8342000246047974,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_8,Top3Accuracy,0.9747999906539917,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_8,Top5Accuracy,0.9957000017166138,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_9,Top1Accuracy,0.8600000143051147,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_9,Top3Accuracy,0.9811999797821045,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_9,Top5Accuracy,0.9973000288009644,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_10,Top1Accuracy,0.867900013923645,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_10,Top3Accuracy,0.9818999767303467,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_10,Top5Accuracy,0.9970999956130981,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_11,Top1Accuracy,0.8726999759674072,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_11,Top3Accuracy,0.9846000075340271,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,encoder_layer_11,Top5Accuracy,0.9976999759674072,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,projection_layer,Top1Accuracy,0.8348000049591064,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,projection_layer,Top3Accuracy,0.9726999998092651,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+tibwkymx,CIFAR10,projection_layer,Top5Accuracy,0.9948999881744385,CLIP + ITM + SimCLR + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_0,Top1Accuracy,0.41100001335144043,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_0,Top3Accuracy,0.7445999979972839,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_0,Top5Accuracy,0.8840000033378601,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_1,Top1Accuracy,0.5351999998092651,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_1,Top3Accuracy,0.835099995136261,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_1,Top5Accuracy,0.9387000203132629,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_2,Top1Accuracy,0.5942999720573425,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_2,Top3Accuracy,0.8729000091552734,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_2,Top5Accuracy,0.9557999968528748,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_3,Top1Accuracy,0.633400022983551,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_3,Top3Accuracy,0.8920999765396118,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_3,Top5Accuracy,0.9648000001907349,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_4,Top1Accuracy,0.6782000064849854,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_4,Top3Accuracy,0.9128999710083008,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_4,Top5Accuracy,0.9761999845504761,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_5,Top1Accuracy,0.7200000286102295,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_5,Top3Accuracy,0.9320999979972839,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_5,Top5Accuracy,0.9828000068664551,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_6,Top1Accuracy,0.7408000230789185,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_6,Top3Accuracy,0.9434000253677368,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_6,Top5Accuracy,0.9861000180244446,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_7,Top1Accuracy,0.7577000260353088,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_7,Top3Accuracy,0.9506000280380249,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_7,Top5Accuracy,0.9891999959945679,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_8,Top1Accuracy,0.7817999720573425,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_8,Top3Accuracy,0.9595999717712402,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_8,Top5Accuracy,0.9900000095367432,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_9,Top1Accuracy,0.7894999980926514,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_9,Top3Accuracy,0.9652000069618225,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_9,Top5Accuracy,0.9916999936103821,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_10,Top1Accuracy,0.7980999946594238,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_10,Top3Accuracy,0.9641000032424927,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_10,Top5Accuracy,0.9926999807357788,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_11,Top1Accuracy,0.7965999841690063,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_11,Top3Accuracy,0.9642999768257141,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,encoder_layer_11,Top5Accuracy,0.9914000034332275,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,projection_layer,Top1Accuracy,0.7300999760627747,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,projection_layer,Top3Accuracy,0.9437000155448914,SimCLR + ITM + MLM,1-aug,1-aug
+bj2tw5qt,CIFAR10,projection_layer,Top5Accuracy,0.9843000173568726,SimCLR + ITM + MLM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_0,Top1Accuracy,0.40790000557899475,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_0,Top3Accuracy,0.7376999855041504,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_0,Top5Accuracy,0.8758999705314636,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_1,Top1Accuracy,0.5706999897956848,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_1,Top3Accuracy,0.8603000044822693,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_1,Top5Accuracy,0.9480000138282776,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_2,Top1Accuracy,0.6254000067710876,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_2,Top3Accuracy,0.8906999826431274,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_2,Top5Accuracy,0.961899995803833,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_3,Top1Accuracy,0.7008000016212463,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_3,Top3Accuracy,0.9229999780654907,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_3,Top5Accuracy,0.9786999821662903,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_4,Top1Accuracy,0.7394999861717224,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_4,Top3Accuracy,0.9397000074386597,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_4,Top5Accuracy,0.9861999750137329,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_5,Top1Accuracy,0.7663000226020813,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_5,Top3Accuracy,0.9563000202178955,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_5,Top5Accuracy,0.9902999997138977,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_6,Top1Accuracy,0.8016999959945679,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_6,Top3Accuracy,0.9671000242233276,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_6,Top5Accuracy,0.9926999807357788,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_7,Top1Accuracy,0.8299999833106995,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_7,Top3Accuracy,0.9732000231742859,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_7,Top5Accuracy,0.9947999715805054,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_8,Top1Accuracy,0.85589998960495,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_8,Top3Accuracy,0.9801999926567078,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_8,Top5Accuracy,0.9958000183105469,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_9,Top1Accuracy,0.8661999702453613,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_9,Top3Accuracy,0.9839000105857849,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_9,Top5Accuracy,0.9965999722480774,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_10,Top1Accuracy,0.8691999912261963,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_10,Top3Accuracy,0.9835000038146973,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_10,Top5Accuracy,0.996999979019165,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_11,Top1Accuracy,0.8741000294685364,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_11,Top3Accuracy,0.9825999736785889,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,encoder_layer_11,Top5Accuracy,0.9969000220298767,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,projection_layer,Top1Accuracy,0.828499972820282,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,projection_layer,Top3Accuracy,0.97079998254776,CLIP + ITM,1-aug,1-aug
+7m9tx2jf,CIFAR10,projection_layer,Top5Accuracy,0.994700014591217,CLIP + ITM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_0,Top1Accuracy,0.4302000105381012,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_0,Top3Accuracy,0.762499988079071,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_0,Top5Accuracy,0.8984000086784363,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_1,Top1Accuracy,0.5383999943733215,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_1,Top3Accuracy,0.8399999737739563,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_1,Top5Accuracy,0.9394000172615051,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_2,Top1Accuracy,0.59170001745224,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_2,Top3Accuracy,0.8719000220298767,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_2,Top5Accuracy,0.9556999802589417,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_3,Top1Accuracy,0.6337000131607056,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_3,Top3Accuracy,0.8873999714851379,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_3,Top5Accuracy,0.965399980545044,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_4,Top1Accuracy,0.664900004863739,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_4,Top3Accuracy,0.9075999855995178,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_4,Top5Accuracy,0.9736999869346619,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_5,Top1Accuracy,0.703499972820282,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_5,Top3Accuracy,0.9246000051498413,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_5,Top5Accuracy,0.9803000092506409,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_6,Top1Accuracy,0.7152000069618225,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_6,Top3Accuracy,0.9322999715805054,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_6,Top5Accuracy,0.9821000099182129,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_7,Top1Accuracy,0.7347999811172485,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_7,Top3Accuracy,0.9387999773025513,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_7,Top5Accuracy,0.9850999712944031,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_8,Top1Accuracy,0.7443000078201294,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_8,Top3Accuracy,0.9460999965667725,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_8,Top5Accuracy,0.9879999756813049,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_9,Top1Accuracy,0.7549999952316284,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_9,Top3Accuracy,0.949999988079071,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_9,Top5Accuracy,0.9879000186920166,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_10,Top1Accuracy,0.7533000111579895,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_10,Top3Accuracy,0.9509000182151794,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_10,Top5Accuracy,0.9882000088691711,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_11,Top1Accuracy,0.7501000165939331,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_11,Top3Accuracy,0.9510999917984009,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,encoder_layer_11,Top5Accuracy,0.987500011920929,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,projection_layer,Top1Accuracy,0.6819999814033508,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,projection_layer,Top3Accuracy,0.9193999767303467,SimCLR + MLM,1-aug,1-aug
+gtp8w6c4,CIFAR10,projection_layer,Top5Accuracy,0.9778000116348267,SimCLR + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_0,Top1Accuracy,0.48429998755455017,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_0,Top3Accuracy,0.8083000183105469,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_0,Top5Accuracy,0.9187999963760376,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_1,Top1Accuracy,0.5478000044822693,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_1,Top3Accuracy,0.8501999974250793,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_1,Top5Accuracy,0.945900022983551,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_2,Top1Accuracy,0.5842000246047974,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_2,Top3Accuracy,0.8668000102043152,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_2,Top5Accuracy,0.95169997215271,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_3,Top1Accuracy,0.6018000245094299,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_3,Top3Accuracy,0.8773000240325928,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_3,Top5Accuracy,0.9596999883651733,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_4,Top1Accuracy,0.6098999977111816,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_4,Top3Accuracy,0.8894000053405762,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_4,Top5Accuracy,0.9641000032424927,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_5,Top1Accuracy,0.6218000054359436,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_5,Top3Accuracy,0.8924000263214111,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_5,Top5Accuracy,0.96670001745224,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_6,Top1Accuracy,0.628000020980835,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_6,Top3Accuracy,0.897599995136261,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_6,Top5Accuracy,0.9670000076293945,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_7,Top1Accuracy,0.6248999834060669,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_7,Top3Accuracy,0.8989999890327454,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_7,Top5Accuracy,0.9678999781608582,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_8,Top1Accuracy,0.6306999921798706,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_8,Top3Accuracy,0.9006999731063843,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_8,Top5Accuracy,0.9681000113487244,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_9,Top1Accuracy,0.635699987411499,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_9,Top3Accuracy,0.9023000001907349,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_9,Top5Accuracy,0.9700999855995178,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_10,Top1Accuracy,0.6394000053405762,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_10,Top3Accuracy,0.9057999849319458,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_10,Top5Accuracy,0.968999981880188,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_11,Top1Accuracy,0.6391000151634216,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_11,Top3Accuracy,0.9035999774932861,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,encoder_layer_11,Top5Accuracy,0.970300018787384,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,projection_layer,Top1Accuracy,0.4494999945163727,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,projection_layer,Top3Accuracy,0.786899983882904,ITM + MLM,1-aug,1-aug
+mkqp8hhx,CIFAR10,projection_layer,Top5Accuracy,0.9190000295639038,ITM + MLM,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_0,Top1Accuracy,0.3898000121116638,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_0,Top3Accuracy,0.7172999978065491,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_0,Top5Accuracy,0.8704000115394592,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_1,Top1Accuracy,0.5480999946594238,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_1,Top3Accuracy,0.8464000225067139,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_1,Top5Accuracy,0.9426000118255615,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_2,Top1Accuracy,0.5964000225067139,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_2,Top3Accuracy,0.8763999938964844,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_2,Top5Accuracy,0.954200029373169,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_3,Top1Accuracy,0.6500999927520752,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_3,Top3Accuracy,0.9021999835968018,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_3,Top5Accuracy,0.9689000248908997,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_4,Top1Accuracy,0.7084000110626221,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_4,Top3Accuracy,0.9272000193595886,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_4,Top5Accuracy,0.9797000288963318,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_5,Top1Accuracy,0.7437000274658203,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_5,Top3Accuracy,0.942300021648407,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_5,Top5Accuracy,0.9846000075340271,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_6,Top1Accuracy,0.7748000025749207,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_6,Top3Accuracy,0.9563000202178955,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_6,Top5Accuracy,0.9896000027656555,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_7,Top1Accuracy,0.8037999868392944,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_7,Top3Accuracy,0.9646000266075134,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_7,Top5Accuracy,0.9915000200271606,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_8,Top1Accuracy,0.828000009059906,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_8,Top3Accuracy,0.9722999930381775,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_8,Top5Accuracy,0.9944999814033508,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_9,Top1Accuracy,0.8392000198364258,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_9,Top3Accuracy,0.9763000011444092,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_9,Top5Accuracy,0.996399998664856,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_10,Top1Accuracy,0.8493000268936157,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_10,Top3Accuracy,0.9786999821662903,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_10,Top5Accuracy,0.9959999918937683,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_11,Top1Accuracy,0.8539000153541565,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_11,Top3Accuracy,0.9793999791145325,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,encoder_layer_11,Top5Accuracy,0.9968000054359436,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,projection_layer,Top1Accuracy,0.8176000118255615,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,projection_layer,Top3Accuracy,0.9685999751091003,CLIP + SimCLR,1-aug,1-aug
+95ddsmmz,CIFAR10,projection_layer,Top5Accuracy,0.9944999814033508,CLIP + SimCLR,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_0,Top1Accuracy,0.4018000066280365,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_0,Top3Accuracy,0.7311000227928162,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_0,Top5Accuracy,0.8784999847412109,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_1,Top1Accuracy,0.5425000190734863,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_1,Top3Accuracy,0.8395000100135803,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_1,Top5Accuracy,0.9347000122070312,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_2,Top1Accuracy,0.5895000100135803,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_2,Top3Accuracy,0.8738999962806702,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_2,Top5Accuracy,0.955299973487854,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_3,Top1Accuracy,0.6468999981880188,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_3,Top3Accuracy,0.8932999968528748,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_3,Top5Accuracy,0.9645000100135803,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_4,Top1Accuracy,0.7001000046730042,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_4,Top3Accuracy,0.9207000136375427,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_4,Top5Accuracy,0.9769999980926514,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_5,Top1Accuracy,0.7358999848365784,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_5,Top3Accuracy,0.9383000135421753,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_5,Top5Accuracy,0.9840999841690063,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_6,Top1Accuracy,0.769599974155426,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_6,Top3Accuracy,0.9527000188827515,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_6,Top5Accuracy,0.9902999997138977,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_7,Top1Accuracy,0.8015000224113464,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_7,Top3Accuracy,0.9641000032424927,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_7,Top5Accuracy,0.9927999973297119,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_8,Top1Accuracy,0.8263000249862671,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_8,Top3Accuracy,0.9728000164031982,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_8,Top5Accuracy,0.9940000176429749,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_9,Top1Accuracy,0.8507000207901001,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_9,Top3Accuracy,0.9771999716758728,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_9,Top5Accuracy,0.9962000250816345,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_10,Top1Accuracy,0.8632000088691711,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_10,Top3Accuracy,0.9825999736785889,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_10,Top5Accuracy,0.9970999956130981,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_11,Top1Accuracy,0.8632000088691711,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_11,Top3Accuracy,0.9828000068664551,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,encoder_layer_11,Top5Accuracy,0.9968000054359436,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,projection_layer,Top1Accuracy,0.8305000066757202,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,projection_layer,Top3Accuracy,0.9735999703407288,CLIP + SimCLR + MLM,1-aug,1-aug
+txva2y48,CIFAR10,projection_layer,Top5Accuracy,0.994700014591217,CLIP + SimCLR + MLM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_0,Top1Accuracy,0.487199991941452,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_0,Top3Accuracy,0.8040000200271606,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_0,Top5Accuracy,0.9204000234603882,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_1,Top1Accuracy,0.5561000108718872,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_1,Top3Accuracy,0.853600025177002,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_1,Top5Accuracy,0.9491999745368958,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_2,Top1Accuracy,0.6098999977111816,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_2,Top3Accuracy,0.8837000131607056,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_2,Top5Accuracy,0.961899995803833,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_3,Top1Accuracy,0.6432999968528748,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_3,Top3Accuracy,0.8999999761581421,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_3,Top5Accuracy,0.9699000120162964,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_4,Top1Accuracy,0.6694999933242798,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_4,Top3Accuracy,0.9103999733924866,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_4,Top5Accuracy,0.9745000004768372,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_5,Top1Accuracy,0.6877999901771545,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_5,Top3Accuracy,0.9186000227928162,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_5,Top5Accuracy,0.9781000018119812,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_6,Top1Accuracy,0.691100001335144,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_6,Top3Accuracy,0.9240999817848206,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_6,Top5Accuracy,0.9790999889373779,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_7,Top1Accuracy,0.7056000232696533,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_7,Top3Accuracy,0.9265000224113464,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_7,Top5Accuracy,0.9797000288963318,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_8,Top1Accuracy,0.7134000062942505,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_8,Top3Accuracy,0.9296000003814697,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_8,Top5Accuracy,0.9785000085830688,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_9,Top1Accuracy,0.7156000137329102,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_9,Top3Accuracy,0.9316999912261963,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_9,Top5Accuracy,0.9800000190734863,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_10,Top1Accuracy,0.7189000248908997,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_10,Top3Accuracy,0.9351000189781189,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_10,Top5Accuracy,0.9815000295639038,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_11,Top1Accuracy,0.722100019454956,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_11,Top3Accuracy,0.9383000135421753,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,encoder_layer_11,Top5Accuracy,0.9829999804496765,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,projection_layer,Top1Accuracy,0.6711999773979187,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,projection_layer,Top3Accuracy,0.9168999791145325,SimCLR + ITM,1-aug,1-aug
+xpbl8wfc,CIFAR10,projection_layer,Top5Accuracy,0.9751999974250793,SimCLR + ITM,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_0,Top1Accuracy,0.4887999892234802,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_0,Top3Accuracy,0.8041999936103821,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_0,Top5Accuracy,0.9222999811172485,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_1,Top1Accuracy,0.5554999709129333,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_1,Top3Accuracy,0.8551999926567078,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_1,Top5Accuracy,0.946399986743927,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_2,Top1Accuracy,0.6087999939918518,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_2,Top3Accuracy,0.8823999762535095,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_2,Top5Accuracy,0.9611999988555908,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_3,Top1Accuracy,0.6414999961853027,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_3,Top3Accuracy,0.8946999907493591,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_3,Top5Accuracy,0.9674999713897705,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_4,Top1Accuracy,0.6711000204086304,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_4,Top3Accuracy,0.9090999960899353,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_4,Top5Accuracy,0.9733999967575073,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_5,Top1Accuracy,0.6862999796867371,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_5,Top3Accuracy,0.9223999977111816,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_5,Top5Accuracy,0.9761999845504761,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_6,Top1Accuracy,0.699999988079071,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_6,Top3Accuracy,0.9240000247955322,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_6,Top5Accuracy,0.9781000018119812,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_7,Top1Accuracy,0.7092999815940857,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_7,Top3Accuracy,0.929099977016449,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_7,Top5Accuracy,0.9799000024795532,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_8,Top1Accuracy,0.7172999978065491,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_8,Top3Accuracy,0.9304999709129333,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_8,Top5Accuracy,0.9803000092506409,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_9,Top1Accuracy,0.7177000045776367,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_9,Top3Accuracy,0.9363999962806702,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_9,Top5Accuracy,0.9830999970436096,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_10,Top1Accuracy,0.715399980545044,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_10,Top3Accuracy,0.9373999834060669,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_10,Top5Accuracy,0.9836000204086304,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_11,Top1Accuracy,0.7210000157356262,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_11,Top3Accuracy,0.9376000165939331,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,encoder_layer_11,Top5Accuracy,0.9824000000953674,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,projection_layer,Top1Accuracy,0.6629999876022339,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,projection_layer,Top3Accuracy,0.9125000238418579,SimCLR,1-aug,1-aug
+p99godxb,CIFAR10,projection_layer,Top5Accuracy,0.9713000059127808,SimCLR,1-aug,1-aug
