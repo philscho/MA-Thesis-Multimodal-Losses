@@ -28,9 +28,9 @@ class MyDataModule(L.LightningDataModule):
         self.config = data_config
         self.processor = processor
         self.augmentation = augmentation
-        self.local_dev = local_dev
         self.num_views = num_views
         self.test_datasets = None
+        self.local_dev = local_dev
 
     def setup(self, stage=None):
         if stage == "fit":

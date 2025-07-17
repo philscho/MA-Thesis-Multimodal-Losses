@@ -141,15 +141,13 @@ def _create_zero_shot_classifier(forward_func,
                                  batch_size: int = 64,
                                  device: Union[str, torch.device] = "cuda",
                                  verbose: bool = False):
-    templates = ['{}'] if templates is None else templates  # templates = ['a photo of a {}.']
+    templates = ['{}'] if templates is None else templates
     if isinstance(templates, str):
         templates = [templates]
-    num_templates = len(templates)  # num_templates = 1
+    num_templates = len(templates)
     batch_size = 2 ** ((batch_size // num_templates) - 1).bit_length() # batch_size = 2 ** ((64 // 1) - 1).bit_length() = 2 ** 6 = 64
 
     batch_class_names = make_batches(classnames, batch_size)
-    # if verbose:
-    #     print ('batch_class_names : \n ',batch_class_names)
     with torch.no_grad():
         zeroshot_weights = []
         bar = tqdm(batch_class_names, desc="Classifier weights...") if verbose else batch_class_names
