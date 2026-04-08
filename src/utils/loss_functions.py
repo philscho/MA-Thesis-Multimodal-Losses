@@ -6,9 +6,31 @@ from torch import nn, Tensor
 
 from torchmultimodal.modules.losses.contrastive_loss_with_temperature import ContrastiveLossWithTemperature
 
+# Default temperature for contrastive losses; kept low to sharpen the distribution
+DEFAULT_TEMPERATURE: float = 0.07
+
+
 def clip_contrastive_loss(image_out, text_out, temperature):
-    # credits : https://github.com/moein-shariatnia/OpenAI-CLIP/blob/master/CLIP.py
-    # TODO make temperature learnable
+    """Compute symmetric CLIP-style contrastive loss with soft targets.
+
+    Uses the mean of image-image and text-text similarity matrices as soft
+    targets instead of a one-hot diagonal, following the original CLIP paper.
+
+    Parameters
+    ----------
+    image_out : Tensor
+        L2-normalised image embeddings, shape ``(B, D)``.
+    text_out : Tensor
+        L2-normalised text embeddings, shape ``(B, D)``.
+    temperature : float
+        Logit scale applied before cross-entropy.
+
+    Returns
+    -------
+    Tensor
+        Per-sample loss, shape ``(B,)``.
+    """
+    # credits: https://github.com/moein-shariatnia/OpenAI-CLIP/blob/master/CLIP.py
     logits = (text_out @ image_out.T) / temperature
     images_similarity = image_out @ image_out.T
     texts_similarity = text_out @ text_out.T
@@ -20,28 +42,8 @@ def clip_contrastive_loss(image_out, text_out, temperature):
         logits.T, targets.T, reduction="none"
     )
     loss = (images_loss + texts_loss) / 2.0  # shape: (batch_size)
-
     return loss
 
-def contrastive_loss(image_features, text_features):
-    image_batch = torch.nn.functional.normalize(image_features, dim=-1)
-    text_batch = torch.nn.functional.normalize(text_features, dim=-1)
-    logits = torch.dot(image_batch, text_batch.T)   
-    pass
-
-def image_text_matching_loss(image_embeds, text_embeds, i2t_sim, t2i_sim) -> torch.float:
-    bs = image_embeds.size(0)
-    neg_image_embeds, neg_text_embeds = _neg_embeddings(
-        image_embeds, text_embeds, i2t_sim, t2i_sim)
-    selection = torch.randint(0, 2, (bs,)).unsqueeze(1).to(image_embeds.device)
-    selected_text_embeds = torch.where(selection == 0, text_embeds, neg_text_embeds)
-    multimodal_embeds = torch.concat((image_embeds, selected_text_embeds), dim=1)
-
-    logits = self.itm_head(multimodal_embeds)
-    #probs = F.softmax(logits, dim=1)
-    loss_matching = self.matching_loss(logits, selection.float())
-    self.log(f"loss-train-matching", loss_matching, sync_dist=True)
-    losses_all.append(loss_matching)
 
 # Source: https://github.com/facebookresearch/multimodal/blob/e4d288b45b89cee462a21ab264405f3f368adc21/torchmultimodal/models/albef/model.py#L293
 def _neg_embeddings(
@@ -110,7 +112,7 @@ class NTXentLoss(nn.Module):
     """
 
     def __init__(self,
-                 temperature: float = 0.07,
+                 temperature: float = DEFAULT_TEMPERATURE,
                  learn_temperature: bool = False,
                  gather_distributed: bool = True):
         super().__init__()
