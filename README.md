@@ -4,32 +4,23 @@
 
 A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimCLR**, and **MLM** — in a dual-stream Vision-Language model trained from scratch.
 
-Each loss function defines how the model learns from data: CLIP aligns image and text embeddings contrastively, ITM classifies whether image-text pairs match, SimCLR applies contrastive learning within a single modality, and MLM predicts masked tokens in text sequences.
+Each loss function defines how the model learns from data: **CLIP** aligns image and text embeddings contrastively, **ITM** classifies whether image-text pairs match, **SimCLR** applies contrastive learning within a single modality, and **MLM** predicts masked tokens in text sequences.
 
 The study measures how each loss function and their combinations affect zero-shot classification, image-text retrieval, and linear probing across 16 benchmark datasets.
 
+---
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                  Dual-Stream Vision-Language Model              │
-│                                                                 │
-│  Image ──► ViT-Base-Patch16-224 ──► Projection Head ──► z_img  │
-│                                                        │        │
-│                                              ◄── CLIP Loss ──►  │
-│                                                        │        │
-│  Text  ──► BERT-Base-Uncased   ──► Projection Head ──► z_txt  │
-│                     │                                           │
-│                  MLM Head (optional)                            │
-└─────────────────────────────────────────────────────────────────┘
-```
+<img src="https://github.com/user-attachments/assets/3b3948cb-517c-403b-aa89-61623c2dc19a" width="50%">
 
+    
 **Encoders:** ViT-Base-Patch16-224 + BERT-Base-Uncased (trained from scratch)  
 **Training data:** ~3.95M image-caption pairs (CC3M + COCO Captions + Visual Genome)  
 **Configurations:** 12 loss combinations × 7 dataset fractions (5%–100%) ⇒ 72 experiments  (not all fractions were evaluated for each combination)  
 **Tracking:** Weights & Biases
 
+---
 
 ## Key Findings
 
@@ -41,6 +32,7 @@ The study measures how each loss function and their combinations affect zero-sho
 | **ITM is weak alone** | ITM without cross-attention cannot anchor vision-language alignment |
 | **Best combo** | CLIP+MLM achieves the best retrieval (R@1: 35.8% on Flickr30k) |
 
+---
 
 ## Results
 
@@ -73,6 +65,7 @@ The study measures how each loss function and their combinations affect zero-sho
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | IR@1 | 2.7% | 4.0% | 7.5% | 12.4% | 16.3% | 19.8% | 23.4% |
 
+---
 
 ## Project Structure
 
@@ -114,6 +107,7 @@ The study measures how each loss function and their combinations affect zero-sho
     └── analysis/                 # ITM head inspection, CKA visualizations
 ```
 
+---
 
 ## Setup
 
@@ -125,6 +119,8 @@ cd multimodal-losses
 pip install -r requirements.txt
 ```
 
+---
+
 ### Data
 
 Download and point configs to:
@@ -134,6 +130,7 @@ Download and point configs to:
 
 Update `configs/paths/` with your local data paths.
 
+---
 
 ## Usage
 
@@ -167,6 +164,7 @@ python scripts/evaluate.py +custom_run=retrieval_flickr30k
 python scripts/analyze_representations.py
 ```
 
+---
 
 ## Technical Stack
 
@@ -180,6 +178,7 @@ python scripts/analyze_representations.py
 | Evaluation metrics | torchmetrics, scikit-learn |
 | Representation analysis | Custom CKA (CUDA-accelerated) |
 
+---
 
 ## Citation
 
