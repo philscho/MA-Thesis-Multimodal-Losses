@@ -1,4 +1,3 @@
-# import all of the modules needed
 import lightning as pl
 import torch
 from torch import nn
@@ -12,18 +11,48 @@ from transformers import (
 from ..utils.loss_functions import NTXentLoss
 from ..utils.utils import (
     calculate_accuracy,
-    get_negative_embeddings, #print_memory_usage,
-    get_negative_embeddings, #print_memory_usage,
+    get_negative_embeddings,
     calculate_accuracy_simclr,
 )
 from ..utils.optimizer_and_scheduler import get_optimizer, get_scheduler
 
+# Dimensions of the BERT-Base text encoder hidden state and vocabulary
+EMBEDDING_DIM = 768
+VOCAB_SIZE = 30522
+# Intermediate dimension of the ITM classification head
+ITM_HIDDEN_DIM = 512
+
+
 class LitMML(pl.LightningModule):
+    """PyTorch Lightning module for multimodal contrastive learning.
+
+    Trains a dual-stream Vision-Language model (ViT + BERT) with a configurable
+    combination of loss functions: CLIP contrastive loss, Image-Text Matching (ITM),
+    SimCLR, and Masked Language Modelling (MLM).
+
+    Parameters
+    ----------
+    model : nn.Module
+        A HuggingFace ``VisionTextDualEncoderModel`` (or ``MLMWrapper`` thereof).
+    processor : VisionTextDualEncoderProcessor
+        Paired image/text processor for the dual-encoder.
+    loss_cfg : omegaconf.DictConfig
+        Config with a ``losses`` list containing any subset of
+        ``["contrastive", "image_text_matching", "SimCLR"]``.
+    optimizer_cfg : omegaconf.DictConfig
+        Passed to :func:`~src.utils.optimizer_and_scheduler.get_optimizer`.
+    scheduler_cfg : omegaconf.DictConfig
+        Passed to :func:`~src.utils.optimizer_and_scheduler.get_scheduler`.
+    augmentation : callable, optional
+        Optional image augmentation applied *inside* the training step so that
+        it runs on-GPU and is excluded from validation.
+    """
+
     def __init__(
         self,
         model: nn.Module,
         processor: VisionTextDualEncoderProcessor,
-        loss_cfg, 
+        loss_cfg,
         optimizer_cfg,
         scheduler_cfg,
         augmentation=None,
@@ -35,9 +64,6 @@ class LitMML(pl.LightningModule):
         self.optimizer_cfg = optimizer_cfg
         self.scheduler_cfg = scheduler_cfg
         self.model.logit_scale.requires_grad = False
-        # self.validation_step_outputs = []
-        # self.temperature = temperature
-        # self.learning_rate = learning_rate
         self.augmentation = augmentation
         self.save_hyperparameters(
             ignore=["model", "processor", "augmentation"]
@@ -51,25 +77,24 @@ class LitMML(pl.LightningModule):
         if "image_text_matching" in self.loss_cfg.losses:
             self.matching_loss = nn.CrossEntropyLoss()
             self.itm_head = nn.Sequential(
-                nn.Linear(
-                    self.model.config.projection_dim * 2, 512
-                ),  # TODO: make dims variable
+                nn.Linear(self.model.config.projection_dim * 2, ITM_HIDDEN_DIM),
                 nn.ReLU(),
-                nn.Linear(512, 2),
+                nn.Linear(ITM_HIDDEN_DIM, 2),
             )
-            # self.matching_loss = nn.BCEWithLogitsLoss()
-            # self.itm_head = nn.Sequential(
-            #     nn.Linear(
-            #         self.model.config.projection_dim * 2, 512
-            #     ),
-            #     nn.ReLU(),
-            #     nn.Linear(512, 1),
-            # )
+
         if "SimCLR" in self.loss_cfg.losses:
             self.simclr_loss = NTXentLoss()
 
     def common_step(self, batch):
-        #print_memory_usage("Beginning of step:")
+        """Run a forward pass and compute all active losses.
+
+        Returns
+        -------
+        losses : dict[str, Tensor]
+            Per-loss scalar tensors, e.g. ``{"loss-contrastive": ..., "loss-simclr": ...}``.
+        metrics : dict[str, Tensor]
+            Per-loss accuracy scalars for logging.
+        """
         token = batch.input_ids
         images = batch.pixel_values
         token_type_ids = batch.token_type_ids
@@ -225,19 +250,31 @@ class LitMML(pl.LightningModule):
 
 
 class MLMWrapper(torch.nn.Module):
+    """Wraps a ``VisionTextDualEncoderModel`` with an MLM prediction head.
+
+    Adds a linear projection from BERT's hidden size to the vocabulary so that
+    Masked Language Modelling loss can be computed alongside CLIP/ITM losses.
+    The wrapper proxies ``config``, ``logit_scale``, and the feature extraction
+    methods so that downstream callbacks work transparently.
+
+    Parameters
+    ----------
+    model : nn.Module
+        Base ``VisionTextDualEncoderModel`` to wrap.
+    """
+
     def __init__(self, model):
         super().__init__()
         self.basemodel = model
-        self.mlm_head = torch.nn.Linear(768,30522)
-        
-        #exposing for all the callbacks
+        self.mlm_head = torch.nn.Linear(EMBEDDING_DIM, VOCAB_SIZE)
+
+        # Expose attributes needed by evaluation callbacks
         if hasattr(model, 'config'):
             self.config = model.config
         self.logit_scale = model.logit_scale
         self.get_text_features = model.get_text_features
         self.get_image_features = model.get_image_features
 
-    def forward(self,*args,**kwargs):
-        # out = self.model.forward(batch)
-        return self.basemodel(*args,**kwargs)
+    def forward(self, *args, **kwargs):
+        return self.basemodel(*args, **kwargs)
 

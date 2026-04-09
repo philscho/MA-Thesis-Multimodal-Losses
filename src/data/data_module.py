@@ -22,7 +22,32 @@ from .datasets import (
     Places365Dataset
 )
 
+TRAIN_SPLIT_RATIO = 0.8  # Fraction of data used for training when a dataset has no official split
+
+
 class MyDataModule(L.LightningDataModule):
+    """PyTorch Lightning DataModule for multi-source image-caption training.
+
+    Combines COCO Captions, Conceptual Captions 3M, and Visual Genome into a
+    single training set, with configurable dataset fractions for the ablation
+    study. Supports optional multi-view augmentation for SimCLR loss.
+
+    Parameters
+    ----------
+    data_config : omegaconf.DictConfig
+        Hydra data config specifying dataset paths, fraction, and batch size.
+    processor : VisionTextDualEncoderProcessor, optional
+        HuggingFace processor for tokenisation and image preprocessing.
+        Pass ``None`` when using a worker-local collate function.
+    augmentation : callable, optional
+        Torchvision transform applied to create a second view for SimCLR.
+    num_views : int
+        Number of augmented views per sample (1 = standard, 2 = SimCLR).
+    local_dev : bool
+        If True, applies the processor inside the dataset (useful for local
+        single-process debugging without a custom collate function).
+    """
+
     def __init__(self, data_config, processor=None, augmentation=None, num_views=1, local_dev=False):
         super().__init__()
         self.config = data_config
@@ -140,7 +165,7 @@ class MyDataModule(L.LightningDataModule):
             
             if dataset_name in ["Caltech101", "Caltech256"]:
                 dataset_object = dataset_class(**dataset_kwargs)
-                train_size = int(0.8 * len(dataset_object))
+                train_size = int(TRAIN_SPLIT_RATIO * len(dataset_object))
                 test_size = len(dataset_object) - train_size
                 dataset_split = random_split(dataset_object, [train_size, test_size])
             
@@ -296,7 +321,7 @@ class MyDataModule(L.LightningDataModule):
             if self.config.dataset.use_subset_probe.value:
                 dataset = self._get_subset_dataset(dataset, self.config.dataset.use_subset_probe.subset_fraction)
                 #print(f"Using a {self.config.dataset.use_subset_probe.subset_fraction} subset of dataset")
-            train_size = int(0.8 * len(dataset))
+            train_size = int(TRAIN_SPLIT_RATIO * len(dataset))
             test_size = len(dataset) - train_size
             train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
             loaders["caltech101_train"] = DataLoader(

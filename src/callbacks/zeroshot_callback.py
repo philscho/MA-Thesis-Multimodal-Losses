@@ -19,6 +19,33 @@ from torchmetrics.classification import (
 
 
 class ZeroShotCallback(pl.Callback):
+    """Evaluates zero-shot image classification at the end of each validation epoch.
+
+    Constructs a zero-shot classifier by averaging text embeddings of class-name
+    prompts across multiple template sets (e.g. "a photo of a {c}", "a {c}").
+    Supports optional ITM-head re-ranking and logs Top-K accuracy to W&B.
+
+    Parameters
+    ----------
+    dataset_name : str
+        Name used as a prefix in W&B metric keys.
+    dataloader : DataLoader
+        Image dataset to classify (labels are integer class indices).
+    classnames : list[str]
+        Human-readable class names, e.g. ``["cat", "dog", ...]``.
+    templates : list[list[str]]
+        Outer list = template sets to evaluate independently; inner list =
+        prompt strings with a ``"{c}"`` placeholder for the class name.
+    tokenizer : callable, optional
+        HuggingFace tokenizer for encoding prompt strings.
+    text_forward : callable, optional
+        Function ``(input_ids) -> text_embeds`` for custom text-encoder layers.
+    itm_head : nn.Module, optional
+        If provided, re-ranks top-``top_k_preds`` candidates with the ITM head.
+    top_k : tuple[int, ...]
+        Accuracy thresholds, e.g. ``(1, 5, 10)``.
+    """
+
     def __init__(
             self,
             dataset_name: str,

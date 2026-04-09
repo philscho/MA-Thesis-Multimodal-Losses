@@ -21,6 +21,40 @@ from lightning.pytorch.utilities.exceptions import MisconfigurationException
 
 
 class LinearProbeCallback(pl.Callback):
+    """Evaluates frozen representations via a trained linear classifier.
+
+    At the end of each validation epoch, fits a logistic regression head on top
+    of the image encoder's frozen features and reports Top-K accuracy on the
+    held-out test split. Supports grid search over multiple learning rates and
+    logs all metrics to Weights & Biases via the Lightning logger.
+
+    Parameters
+    ----------
+    train_dataloader : DataLoader
+        Labelled training set for the linear head (typically a small split).
+    test_dataloader : DataLoader
+        Held-out test set for evaluation.
+    input_dim : int
+        Dimensionality of the feature vectors produced by the frozen encoder.
+    num_classes : int
+        Number of target classes.
+    dataset_name : str
+        Prefix used for W&B metric keys (do not include ``"linear-probe"``).
+    logging_interval : str
+        ``"epoch"`` or ``"step"`` — controls W&B log frequency.
+    log_every : int
+        Run the probe every this many validation epochs.
+    confusion_matrix : bool
+        Whether to log a confusion matrix.
+    top_k : tuple[int, ...]
+        Accuracy thresholds to evaluate, e.g. ``(1, 5)``.
+    max_epochs : int
+        Maximum training epochs for the linear head.
+    tolerance : float
+        Early-stopping tolerance on validation loss.
+    learning_rates : list[float]
+        Grid of learning rates to sweep; best is reported.
+    """
 
     def __init__(
         self,
