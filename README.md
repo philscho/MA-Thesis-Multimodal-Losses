@@ -1,10 +1,13 @@
-# Loss Functions in Multimodal Models
+# An Exploration of Loss Functions in Multimodal Models and Their Impact on Downstream Performance
 
-**Master's Thesis · M.Sc. Informatik · Grade: 1.6 (with distinction)**
+**Master's Thesis by Philipp Scholl · M.Sc. Informatik (Computer Science) · Grade: 1.6 · Publication date: 28.07.2025**
 
-A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimCLR**, and **MLM** — in a dual-stream Vision-Language model trained from scratch. The study measures how each loss function and their combinations affect zero-shot classification, image-text retrieval, and linear probing across 16 benchmark datasets.
+A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimCLR**, and **MLM** — in a dual-stream Vision-Language model trained from scratch.
 
----
+Each loss function defines how the model learns from data: CLIP aligns image and text embeddings contrastively, ITM classifies whether image-text pairs match, SimCLR applies contrastive learning within a single modality, and MLM predicts masked tokens in text sequences.
+
+The study measures how each loss function and their combinations affect zero-shot classification, image-text retrieval, and linear probing across 16 benchmark datasets.
+
 
 ## Architecture
 
@@ -24,22 +27,20 @@ A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimC
 
 **Encoders:** ViT-Base-Patch16-224 + BERT-Base-Uncased (trained from scratch)  
 **Training data:** ~3.95M image-caption pairs (CC3M + COCO Captions + Visual Genome)  
-**Configurations:** 12 loss combinations × 6 dataset fractions (5%–100%) = 72 experiments  
+**Configurations:** 12 loss combinations × 7 dataset fractions (5%–100%) ⇒ 72 experiments  (not all fractions were evaluated for each combination)  
 **Tracking:** Weights & Biases
 
----
 
 ## Key Findings
 
 | Finding | Detail |
 |---------|--------|
-| **CLIP dominates** | CLIP loss is necessary for zero-shot transfer; all non-CLIP models collapse to near-random |
+| **CLIP dominates** | CLIP loss leads to best results on all downstream tasks |
 | **MLM adds value** | CLIP+MLM consistently outperforms CLIP alone (+1–2 pp on ImageNet zero-shot) |
 | **SimCLR hurts** | SimCLR degrades CLIP performance due to projection layer interference |
 | **ITM is weak alone** | ITM without cross-attention cannot anchor vision-language alignment |
 | **Best combo** | CLIP+MLM achieves the best retrieval (R@1: 35.8% on Flickr30k) |
 
----
 
 ## Results
 
@@ -72,7 +73,6 @@ A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimC
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | IR@1 | 2.7% | 4.0% | 7.5% | 12.4% | 16.3% | 19.8% | 23.4% |
 
----
 
 ## Project Structure
 
@@ -114,7 +114,6 @@ A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimC
     └── analysis/                 # ITM head inspection, CKA visualizations
 ```
 
----
 
 ## Setup
 
@@ -135,7 +134,6 @@ Download and point configs to:
 
 Update `configs/paths/` with your local data paths.
 
----
 
 ## Usage
 
@@ -169,13 +167,12 @@ python scripts/evaluate.py +custom_run=retrieval_flickr30k
 python scripts/analyze_representations.py
 ```
 
----
 
 ## Technical Stack
 
 | Component | Library |
 |-----------|---------|
-| Vision encoder | ViT-Base-Patch16-224 via `transformers.VisionTextDualEncoderModel` |
+| Vision encoder | ViT-Base-Patch16-224 via HuggingFace Transformers |
 | Text encoder | BERT-Base-Uncased via HuggingFace Transformers |
 | Training framework | PyTorch Lightning 2.2 |
 | Configuration | Hydra + OmegaConf |
@@ -183,17 +180,16 @@ python scripts/analyze_representations.py
 | Evaluation metrics | torchmetrics, scikit-learn |
 | Representation analysis | Custom CKA (CUDA-accelerated) |
 
----
 
 ## Citation
 
 ```bibtex
-@mastersthesis{scholl2024multimodal,
+@mastersthesis{scholl2025multimodal,
   title   = {An Exploration of Loss Functions in Multimodal Models
              and Their Impact on Downstream Performance},
   author  = {Philipp Scholl},
-  year    = {2024},
-  school  = {[University]},
+  year    = {2025},
+  school  = {Goethe University Frankfurt},
   note    = {Grade: 1.6}
 }
 ```
