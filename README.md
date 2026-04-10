@@ -2,7 +2,7 @@
 
 **Master's Thesis by Philipp Scholl · M.Sc. Informatik (Computer Science) · Grade: 1.6 · Publication date: 28.07.2025**
 
-[Thesis PDF](./Master_thesis-Philipp_Scholl-Multimodal_Losses.pdf)
+[[Thesis PDF]](./Master_thesis-Philipp_Scholl-Multimodal_Losses.pdf) [[Thesis presentation slides PDF]](./master_thesis_presentation.pdf)
 
 A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimCLR**, and **MLM** — in a dual-stream Vision-Language model trained from scratch.
 
