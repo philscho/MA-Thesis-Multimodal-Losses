@@ -2,6 +2,8 @@
 
 **Master's Thesis by Philipp Scholl · M.Sc. Informatik (Computer Science) · Grade: 1.6 · Publication date: 28.07.2025**
 
+[Thesis PDF](./Master_thesis-Philipp_Scholl-Multimodal_Losses.pdf)
+
 A systematic ablation study of four loss functions — **CLIP**, **ITM**, **SimCLR**, and **MLM** — in a dual-stream Vision-Language model trained from scratch.
 
 Each loss function defines how the model learns from data: **CLIP** aligns image and text embeddings contrastively, **ITM** classifies whether image-text pairs match, **SimCLR** applies contrastive learning within a single modality, and **MLM** predicts masked tokens in text sequences.
@@ -114,8 +116,8 @@ The study measures how each loss function and their combinations affect zero-sho
 **Requirements:** Python 3.10+, CUDA 11.7+
 
 ```bash
-git clone https://github.com/philscho/multimodal-losses
-cd multimodal-losses
+git clone https://github.com/philscho/MA-Thesis-Multimodal-Losses
+cd MA-Thesis-Multimodal-Losses
 pip install -r requirements.txt
 ```
 
