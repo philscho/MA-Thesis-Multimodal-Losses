@@ -28,44 +28,57 @@ The study measures how each loss function and their combinations affect zero-sho
 
 | Finding | Detail |
 |---------|--------|
-| **CLIP dominates** | CLIP loss leads to best results on all downstream tasks |
-| **MLM adds value** | CLIP+MLM consistently outperforms CLIP alone (+1–2 pp on ImageNet zero-shot) |
+| **CLIP dominates** | CLIP loss leads to better visual representations than SimCLR and better multimodal representations than ITM |
+| **MLM is most beneficial addition** | CLIP+MLM consistently outperforms CLIP alone |
 | **SimCLR hurts** | SimCLR degrades CLIP performance due to projection layer interference |
 | **ITM is weak alone** | ITM without cross-attention cannot anchor vision-language alignment |
-| **Best combo** | CLIP+MLM achieves the best retrieval (R@1: 35.8% on Flickr30k) |
 
 ---
 
 ## Results
 
-### Zero-Shot Classification — Top-1 Accuracy (full dataset)
+### Linear Probe (Top-1 Accuracy)
 
-| Loss Configuration | Caltech101 | CIFAR-10 | CIFAR-100 | ImageNet | Food101 |
-|---|:-:|:-:|:-:|:-:|:-:|
-| **CLIP + MLM** | **49.7%** | 49.9% | **22.1%** | **16.4%** | **15.6%** |
-| CLIP + ITM + MLM | 47.8% | **59.0%** | **22.7%** | 16.2% | 13.8% |
-| CLIP + ITM | 47.8% | 50.7% | 20.7% | 14.9% | 14.4% |
-| **CLIP (baseline)** | 46.8% | 55.8% | 20.8% | 15.4% | 15.3% |
-| CLIP + SimCLR | 46.4% | 48.8% | 18.7% | 14.7% | 15.1% |
-| CLIP + SimCLR + MLM | 44.7% | 50.4% | 22.1% | 15.6% | 14.9% |
-| SimCLR (no CLIP) | 1.5% | 11.3% | 1.3% | 0.1% | 1.2% |
+| Modell | Avg. (All Datasets) |
+|--------|---------------|
+| **CLIP+MLM** | **67.83%** |
+| CLIP | 67.05% |
+| CLIP+ITM | 66.96% |
+| CLIP+ITM+MLM | 66.60% |
+| CLIP+SimCLR+ITM | 64.60% |
+| CLIP+ITM+SimCLR+MLM | 65.95% |
+| CLIP+SimCLR+MLM | 65.38% |
+| CLIP+SimCLR | 64.59% |
+| SimCLR+ITM+MLM | 52.81% |
+| SimCLR+ITM | 43.01% |
+| SimCLR | 42.71% |
+| ITM+MLM | 32.09% |
 
-### Image-Text Retrieval — Flickr30k (full dataset + augmentation)
+### Zero-Shot Classification (Top-1 Accuracy)
 
-| Loss Configuration | Image R@1 | Text R@1 | Image R@5 | Text R@5 |
-|---|:-:|:-:|:-:|:-:|
-| **CLIP + MLM** | **35.8%** | **51.1%** | 57.0% | 72.1% |
-| CLIP + SimCLR + ITM + MLM | 34.9% | 51.6% | — | — |
-| CLIP + ITM + MLM | 32.2% | 46.8% | — | — |
-| **CLIP (baseline)** | 30.2% | 45.6% | 53.4% | 67.2% |
-| CLIP + SimCLR | 28.7% | 44.6% | — | — |
-| SimCLR (no CLIP) | 0.1% | 0.1% | — | — |
+| Model | Avg. (All Datasets) |
+|--------|--------------|
+| **CLIP+MLM+ITM** | **26.91%** |
+| CLIP+MLM | 26.62% |
+| CLIP | 26.37% |
+| CLIP+SimCLR+MLM | 26.02% |
+| CLIP+SimCLR+MLM+ITM | 25.26% |
+| CLIP+ITM | 25.22% |
+| CLIP+SimCLR+ITM | 23.98% |
+| CLIP+SimCLR | 23.57% |
 
-### Data Efficiency (CLIP baseline, Flickr30k IR@1)
+### Image-Text Retrieval (Recall@1)
 
-| Training Data | 5% | 10% | 20% | 40% | 60% | 80% | 100% |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| IR@1 | 2.7% | 4.0% | 7.5% | 12.4% | 16.3% | 19.8% | 23.4% |
+| Model | Image Retrieval (Avg.) | Text Retrieval (Avg.) |
+|--------|----------------------|----------------------|
+| **CLIP+MLM** | **32.05%** | 47.10% |
+| **CLIP+SimCLR+MLM+ITM** | 31.22% | **47.19%** |
+| CLIP+SimCLR+MLM | 29.76% | 44.78% |
+| CLIP+MLM+ITM | 28.70% | 42.39% |
+| CLIP | 27.68% | 42.26% |
+| CLIP+ITM | 27.31% | 41.29% |
+| CLIP+SimCLR | 26.63% | 41.05% |
+| CLIP+SimCLR+ITM | 26.37% | 39.91% |
 
 ---
 
